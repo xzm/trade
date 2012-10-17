@@ -1,0 +1,138 @@
+* {
+	MARGIN: 0px
+}
+TR {
+	LINE-HEIGHT: 22px; COLOR: #333333; FONT-SIZE: 12px
+}
+TD {
+	LINE-HEIGHT: 22px; COLOR: #333333; FONT-SIZE: 12px
+}
+A {
+	COLOR: #333333; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #333333; TEXT-DECORATION: underline
+}
+.white_lj {
+	COLOR: #ffffff
+}
+.white_lj A {
+	COLOR: #ffffff
+}
+.white_lj A:hover {
+	COLOR: #ffffff; TEXT-DECORATION: underline
+}
+.leftdh {
+	TEXT-INDENT: 60px; BACKGROUND: url(../pic/leftdhbg.jpg) no-repeat; HEIGHT: 24px; COLOR: #012960; VERTICAL-ALIGN: top; FONT-WEIGHT: bold
+}
+.leftdh A {
+	COLOR: #012960
+}
+.leftdh A:hover {
+	COLOR: #ff8400; TEXT-DECORATION: none
+}
+.chengse_lj {
+	COLOR: #ff8500
+}
+.chengse_lj A {
+	COLOR: #ff8500
+}
+.chengse_lj A:hover {
+	COLOR: #ff8500; TEXT-DECORATION: underline
+}
+.sousuotiao {
+	BORDER-BOTTOM: #cccccc 1px solid; BORDER-LEFT: #cccccc 1px solid; FONT-SIZE: 11px; BORDER-TOP: #cccccc 1px solid; BORDER-RIGHT: #cccccc 1px solid
+}
+.green {
+	COLOR: #008c00
+}
+.red {
+	COLOR: #ff0000
+}
+.danlan {
+	COLOR: #4aa6c6
+}
+.shenlan_lj {
+	COLOR: #046c93
+}
+.shenlan_lj A {
+	COLOR: #046c93
+}
+.shenlan_lj A:hover {
+	COLOR: #046c93; TEXT-DECORATION: underline
+}
+IMG {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+.font_white {
+	COLOR: #ffffff
+}
+.font_hui {
+	COLOR: #7f7f7f
+}
+.log_nava {
+	TEXT-ALIGN: center; WIDTH: 75px; BACKGROUND: url(../pic/login/nav_a.jpg) no-repeat 50% bottom; HEIGHT: 22px; COLOR: #db0406; FONT-WEIGHT: bold; PADDING-TOP: 3px
+}
+.log_nava A {
+	COLOR: #db0406; TEXT-DECORATION: none
+}
+.log_nava A:hover {
+	COLOR: #db0406; TEXT-DECORATION: none
+}
+.log_navhov {
+	TEXT-ALIGN: center; WIDTH: 75px; BACKGROUND: url(../pic/login/nav_hov.jpg) no-repeat 50% bottom; HEIGHT: 22px; COLOR: #ffffff; FONT-WEIGHT: bold; PADDING-TOP: 3px
+}
+.log_navhov A {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.log_navhov A:hover {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.input_log {
+	BORDER-BOTTOM: #a9a9a9 1px solid; BORDER-LEFT: #a9a9a9 1px solid; LINE-HEIGHT: 18px; BACKGROUND: #ffffff; HEIGHT: 18px; BORDER-TOP: #a9a9a9 1px solid; BORDER-RIGHT: #a9a9a9 1px solid
+}
+.anql1 {
+	TEXT-ALIGN: center; LINE-HEIGHT: 38px; WIDTH: 110px; BACKGROUND: url(../pic/login/aqdl_bg1.gif) no-repeat; OVERFLOW: hidden
+}
+.anql2 {
+	TEXT-ALIGN: center; LINE-HEIGHT: 38px; WIDTH: 110px; BACKGROUND: url(../pic/login/aqdl_bg2.gif) no-repeat; OVERFLOW: hidden
+}
+.anql3 {
+	TEXT-ALIGN: center; LINE-HEIGHT: 38px; TEXT-INDENT: 4px; PADDING-LEFT: 4px !important; WIDTH: 103px; BACKGROUND: url(../pic/login/aqdl_bg3.gif) no-repeat; OVERFLOW: hidden
+}
+.ssl_body {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 22px; PADDING-RIGHT: 0px; BACKGROUND: url(../pic/login/lock.gif) no-repeat 2px 16px; PADDING-TOP: 6px
+}
+.con_bg1 {
+	WIDTH: 753px; BACKGROUND: url(../pic/login/con_bg1.jpg); HEIGHT: 8px
+}
+.con_bg2 {
+	MARGIN-TOP: -2px; WIDTH: 755px; BACKGROUND: url(../pic/login/con_bg2.jpg) 50% bottom
+}
+.red_lj {
+	COLOR: #ff0000
+}
+.red_lj A {
+	COLOR: #ff0000
+}
+.red_lj A:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.jqb_dl_ie {
+	TEXT-ALIGN: center; LINE-HEIGHT: 22px; WIDTH: 88px; BACKGROUND: url(../pic/login/jqb_bg.jpg) no-repeat; HEIGHT: 22px
+}
+.bzb_dl_ie {
+	TEXT-ALIGN: center; LINE-HEIGHT: 22px; WIDTH: 88px; BACKGROUND: url(../pic/login/bzb_bg.jpg) no-repeat; HEIGHT: 22px
+}
+.jqb_dl_ff {
+	TEXT-ALIGN: center; LINE-HEIGHT: 22px; WIDTH: 118px; BACKGROUND: url(../pic/login/jqb_bg.jpg) no-repeat; HEIGHT: 22px
+}
+.bzb_dl_ff {
+	TEXT-ALIGN: center; LINE-HEIGHT: 22px; WIDTH: 118px; BACKGROUND: url(../pic/login/bzb_bg.jpg) no-repeat; HEIGHT: 22px
+}
+.jqb_dl_nowin {
+	TEXT-ALIGN: center; LINE-HEIGHT: 22px; WIDTH: 177px; BACKGROUND: url(../pic/login/jqb_bg_new.jpg) no-repeat; HEIGHT: 22px
+}
+.bzb_dl_nowin {
+	TEXT-ALIGN: center; LINE-HEIGHT: 22px; WIDTH: 177px; BACKGROUND: url(../pic/login/bzb_bg_new.jpg) no-repeat; HEIGHT: 22px
+}

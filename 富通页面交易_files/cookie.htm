@@ -1,0 +1,281 @@
+var Cookie   = new Object();
+Cookie.day   = 86400000;
+Cookie.week  = Cookie.day * 7;
+Cookie.month = Cookie.day * 31;
+Cookie.year  = Cookie.day * 365;
+
+function getCookie(name) {
+  var cookies = document.cookie;
+  var start = cookies.indexOf(name + '=');
+  if (start == -1) return null;
+  var len = start + name.length + 1;
+  var end = cookies.indexOf(';',len);
+  if (end == -1) end = cookies.length;
+  return unescape(cookies.substring(len,end));
+}
+
+function setCookie(name, value, expires, path, domain, secure) {
+  value = escape(value);
+  expires = (expires) ? ';expires=' + expires.toGMTString() :'';
+  path    = (path)    ? ';path='    + path                  :'';
+  domain  = (domain)  ? ';domain='  + domain                :'';
+  secure  = (secure)  ? ';secure'                           :'';
+
+  document.cookie =
+    name + '=' + value + expires + path + domain + secure;
+}
+
+function deleteCookie(name, path, domain) {
+  var expires = ';expires=Thu, 01-Jan-70 00:00:01 GMT';
+  (path)    ? ';path='    + path                  : '';
+  (domain)  ? ';domain='  + domain                : '';
+
+  if (getCookie(name))
+    document.cookie = name + '=' + expires + path + domain;
+}
+function checkCookieExist( name )
+{if( getCookie(name) )
+     return true;
+ else
+     return false;
+}
+
+/**
+ * 登录时设置Cookie
+ */
+function loginSetCookie(myBC, myCT, myBN, expires){
+    var bc = new Array(), ct = new Array(), bn = new Array();
+    try {
+        bc = getCookie('MyBranchCodeList').split(",");
+        ct = getCookie('countType').split(",");
+        bn = getCookie('BranchName').split(",");
+        
+        //删除存在的错误Cookie
+        if (bc.length != ct.length || bc.length != bn.length) {
+    		setCookies(myBC, myCT, myBN, expires);
+        	return;
+        }
+        
+        var i = 0;
+        while (i < bc.length){
+            if (bc[i] == myBC || bn[i] == myBN){
+                bc.splice(i, 1);
+            	ct.splice(i, 1);
+            	bn.splice(i, 1);
+                //break; //注释掉“break;”为消除重复值
+            }
+            else {
+            	i++;
+            }
+        }
+    }
+    catch(E){
+    }
+    bc.unshift(myBC);
+    ct.unshift(myCT);
+    bn.unshift(myBN);
+    
+    setCookies(bc.join(","), ct.join(","), bn.join(","), expires);
+}
+
+function setCookies(branchCode, countType, branchName, expires){
+	setCookie('MyBranchCodeList', branchCode, expires,'/');
+    setCookie('countType', countType, expires,'/');
+    setCookie('BranchName', branchName, expires,'/');
+}
+/**
+ * 20110921 对该方法进行了完善
+ * 解决登录页面带参数yyb时，切换营业部时发生异常
+ */
+function _showBranchFromCookie(branchGroup) { 
+    var i;
+    var oOption;
+    var element;
+    var brNode = document.getElementById("BranchCode");
+    var len = brNode.options.length;
+    var select_len = document.getElementById("selectBranchCode").options.length;
+    var bName="";
+//    for (i=0;i<len;i++)
+//    {
+//    	if(document.getElementById("BranchCode") != null){
+//    		document.getElementById("BranchCode").remove(0);
+//    	}
+//    }
+     while (brNode.hasChildNodes())
+	{
+		brNode.removeChild(brNode.firstChild);
+	}
+    if(branchGroup=="10")    //我的营业部
+    {   
+        var myBranchCodeList=getCookie("MyBranchCodeList");
+        var BrName=getCookie("BranchName");
+          if(BrName!=null && BrName.length>0&&BrName!="null"){
+            if(myBranchCodeList == null){
+            	myBranchCodeList = "";
+            }
+            var bc = myBranchCodeList.split(",");
+            var bn = BrName.split(",");
+            for(i=0;i<bc.length;i++){
+                if(bc[i]==null || bn[i]==null) break;
+                element = document.createElement("OPTION");
+                element.value = bc[i];
+                element.text =bn[i];
+                document.getElementById("BranchCode").options.add(element);
+            }
+            bName=bn[0];
+          }
+        document.getElementById("BranchName").value=bName;
+        return;     
+    }
+    else{
+     //systemTradeService.getOrgList(branchGroup,selectBranchCodeInit);
+     bName=document.getElementById("selectBranchCode").options[0].text;
+    }
+    
+    var step=0; 
+    for (i=0; i<select_len; i++)
+    {
+        
+        oOption = document.getElementById("selectBranchCode").options[i];
+        if (branchGroup == "1" || branchGroup == oOption.label)
+        {
+            step++;
+            element = document.createElement("OPTION");
+            element.value = oOption.value;
+            element.text = oOption.text;
+            element.title = oOption.text;
+            if(step==1)
+             bName=oOption.text;
+            document.getElementById("BranchCode").options.add(element);
+        }
+    }
+    
+    document.getElementById("BranchName").value=bName;
+}
+
+
+//理财大厅 20110725 wanglei add
+function _showBranchFromCookieForLCDT(branchGroup) { 
+    var i;
+    var oOption;
+    var element;
+    var brNode = document.getElementById("BranchCode");
+	var len = brNode.childNodes.length;
+    var select_len = document.getElementById("selectBranchCode").childNodes.length;
+    var bName="";
+    
+    //for (i=0;i<len;i++){document.getElementById("BranchCode").remove(0);}
+    while (brNode.hasChildNodes())
+	{
+		brNode.removeChild(brNode.firstChild);
+	}
+
+    if(branchGroup=="10")    //我的营业部
+    {   
+    	var eml=null;
+    	for (i=0; i<select_len; i++)
+    	{        
+        	oOption = document.getElementById("selectBranchCode").childNodes[i];
+        	eml = oOption.cloneNode(true);
+        	if((eml.tagName=="LI" || eml.tagName=="li")){
+        		break;
+        	}
+    	}
+        var myBranchCodeList=getCookie("MyBranchCodeList");
+        var BrName=getCookie("BranchName");
+          if(BrName!=null && BrName.length>0&&BrName!="null"){
+            if(myBranchCodeList == null){
+            	myBranchCodeList = "";
+            }
+            var bc = myBranchCodeList.split(",");
+            var bn = BrName.split(",");
+            for(i=0;i<bc.length;i++){
+                if(bc[i]==null || bn[i]==null) break;
+                if(eml != null){
+                	element=eml.cloneNode(true);
+                }else {
+                    element = document.createElement("li");
+                }
+                element.innerHTML=("" +bn[i] );
+                if(i==0){
+                	element.className="cur";
+                	document.getElementById("BranchName").value=bn[i];
+					document.getElementById("BranchNameValue").value=bc[i];
+                }
+                //element=oOption.cloneNode(true);
+                element.value = bc[i];
+                element.text =bn[i];
+                //element.setAttribute("onclick", "selectBranchChange(this.innerHTML,this.getAttribute('value'));");
+                //element.onclick=selectBranchChange(("" +bn[i]),bc[i]);
+               
+                document.getElementById("BranchCode").appendChild(element);
+            }
+            bName=bn[0];
+          }
+        document.getElementById("BranchName").value=bName;
+        return;     
+    }
+    else{
+     //systemTradeService.getOrgList(branchGroup,selectBranchCodeInit);
+     bName=document.getElementById("selectBranchCode").childNodes[0].innerHTML;
+    }
+    
+    var step=0;
+    var setvlueFlag=true;
+    for (i=0; i<select_len; i++)
+    {
+        
+        oOption = document.getElementById("selectBranchCode").childNodes[i];
+        var flag=false;
+        try{
+        	flag = (branchGroup == oOption.getAttribute("label"));
+		}catch(e){
+			flag=false;
+		}
+        if (branchGroup == "1" || flag)
+        {
+            step++;
+          //  element = document.createElement("OPTION");
+            element = oOption.cloneNode(true);
+            element.value = oOption.value;
+            element.text = oOption.text;
+           // element.title = oOption.text;
+            if(setvlueFlag && (element.tagName=="LI" || element.tagName=="li")){
+            	bName=oOption.innerHTML;
+            	setvlueFlag=false;
+            }
+            //document.getElementById("BranchCode").options.add(element);
+             document.getElementById("BranchCode").appendChild(element);
+        }
+    }
+    
+    document.getElementById("BranchName").value=bName;
+}
+
+//营业厅选择事件
+	function selectBranchChange(BranchName, BranchCode){
+		//alert("name=" + BranchName + ",code=" + BranchCode);
+		this.setBranchSelectStyle(BranchName, BranchCode);
+	}
+	
+	function setBranchSelectStyle(BranchName, BranchCode){
+		if(BranchName==null || BranchName==""){
+			return;
+		}
+		var brNode = document.getElementById("BranchCode");
+		var len = brNode.childNodes.length;
+		for (i=0;i<len;i++)
+		{
+			var objHtml =brNode.childNodes[i].innerHTML;
+			if(objHtml==BranchName && brNode.childNodes[i].value==BranchCode){
+				document.getElementById("BranchCode").childNodes[i].className="cur";
+				document.getElementById("BranchName").value=BranchName;
+				document.getElementById("BranchNameValue").value=BranchCode;
+			}else{
+				document.getElementById("BranchCode").childNodes[i].className="";
+			}
+		}
+	}
+
+	
+	

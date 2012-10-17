@@ -1,0 +1,102 @@
+.login-font {
+	LINE-HEIGHT: 18px; COLOR: #575757; FONT-SIZE: 12px
+}
+.login-header {
+	COLOR: #ffffff; FONT-SIZE: 12px
+}
+.login-title {
+	BACKGROUND-COLOR: #f9fdfe; COLOR: #ff0000; FONT-SIZE: 12px
+}
+.input {
+	BORDER-BOTTOM: #cccccc 1px solid; BORDER-LEFT: #000033 1px solid; HEIGHT: 16px; FONT-SIZE: 12px; BORDER-TOP: #000033 1px solid; BORDER-RIGHT: #cccccc 1px solid
+}
+.Link-top1 {
+	COLOR: #d8f2f9; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.Link-top1 {
+	COLOR: #d8f2f9; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.Link-top1:hover {
+	COLOR: #d8f2f9; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.Link-top1:unknown {
+	COLOR: #d8f2f9; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+.Link-font {
+	COLOR: #013553; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.Link-font {
+	COLOR: #013553; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.Link-font:hover {
+	COLOR: #016cbc; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.Link-font:unknown {
+	COLOR: #013553; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+.Login_href {
+	FONT-FAMILY: "????", "Arial"; COLOR: #ffffff; FONT-SIZE: 12px; TEXT-DECORATION: underline
+}
+A.Login_href:visited {
+	COLOR: #ffffff; FONT-SIZE: 12px; TEXT-DECORATION: underline
+}
+A.Login_href:active {
+	COLOR: #ffffff; FONT-SIZE: 12px; TEXT-DECORATION: underline
+}
+A.Login_href:hover {
+	COLOR: #ff0000; FONT-SIZE: 12px; TEXT-DECORATION: underline
+}
+.Login_JFT {
+	FONT-FAMILY: "????", "Arial"; COLOR: #013553; FONT-SIZE: 12px
+}
+A.Login_JFT:link {
+	COLOR: #ff0000; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.Login_JFT:visited {
+	COLOR: #013553; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.Login_JFT:active {
+	COLOR: #013553; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.Login_JFT:hover {
+	COLOR: #ff0000; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+.td {
+	LINE-HEIGHT: 18px; COLOR: #000000; FONT-SIZE: 12px
+}
+.index-input {
+	BORDER-BOTTOM: #a4a7a9 1px solid; BORDER-LEFT: #a4a7a9 1px solid; FONT-SIZE: 12px; BORDER-TOP: #a4a7a9 1px solid; BORDER-RIGHT: #a4a7a9 1px solid
+}
+.title {
+	COLOR: #08327a; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.quick {
+	COLOR: #494949; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.trade-top {
+	COLOR: #0f3b68; FONT-SIZE: 12px; PADDING-TOP: 3px
+}
+BODY {
+	LINE-HEIGHT: 18px; FONT-SIZE: 12px
+}
+TD {
+	LINE-HEIGHT: 18px; FONT-SIZE: 12px
+}
+.left-title {
+	COLOR: #ffffff
+}
+.message-title {
+	COLOR: #0783df; FONT-SIZE: 12px; FONT-WEIGHT: bold
+}
+.nav {
+	PADDING-LEFT: 15px; COLOR: #706f6f; FONT-SIZE: 12px
+}
+.trade-table {
+	BACKGROUND-IMAGE: url(../pic/trade/centerbg.gif); BORDER-BOTTOM: #89b0d5 1px solid; BORDER-LEFT: #89b0d5 1px solid; FONT-SIZE: 12px; BORDER-TOP: #89b0d5 1px solid; BORDER-RIGHT: #89b0d5 1px solid
+}
+.info-list {
+	COLOR: #3f3f3f; TEXT-DECORATION: underline
+}
+.font {
+	FONT-SIZE: 12px; PADDING-TOP: 2px
+}

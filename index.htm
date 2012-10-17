@@ -1,0 +1,1531 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0114)https://trade.gtja.com/webtrade/trade/login.jsp -->
+<HTML><HEAD><TITLE>富通页面交易</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<META content=no-cache http-equiv=cache-control>
+<META name=keywords content=富通交易,国泰君安web交易>
+<META name=description 
+content="国泰君安目前拥有全业务牌照，具有经纪业务、证券承销、资产管理、自营业务、直投业务、衍生产品投资、期货介绍、财务顾问、境外业务、基金管理、研究投资咨询等业务资格，是国内少有的几家大型综合类券商之一。 2005年初，在国内大型券商中率先获中国证监会批准取得创新试点资格。2007年在中国证监会券商分类评价中，率先获得A类A级，2008年晋升为A类AA级。"><LINK 
+rel=stylesheet type=text/css href="富通页面交易_files/font0322.css"><LINK 
+rel=stylesheet type=text/css href="富通页面交易_files/style.css">
+<STYLE type=text/css>#canntIn A {
+	COLOR: #f00
+}
+#canntIn A:hover {
+	COLOR: #f00
+}
+#canntIn A:link {
+	COLOR: #f00
+}
+#canntIn A:visited {
+	COLOR: #f00
+}
+</STYLE>
+
+<SCRIPT language=javascript src="富通页面交易_files/prototype.htm"></SCRIPT>
+
+<SCRIPT type=text/javascript src="富通页面交易_files/systemTradeService.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="富通页面交易_files/JDate.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="富通页面交易_files/engine.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="富通页面交易_files/util.js"></SCRIPT>
+
+<SCRIPT language=javascript src="富通页面交易_files/cookie.htm"></SCRIPT>
+
+<SCRIPT language=javascript src="富通页面交易_files/DaTingLogin.htm"></SCRIPT>
+
+<SCRIPT type=text/javascript src="富通页面交易_files/dojo.htm" 
+djConfig="parseOnLoad: true, isDebug: false"></SCRIPT>
+
+<SCRIPT type=text/javascript src="富通页面交易_files/RSA.htm"></SCRIPT>
+
+<SCRIPT type=text/javascript src="富通页面交易_files/BigInt.htm"></SCRIPT>
+
+<SCRIPT type=text/javascript src="富通页面交易_files/Barrett.htm"></SCRIPT>
+
+<SCRIPT type=text/javascript src="富通页面交易_files/jquery-1.3.2.min.htm"></SCRIPT>
+
+<SCRIPT type=text/javascript src="富通页面交易_files/jquery.base64.htm"></SCRIPT>
+
+<SCRIPT language=javascript>
+		//GTJA_LOGIN
+		var gtja_ctx = '/webtrade';
+		var gtja_safeLoginVersion = 1011;
+	</SCRIPT>
+
+<SCRIPT type=text/javascript> 
+//检验是否为https登录
+if(location.protocol != "https:"){
+    alert("由于当前页面处于非安全连接环境，为了您的帐户安全请暂时不能登录该系统，如有疑问请联系客服400-8888-666（95521）");
+}
+ 
+var JQ = jQuery.noConflict();
+var jsSSL = 'false';
+
+var rsaKey ;
+function bodyRSA(){
+    setMaxDigits(130);   
+    rsaKey = new RSAKeyPair("10001","","8cdbb2ecc998d14d4d8b7f5bf");    
+}
+
+function checkMsg(){
+    var orgid   = document.getElementById("BranchCode").value;
+    var fundtype= document.getElementById("countType").value;
+    var inputid = document.getElementById("inputid").value;
+    if(inputid.length==0)return;
+    
+    var url  = "/webtrade/trade/webTradeAction.do?method=getReserveMsg";
+    var pars = "orgid="+ orgid +"&fundtype="+ fundtype +"&inputid="+ inputid + "&ram="+Math.random();	//随机数必须有
+    
+    var myAjax = new Ajax.Request(url,{method: 'get', parameters: pars, onComplete: showResponse});
+}
+function showResponse(originalRequest){
+    var res = originalRequest.responseText;
+    
+    res = eval("("+res+")");
+    
+    if(res.type && res.msg!=undefined){
+        $("msgTR").style.visibility="visible";
+        $("msgDiv").innerHTML='<span style="color:#FF0000;">'+ res.msg +'</span>';
+        $("msgDiv").style.visibility="visible";
+    }else{
+        $("msgTR").style.visibility="hidden";
+        $("msgDiv").innerHTML='';
+        $("msgDiv").style.visibility="hidden";
+    }
+}
+
+//获取Ukey需要的交易流水号(加强版方式登录并且为ie浏览器才调用此方法)
+function getFlowNo(){
+    var orgid   = document.getElementById("BranchCode").value;
+    var fundtype= document.getElementById("countType").value;
+    var inputid = document.getElementById("inputid").value;
+
+    var url  = "/webtrade/trade/webTradeAction.do?method=getFlowNo";
+    var pars = "orgid="+ orgid +"&fundtype="+ fundtype +"&inputid="+ inputid + "&ram="+Math.random();	//随机数必须有
+    
+    //同步调用ajax(否则提交请求后用户还可以在页面进行操作)
+    var myAjax = new Ajax.Request(url,{method: 'get', asynchronous: false, parameters: pars, onComplete: showFlowNoResponse});
+}
+function showFlowNoResponse(originalRequest){
+    var res = originalRequest.responseText;
+    
+    res = eval("("+res+")");
+    
+    if(res.type && res.msg!=undefined){
+    	//流水号申请成功
+    	$("flowno").value = res.msg;
+
+    }else{
+    	//流水号申请失败
+    	alert(res.msg);
+		$("password").value = "";
+		$("AppendCode").value = "";
+		refreshCaptcha();        
+        return false;
+    }
+    
+	/************************** 以下进行usbkey控件接口调用 ********************************/
+	//ukey控件对象
+	usbkey=document.getElementById('usbkey');
+	
+	var SOH = String.fromCharCode(1);
+	var flowNo = $("flowNo").value;
+	var countType = $("countType").value;
+	var inputid = $("inputid").value;
+	var pwd = getPwd($("uid").value);
+	//获取密码失败
+	if("" == pwd){
+		$("password").value = "";
+		$("AppendCode").value = "";
+		refreshCaptcha();			
+		return false;
+	}		
+			
+	//根据输入的帐号类型进行特殊处理（2010.6.28）
+	if(inputid!="" && countType == "2" && inputid.length < 10)//深圳A股
+	{   var zero="";
+		for(var i=1;i<=10-inputid.length;i++)
+			 zero+="0";
+		inputid = zero+inputid;
+	}
+	if(inputid!="" && countType == "1" && inputid.length == 9)//上海A股
+	{
+		if(inputid.substring(0,1) != "A")
+		{
+			inputid = "A"+inputid ;
+		}
+	}
+	if(inputid!="" && countType == "D" && inputid.length < 10)//上海B股
+	{
+		countType="N";
+
+	}
+	if(inputid!="" && countType == "H" && inputid.length <= 8)//深圳B股
+	{
+		var zero="";
+		for(var i=1;i<=8-inputid.length;i++)
+			 zero+="0";
+		inputid = zero+"20"+inputid;
+
+	}	
+	
+	var sourcedata = pwd + SOH + countType + SOH + inputid + SOH + "" + SOH + flowNo + SOH;
+	usbkey_sn = getSn();
+	//获取证书sn失败
+	if("" == usbkey_sn){
+		$("password").value = "";
+		$("AppendCode").value = "";
+		refreshCaptcha();					
+		return false;
+	}				
+	isInserted = usbkey.IsKeyInserted_Web();
+	//若为水晶key，则显示相关帐户信息
+	if(isInserted == "2"){
+		sourcedata = "帐号：=%3" + SOH + sourcedata;
+	}
+	
+	usbkey_data = getSignData(sourcedata);
+	//数据签名失败
+	if("" == usbkey_data){
+		$("password").value = "";
+		$("AppendCode").value = "";
+		refreshCaptcha();					
+		return false;
+	}
+	
+	$("usbkeySn").value = usbkey_sn;
+	$("usbkeyData").value = usbkey_data;
+	
+	
+    isLogin = true;
+   	document.loginfrm.submit();
+}
+
+</SCRIPT>
+
+<SCRIPT language=javascript>
+function checkInner(){
+	try{
+	    if(document.loginfrm.inputid.value.length>0)
+	    {
+	    
+	        document.getElementById("tmpInputId").innerHTML ="";
+	    } 
+	    var trdpwd = JQ.trim( JQ("#password").val() );
+		    
+		    if(trdpwd.length>0)
+		    {
+		        document.getElementById("tmpTrdpwd").innerHTML ="";
+		    }      
+	
+	    
+	
+	    if(document.loginfrm.AppendCode.value.length>0)
+	    {
+	        document.getElementById("tmpAppendCode").innerHTML ="";
+	    }
+    }catch(e){}
+}
+var isLogin = false;
+function submitLogonForm(){
+    if(location.protocol != "https:"){
+        alert("由于当前页面处于非安全连接环境，为了您的帐户安全请暂时不能登录该系统，如有疑问请联系客服400-8888-666（95521）");
+        return false;
+    }
+    if(isLogin) return;
+    
+    try{
+	    if(document.loginfrm.inputid.value.length==0)
+	    {
+	        document.getElementById("tmpInputId").innerHTML ="<font color='red'>请输入资金帐号或股东代码</font>";
+	        $('inputid').focus();
+	        return false;   
+	    }
+    }catch(e){}
+    
+    var trdpwd;
+    
+    try{
+	    if(document.loginfrm.trdpwd.value.length==0)
+	    {
+	        document.getElementById("tmpTrdpwd").innerHTML ="<font color='red'>请输入密码</font>";
+	        $('password').focus();
+	        return false;   
+	    }
+	    if(document.loginfrm.trdpwd.value.length>=15)
+	    {
+	        document.getElementById("tmpTrdpwd").innerHTML ="<font color='red'>密码最大长度为15</font>";
+	        $('password').focus();
+	        return false;   
+	    }        
+	}catch(e){
+        alert("很抱歉，安全控件没有安装或不是最新版本，请先安装或更新至最新版本！");
+        return false;
+    } 
+     
+    
+        
+
+    if(document.loginfrm.AppendCode.value.length==0)
+    {
+        //如果已经输入有ActiveX密码,则取消提示信息
+	       
+        document.getElementById("tmpAppendCode").innerHTML ="<font color='red'>请输入验证码</font>";
+        $('AppendCode').focus();
+        return false;   
+    }
+    if(document.loginfrm.BranchCode.value.length==0||document.loginfrm.BranchCode.value=="null")
+    {    alert("请您选择营业部！");
+        return false;   
+    }
+    
+    //记录营业部信息
+     if (window.Cookie) 
+     {
+      var today = new Date()
+      var expires = new Date(today.getTime() + Cookie.year);
+      var myBC = document.loginfrm.BranchCode.value;
+      var myCT = document.loginfrm.countType.value;
+      var myBN = document.loginfrm.BranchName.value;
+      loginSetCookie(myBC, myCT, myBN, expires);
+    }
+
+    
+	    var result = JQ.base64Encode($("password").value);
+	    result = result.replace(/\+/g,'*');
+	    $('uid').value = $('password').value;
+	    $('password').value= result;
+    
+    
+    
+    $('pwdtype').value = '';
+    $('mac').value = getMac();
+    $('hardInfo').value = getHardInfo();
+    
+    
+    //证书登录方式
+	
+	    isLogin = true;
+	    document.loginfrm.submit();
+    	    
+
+}
+
+function getbranchname()
+{
+    var selectlist = document.loginfrm.BranchCode;
+   document.loginfrm.BranchName.value = selectlist.options[selectlist.selectedIndex].text;
+}
+
+ 
+
+function showBranch(branchGroup) { 
+    _showBranchFromCookie(branchGroup);
+}
+
+function checkAccountType()
+{
+    var accountType=loginfrm.countType.value;
+    
+    if (accountType=="HK")
+        location.replace("https://trade.gtja.com.hk");
+}
+
+function doResize(){
+var h = 420;
+var w = 700;
+var x = screen.availWidth;
+var y = screen.availHeight;
+try{
+window.moveTo(0,0);
+window.resizeTo(x,y);
+}catch(e){}
+}
+function selectBranchCodeInit(data){
+  DWRUtil.removeAllOptions("BranchCode");
+  DWRUtil.addOptions("BranchCode",data,"branchCode","branchName");
+  document.loginfrm.BranchName.value==loginfrm.BranchCode.options(0).text;
+}
+function init(){
+    
+    var ct=getCookie("countType");
+    var c=null;
+    if(ct==null){
+        $('all_yybfw').checked = true;
+        showBranch("1")
+    }else{
+        var s = ct.split(",");
+        c = s[0];
+        $('my_yybfw').checked = true;
+        showBranch("10");
+    }
+    var len = loginfrm.countType.options.length;
+    for(i=0;i<len;i++){
+      if(loginfrm.countType.options[i].value==c){
+       loginfrm.countType.options[i].selected="selected";
+      }
+    }
+    doResize();
+    try{
+    	var inputid=document.getElementById("inputid");
+    	inputid.focus();
+    }catch(e){}
+}
+function submitMe(event){
+    var e = window.event || event;
+    if(e.keyCode==13){
+        submitLogonForm();
+    }
+}
+
+//切换登录方式
+function changeSSL(ssl,logintype){
+    window.location = "/webtrade/trade/login.jsp?ssl="+ ssl + "&logintype=" + logintype + "&spwd=" + "&sinfo=" + "&dealtype=" + "&stkcode=" + "&snapwd=";
+}
+
+
+//检索控件.
+var usbkey;
+var usbkey_sn;
+var usbkey_data;
+var isInserted;
+function DetectActiveX()
+{
+        
+} 
+
+	//author yidong
+	//用于富通登录时，检查Ukey控件是否安装已经ukey是否插入
+	function DetectUkeyActiveX() {
+		/************************ 一、先判断密码控件是否安装 ************************/
+	    try {
+	        //1.去查找下载的控件(已经安装过)
+	        var comActiveX = new ActiveXObject("CSSWEBLOGINGtja.CsswebLoginGtjaCtrl.1");
+	        	//2.在页面显示控件
+				document.getElementById("loginActiveX1").innerHTML = showActiveX();
+	
+	       		//3.控件是否已经显示（已经显示在页面）
+	       		var pwdActiveX = document.getElementById("DCsswebLogin1");
+		        try{     //需要版本升级时候取消
+	            	//检测版本号
+	            	var dllVersion = pwdActiveX.DllVersion();
+	            	dllVersion = dllVersion.replace(/, /ig,"");
+		            if(parseInt(dllVersion) < gtja_safeLoginVersion){
+		               dlUkeyActiveX();
+		               return false;
+		            }	            
+		           }catch(e){
+		           	 //为1,0,0,3老版本，提示升级(没有获取版本号的方法，因此异常)
+	                 dlUkeyActiveX(0);
+		             return false;
+		           }
+	    } catch (e) {
+	            //1.去查找下载的控件(控件未安装或者被禁用)
+				dlUkeyActiveX(0);
+				return false;
+	    }
+		/************************ 二、再判断Ukey控件是否安装 ************************/
+	    try {
+	        //1.去查找下载的控件(已经安装过)
+	        var comActiveX = new ActiveXObject("GtjaUsbKey.GtjaUsbKeyApi.1");
+	        	//2.在页面显示控件
+				document.getElementById("usbActiveX").innerHTML = createUkeyObject();
+	
+	       		//3.控件是否已经显示（已经显示在页面）
+	       		var usbkey = document.getElementById('usbkey');
+	       		
+            	//4.检测版本号
+		        try{     
+	            	var dllVersion = usbkey.GetVersion();
+	            	dllVersion = dllVersion.replace(/\./ig,"");
+		            if(parseInt(dllVersion) < 1002){
+		               dlUkeyActiveX();
+		               return false;
+		            }	            
+	           }catch(e){
+                 dlUkeyActiveX(0);
+	             return false;
+	           }
+	           	       		
+	       		//5.检测usbkey是否插入电脑
+	      			isInserted = usbkey.IsKeyInserted_Web();
+	      			
+	       		if("-1" == isInserted){
+	       			alert("请确认已将USBKey插入电脑的Usb接口中并已正确安装USBKey的驱动程序。");
+	       			return false;
+	       		}
+	       		
+		           
+	    } catch (e) {
+	            //1.去查找下载的控件(控件未安装或者被禁用)
+				//alert("请确认已将USBKey插入电脑的Usb接口中并已正确安装USBKey的驱动程序。");
+				dlUkeyActiveX(0);
+				return false;
+	    }	   
+	   return true;
+	}
+	
+	//创建Ukey对象
+	function createUkeyObject(){
+	   var activexobject = '<object classid="clsid:B402DE16-5DB2-42B8-A4EB-277F3E3D91CE" id="usbkey" ></object>';
+	   return activexobject;
+	}
+	
+	//获取证书SN
+	function getSn()
+	{
+	    try
+	    { 
+	    	var ret ="",errorcode,errormsg; 
+	      ret= usbkey.GetSN_Web();
+	      errorcode = usbkey.GetLastErrorCode_Web();
+	      if(errorcode == 0)
+	      {
+		  	return ret;
+	      }
+	      else
+	      {
+	      	errormsg = usbkey.GetLastErrorMsg_Web();
+	      	alert("调用USBKey控件异常\nerrorcode:" + errorcode+"  errormsg:" + errormsg);	
+	      }
+	    } catch (e) 
+	    {
+	    	var errCode = e.number & 0x0FFFF;
+	        alert("调用USBKey控件异常\n错误号: " + errCode );
+	    }   
+	    return "";
+	} 
+	
+	//获取密码
+	function getPwd(uid)
+	{
+	    try
+	    { 
+	    	var ret ="",errorcode,errormsg; 
+	      ret= usbkey.Encrypt_Web(uid);
+	      errorcode = usbkey.GetLastErrorCode_Web();
+	      if(errorcode == 0)
+	      {
+		  	return ret;
+	      }
+	      else
+	      {
+	      	errormsg = usbkey.GetLastErrorMsg_Web();
+	      	alert("调用USBKey控件异常\nerrorcode:" + errorcode+"  errormsg:" + errormsg);	
+	      }
+	    } catch (e) 
+	    {
+	    	var errCode = e.number & 0x0FFFF;
+	        alert("调用USBKey控件异常\n错误号: " + errCode );
+	    }   
+	    return "";
+	} 		
+	
+	//获取签名数据
+	function getSignData(sourcedata)
+	{
+	    try
+	    { 
+	    	var ret ="",errorcode,errormsg,signeddata;
+	      signeddata= usbkey.SignData_Web(sourcedata);
+	      errorcode = usbkey.GetLastErrorCode_Web();
+	      if(errorcode == 0)
+	      {
+			return signeddata;
+	      }
+	      else
+	      {
+	      	errormsg = usbkey.GetLastErrorMsg_Web();
+	      	//如果用户手动"取消"操作
+	      	if(errormsg.substr(0,4) != "5050"){
+		      	alert("调用USBKey控件异常\nerrorcode:" + errorcode+"  errormsg:" + errormsg);	
+	      	}
+	      }
+	    } catch (e) 
+	    {
+	    	var errCode = e.number & 0x0FFFF;
+	        alert("调用USBKey控件异常\n错误号: " + errCode );
+	    }   
+	    return "";
+	} 	
+
+
+
+//下载控件与添加信任站点
+function dlActiveX(obj){
+	document.getElementById("setupActiveX").style.display="";
+	document.getElementById("inputidObjBox").innerHTML = "";
+    document.getElementById("pwdObjBox").innerHTML = "";
+    document.getElementById("AppendCodeObjBox1").innerHTML = "";
+    document.getElementById("AppendCodeObjBox2").innerHTML = "";
+	/*if(window.confirm("您的安全控件不是最新版本，为了您的帐户安全，请先更新安全控件再进行登录。或者您可以选择标准登录方式进行交易。\n请点击确定下载最新版本的安全控件。\n")){
+		window.location.href = "SafeLoginSetup.exe";
+	}*/
+	if(typeof(obj)!="undefined" && obj!=null && obj=="0"){
+		alert("您的安全控件未安装，为了您的帐户安全，请点击页面下方的“下载安全控件”安装控件后再进行登录。\n或者您可以选择标准登录方式进行交易。\n");
+	}else{
+		alert("您的安全控件不是最新版本，为了您的帐户安全，请点击页面下方的“下载安全控件”更新控件版本后再进行登录。\n或者您可以选择标准登录方式进行交易。\n");
+	}
+}
+
+//下载控件与添加信任站点
+function dlUkeyActiveX(obj){
+	document.getElementById("setupActiveX").style.display="";
+	document.getElementById("inputidObjBox").innerHTML = "";
+    document.getElementById("pwdObjBox2").innerHTML = "";
+    document.getElementById("AppendCodeObjBox1").innerHTML = "";
+    document.getElementById("AppendCodeObjBox2").innerHTML = "";
+    if(typeof(obj)!="undefined" && obj!=null && obj=="0"){
+    	alert("您的安全控件未安装，为了您的帐户安全，请点击页面下方的“下载安全控件”安装控件后再进行登录。");
+    }else{
+    	alert("您的安全控件不是最新版本，为了您的帐户安全，请点击页面下方的“下载安全控件”更新控件版本后再进行登录。");
+    }
+	
+}
+
+//创建ActiveXObject
+function showActiveX(){
+   var activexobject = '<OBJECT id="DCsswebLogin1" style="WIDTH: 105px; HEIGHT: 20px" classid="clsid:2B6A6FF5-EF83-4010-9BB6-F170F5910A43">' +
+                       '<PARAM NAME="_Version" VALUE="65536"/>'+
+                       '<PARAM NAME="_ExtentX" VALUE="3069"/>'+
+                       '<PARAM NAME="_ExtentY" VALUE="720"/>'+
+                       '<PARAM NAME="_StockProps" VALUE="1234"/>'+
+                       '</OBJECT>'+
+                       '<OBJECT ID="DCsswebHardInfo" WIDTH=0 HEIGHT=0 CLASSID="CLSID:1BC4E1F9-758D-4BDA-A7DE-A9E1DA7D1E41"</OBJECT>';
+   return activexobject;
+}
+
+//点击图片进行下载
+
+function downExe(){
+	window.location.href = "SafeLoginSetup.exe";
+    alert("请在安全控件安装前关闭本页面，安装完毕后即可顺利登录富通页面交易！");
+}
+
+function hiddenChar(){
+    document.getElementById("character").style.display = "none";
+} 
+function showChar(){
+    document.getElementById("character").style.display = "";
+} 
+
+//获取Mac
+function getMac(){
+    var mac = "";
+    
+            mac = "";
+    
+    return mac;
+}
+
+//获取硬件特征码
+function getHardInfo(){
+    var hardInfo = "";
+    
+            hardInfo = "";
+    
+    return hardInfo;
+}
+
+//动态密码令牌同步
+function checkSynToken(){
+	if(document.getElementById('synToken').checked){
+		document.getElementById('confirmBtn').src = "/webtrade/pic/login/but_dl_tb.jpg";
+		document.getElementById('dypwd2TR').style.display = "";
+		document.getElementById('dypwd2').focus();
+	}else{
+		document.getElementById('confirmBtn').src = "/webtrade/pic/login/but_dl.jpg";
+		document.getElementById('dypwd2TR').style.display = "none";
+		document.getElementById('dypwd2').value = "";
+		document.getElementById("tmpDypwd2").innerHTML ="";
+	}
+}
+
+function changePage(obj){
+   if(obj==4){
+   	document.getElementById("zxdt").className = "log_navhov";
+   	document.getElementById("aqts").className = "log_nava";
+   }
+   if(obj==1){
+   	document.getElementById("zxdt").className = "log_nava";
+   	document.getElementById("aqts").className = "log_navhov";
+   }   
+   if(obj==3){
+  var url="/webtrade/generalQuestionAction.do";
+  var pars="method=list";
+  var myAjax = new Ajax.Updater('divCCCCCC', url, {method: 'post', parameters: pars,evalScripts:true});
+
+  }
+  for(i=1;i<=4;i++){
+  document.getElementById("div"+i).style.display="none";
+  }
+  document.getElementById("div"+obj).style.display="inline"; 
+  if(obj==2 )
+  {
+    alert("请见谅，本栏目还未开放...");
+    return false;
+  }
+ }
+</SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16450"></HEAD>
+<BODY onbeforecopy="return false" ondragstart="return false" 
+oncontextmenu="return false" oncopy="" onselectstart="return false" onselect="" 
+leftMargin=0 topMargin=0><SPAN style="DISPLAY: none" id=usbActiveX></SPAN><!-- Ukey控件 --><SPAN style="DISPLAY: none" 
+id=loginActiveX1></SPAN><!-- 用于证书登录时候判断控件是否安装 -->
+<FORM onsubmit="javascript:submitLogonForm();return false;" method=post 
+name=loginfrm action=webTradeAction.do autocomplete="off"><INPUT name=method 
+value=login type=hidden> <INPUT id=uid name=uid type=hidden> <INPUT id=pwdtype 
+name=pwdtype type=hidden> <!-- 密码类型 --><INPUT id=hardInfo name=hardInfo 
+type=hidden> <!-- 硬件信息 --><INPUT id=logintype name=logintype value=common 
+type=hidden> <!-- 登录类型 --><INPUT id=flowno name=flowno type=hidden> <!-- 交易流水号 --><INPUT id=usbkeySn name=usbkeySn type=hidden> <!-- 证书sn --><INPUT 
+id=usbkeyData name=usbkeyData type=hidden> <!-- 签名数据 --><INPUT id=mac name=mac 
+type=hidden> <!-- MAC --><INPUT id=gtja_dating_login_type 
+name=gtja_dating_login_type value=0 type=hidden><!-- 大厅登录类型 --> <!-- 浏览器窗口 的 实际高度 --><INPUT id=availHeight name=availHeight size=4 type=hidden> 
+<CENTER>
+<TABLE style="MARGIN-BOTTOM: 2px" border=0 cellSpacing=0 cellPadding=0 width=755 
+align=center>
+  <TBODY>
+  <TR>
+    <TD width=754 colSpan=2><IMG src="富通页面交易_files/credittitle.jpg" height=82> 
+    </TD><!--  
+                    <td width="452">
+                        <img src="/webtrade/pic/login/tit_1.jpg" height="84" />
+                    </td>
+                    <td width="303">
+                        <img src="/webtrade/pic/login/tit_2.jpg" height="84" />
+                    </td>
+                    --></TR></TBODY></TABLE></CENTER>
+<CENTER>
+<TABLE border=0 cellSpacing=0 cellPadding=0 width=755 align=center>
+  <TBODY>
+  <TR>
+    <TD width=3></TD>
+    <TD style="TEXT-INDENT: 38px; BACKGROUND-REPEAT: no-repeat" height=26 
+    background=富通页面交易_files/khdl.jpg width=109>客户登录</TD>
+    <TD width=14>&nbsp;</TD>
+    <TD width=50><IMG style="MARGIN-BOTTOM: -3px" src="富通页面交易_files/ico1.jpg"> 
+      <A class=Login_JFT 
+      href="https://trade.gtja.com/webtrade/trade/webTradeAction.do?method=preLogin&amp;language=zh"><FONT 
+      color=red>简体</FONT> </A></TD>
+    <TD width=53><IMG style="MARGIN-BOTTOM: -3px" src="富通页面交易_files/ico1.jpg"> 
+      <A class=Login_JFT 
+      href="https://trade.gtja.com/webtrade/trade/webTradeAction.do?method=preLogin&amp;language=tw"><FONT 
+      color=black>繁体</FONT> </A></TD>
+    <TD width=73><IMG style="MARGIN-BOTTOM: -3px" src="富通页面交易_files/ico1.jpg"> 
+      <A class=Link-font 
+      href="https://trade.gtja.com/engwebtrade/trade/webTradeAction.do?method=preLogin">English</A> 
+    </TD>
+    <TD width=73>&nbsp;</TD>
+    <TD style="CURSOR: hand" id=zxdt class=log_nava onclick=changePage(4) 
+    width=75><A style="TEXT-DECORATION: none" class=Login_href 
+      onclick=changePage(4) 
+      href="https://trade.gtja.com/webtrade/trade/login.jsp?ssl=false&amp;logintype=common&amp;spwd=&amp;sinfo=&amp;dealtype=&amp;stkcode=&amp;snapwd=#">最新动态</A> 
+    </TD>
+    <TD style="CURSOR: hand" class=log_nava width=75><A 
+      style="TEXT-DECORATION: none" class=Login_href 
+      onclick="javascript:MM_openBrWindow('http://www.gtja.com/registerTradeAction.do?method=getDeptment&amp;f=77&amp;s=217&amp;newacctflag=0','','');" 
+      href="https://trade.gtja.com/webtrade/trade/login.jsp?ssl=false&amp;logintype=common&amp;spwd=&amp;sinfo=&amp;dealtype=&amp;stkcode=&amp;snapwd=#">预约开户</A> 
+    </TD>
+    <TD style="CURSOR: hand" class=log_nava width=75><A 
+      style="TEXT-DECORATION: none" class=Login_href 
+      onclick="javascript:MM_openBrWindow('http://www.gtja.com/jccy/syhq.html','','');" 
+      href="https://trade.gtja.com/webtrade/trade/login.jsp?ssl=false&amp;logintype=common&amp;spwd=&amp;sinfo=&amp;dealtype=&amp;stkcode=&amp;snapwd=#">闪易行情</A> 
+    </TD>
+    <TD style="CURSOR: hand" id=aqts class=log_navhov onclick=changePage(1) 
+    width=75><A style="TEXT-DECORATION: none" class=Login_href 
+      onclick=changePage(1) 
+      href="https://trade.gtja.com/webtrade/trade/login.jsp?ssl=false&amp;logintype=common&amp;spwd=&amp;sinfo=&amp;dealtype=&amp;stkcode=&amp;snapwd=#">安全提示</A> 
+    </TD>
+    <TD style="CURSOR: hand" class=log_nava width=75><A 
+      style="TEXT-DECORATION: none" class=Login_href 
+      onclick="javascript:MM_openBrWindow('http://chat.gtja.com/webcall/web/webTrade.jsp','','');" 
+      href="https://trade.gtja.com/webtrade/trade/login.jsp?ssl=false&amp;logintype=common&amp;spwd=&amp;sinfo=&amp;dealtype=&amp;stkcode=&amp;snapwd=#">联系我们 
+      </A></TD></TR></TBODY></TABLE>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD class=con_bg1></TD></TR></TBODY></TABLE>
+<TABLE class=con_bg2>
+  <TBODY>
+  <TR>
+    <TD height=23 width=30>&nbsp; </TD>
+    <TD vAlign=bottom width=500 align=center></TD>
+    <TD vAlign=bottom width=200>&nbsp; </TD>
+    <TD width=25>&nbsp; </TD></TR>
+  <TR>
+    <TD height=203>&nbsp; </TD>
+    <TD vAlign=top colSpan=2 align=right>
+      <TABLE border=0 cellSpacing=0 cellPadding=0 width=700 height=174>
+        <TBODY>
+        <TR>
+          <TD vAlign=top rowSpan=2>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width=320 height=252>
+              <TBODY>
+              <TR>
+                <TD height=5 vAlign=top colSpan=3 align=right></TD></TR>
+              <TR>
+                <TD class=login-font height=46 vAlign=top width=80 
+                  align=right>营业部范围 ： </TD>
+                <TD class=login-font vAlign=top colSpan=2><INPUT id=all_yybfw 
+                  onclick=showBranch(this.value) name=YYBFW value=1 type=radio> 
+                  所有 &nbsp; <INPUT onclick=showBranch(this.value) name=YYBFW 
+                  value=2 type=radio> 华东 &nbsp; <INPUT 
+                  onclick=showBranch(this.value) name=YYBFW value=3 type=radio> 
+                  华南 &nbsp; <INPUT onclick=showBranch(this.value) name=YYBFW 
+                  value=4 type=radio> 华中 &nbsp; <BR><INPUT 
+                  onclick=showBranch(this.value) name=YYBFW value=5 type=radio> 
+                  华北 &nbsp; <INPUT onclick=showBranch(this.value) name=YYBFW 
+                  value=6 type=radio> 东北 &nbsp; <INPUT 
+                  onclick=showBranch(this.value) name=YYBFW value=7 type=radio> 
+                  西北 &nbsp; <INPUT onclick=showBranch(this.value) name=YYBFW 
+                  value=8 type=radio> 西南 &nbsp; <BR><INPUT id=my_yybfw 
+                  onclick=showBranch(this.value) name=YYBFW value=10 type=radio > 
+                  我的营业部 &nbsp; </TD></TR>
+              <TR>
+                <TD class=login-font align=right>开户营业部 ： </TD>
+                <TD class=login-font colSpan=2><SELECT 
+                  style="BORDER-BOTTOM: #9e9e9e 1px solid; BORDER-LEFT: #9e9e9e 1px solid; WIDTH: 236px; COLOR: #3c4e6d; BORDER-TOP: #9e9e9e 1px solid; BORDER-RIGHT: #9e9e9e 1px solid" 
+                  id=BranchCode onchange=getbranchname() name=BranchCode> 
+                    <OPTION label=2 selected value=3100>上海分公司国际业务一部</OPTION> 
+                    <OPTION label=3 value=4400>深圳分公司B股交易中心</OPTION> <OPTION 
+                    label=2 value=7001>VIP客户服务中心</OPTION> <OPTION label=2 
+                    value=7003>销售交易总部</OPTION> <OPTION label=2 
+                    value=3402>安徽安庆人民路证券营业部</OPTION> <OPTION label=2 
+                    value=3401>安徽合肥证券营业部</OPTION> <OPTION label=5 
+                    value=1102>北京德外大街证券营业部</OPTION> <OPTION label=5 
+                    value=1101>北京方庄路证券营业部</OPTION> <OPTION label=5 
+                    value=1104>北京怀柔府前街证券营业部</OPTION> <OPTION label=5 
+                    value=1105>北京金融街证券营业部</OPTION> <OPTION label=5 
+                    value=1106>北京鲁谷路证券营业部</OPTION> <OPTION label=5 
+                    value=1103>北京通州新华西街营业部</OPTION> <OPTION label=5 
+                    value=1103>北京西黄城根营业部</OPTION> <OPTION label=5 
+                    value=1104>北京知春路证券营业部</OPTION> <OPTION label=5 
+                    value=1107>北京亦庄宏达北路证券营业部</OPTION> <OPTION label=3 
+                    value=3501>福建福州华林路证券营业部</OPTION> <OPTION label=3 
+                    value=3501>福建福州杨桥东路证券营业部</OPTION> <OPTION label=3 
+                    value=3501>福建长乐朝阳中路证券营业部</OPTION> <OPTION label=3 
+                    value=3501>福建龙岩华莲路证券营业部</OPTION> <OPTION label=3 
+                    value=3501>福建沙县滨河路证券营业部</OPTION> <OPTION label=3 
+                    value=3504>福建泉州百源路证券营业部</OPTION> <OPTION label=3 
+                    value=3503>福建厦门嘉禾路证券营业部</OPTION> <OPTION label=3 
+                    value=3505>福建漳州水仙大街证券营业部</OPTION> <OPTION label=7 
+                    value=6201>甘肃酒泉市南大街营业部（原甘肃营销总部）</OPTION> <OPTION label=7 
+                    value=6201>甘肃兰州东岗西路营业部（原甘肃营销总部）</OPTION> <OPTION label=7 
+                    value=6201>甘肃兰州酒泉路营业部（原甘肃营销总部）</OPTION> <OPTION label=7 
+                    value=6201>甘肃兰州福利西路营业部（原甘肃营销总部）</OPTION> <OPTION label=7 
+                    value=6201>甘肃天水建设路营业部（原甘肃营销总部）</OPTION> <OPTION label=7 
+                    value=6201>甘肃嘉峪关新华中路证券营业部</OPTION> <OPTION label=7 
+                    value=6201>甘肃敦煌阳关中路证券营业部</OPTION> <OPTION label=7 
+                    value=6201>甘肃张掖西大街证券营业部</OPTION> <OPTION label=7 
+                    value=6401>宁夏银川解放西街证券营业部</OPTION> <OPTION label=3 
+                    value=4419>广东东莞体育路证券营业部</OPTION> <OPTION label=3 
+                    value=4417>广东汕头金砂路证券营业部</OPTION> <OPTION label=3 
+                    value=4418>广东顺德大良证券营业部</OPTION> <OPTION label=3 
+                    value=4421>广东中山中山三路证券营业部</OPTION> <OPTION label=3 
+                    value=4423>广东梅州新中路证券营业部</OPTION> <OPTION label=3 
+                    value=4501>广西南宁民族大道证券营业部</OPTION> <OPTION label=3 
+                    value=4502>广西桂林空明西路证券营业部</OPTION> <OPTION label=3 
+                    value=4401>广州东风中路证券营业部</OPTION> <OPTION label=3 
+                    value=4402>广州黄埔大道证券营业部</OPTION> <OPTION label=3 
+                    value=4403>广州人民中路证券营业部</OPTION> <OPTION label=3 
+                    value=4422>广州南华中路证券营业部</OPTION> <OPTION label=8 
+                    value=5201>贵州贵阳中华中路证券营业部</OPTION> <OPTION label=8 
+                    value=5201>贵州遵义香港路证券营业部</OPTION> <OPTION label=3 
+                    value=4602>海南海口龙昆南路证券营业部</OPTION> <OPTION label=3 
+                    value=4602>海南海口国贸大道证券营业部</OPTION> <OPTION label=3 
+                    value=4602>海南琼海人民路证券营业部</OPTION> <OPTION label=3 
+                    value=4602>海南儋州中兴大道证券营业部</OPTION> <OPTION label=5 
+                    value=1302>河北石家庄建华南大街营业部（河北营销总部）</OPTION> <OPTION label=5 
+                    value=1302>河北邯郸人民东路证劵营业部</OPTION> <OPTION label=5 
+                    value=1302>河北唐山证券营业部</OPTION> <OPTION label=5 
+                    value=1302>河北沧州沧县交通北大道证券营业部</OPTION> <OPTION label=5 
+                    value=4101>河南济源济水大街证券营业部</OPTION> <OPTION label=5 
+                    value=4103>河南洛阳中州中路证券营业部</OPTION> <OPTION label=5 
+                    value=4101>河南荥阳万山路证券营业部</OPTION> <OPTION label=5 
+                    value=4101>河南郑州花园路证券营业部</OPTION> <OPTION label=6 
+                    value=2302>黑龙江哈尔滨爱建路证券营业部</OPTION> <OPTION label=6 
+                    value=2302>哈尔滨尚志大街营业部（原地段街营业部）</OPTION> <OPTION label=6 
+                    value=2302>黑龙江哈尔滨尚志中央大街证券营业部</OPTION> <OPTION label=6 
+                    value=2302>黑龙江哈尔滨西大直街证券营业部</OPTION> <OPTION label=6 
+                    value=2303>黑龙江齐齐哈尔中环广场证券营业部</OPTION> <OPTION label=4 
+                    value=4208>湖北荆州便河东路证券营业部</OPTION> <OPTION label=4 
+                    value=4201>湖北武汉洞庭街证券营业部</OPTION> <OPTION label=4 
+                    value=4202>湖北武汉京汉大道证券营业部</OPTION> <OPTION label=4 
+                    value=4204>湖北武汉紫阳东路证券营业部</OPTION> <OPTION label=4 
+                    value=4209>湖北襄樊东风汽车大道证券营业部</OPTION> <OPTION label=4 
+                    value=4209>湖北襄樊襄城南街证券营业部</OPTION> <OPTION label=4 
+                    value=4211>湖北宜昌四新路证券营业部</OPTION> <OPTION label=4 
+                    value=4211>湖北宜昌珍珠路证券营业部</OPTION> <OPTION label=4 
+                    value=4302>湖南常德桃源漳江南路证券营业部</OPTION> <OPTION label=4 
+                    value=4302>湖南常德武陵大道证券营业部</OPTION> <OPTION label=4 
+                    value=4301>湖南郴州国庆北路证券营业部</OPTION> <OPTION label=4 
+                    value=4303>湖南衡阳县证券营业部</OPTION> <OPTION label=4 
+                    value=4303>湖南衡阳雁城路证券营业部</OPTION> <OPTION label=4 
+                    value=4301>湖南邵阳西湖路证券营业部</OPTION> <OPTION label=4 
+                    value=4301>湖南湘潭建设南路证券营业部</OPTION> <OPTION label=4 
+                    value=4301>湖南长沙芙蓉中路证券营业部</OPTION> <OPTION label=4 
+                    value=4301>湖南长沙五一大道证券营业部</OPTION> <OPTION label=4 
+                    value=4304>湖南株洲建设中路证券营业部</OPTION> <OPTION label=4 
+                    value=4304>湖南株州长江南路证券营业部</OPTION> <OPTION label=6 
+                    value=2203>吉林桦甸人民路证券营业部</OPTION> <OPTION label=6 
+                    value=2203>吉林龙井繁荣路证券营业部</OPTION> <OPTION label=6 
+                    value=2203>吉林松江路证券营业部</OPTION> <OPTION label=6 
+                    value=2201>吉林长春市长春大街证券营业部</OPTION> <OPTION label=6 
+                    value=2202>吉林长春西安大路证券营业部</OPTION> <OPTION label=6 
+                    value=2204>吉林四平中央东路证券营业部</OPTION> <OPTION label=2 
+                    value=3203>江苏常州广化街证券营业部</OPTION> <OPTION label=2 
+                    value=3202>江苏南京太平南路证券营业部</OPTION> <OPTION label=2 
+                    value=3202>江苏南京中央路证券营业部</OPTION> <OPTION label=2 
+                    value=3202>江苏南京溧水中大街证券营业部</OPTION> <OPTION label=2 
+                    value=3202>江苏无锡人民中路证券营业部</OPTION> <OPTION label=2 
+                    value=3204>江苏邳州解放东路证券营业部</OPTION> <OPTION label=2 
+                    value=3204>江苏徐州解放路证券营业部</OPTION> <OPTION label=3 
+                    value=3608>江西抚州黄巢路证券营业部</OPTION> <OPTION label=3 
+                    value=3608>江西抚州南丰橘都大道证券营业部</OPTION> <OPTION label=3 
+                    value=3604>江西贵溪建设路证券营业部</OPTION> <OPTION label=3 
+                    value=3604>江西贵溪冶金大道营业部（原滨江服务部）</OPTION> <OPTION label=3 
+                    value=3602>江西九江滨江东路营业部(原九江石化服务部)</OPTION> <OPTION label=3 
+                    value=3602>江西九江甘棠路证券营业部</OPTION> <OPTION label=3 
+                    value=3602>江西九江十里大道证券营业部</OPTION> <OPTION label=3 
+                    value=3601>江西南昌进贤岚湖路营业部</OPTION> <OPTION label=3 
+                    value=3601>江西南昌象山北路证券营业部</OPTION> <OPTION label=3 
+                    value=3601>江西南昌站前路证券营业部</OPTION> <OPTION label=3 
+                    value=3607>江西萍乡跃进南路证券营业部</OPTION> <OPTION label=3 
+                    value=3609>江西赣州章江南大道证券营业部</OPTION> <OPTION label=3 
+                    value=3607>江西宜春高安桥北路证券营业部</OPTION> <OPTION label=3 
+                    value=3607>江西宜春中山中路证券营业部</OPTION> <OPTION label=3 
+                    value=3604>江西鹰潭环城西路证券营业部</OPTION> <OPTION label=6 
+                    value=2102>辽宁鞍山新华街证券营业部</OPTION> <OPTION label=6 
+                    value=2105>辽宁大连成义街证券营业部</OPTION> <OPTION label=6 
+                    value=2101>辽宁沈阳黄河南大街证券营业部</OPTION> <OPTION label=6 
+                    value=2102>辽宁沈阳十一纬路营业部（原热闹路营业部）</OPTION> <OPTION label=6 
+                    value=2102>辽宁沈阳新华路营业部</OPTION> <OPTION label=5 
+                    value=1501>内蒙古包头证券营业部</OPTION> <OPTION label=5 
+                    value=1501>内蒙古赤峰证券营业部</OPTION> <OPTION label=5 
+                    value=1501>内蒙古鄂尔多斯证券营业部</OPTION> <OPTION label=5 
+                    value=1501>内蒙古呼和浩特西护城河证券营业部</OPTION> <OPTION label=5 
+                    value=3701>山东济南解放路证券营业部</OPTION> <OPTION label=5 
+                    value=3702>山东济南永庆街证券营业部</OPTION> <OPTION label=5 
+                    value=3704>山东临沂罗四路营业部</OPTION> <OPTION label=5 
+                    value=3704>山东临沂沂蒙路证券营业部</OPTION> <OPTION label=5 
+                    value=3703>山东青岛证券营业部</OPTION> <OPTION label=5 
+                    value=3705>山东潍坊东风东街证券营业部</OPTION> <OPTION label=5 
+                    value=3706>山东济宁吴泰闸路证券营业部</OPTION> <OPTION label=5 
+                    value=1401>山西晋城凤台西街证券营业部</OPTION> <OPTION label=5 
+                    value=1401>山西太原并州北路证券营业部</OPTION> <OPTION label=5 
+                    value=1402>山西离石滨河北东路证券营业部</OPTION> <OPTION label=7 
+                    value=6102>陕西西安东关正街营业部（原陕西营销总部）</OPTION> <OPTION label=7 
+                    value=6102>陕西西安环城南路营业部（原陕西营销总部）</OPTION> <OPTION label=2 
+                    value=3102>上海打浦路证券营业部</OPTION> <OPTION label=2 
+                    value=3105>上海大渡河路证券营业部</OPTION> <OPTION label=2 
+                    value=3109>上海福山路证券营业部</OPTION> <OPTION label=2 
+                    value=3103>上海虹桥路证券营业部</OPTION> <OPTION label=2 
+                    value=3118>上海江苏路VIP</OPTION> <OPTION label=2 
+                    value=3104>上海江苏路证券营业部</OPTION> <OPTION label=2 
+                    value=3101>上海九江路证券营业部</OPTION> <OPTION label=2 
+                    value=3106>上海陆家嘴东路证券营业部</OPTION> <OPTION label=2 
+                    value=3108>上海团结路证券营业部</OPTION> <OPTION label=2 
+                    value=3107>上海牡丹江路证券营业部</OPTION> <OPTION label=2 
+                    value=3110>上海商城路证券营业部</OPTION> <OPTION label=2 
+                    value=3111>上海四平路证券营业部</OPTION> <OPTION label=2 
+                    value=3114>上海天山路营业部（原水城路营业部）</OPTION> <OPTION label=2 
+                    value=3119>上海威海路证券营业部</OPTION> <OPTION label=2 
+                    value=3115>上海延平路证券营业部</OPTION> <OPTION label=2 
+                    value=3116>上海杨树浦路证券营业部</OPTION> <OPTION label=2 
+                    value=3113>上海宜山路第二证券营业部</OPTION> <OPTION label=2 
+                    value=3120>上海松江中山东路证券营业部</OPTION> <OPTION label=2 
+                    value=3121>上海嘉定塔城路证券营业部</OPTION> <OPTION label=3 
+                    value=4406>深圳深南东路证券营业部（原爱国路营业部）</OPTION> <OPTION label=3 
+                    value=4404>深圳蔡屋围金华街证券营业部</OPTION> <OPTION label=3 
+                    value=4408>深圳福华三路证券营业部</OPTION> <OPTION label=3 
+                    value=4405>深圳观澜营业部</OPTION> <OPTION label=3 
+                    value=4413>深圳海岸城海德三道营业部</OPTION> <OPTION label=3 
+                    value=4409>深圳华发路证券营业部</OPTION> <OPTION label=3 
+                    value=4415>深圳华强北路证券营业部</OPTION> <OPTION label=3 
+                    value=4420>深圳龙华梅龙中路证券营业部</OPTION> <OPTION label=3 
+                    value=4411>深圳人民南路证券营业部</OPTION> <OPTION label=3 
+                    value=4412>深圳上步中路证券营业部</OPTION> <OPTION label=3 
+                    value=4410>深圳红荔西路证券营业部(原深南中路)</OPTION> <OPTION label=3 
+                    value=4414>深圳松岗证券营业部</OPTION> <OPTION label=3 
+                    value=4405>深圳笋岗路证券营业部</OPTION> <OPTION label=3 
+                    value=4416>深圳益田路证券营业部</OPTION> <OPTION label=8 
+                    value=5101>四川成都北一环路证券营业部</OPTION> <OPTION label=8 
+                    value=5102>四川成都建设路证券营业部</OPTION> <OPTION label=8 
+                    value=5103>四川成都顺城大街证券营业部</OPTION> <OPTION label=8 
+                    value=5105>四川泸州星光路证券营业部</OPTION> <OPTION label=8 
+                    value=5105>泸州纳溪区云溪东路证券营业部</OPTION> <OPTION label=8 
+                    value=5111>四川雅安东大街证券营业部</OPTION> <OPTION label=5 
+                    value=1205>天津环湖中路证券营业部（原天津营销总部）</OPTION> <OPTION label=5 
+                    value=1205>天津静海县胜利北路证券营业部</OPTION> <OPTION label=5 
+                    value=1205>天津新开路证券营业部（原天津营销总部）</OPTION> <OPTION label=5 
+                    value=1205>天津塘沽上海道营业部（原天津营销总部）</OPTION> <OPTION label=5 
+                    value=1205>天津西市大街证券营业部（原天津营销总部）</OPTION> <OPTION label=7 
+                    value=6501>新疆乌鲁木齐建设路证券营业部</OPTION> <OPTION label=8 
+                    value=5301>云南个旧金湖西路证券营业部</OPTION> <OPTION label=8 
+                    value=5301>云南昆明人民中路证券营业部</OPTION> <OPTION label=8 
+                    value=5301>云南丽江福慧路证券营业部</OPTION> <OPTION label=8 
+                    value=5301>云南潞西团结大街证券营业部</OPTION> <OPTION label=8 
+                    value=5301>云南文山普阳路证券营业部</OPTION> <OPTION label=2 
+                    value=3301>浙江杭州庆春路营业部（原浙江营销总部）</OPTION> <OPTION label=2 
+                    value=3305>浙江临海巾山中路证券营业部</OPTION> <OPTION label=2 
+                    value=3302>浙江宁波彩虹北路营业部（原浙江宁波营业部）</OPTION> <OPTION label=2 
+                    value=3302>浙江宁波镇海庄市兴庄路证券营业部</OPTION> <OPTION label=2 
+                    value=3304>浙江衢州柯城证券营业部</OPTION> <OPTION label=2 
+                    value=3306>浙江绍兴中兴中路证券营业部</OPTION> <OPTION label=2 
+                    value=3305>浙江天台环城东路证券营业部</OPTION> <OPTION label=2 
+                    value=3305>浙江仙居酒坊巷证券营业部</OPTION> <OPTION label=2 
+                    value=3302>浙江余姚阳明西路营业部（原浙江宁波营业部）</OPTION> <OPTION label=2 
+                    value=3307>浙江永嘉阳光大道证券营业部</OPTION> <OPTION label=2 
+                    value=3308>浙江金华环城东路证券营业部</OPTION> <OPTION label=2 
+                    value=3309>浙江嘉兴中山西路证券营业部</OPTION> <OPTION label=8 
+                    value=5108>重庆奉节证券营业部</OPTION> <OPTION label=8 
+                    value=5107>重庆九尺坎证券营业部</OPTION> <OPTION label=8 
+                    value=5108>重庆民生路证券营业部</OPTION> <OPTION label=8 
+                    value=5108>重庆万州太白岩证券营业部</OPTION> <OPTION label=8 
+                    value=5110>重庆巫山证券营业部</OPTION> <OPTION label=8 
+                    value=5107>重庆新南路证券营业部</OPTION> <OPTION label=8 
+                    value=5110>重庆中山三路证券营业部</OPTION> <OPTION label=8 
+                    value=5110>重庆忠县证券营业部</OPTION></SELECT> </TD></TR><INPUT 
+              id=BranchName name=BranchName type=hidden> <INPUT name=Page 
+              type=hidden> 
+              <TR style="DISPLAY: none">
+                <TD class=login-font align=right>开户营业部 ： </TD>
+                <TD class=login-font><SELECT 
+                  style="BORDER-BOTTOM: #9e9e9e 1px solid; BORDER-LEFT: #9e9e9e 1px solid; BACKGROUND-COLOR: #e0e0e0; COLOR: #3c4e6d; BORDER-TOP: #9e9e9e 1px solid; BORDER-RIGHT: #9e9e9e 1px solid" 
+                  id=selectBranchCode name=selectBranchCode> <OPTION label=2 
+                    selected value=3100>上海分公司国际业务一部</OPTION> <OPTION label=3 
+                    value=4400>深圳分公司B股交易中心</OPTION> <OPTION label=2 
+                    value=7001>VIP客户服务中心</OPTION> <OPTION label=2 
+                    value=7003>销售交易总部</OPTION> <OPTION label=2 
+                    value=3402>安徽安庆人民路证券营业部</OPTION> <OPTION label=2 
+                    value=3401>安徽合肥证券营业部</OPTION> <OPTION label=5 
+                    value=1102>北京德外大街证券营业部</OPTION> <OPTION label=5 
+                    value=1101>北京方庄路证券营业部</OPTION> <OPTION label=5 
+                    value=1104>北京怀柔府前街证券营业部</OPTION> <OPTION label=5 
+                    value=1105>北京金融街证券营业部</OPTION> <OPTION label=5 
+                    value=1106>北京鲁谷路证券营业部</OPTION> <OPTION label=5 
+                    value=1103>北京通州新华西街营业部</OPTION> <OPTION label=5 
+                    value=1103>北京西黄城根营业部</OPTION> <OPTION label=5 
+                    value=1104>北京知春路证券营业部</OPTION> <OPTION label=5 
+                    value=1107>北京亦庄宏达北路证券营业部</OPTION> <OPTION label=3 
+                    value=3501>福建福州华林路证券营业部</OPTION> <OPTION label=3 
+                    value=3501>福建福州杨桥东路证券营业部</OPTION> <OPTION label=3 
+                    value=3501>福建长乐朝阳中路证券营业部</OPTION> <OPTION label=3 
+                    value=3501>福建龙岩华莲路证券营业部</OPTION> <OPTION label=3 
+                    value=3501>福建沙县滨河路证券营业部</OPTION> <OPTION label=3 
+                    value=3504>福建泉州百源路证券营业部</OPTION> <OPTION label=3 
+                    value=3503>福建厦门嘉禾路证券营业部</OPTION> <OPTION label=3 
+                    value=3505>福建漳州水仙大街证券营业部</OPTION> <OPTION label=7 
+                    value=6201>甘肃酒泉市南大街营业部（原甘肃营销总部）</OPTION> <OPTION label=7 
+                    value=6201>甘肃兰州东岗西路营业部（原甘肃营销总部）</OPTION> <OPTION label=7 
+                    value=6201>甘肃兰州酒泉路营业部（原甘肃营销总部）</OPTION> <OPTION label=7 
+                    value=6201>甘肃兰州福利西路营业部（原甘肃营销总部）</OPTION> <OPTION label=7 
+                    value=6201>甘肃天水建设路营业部（原甘肃营销总部）</OPTION> <OPTION label=7 
+                    value=6201>甘肃嘉峪关新华中路证券营业部</OPTION> <OPTION label=7 
+                    value=6201>甘肃敦煌阳关中路证券营业部</OPTION> <OPTION label=7 
+                    value=6201>甘肃张掖西大街证券营业部</OPTION> <OPTION label=7 
+                    value=6401>宁夏银川解放西街证券营业部</OPTION> <OPTION label=3 
+                    value=4419>广东东莞体育路证券营业部</OPTION> <OPTION label=3 
+                    value=4417>广东汕头金砂路证券营业部</OPTION> <OPTION label=3 
+                    value=4418>广东顺德大良证券营业部</OPTION> <OPTION label=3 
+                    value=4421>广东中山中山三路证券营业部</OPTION> <OPTION label=3 
+                    value=4423>广东梅州新中路证券营业部</OPTION> <OPTION label=3 
+                    value=4501>广西南宁民族大道证券营业部</OPTION> <OPTION label=3 
+                    value=4502>广西桂林空明西路证券营业部</OPTION> <OPTION label=3 
+                    value=4401>广州东风中路证券营业部</OPTION> <OPTION label=3 
+                    value=4402>广州黄埔大道证券营业部</OPTION> <OPTION label=3 
+                    value=4403>广州人民中路证券营业部</OPTION> <OPTION label=3 
+                    value=4422>广州南华中路证券营业部</OPTION> <OPTION label=8 
+                    value=5201>贵州贵阳中华中路证券营业部</OPTION> <OPTION label=8 
+                    value=5201>贵州遵义香港路证券营业部</OPTION> <OPTION label=3 
+                    value=4602>海南海口龙昆南路证券营业部</OPTION> <OPTION label=3 
+                    value=4602>海南海口国贸大道证券营业部</OPTION> <OPTION label=3 
+                    value=4602>海南琼海人民路证券营业部</OPTION> <OPTION label=3 
+                    value=4602>海南儋州中兴大道证券营业部</OPTION> <OPTION label=5 
+                    value=1302>河北石家庄建华南大街营业部（河北营销总部）</OPTION> <OPTION label=5 
+                    value=1302>河北邯郸人民东路证劵营业部</OPTION> <OPTION label=5 
+                    value=1302>河北唐山证券营业部</OPTION> <OPTION label=5 
+                    value=1302>河北沧州沧县交通北大道证券营业部</OPTION> <OPTION label=5 
+                    value=4101>河南济源济水大街证券营业部</OPTION> <OPTION label=5 
+                    value=4103>河南洛阳中州中路证券营业部</OPTION> <OPTION label=5 
+                    value=4101>河南荥阳万山路证券营业部</OPTION> <OPTION label=5 
+                    value=4101>河南郑州花园路证券营业部</OPTION> <OPTION label=6 
+                    value=2302>黑龙江哈尔滨爱建路证券营业部</OPTION> <OPTION label=6 
+                    value=2302>哈尔滨尚志大街营业部（原地段街营业部）</OPTION> <OPTION label=6 
+                    value=2302>黑龙江哈尔滨尚志中央大街证券营业部</OPTION> <OPTION label=6 
+                    value=2302>黑龙江哈尔滨西大直街证券营业部</OPTION> <OPTION label=6 
+                    value=2303>黑龙江齐齐哈尔中环广场证券营业部</OPTION> <OPTION label=4 
+                    value=4208>湖北荆州便河东路证券营业部</OPTION> <OPTION label=4 
+                    value=4201>湖北武汉洞庭街证券营业部</OPTION> <OPTION label=4 
+                    value=4202>湖北武汉京汉大道证券营业部</OPTION> <OPTION label=4 
+                    value=4204>湖北武汉紫阳东路证券营业部</OPTION> <OPTION label=4 
+                    value=4209>湖北襄樊东风汽车大道证券营业部</OPTION> <OPTION label=4 
+                    value=4209>湖北襄樊襄城南街证券营业部</OPTION> <OPTION label=4 
+                    value=4211>湖北宜昌四新路证券营业部</OPTION> <OPTION label=4 
+                    value=4211>湖北宜昌珍珠路证券营业部</OPTION> <OPTION label=4 
+                    value=4302>湖南常德桃源漳江南路证券营业部</OPTION> <OPTION label=4 
+                    value=4302>湖南常德武陵大道证券营业部</OPTION> <OPTION label=4 
+                    value=4301>湖南郴州国庆北路证券营业部</OPTION> <OPTION label=4 
+                    value=4303>湖南衡阳县证券营业部</OPTION> <OPTION label=4 
+                    value=4303>湖南衡阳雁城路证券营业部</OPTION> <OPTION label=4 
+                    value=4301>湖南邵阳西湖路证券营业部</OPTION> <OPTION label=4 
+                    value=4301>湖南湘潭建设南路证券营业部</OPTION> <OPTION label=4 
+                    value=4301>湖南长沙芙蓉中路证券营业部</OPTION> <OPTION label=4 
+                    value=4301>湖南长沙五一大道证券营业部</OPTION> <OPTION label=4 
+                    value=4304>湖南株洲建设中路证券营业部</OPTION> <OPTION label=4 
+                    value=4304>湖南株州长江南路证券营业部</OPTION> <OPTION label=6 
+                    value=2203>吉林桦甸人民路证券营业部</OPTION> <OPTION label=6 
+                    value=2203>吉林龙井繁荣路证券营业部</OPTION> <OPTION label=6 
+                    value=2203>吉林松江路证券营业部</OPTION> <OPTION label=6 
+                    value=2201>吉林长春市长春大街证券营业部</OPTION> <OPTION label=6 
+                    value=2202>吉林长春西安大路证券营业部</OPTION> <OPTION label=6 
+                    value=2204>吉林四平中央东路证券营业部</OPTION> <OPTION label=2 
+                    value=3203>江苏常州广化街证券营业部</OPTION> <OPTION label=2 
+                    value=3202>江苏南京太平南路证券营业部</OPTION> <OPTION label=2 
+                    value=3202>江苏南京中央路证券营业部</OPTION> <OPTION label=2 
+                    value=3202>江苏南京溧水中大街证券营业部</OPTION> <OPTION label=2 
+                    value=3202>江苏无锡人民中路证券营业部</OPTION> <OPTION label=2 
+                    value=3204>江苏邳州解放东路证券营业部</OPTION> <OPTION label=2 
+                    value=3204>江苏徐州解放路证券营业部</OPTION> <OPTION label=3 
+                    value=3608>江西抚州黄巢路证券营业部</OPTION> <OPTION label=3 
+                    value=3608>江西抚州南丰橘都大道证券营业部</OPTION> <OPTION label=3 
+                    value=3604>江西贵溪建设路证券营业部</OPTION> <OPTION label=3 
+                    value=3604>江西贵溪冶金大道营业部（原滨江服务部）</OPTION> <OPTION label=3 
+                    value=3602>江西九江滨江东路营业部(原九江石化服务部)</OPTION> <OPTION label=3 
+                    value=3602>江西九江甘棠路证券营业部</OPTION> <OPTION label=3 
+                    value=3602>江西九江十里大道证券营业部</OPTION> <OPTION label=3 
+                    value=3601>江西南昌进贤岚湖路营业部</OPTION> <OPTION label=3 
+                    value=3601>江西南昌象山北路证券营业部</OPTION> <OPTION label=3 
+                    value=3601>江西南昌站前路证券营业部</OPTION> <OPTION label=3 
+                    value=3607>江西萍乡跃进南路证券营业部</OPTION> <OPTION label=3 
+                    value=3609>江西赣州章江南大道证券营业部</OPTION> <OPTION label=3 
+                    value=3607>江西宜春高安桥北路证券营业部</OPTION> <OPTION label=3 
+                    value=3607>江西宜春中山中路证券营业部</OPTION> <OPTION label=3 
+                    value=3604>江西鹰潭环城西路证券营业部</OPTION> <OPTION label=6 
+                    value=2102>辽宁鞍山新华街证券营业部</OPTION> <OPTION label=6 
+                    value=2105>辽宁大连成义街证券营业部</OPTION> <OPTION label=6 
+                    value=2101>辽宁沈阳黄河南大街证券营业部</OPTION> <OPTION label=6 
+                    value=2102>辽宁沈阳十一纬路营业部（原热闹路营业部）</OPTION> <OPTION label=6 
+                    value=2102>辽宁沈阳新华路营业部</OPTION> <OPTION label=5 
+                    value=1501>内蒙古包头证券营业部</OPTION> <OPTION label=5 
+                    value=1501>内蒙古赤峰证券营业部</OPTION> <OPTION label=5 
+                    value=1501>内蒙古鄂尔多斯证券营业部</OPTION> <OPTION label=5 
+                    value=1501>内蒙古呼和浩特西护城河证券营业部</OPTION> <OPTION label=5 
+                    value=3701>山东济南解放路证券营业部</OPTION> <OPTION label=5 
+                    value=3702>山东济南永庆街证券营业部</OPTION> <OPTION label=5 
+                    value=3704>山东临沂罗四路营业部</OPTION> <OPTION label=5 
+                    value=3704>山东临沂沂蒙路证券营业部</OPTION> <OPTION label=5 
+                    value=3703>山东青岛证券营业部</OPTION> <OPTION label=5 
+                    value=3705>山东潍坊东风东街证券营业部</OPTION> <OPTION label=5 
+                    value=3706>山东济宁吴泰闸路证券营业部</OPTION> <OPTION label=5 
+                    value=1401>山西晋城凤台西街证券营业部</OPTION> <OPTION label=5 
+                    value=1401>山西太原并州北路证券营业部</OPTION> <OPTION label=5 
+                    value=1402>山西离石滨河北东路证券营业部</OPTION> <OPTION label=7 
+                    value=6102>陕西西安东关正街营业部（原陕西营销总部）</OPTION> <OPTION label=7 
+                    value=6102>陕西西安环城南路营业部（原陕西营销总部）</OPTION> <OPTION label=2 
+                    value=3102>上海打浦路证券营业部</OPTION> <OPTION label=2 
+                    value=3105>上海大渡河路证券营业部</OPTION> <OPTION label=2 
+                    value=3109>上海福山路证券营业部</OPTION> <OPTION label=2 
+                    value=3103>上海虹桥路证券营业部</OPTION> <OPTION label=2 
+                    value=3118>上海江苏路VIP</OPTION> <OPTION label=2 
+                    value=3104>上海江苏路证券营业部</OPTION> <OPTION label=2 
+                    value=3101>上海九江路证券营业部</OPTION> <OPTION label=2 
+                    value=3106>上海陆家嘴东路证券营业部</OPTION> <OPTION label=2 
+                    value=3108>上海团结路证券营业部</OPTION> <OPTION label=2 
+                    value=3107>上海牡丹江路证券营业部</OPTION> <OPTION label=2 
+                    value=3110>上海商城路证券营业部</OPTION> <OPTION label=2 
+                    value=3111>上海四平路证券营业部</OPTION> <OPTION label=2 
+                    value=3114>上海天山路营业部（原水城路营业部）</OPTION> <OPTION label=2 
+                    value=3119>上海威海路证券营业部</OPTION> <OPTION label=2 
+                    value=3115>上海延平路证券营业部</OPTION> <OPTION label=2 
+                    value=3116>上海杨树浦路证券营业部</OPTION> <OPTION label=2 
+                    value=3113>上海宜山路第二证券营业部</OPTION> <OPTION label=2 
+                    value=3120>上海松江中山东路证券营业部</OPTION> <OPTION label=2 
+                    value=3121>上海嘉定塔城路证券营业部</OPTION> <OPTION label=3 
+                    value=4406>深圳深南东路证券营业部（原爱国路营业部）</OPTION> <OPTION label=3 
+                    value=4404>深圳蔡屋围金华街证券营业部</OPTION> <OPTION label=3 
+                    value=4408>深圳福华三路证券营业部</OPTION> <OPTION label=3 
+                    value=4405>深圳观澜营业部</OPTION> <OPTION label=3 
+                    value=4413>深圳海岸城海德三道营业部</OPTION> <OPTION label=3 
+                    value=4409>深圳华发路证券营业部</OPTION> <OPTION label=3 
+                    value=4415>深圳华强北路证券营业部</OPTION> <OPTION label=3 
+                    value=4420>深圳龙华梅龙中路证券营业部</OPTION> <OPTION label=3 
+                    value=4411>深圳人民南路证券营业部</OPTION> <OPTION label=3 
+                    value=4412>深圳上步中路证券营业部</OPTION> <OPTION label=3 
+                    value=4410>深圳红荔西路证券营业部(原深南中路)</OPTION> <OPTION label=3 
+                    value=4414>深圳松岗证券营业部</OPTION> <OPTION label=3 
+                    value=4405>深圳笋岗路证券营业部</OPTION> <OPTION label=3 
+                    value=4416>深圳益田路证券营业部</OPTION> <OPTION label=8 
+                    value=5101>四川成都北一环路证券营业部</OPTION> <OPTION label=8 
+                    value=5102>四川成都建设路证券营业部</OPTION> <OPTION label=8 
+                    value=5103>四川成都顺城大街证券营业部</OPTION> <OPTION label=8 
+                    value=5105>四川泸州星光路证券营业部</OPTION> <OPTION label=8 
+                    value=5105>泸州纳溪区云溪东路证券营业部</OPTION> <OPTION label=8 
+                    value=5111>四川雅安东大街证券营业部</OPTION> <OPTION label=5 
+                    value=1205>天津环湖中路证券营业部（原天津营销总部）</OPTION> <OPTION label=5 
+                    value=1205>天津静海县胜利北路证券营业部</OPTION> <OPTION label=5 
+                    value=1205>天津新开路证券营业部（原天津营销总部）</OPTION> <OPTION label=5 
+                    value=1205>天津塘沽上海道营业部（原天津营销总部）</OPTION> <OPTION label=5 
+                    value=1205>天津西市大街证券营业部（原天津营销总部）</OPTION> <OPTION label=7 
+                    value=6501>新疆乌鲁木齐建设路证券营业部</OPTION> <OPTION label=8 
+                    value=5301>云南个旧金湖西路证券营业部</OPTION> <OPTION label=8 
+                    value=5301>云南昆明人民中路证券营业部</OPTION> <OPTION label=8 
+                    value=5301>云南丽江福慧路证券营业部</OPTION> <OPTION label=8 
+                    value=5301>云南潞西团结大街证券营业部</OPTION> <OPTION label=8 
+                    value=5301>云南文山普阳路证券营业部</OPTION> <OPTION label=2 
+                    value=3301>浙江杭州庆春路营业部（原浙江营销总部）</OPTION> <OPTION label=2 
+                    value=3305>浙江临海巾山中路证券营业部</OPTION> <OPTION label=2 
+                    value=3302>浙江宁波彩虹北路营业部（原浙江宁波营业部）</OPTION> <OPTION label=2 
+                    value=3302>浙江宁波镇海庄市兴庄路证券营业部</OPTION> <OPTION label=2 
+                    value=3304>浙江衢州柯城证券营业部</OPTION> <OPTION label=2 
+                    value=3306>浙江绍兴中兴中路证券营业部</OPTION> <OPTION label=2 
+                    value=3305>浙江天台环城东路证券营业部</OPTION> <OPTION label=2 
+                    value=3305>浙江仙居酒坊巷证券营业部</OPTION> <OPTION label=2 
+                    value=3302>浙江余姚阳明西路营业部（原浙江宁波营业部）</OPTION> <OPTION label=2 
+                    value=3307>浙江永嘉阳光大道证券营业部</OPTION> <OPTION label=2 
+                    value=3308>浙江金华环城东路证券营业部</OPTION> <OPTION label=2 
+                    value=3309>浙江嘉兴中山西路证券营业部</OPTION> <OPTION label=8 
+                    value=5108>重庆奉节证券营业部</OPTION> <OPTION label=8 
+                    value=5107>重庆九尺坎证券营业部</OPTION> <OPTION label=8 
+                    value=5108>重庆民生路证券营业部</OPTION> <OPTION label=8 
+                    value=5108>重庆万州太白岩证券营业部</OPTION> <OPTION label=8 
+                    value=5110>重庆巫山证券营业部</OPTION> <OPTION label=8 
+                    value=5107>重庆新南路证券营业部</OPTION> <OPTION label=8 
+                    value=5110>重庆中山三路证券营业部</OPTION> <OPTION label=8 
+                    value=5110>重庆忠县证券营业部</OPTION></SELECT> </TD></TR>
+              <TR>
+                <TD class=login-font align=right>帐户类型 ： </TD>
+                <TD class=login-font colSpan=2><SELECT 
+                  style="BORDER-BOTTOM: #9e9e9e 1px solid; BORDER-LEFT: #9e9e9e 1px solid; WIDTH: 180px; COLOR: #3c4e6d; BORDER-TOP: #9e9e9e 1px solid; BORDER-RIGHT: #9e9e9e 1px solid" 
+                  id=countType onchange=checkAccountType() name=countType> 
+                    <OPTION selected value=Z>资金帐户</OPTION> <OPTION 
+                    value=1>上海A股</OPTION> <OPTION value=D>上海B股</OPTION> <OPTION 
+                    value=2>深圳A股</OPTION> <OPTION value=H>深圳B股</OPTION> <OPTION 
+                    value=9>特殊转让</OPTION> <OPTION value=Y>[工行]牡丹国泰君安灵通卡</OPTION> 
+                    <OPTION value=Y>[建行]国泰君安龙卡</OPTION> <OPTION 
+                    value=Y>[招行]国泰君安银证直通卡</OPTION> <OPTION 
+                    value=Y>[兴业]兴业国泰君安银证联名卡</OPTION> <OPTION 
+                    value=Y>[交行]太平洋国泰君安卡</OPTION> <OPTION 
+                    value=Y>[农行]农业银行联名卡</OPTION></SELECT> </TD></TR>
+              <TR>
+                <TD class=login-font align=right>帐号 ： </TD>
+                <TD class=login-font colSpan=2><SPAN id=inputidObjBox><INPUT 
+                  onblur=checkMsg();checkInner() id=inputid class=input 
+                  name=inputid> <BR><SPAN id=tmpInputId></SPAN></SPAN></TD></TR>
+              <TR>
+                <TD class=login-font align=right></TD>
+                <TD class=login-font colSpan=2><SPAN>支持融资融券帐号登录</SPAN> </TD></TR><!-- 密码区域 begin -->
+              <TR>
+                <TD class=login-font align=right>交易密码 ： </TD>
+                <TD class=login-font colSpan=2><SPAN id=pwdObjBox2><INPUT 
+                  onblur=checkInner() style="WIDTH: 110px" id=password 
+                  class=input name=trdpwd maxLength=8 size=15 type=password> 
+                  <IMG id=keyboard name=keyboard src="富通页面交易_files/jianp.gif"> 
+                  </SPAN><BR><SPAN id=tmpTrdpwd></SPAN></TD></TR><!-- 密码区域 end -->
+
+                  <!--
+              <TR>
+                <TD class=login-font align=right>验证码 ： </TD>
+                <TD class=login-font><SPAN id=AppendCodeObjBox1><INPUT 
+                  onblur=checkInner();hiddenChar(); 
+                  style="WIDTH: 110px; IME-MODE: disabled" 
+                  onkeydown=submitMe(event); id=AppendCode class=input 
+                  onfocus=showChar(); name=AppendCode size=15> 
+                  <DIV id=tmpAppendCode><FONT color=red></FONT></DIV></SPAN></TD>
+                <TD class=login-font width=130><SPAN id=AppendCodeObjBox2><IMG 
+                  style="CURSOR: pointer" id=captchaImage title=看不清楚？点击换一张 
+                  onclick=refreshCaptcha() border=0 align=absBottom 
+                  src="富通页面交易_files/verifyCodeImage.jpg"><SPAN 
+                  style="DISPLAY: none; FONT-SIZE: 10px" 
+                  id=character>不区分大小写</SPAN><BR><A 
+                  href="javascript:refreshCaptcha()">看不清？换一张</A> </SPAN></TD></TR>
+                  -->
+              <TR id=msgTR>
+                <TD class=login-font align=right>预留信息：</TD>
+                <TD vAlign=middle colSpan=2 align=left>
+                  <DIV style="VISIBILITY: hidden" id=msgDiv></DIV></TD></TR>
+              <TR>
+                <TD>&nbsp;</TD>
+                <TD class=login-font><IMG style="CURSOR: pointer" 
+                  id=confirmBtn onclick=submitLogonForm() border=0 
+                  src="富通页面交易_files/but_dl.jpg"> <!--input type="image" src="/webtrade/pic/login/but_dl.jpg" width="53" height="21" border="0" --></TD>
+                <TD>&nbsp;</TD></TR>
+              <TR>
+                <TD colSpan=3 align=right>
+                  <DIV style="DISPLAY: none; COLOR: #ff0000; PADDING-TOP: 10px" 
+                  id=setupActiveX>
+                  <DIV style="WIDTH: 100px; FLOAT: left; PADDING-TOP: 5px" 
+                  id=canntIn><A style="TEXT-DECORATION: underline" 
+                  href="http://www.gtja.com/help/list_nr.jsp?id=1884" 
+                  target=_blank>无法输入密码？</A> </DIV>
+                  <DIV style="WIDTH: 50px; FLOAT: left"><IMG 
+                  style="CURSOR: pointer" onclick=downExe(); 
+                  src="富通页面交易_files/pw_enter2.png"> 
+            </DIV></DIV></TD></TR></TBODY></TABLE></TD>
+          <TD></TD></TR>
+        <TR>
+          <TD height=252 vAlign=top align=center>
+            <DIV style="DISPLAY: inline" id=div1>
+            <TABLE border=0 cellSpacing=0 cellPadding=0>
+              <TBODY>
+              <TR background="/webtrade/pic/login-title-bg.gif">
+                <TD height=15 
+                  width=335><!-- class="login-title" --><STRONG><FONT 
+                  color=#ff0000>通常情况下，国泰君安证券的行情交易系统是非常安全的，但是为防止病毒木马侵害您的网上交易安全，我们建议您采取以下有效手段：</FONT> 
+<!--关于安全使用富通Web交易系统的重要提示 --></STRONG></TD></TR></TBODY></TABLE>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width=350>
+              <TBODY>
+              <TR>
+                <TD 
+                style="BACKGROUND-REPEAT: repeat-x; BACKGROUND-POSITION: center 50%" 
+                background=富通页面交易_files/ico3.gif></TD></TR>
+              <TR>
+                <TD style="LINE-HEIGHT: 23px" 
+                  class=login-font>1、安装防木马病毒的软件，及时升级杀毒软件并定期查杀病毒； <BR>2、及时更新系统补丁； 
+                  <BR>3、尽量不要在公开电脑上（如网吧）进行账户相关操作； 
+                  <BR>4、进行网上交易时，注意周边人员，防止账户信息被窥取。进行完交易后一定要安全退出软件； 
+                  <BR>5、平时不要轻易打开不明邮件，或通过聊天工具传送的链接； 
+                  <BR>6、发现账号密码异常后，应尽快联系开户所在营业部处理。 
+                  <BR><BR>为了保障网上交易安全，我们还采用了多重保护措施。<A style="COLOR: #ff0000" 
+                  title=点击进入 
+                  href="http://www.gtja.com/help/list_nr.jsp?id=1884#123" 
+                  target=_blank>查看详情</A>。 </TD><!--
+                                                <td class="login-font">
+                                                    <font color="#FF0000">1、为了更好的保证您的资金安全，富通新增预留信息功能； </font>
+                                                    <br>
+                                                    2、安装正版反病毒软件和防火墙软件，并及时升级更新；
+                                                    <br>
+                                                    3、下载安装最新的操作系统和浏览器安全补丁或程序；
+                                                    <br>
+                                                    4、定请勿在网吧或公用计算机上进行网上交易；
+                                                    <br>
+                                                    5、长时间不操作计算机时，请关机或中断计算机网络；
+                                                    <br>
+                                                    6、若您登录“富通”后如需退出，不要直接关闭浏览器，请点击系统右上角的“退出系统”结束使用；
+                                                </td>                                            
+                                            --><!--
+                                                <td class="login-font">
+                                                    <font color="#FF0000">为确保您安全使用富通Web交易系统，保障您的资金安全，请务必做到：
+                                                    </font>
+                                                    <br>
+                                                    1、安装正版反病毒软件和防火墙软件，并及时升级更新；<br>2、使用Windows XP的客户，请打开Windows XP自带的防火墙；<br>3、下载安装最新的操作系统和浏览器安全补丁或程序；<br>4、请勿在网吧或公用计算机上进行网上交易；<br>5、长时间不操作计算机时，请关机或中断计算机网络；<br>6、若您登录“富通”后如需退出，不要直接关闭浏览器，请点击系统右上角的“退出系统”结束使用
+                                                </td>
+                                            --></TR>
+              <TR>
+                <TD>
+                  <TABLE style="PADDING-TOP: 5px" border=0 cellSpacing=0 
+                  cellPadding=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD style="PADDING-TOP: 15px" class=login-font 
+                        vAlign=top>除了页面交易，我们更为您提供多套行情交易软件，供您选择！&gt;&gt; <A 
+                        style="COLOR: #ff0000" 
+                        href="http://www.gtja.com/jccy/softdownload.html" 
+                        target=_blank>下载软件</A> </TD>
+                      <TD vAlign=middle width=113 align=right><A 
+                        href="https://seal.verisign.com/splash?form_file=fdf/splash.fdf&amp;dn=TRADE.GTJA.COM&amp;lang=zh_cn" 
+                        target=_blank><IMG border=0 src="富通页面交易_files/vcode.gif" 
+                        width=113 height=69> 
+              </A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV>
+            <DIV style="DISPLAY: none" id=div2>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width=300>
+              <TBODY>
+              <TR>
+                <TD height=6 colSpan=3></TD></TR>
+              <TR background="/webtrade/pic/login-title-bg.gif">
+                <TD class=login-title height=19 width=24><IMG 
+                  style="MARGIN-BOTTOM: -3px" src="富通页面交易_files/ico2.gif"> </TD>
+                <TD class=login-title height=19 
+                  width=263><STRONG>安全认证</STRONG> </TD>
+                <TD class=login-title height=19 width=13 
+              align=right></TD></TR></TBODY></TABLE>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width=350>
+              <TBODY>
+              <TR>
+                <TD height=10></TD></TR>
+              <TR>
+                <TD class=login-font><FONT 
+                  color=red>1、为了更好的保证您的资金安全，富通新增预留信息功能； 
+                  </FONT><BR>2、安装正版反病毒软件和防火墙软件，并及时升级更新； 
+                  <BR>3、下载安装最新的操作系统和浏览器安全补丁或程序； <BR>4、定请勿在网吧或公用计算机上进行网上交易； 
+                  <BR>5、长时间不操作计算机时，请关机或中断计算机网络； 
+                  <BR>6、若您登录“富通”后如需退出，不要直接关闭浏览器，请点击系统右上角的“退出系统”结束使用； 
+              </TD></TR></TBODY></TABLE></DIV>
+            <DIV style="DISPLAY: none" id=div3>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width=300>
+              <TBODY>
+              <TR>
+                <TD height=6 colSpan=3></TD></TR>
+              <TR background="/webtrade/pic/login-title-bg.gif">
+                <TD class=login-title height=19 width=24><IMG 
+                  style="MARGIN-BOTTOM: -3px" src="富通页面交易_files/ico2.gif"> </TD>
+                <TD class=login-title height=19 
+                  width=263><STRONG>常见问题</STRONG> </TD>
+                <TD class=login-title height=19 width=13 align=right></TD></TR>
+              <TR>
+                <TD 
+                style="BACKGROUND-REPEAT: repeat-x; BACKGROUND-POSITION: center 50%" 
+                background=富通页面交易_files/ico3.gif 
+colSpan=3></TD></TR></TBODY></TABLE>
+            <DIV style="HEIGHT: 140px" id=divCCCCCC></DIV>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width=350>
+              <TBODY>
+              <TR>
+                <TD align=right><A 
+                  href="https://seal.verisign.com/splash?form_file=fdf/splash.fdf&amp;dn=TRADE.GTJA.COM&amp;lang=zh_cn" 
+                  target=_blank><IMG border=0 src="富通页面交易_files/vcode.gif" 
+                  width=113 height=69> </A></TD></TR></TBODY></TABLE></DIV>
+            <DIV style="DISPLAY: none" id=div4>
+            <TABLE border=0 cellSpacing=0 cellPadding=0>
+              <TBODY>
+              <TR background="/webtrade/pic/login-title-bg.gif">
+                <TD class=login-title height=15 width=24><IMG 
+                  style="MARGIN-BOTTOM: -3px; MARGIN-LEFT: 5px" 
+                  src="富通页面交易_files/ico2.gif"> </TD>
+                <TD height=15 width=335><STRONG><FONT 
+                  color=#ff0000>国泰君安证券隆重推出服务密码，给您全新的功能体验：</FONT> 
+              </STRONG></TD></TR></TBODY></TABLE>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width=350>
+              <TBODY>
+              <TR>
+                <TD 
+                style="BACKGROUND-REPEAT: repeat-x; BACKGROUND-POSITION: center 50%" 
+                background=富通页面交易_files/ico3.gif></TD></TR>
+              <TR>
+                <TD style="LINE-HEIGHT: 23px" class=login-font>
+                  <P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;国泰君安证券网站“客户专区”采用<SPAN 
+                  style="COLOR: #ff0000">服务密码</SPAN>登录，从此无需频繁使用交易密码，账户安全多一层保障，让您的日常使用“<B>更安心</B>”。</P>
+                  <P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用服务密码登录后，您即可享受国泰君安证券各种优质服务，后续更有闪易集成版等缤纷特色服务，让您的服务体验“<B>更丰富</B>”。</P>
+                  <P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;今后所有的服务系统均可做到免登录切换，让您的操作过程“<B>更便捷</B>”。</P>
+                  <P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;登录<SPAN 
+                  style="COLOR: #ff0000">富通</SPAN>页面交易后，您即可在“修改信息”菜单中设置服务密码。</P></TD></TR></TBODY></TABLE><!--
+                                       	--></DIV></TD></TR></TBODY></TABLE></TD>
+    <TD>&nbsp; </TD></TR></TBODY></TABLE></CENTER>
+<TABLE border=0 cellSpacing=0 cellPadding=0 align=center>
+  <TBODY>
+  <TR>
+    <TD height=3></TD></TR></TBODY></TABLE><!--
+        -->
+<CENTER>
+<TABLE style="MARGIN-TOP: -3px; BACKGROUND-REPEAT: no-repeat" border=0 
+cellSpacing=0 cellPadding=0 width=755 background=富通页面交易_files/con_bg3.jpg 
+align=center>
+  <TBODY>
+  <TR>
+    <TD class=bzb_dl_ie>
+      <DIV><IMG style="MARGIN-BOTTOM: -2px; MARGIN-RIGHT: 2px" 
+      src="富通页面交易_files/ico4.gif"> <A 
+      href="javascript:changeSSL('true','common')">加强版登录</A><!--  --> </DIV></TD>
+    <TD width=2></TD>
+    <TD class="jqb_dl_ie red_lj">
+      <DIV style="MARGIN-BOTTOM: -2px"><A 
+      href="javascript:changeSSL('false','common')">标准登录</A> </DIV></TD>
+    <TD width=2></TD>
+    <TD class=bzb_dl_ie>
+      <DIV style="MARGIN-BOTTOM: -2px"><A 
+      href="javascript:changeSSL('false','ukey')">证书登录</A> </DIV></TD><!-- 动态密码 2010.7.14 -->
+    <TD width=2></TD>
+    <TD class=bzb_dl_ie>
+      <DIV style="MARGIN-BOTTOM: -2px"><A 
+      href="javascript:changeSSL('false','dynamicpwd')">动态密码</A> </DIV></TD>
+    <TD>
+      <TABLE style="MARGIN: 0px auto" width="99%" align=center>
+        <TBODY>
+        <TR>
+          <TD width="5%"><IMG src="富通页面交易_files/ico5.gif" width=13 
+          height=11></TD>
+          <TD width="62%"><A href="http://www.gtja.com/kfdh/index.html" 
+            target=_blank>客服热线：4008-888-666（或95521）</A></TD>
+          <TD width="33%" align=right>国泰君安 
+  版权所有</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER></FORM><MAP 
+name=Map><AREA 
+  href="https://trade.gtja.com/webtrade/trade/webTradeAction.do?method=preLogin&amp;language=zh" 
+  shape=rect coords=173,58,202,79><AREA 
+  href="https://trade.gtja.com/webtrade/trade/webTradeAction.do?method=preLogin&amp;language=tw" 
+  shape=rect coords=222,59,249,78></MAP>
+<SCRIPT language=javascript src="富通页面交易_files/keyboard.htm">
+<script language="javascript">
+
+ function gotoPage(pageid){
+  var url="/webtrade/generalQuestionAction.do";
+  var pars="method=list&pageid="+pageid;
+  var myAjax = new Ajax.Updater('div3', url, {method: 'post', parameters: pars,evalScripts:true});
+ }
+function openwin(id){
+        window.open('/webtrade/generalQuestionAction.do?method=view&id='+id,'ddddd','toolbar=no,resizable=yes,scrollbars=yes,dependent=no,width=550,height=300,left=100,top=150');
+    }
+</SCRIPT>
+
+<SCRIPT language=javascript>
+DetectActiveX(); 
+//证书登录
+
+init();
+password1=null;
+    //密码键盘
+	initCalc();
+	try{
+		document.getElementById("keyboard").onclick=Function("password1=document.getElementById('password');showkeyboard();Calc.password.value='';");
+	}catch(e){}
+
+
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript>
+function MM_openBrWindow(theURL,winName,features)
+{ //v2.0
+  window.open(theURL,winName,features);
+}
+function MM_openBrWindow1(theURL)
+{ //v2.0
+  window.location.replace(theURL);
+}
+    window.document.onkeydown = function(e){
+        var isIE = document.all ? true : false;
+        var e = window.event || e;
+        var srcE = isIE ? e.srcElement : e.target;
+        if(e.keyCode != 13 ) return;
+        
+        
+        if(srcE.id=='inputid') $('password').focus();
+        
+        else if(srcE.id=='password') $('AppendCode').focus();
+        
+    }
+function refreshCaptcha(){
+    document.getElementById("captchaImage").src="/webtrade/commons/verifyCodeImage.jsp?ran="+Math.random();
+}
+
+	//大厅
+	_showBranchFromDaTing('');
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+		/**
+		* 计算浏览器的可用高度，处理菜单打开时被遮住的问题
+		* wanglei 20110627
+		**/
+		var winHeight = 0;
+		function findDimensions()
+		{
+			//获取窗口高度
+			 if(window.innerHeight){
+			 	winHeight = window.innerHeight;
+			 }else if((document.body) && (document.body.clientHeight))
+			 	winHeight = document.body.clientHeight;
+			//通过深入Document内部对body进行检测，获取窗口大小
+			if(document.documentElement&& document.documentElement.clientHeight)
+			{
+				winHeight = document.documentElement.clientHeight;
+			}
+			//结果输出至两个文本框
+			document.loginfrm.availHeight.value= winHeight;
+		}
+		findDimensions();//调用函数，获取数值window.onresize=findDimensions;// 
+</SCRIPT>
+</BODY></HTML>

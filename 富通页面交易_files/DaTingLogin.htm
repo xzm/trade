@@ -1,0 +1,53 @@
+function _showBranchFromDaTing(p) {
+	if (p != null && p.length > 0 && p != "null") {
+		var pArray = p.split(";");
+		if (pArray != null && pArray.length >= 5) {
+			DATING_switchBranchOption(pArray[0], pArray[1]);
+		    
+		    if (pArray[2] != "") {
+		    	DATING_switchAccountType(pArray[2]);
+		    }
+		    if (pArray[3] != "") {
+		    	document.getElementById("inputid").value = pArray[3];
+		    }
+		    
+		    document.getElementById("gtja_dating_login_type").value = pArray[4];
+		}
+	}
+}
+
+/**
+ * 根据传入的机构Id,Name设置下拉表
+ */
+function DATING_switchBranchOption(branchId, branchName) {
+	if (branchId != "" && branchName != "") {
+		var i;
+		var oOption;
+		var element;
+		var len = document.getElementById("BranchCode").options.length;
+		    
+		for (i = 0; i < len; i++) {
+			document.getElementById("BranchCode").remove(0);
+		}
+		
+		element = document.createElement("OPTION");
+		element.value = branchId;
+		element.text = branchName;
+		document.getElementById("BranchCode").options.add(element);
+		document.getElementById("BranchName").value = branchName;
+	}			
+}
+/**
+ * 设置账户类型
+ */
+function DATING_switchAccountType(type) {
+	var o = document.getElementById("countType");
+	var select_len = o.options.length;
+	for (var i = 0; i < select_len; i++) {
+		if (o.options[i].value == type) {
+			//alert(o.options[i].value);
+			//alert(o[i].text);
+			o.options[i].selected = i;
+		}
+	}
+}   
