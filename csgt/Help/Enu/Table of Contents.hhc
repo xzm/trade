@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<OBJECT type="text/site properties">
+	<param name="ImageType" value="Folder">
+</OBJECT>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Welcome to Ninebulls China Stock">
+		<param name="Local" value="htm\index.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Functions">
+		<param name="Local" value="htm\func.htm">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Investment strategy design">
+			<param name="Local" value="htm\func.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Strategy-guide trading">
+			<param name="Local" value="htm\func.htm#func2">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Strategy reports">
+			<param name="Local" value="htm\func.htm#func3">
+			<param name="URL" value="htm\func.htm#func3">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Stock list with sorted base information and marketing data">
+			<param name="Local" value="htm\func.htm#func4">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="User-defined stock-list and re-calculated items">
+			<param name="Local" value="htm\func.htm#func5">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Domains and groups management and statistics">
+			<param name="Local" value="htm\func.htm#func6">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Abundant mechanical indicators">
+			<param name="Local" value="htm\func.htm#func7">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Dynamic-calculated historical price chart">
+			<param name="Local" value="htm\func.htm#func8">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Predicate new data added into chart">
+			<param name="Local" value="htm\func.htm#func9">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Data management">
+			<param name="Local" value="htm\func.htm#func10">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="User  Manual">
+		<param name="Local" value="htm\menu.htm">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Menu handbook">
+			<param name="Local" value="htm\menu.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Toolbar handbook">
+			<param name="Local" value="htm\toolbar.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Shortcut keys">
+			<param name="Local" value="htm\acce.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="How to buy?">
+		<param name="Local" value="htm/purchase.htm">
+		</OBJECT>
+</UL>
+</BODY></HTML>

@@ -1,0 +1,674 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resrc1.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "resource.h"
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_EXT_COLOR_DIALOG DIALOGEX 0, 0, 230, 185
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "选择颜色..."
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    LTEXT           "类别：",IDC_STATIC,6,9,26,9
+    COMBOBOX        IDC_COMBO_SEL_TYPE,34,7,189,57,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "",IDC_STATIC_HEX_FULL,7,25,139,130,NOT WS_TABSTOP
+    RTEXT           "红色",IDC_STATIC_R,149,26,35,10
+    EDITTEXT        IDC_EDIT_R,188,24,35,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_R,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,213,28,12,
+                    7
+    RTEXT           "绿色",IDC_STATIC_G,149,38,35,10
+    EDITTEXT        IDC_EDIT_G,188,36,35,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_G,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,213,40,12,
+                    7
+    RTEXT           "蓝色",IDC_STATIC_B,149,51,35,10
+    EDITTEXT        IDC_EDIT_B,188,49,35,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_B,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,213,53,12,
+                    7
+    RTEXT           "青色",IDC_STATIC_C,149,66,35,10
+    EDITTEXT        IDC_EDIT_C,188,65,35,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_C,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,213,69,12,
+                    7
+    RTEXT           "洋红",IDC_STATIC_M,149,79,35,10
+    EDITTEXT        IDC_EDIT_M,188,77,35,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_M,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,213,81,12,
+                    7
+    RTEXT           "黄色",IDC_STATIC_Y,149,92,35,10
+    EDITTEXT        IDC_EDIT_Y,188,90,35,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_Y,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,213,94,12,
+                    7
+    RTEXT           "色调",IDC_STATIC_H,149,108,35,10
+    EDITTEXT        IDC_EDIT_H,188,106,35,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_H,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,213,109,
+                    12,7
+    RTEXT           "饱和度",IDC_STATIC_S,149,121,35,10
+    EDITTEXT        IDC_EDIT_S,188,119,35,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_S,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,213,123,
+                    12,7
+    RTEXT           "亮度",IDC_STATIC_L,149,134,35,10
+    EDITTEXT        IDC_EDIT_L,188,132,35,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_L,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,213,136,
+                    12,7
+    RTEXT           "新选颜色",IDC_STATIC_TXT_NEW,149,152,35,10
+    PUSHBUTTON      "",IDC_STATIC_CMP,188,149,35,29,NOT WS_TABSTOP
+    RTEXT           "原来颜色",IDC_STATIC_TXT_CURRENT,149,166,35,10
+    DEFPUSHBUTTON   "确定",IDOK,7,162,50,16
+    PUSHBUTTON      "取消",IDCANCEL,62,162,50,16
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_EXT_COLOR_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 223
+        VERTGUIDE, 140
+        VERTGUIDE, 149
+        VERTGUIDE, 184
+        VERTGUIDE, 188
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 178
+        HORZGUIDE, 36
+        HORZGUIDE, 48
+        HORZGUIDE, 61
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_EXT_COLOR_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_SEL_TYPE, 0x403, 10, 0
+0xbb20, 0xb1f9, 0xd1be, 0xc9d5, 0x00ab, 
+    IDC_COMBO_SEL_TYPE, 0x403, 30, 0
+0xc920, 0xb5ab, 0xa3f7, 0xb1ac, 0xbaa5, 0xb6cd, 0xa3c8, 0xc1ac, 0xb6c1, 
+0x20c8, 0xaaa1, 0xbb20, 0xbaec, 0xc6cf, 0x00f7, 
+    IDC_COMBO_SEL_TYPE, 0x403, 32, 0
+0xc920, 0xb5ab, 0xa3f7, 0xb1ac, 0xbaa5, 0xb6cd, 0xa3c8, 0xc1ac, 0xb6c1, 
+0x20c8, 0xaaa1, 0xbb20, 0xb1f9, 0xc9be, 0xb2ab, 0x00ca, 
+    IDC_COMBO_SEL_TYPE, 0x403, 28, 0
+0xc920, 0xb5ab, 0xa3f7, 0xb1ac, 0xbaa5, 0xb6cd, 0xa3c8, 0xc1ac, 0xb6c1, 
+0x20c8, 0xaaa1, 0xb920, 0xcdf6, 0x00b2, 
+    IDC_COMBO_SEL_TYPE, 0x403, 22, 0
+0xba20, 0xa3ec, 0xc2ac, 0xa3cc, 0xc0ac, 0x20b6, 0xaaa1, 0xc120, 0xb7a2, 
+0xccbd, 0x00e5, 
+    IDC_COMBO_SEL_TYPE, 0x403, 22, 0
+0xba20, 0xa3ec, 0xc2ac, 0xa3cc, 0xc0ac, 0x20b6, 0xaaa1, 0xbb20, 0xbaec, 
+0xc6cf, 0x00f7, 
+    IDC_COMBO_SEL_TYPE, 0x403, 12, 0
+0xbb20, 0xb6d2, 0xbbc8, 0xbaec, 0xc6cf, 0x00f7, 
+    IDC_COMBO_SEL_TYPE, 0x403, 28, 0
+0xc720, 0xc9e0, 0xa3ab, 0xd1ac, 0xbaf3, 0xa3ec, 0xbbac, 0xc9c6, 0x20ab, 
+0xaaa1, 0xc120, 0xb7a2, 0xccbd, 0x00e5, 
+    IDC_COMBO_SEL_TYPE, 0x403, 28, 0
+0xc720, 0xc9e0, 0xa3ab, 0xd1ac, 0xbaf3, 0xa3ec, 0xbbac, 0xc9c6, 0x20ab, 
+0xaaa1, 0xbb20, 0xbaec, 0xc6cf, 0x00f7, 
+    IDC_COMBO_SEL_TYPE, 0x403, 8, 0
+0xba20, 0xc9ec, 0xd6ab, 0x00e1, 
+    IDC_COMBO_SEL_TYPE, 0x403, 8, 0
+0xc220, 0xc9cc, 0xd6ab, 0x00e1, 
+    IDC_COMBO_SEL_TYPE, 0x403, 8, 0
+0xc020, 0xc9b6, 0xd6ab, 0x00e1, 
+    IDC_COMBO_SEL_TYPE, 0x403, 8, 0
+0xc720, 0xc9e0, 0xd6ab, 0x00e1, 
+    IDC_COMBO_SEL_TYPE, 0x403, 8, 0
+0xd120, 0xbaf3, 0xd6ec, 0x00e1, 
+    IDC_COMBO_SEL_TYPE, 0x403, 8, 0
+0xbb20, 0xc9c6, 0xd6ab, 0x00e1, 
+    0
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resrc1.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""resource.h""\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_EXT_MENU_HLINK_POPUP MENU DISCARDABLE 
+BEGIN
+    POPUP "__POPUP__"
+    BEGIN
+        MENUITEM "&Open",                       ID_EXT_MENU_HLINK_OPEN
+        MENUITEM "&Copy shortcut",              ID_EXT_MENU_HLINK_COPY
+        MENUITEM SEPARATOR
+        MENUITEM "&Edit",                       ID_EXT_MENU_HLINK_EDIT
+        MENUITEM "&Print",                      ID_EXT_MENU_HLINK_PRINT
+        MENUITEM SEPARATOR
+        MENUITEM "Add to &favorites",           ID_EXT_MENU_HLINK_ADD_TO_FAVORITES
+
+        MENUITEM "Add to &desktop",             ID_EXT_MENU_HLINK_ADD_TO_DESKTOP
+
+        MENUITEM SEPARATOR
+        MENUITEM "P&roperties",                 ID_EXT_MENU_HLINK_PROPERTIES
+    END
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,1,1,2
+ PRODUCTVERSION 2,1,1,2
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "Profession User Interface Suit DLL\0"
+            VALUE "FileVersion", "2, 1, 1, 2\0"
+            VALUE "InternalName", "Profession User Interface Suit DLL\0"
+            VALUE "LegalCopyright", "Copyright (C) Foss-On-Line Corp. 2002\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "prof-uis.dll\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "Profession User Interface Suit\0"
+            VALUE "ProductVersion", "2, 1, 1, 2\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDD_EXT_COLOR_DIALOG    ICON    DISCARDABLE     "idd_ext_.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_VALUE_IN_RNG_255    "Value must be in range 0..255"
+    IDS_ACTIVE_DOCUMENT     "Active document"
+    IDS_RECENT_FILE_FMT_1   "Recent file %d"
+    IDS_RECENT_FILE_FMT_2   "Recent file %d (""%s"")"
+    IDS_DOCUMENT_NAME_FMT   "Document ""%s"""
+    IDS_MDI_MORE_WINDOWS    "More Windows"
+    IDS_MDI_MANAGE_OPENED_WINDOWS "Manage opened document windows"
+    IDS_SHOW_HIDE_PANELS    "显示或隐藏工具条(&S)"
+    IDS_COLOR_CUSTOM        "自定义颜色..."
+    IDS_COLOR_DEFAULT       "缺省颜色"
+    IDS_OUTLOOK_FIELDS      "Fields: "
+    IDS_OUTLOOK_NO_ITEMS    "There are no items to show in this view."
+    IDS_OUTLOOK_SORT_BY_FMT "Sort by: %s"
+    IDS_EXT_APP_CRASH_FMT   "Exception caught in module:\n   %s\nFile:\n   %s\nVersion: %s\nOS information: %s\n"
+    IDS_EXT_HLINK_RTF_TOOLTIP_FMT 
+                            "{\rtf1\\bnsi\\bnsicpg1251\\deff0\\deflang1049{\\fonttbl{\\f0\\fswiss\\fcharset0 Arial;}}\n{\\colortbl ;\red0\\green0\\blue0;\red0\\green0\\blue255;}\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs20 Hyperlink \\""%s\\""\\par\n\\cf2\\b0    %s\\par\n}\n"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_EXT_DCTRL_DAYS      "day(s) "
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EXT_MENU_HLINK_EDIT  "Edit shortcut\nEdit shortcut"
+    ID_EXT_MENU_HLINK_OPEN  "Open shortcut\nOpen shortcut"
+    ID_EXT_MENU_HLINK_PRINT "Print shortcut\nPrint shortcut"
+    ID_EXT_MENU_HLINK_COPY  "Copy shortcut to clipboard\nCopy shortcut to clipboard"
+    ID_EXT_MENU_HLINK_ADD_TO_FAVORITES 
+                            "Add shortcut to favorites\nAdd shortcut to favorites"
+    ID_EXT_MENU_HLINK_ADD_TO_DESKTOP 
+                            "Add shortcut to desktop\nAdd shortcut to desktop"
+    ID_EXT_MENU_HLINK_PROPERTIES 
+                            "Display shortcut properties\nDisplay shortcut properties"
+    IDS_EXTFIELDSEDITCTRL_EDITDISABLED "Editing disabled."
+    IDS_EXTFIELDSEDITCTRL_NOFIELDVARIANTS 
+                            "There are no variants for field ""%s"""
+    IDS_EXTFIELDSEDITCTRL_VALUECANNOTBEEMPTY "Value can not be empty."
+    IDS_EXTFIELDSEDITCTRL_VALUEISNOTSET "Field ""%s"" value is not set."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_EXTFIELDSEDITCTRL_MULTIPLYFIELDCOPIES 
+                            "Multiply copies of field ""%s"" was detected."
+    IDS_EXTFIELDSEDITCTRL_UNWANTEDCHARS 
+                            "Unwanted characters was found before field ""%s""."
+    IDS_EXTFIELDSEDITCTRL_FIELDCANNOTBEEMTY "Field ""%s"" can not be empty."
+    IDS_EXTFIELDSEDITCTRL_FIELDUNWANTEDVALUE 
+                            "Field ""%s"" conatins unpermissible value."
+    IDS_EXTFIELDSEDITCTRL_FIELDAFTERFIELD 
+                            "Field ""%s"" must be typed after field ""%s""."
+    IDS_EXTFIELDSEDITCTRL_NOTALLFIELDSSET "Not all fields set."
+END
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_EXT_COLOR_DIALOG DIALOGEX 0, 0, 230, 185
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Select color ..."
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "Colors:",IDC_STATIC,7,9,25,9
+    COMBOBOX        IDC_COMBO_SEL_TYPE,34,7,189,57,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "",IDC_STATIC_HEX_FULL,7,25,139,130,NOT WS_TABSTOP
+    RTEXT           "Red",IDC_STATIC_R,149,26,35,10
+    EDITTEXT        IDC_EDIT_R,188,24,35,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_R,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,213,28,12,
+                    7
+    RTEXT           "Green",IDC_STATIC_G,149,38,35,10
+    EDITTEXT        IDC_EDIT_G,188,36,35,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_G,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,213,40,12,
+                    7
+    RTEXT           "Blue",IDC_STATIC_B,149,51,35,10
+    EDITTEXT        IDC_EDIT_B,188,49,35,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_B,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,213,53,12,
+                    7
+    RTEXT           "Cyan",IDC_STATIC_C,149,66,35,10
+    EDITTEXT        IDC_EDIT_C,188,65,35,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_C,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,213,69,12,
+                    7
+    RTEXT           "Magenta",IDC_STATIC_M,149,79,35,10
+    EDITTEXT        IDC_EDIT_M,188,77,35,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_M,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,213,81,12,
+                    7
+    RTEXT           "Yellow",IDC_STATIC_Y,149,92,35,10
+    EDITTEXT        IDC_EDIT_Y,188,90,35,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_Y,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,213,94,12,
+                    7
+    RTEXT           "Hue",IDC_STATIC_H,149,108,35,10
+    EDITTEXT        IDC_EDIT_H,188,106,35,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_H,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,213,109,
+                    12,7
+    RTEXT           "Saturation",IDC_STATIC_S,149,121,35,10
+    EDITTEXT        IDC_EDIT_S,188,119,35,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_S,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,213,123,
+                    12,7
+    RTEXT           "Light",IDC_STATIC_L,149,134,35,10
+    EDITTEXT        IDC_EDIT_L,188,132,35,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_L,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,213,136,
+                    12,7
+    RTEXT           "New",IDC_STATIC_TXT_NEW,149,152,35,10
+    PUSHBUTTON      "",IDC_STATIC_CMP,188,149,35,29,NOT WS_TABSTOP
+    RTEXT           "Current",IDC_STATIC_TXT_CURRENT,149,166,35,10
+    DEFPUSHBUTTON   "OK",IDOK,7,162,50,16
+    PUSHBUTTON      "Cancel",IDCANCEL,62,162,50,16
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_EXT_COLOR_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 223
+        VERTGUIDE, 140
+        VERTGUIDE, 149
+        VERTGUIDE, 184
+        VERTGUIDE, 188
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 178
+        HORZGUIDE, 36
+        HORZGUIDE, 48
+        HORZGUIDE, 61
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_EXT_COLOR_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_SEL_TYPE, 0x403, 14, 0
+0x6220, 0x7361, 0x6369, 0x6320, 0x6c6f, 0x726f, 0x0073, 
+    IDC_COMBO_SEL_TYPE, 0x403, 39, 0
+0x6820, 0x6575, 0x202c, 0x6173, 0x7574, 0x6172, 0x6974, 0x6e6f, 0x6120, 
+0x646e, 0x6c20, 0x6d75, 0x6e69, 0x6e61, 0x6563, 0x2d20, 0x6d20, 0x7869, 
+0x7265, "\000" 
+    IDC_COMBO_SEL_TYPE, 0x403, 43, 0
+0x6820, 0x6575, 0x202c, 0x6173, 0x7574, 0x6172, 0x6974, 0x6e6f, 0x6120, 
+0x646e, 0x6c20, 0x6d75, 0x6e69, 0x6e61, 0x6563, 0x2d20, 0x6220, 0x7361, 
+0x6369, 0x6820, 0x6575, "\000" 
+    IDC_COMBO_SEL_TYPE, 0x403, 40, 0
+0x6820, 0x6575, 0x202c, 0x6173, 0x7574, 0x6172, 0x6974, 0x6e6f, 0x6120, 
+0x646e, 0x6c20, 0x6d75, 0x6e69, 0x6e61, 0x6563, 0x2d20, 0x7220, 0x6c6f, 
+0x656c, 0x0072, 
+    IDC_COMBO_SEL_TYPE, 0x403, 28, 0
+0x7220, 0x6465, 0x202c, 0x7267, 0x6565, 0x206e, 0x6e61, 0x2064, 0x6c62, 
+0x6575, 0x2d20, 0x6320, 0x6275, 0x0065, 
+    IDC_COMBO_SEL_TYPE, 0x403, 29, 0
+0x7220, 0x6465, 0x202c, 0x7267, 0x6565, 0x206e, 0x6e61, 0x2064, 0x6c62, 
+0x6575, 0x2d20, 0x6d20, 0x7869, 0x7265, "\000" 
+    IDC_COMBO_SEL_TYPE, 0x403, 18, 0
+0x6720, 0x6172, 0x2079, 0x6373, 0x6c61, 0x2065, 0x696d, 0x6578, 0x0072, 
+
+    IDC_COMBO_SEL_TYPE, 0x403, 33, 0
+0x6320, 0x6179, 0x2c6e, 0x6d20, 0x6761, 0x6e65, 0x6174, 0x6120, 0x646e, 
+0x7920, 0x6c65, 0x6f6c, 0x2077, 0x202d, 0x7563, 0x6562, "\000" 
+    IDC_COMBO_SEL_TYPE, 0x403, 34, 0
+0x6320, 0x6179, 0x2c6e, 0x6d20, 0x6761, 0x6e65, 0x6174, 0x6120, 0x646e, 
+0x7920, 0x6c65, 0x6f6c, 0x2077, 0x202d, 0x696d, 0x6578, 0x0072, 
+    IDC_COMBO_SEL_TYPE, 0x403, 10, 0
+0x7220, 0x6465, 0x6120, 0x6978, 0x0073, 
+    IDC_COMBO_SEL_TYPE, 0x403, 12, 0
+0x6720, 0x6572, 0x6e65, 0x6120, 0x6978, 0x0073, 
+    IDC_COMBO_SEL_TYPE, 0x403, 11, 0
+0x6220, 0x756c, 0x2065, 0x7861, 0x7369, "\000" 
+    IDC_COMBO_SEL_TYPE, 0x403, 11, 0
+0x6320, 0x6179, 0x206e, 0x7861, 0x7369, "\000" 
+    IDC_COMBO_SEL_TYPE, 0x403, 14, 0
+0x6d20, 0x6761, 0x6e65, 0x6174, 0x6120, 0x6978, 0x0073, 
+    IDC_COMBO_SEL_TYPE, 0x403, 13, 0
+0x7920, 0x6c65, 0x6f6c, 0x2077, 0x7861, 0x7369, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_EXT_MENU_HLINK_POPUP MENU DISCARDABLE 
+BEGIN
+    POPUP "__POPUP__"
+    BEGIN
+        MENUITEM "&Open",                       ID_EXT_MENU_HLINK_OPEN
+        MENUITEM "&Copy shortcut",              ID_EXT_MENU_HLINK_COPY
+        MENUITEM SEPARATOR
+        MENUITEM "&Edit",                       ID_EXT_MENU_HLINK_EDIT
+        MENUITEM "&Print",                      ID_EXT_MENU_HLINK_PRINT
+        MENUITEM SEPARATOR
+        MENUITEM "Add to &favorites",           ID_EXT_MENU_HLINK_ADD_TO_FAVORITES
+
+        MENUITEM "Add to &desktop",             ID_EXT_MENU_HLINK_ADD_TO_DESKTOP
+
+        MENUITEM SEPARATOR
+        MENUITEM "P&roperties",                 ID_EXT_MENU_HLINK_PROPERTIES
+    END
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,1,1,2
+ PRODUCTVERSION 2,1,1,2
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "Profession User Interface Suit DLL\0"
+            VALUE "FileVersion", "2, 1, 1, 2\0"
+            VALUE "InternalName", "Profession User Interface Suit DLL\0"
+            VALUE "LegalCopyright", "Copyright (C) Foss-On-Line Corp. 2002\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "prof-uis.dll\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "Profession User Interface Suit\0"
+            VALUE "ProductVersion", "2, 1, 1, 2\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDD_EXT_COLOR_DIALOG    ICON    DISCARDABLE     "idd_ext_color_dlg.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_VALUE_IN_RNG_255    "Value must be in range 0..255"
+    IDS_ACTIVE_DOCUMENT     "Active document"
+    IDS_RECENT_FILE_FMT_1   "Recent file %d"
+    IDS_RECENT_FILE_FMT_2   "Recent file %d (""%s"")"
+    IDS_DOCUMENT_NAME_FMT   "Document ""%s"""
+    IDS_MDI_MORE_WINDOWS    "More Windows"
+    IDS_MDI_MANAGE_OPENED_WINDOWS "Manage opened document windows"
+    IDS_SHOW_HIDE_PANELS    "&Show/hide panels"
+    IDS_COLOR_CUSTOM        "Custom Color ..."
+    IDS_COLOR_DEFAULT       "Default Color"
+    IDS_OUTLOOK_FIELDS      "Fields: "
+    IDS_OUTLOOK_NO_ITEMS    "There are no items to show in this view."
+    IDS_OUTLOOK_SORT_BY_FMT "Sort by: %s"
+    IDS_EXT_APP_CRASH_FMT   "Exception caught in module:\n   %s\nFile:\n   %s\nVersion: %s\nOS information: %s\n"
+    IDS_EXT_HLINK_RTF_TOOLTIP_FMT 
+                            "{\rtf1\\bnsi\\bnsicpg1251\\deff0\\deflang1049{\\fonttbl{\\f0\\fswiss\\fcharset0 Arial;}}\n{\\colortbl ;\red0\\green0\\blue0;\red0\\green0\\blue255;}\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs20 Hyperlink \\""%s\\""\\par\n\\cf2\\b0    %s\\par\n}\n"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EXT_MENU_HLINK_EDIT  "Edit shortcut\nEdit shortcut"
+    ID_EXT_MENU_HLINK_OPEN  "Open shortcut\nOpen shortcut"
+    ID_EXT_MENU_HLINK_PRINT "Print shortcut\nPrint shortcut"
+    ID_EXT_MENU_HLINK_COPY  "Copy shortcut to clipboard\nCopy shortcut to clipboard"
+    ID_EXT_MENU_HLINK_ADD_TO_FAVORITES 
+                            "Add shortcut to favorites\nAdd shortcut to favorites"
+    ID_EXT_MENU_HLINK_ADD_TO_DESKTOP 
+                            "Add shortcut to desktop\nAdd shortcut to desktop"
+    ID_EXT_MENU_HLINK_PROPERTIES 
+                            "Display shortcut properties\nDisplay shortcut properties"
+    IDS_EXTFIELDSEDITCTRL_EDITDISABLED "Editing disabled."
+    IDS_EXTFIELDSEDITCTRL_NOFIELDVARIANTS 
+                            "There are no variants for field ""%s"""
+    IDS_EXTFIELDSEDITCTRL_VALUECANNOTBEEMPTY "Value can not be empty."
+    IDS_EXTFIELDSEDITCTRL_VALUEISNOTSET "Field ""%s"" value is not set."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_EXT_DCTRL_DAYS      "day(s) "
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_EXTFIELDSEDITCTRL_MULTIPLYFIELDCOPIES 
+                            "Multiply copies of field ""%s"" was detected."
+    IDS_EXTFIELDSEDITCTRL_UNWANTEDCHARS 
+                            "Unwanted characters was found before field ""%s""."
+    IDS_EXTFIELDSEDITCTRL_FIELDCANNOTBEEMTY 
+                            "Unwanted characters was found before field ""%s""."
+    IDS_EXTFIELDSEDITCTRL_FIELDUNWANTEDVALUE 
+                            "Field ""%s"" conatins unpermissible value."
+    IDS_EXTFIELDSEDITCTRL_FIELDAFTERFIELD 
+                            "Field ""%s"" must be typed after field ""%s""."
+    IDS_EXTFIELDSEDITCTRL_NOTALLFIELDSSET "Not all fields set."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

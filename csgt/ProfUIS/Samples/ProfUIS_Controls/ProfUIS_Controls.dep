@@ -1,0 +1,22 @@
+# Microsoft Developer Studio Generated Dependency File, included by ProfUIS_Controls.mak
+
+.\Main.cpp : \
+	".\MainDlg.h"\
+	".\ProfUIS_Controls.h"\
+	".\StdAfx.h"\
+	
+
+.\ProfUIS_Controls.cpp : \
+	".\MainDlg.h"\
+	".\ProfUIS_Controls.h"\
+	".\StdAfx.h"\
+	
+
+.\ProfUIS_Controls.rc : \
+	".\res\ProfUIS_Controls.ico"\
+	".\res\ProfUIS_Controls.rc2"\
+	
+
+.\StdAfx.cpp : \
+	".\StdAfx.h"\
+	

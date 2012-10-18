@@ -1,0 +1,937 @@
+// SListView.cpp : implementation of the CSListView class
+//
+
+#include "stdafx.h"
+#include "StkUI.h"
+
+#include "StaticDoc.h"
+#include "SListView.h"
+#include "ChildFrm.h"
+#include "ListExportDlg.h"
+#include "Resource.h"
+
+#ifdef _DEBUG
+#define new DEBUG_NEW
+#undef THIS_FILE
+static char THIS_FILE[] = __FILE__;
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+// CSListView
+
+IMPLEMENT_DYNCREATE(CSListView, CListView)
+
+BEGIN_MESSAGE_MAP(CSListView, CListView)
+	//{{AFX_MSG_MAP(CSListView)
+	ON_WM_CREATE()
+	ON_WM_ERASEBKGND()
+	ON_NOTIFY_REFLECT(NM_DBLCLK, OnDblclk)
+	ON_NOTIFY_REFLECT(NM_RETURN, OnReturn)
+	ON_NOTIFY_REFLECT(LVN_COLUMNCLICK, OnColumnclick)
+	ON_WM_DESTROY()
+	ON_COMMAND(ID_DATA_EXPORTLIST, OnDataExportlist)
+	ON_WM_SIZE()
+	//}}AFX_MSG_MAP
+	// Standard printing commands
+	ON_COMMAND(ID_FILE_PRINT, CListView::OnFilePrint)
+	ON_COMMAND(ID_FILE_PRINT_DIRECT, CListView::OnFilePrint)
+	ON_COMMAND(ID_FILE_PRINT_PREVIEW, CListView::OnFilePrintPreview)
+	ON_MESSAGE(WM_USER_GETVIEWTITLE, OnGetViewTitle)
+	ON_MESSAGE(WM_USER_GETVIEWCMDID, OnGetViewCmdid)
+END_MESSAGE_MAP()
+
+/////////////////////////////////////////////////////////////////////////////
+// CSListView construction/destruction
+
+CSListView::CSListView()
+{
+	// TODO: add construction code here
+	m_nColSort		=	-1;
+	m_bSortAscend	=	FALSE;
+	m_bShouldUpdate	=	FALSE;
+}
+
+CSListView::~CSListView()
+{
+}
+
+void CSListView::RemoveSortSign( )
+{
+	CListCtrl	& ctrl	=	GetListCtrl();
+	CHeaderCtrl	* pHeader	=	ctrl.GetHeaderCtrl();
+	int	nColumnCount	=	pHeader ? pHeader->GetItemCount() : 0 ;
+
+	if( m_nColSort < 0 || m_nColSort >= nColumnCount )
+		return;
+
+	CString	strUp, strDown, strColTitle;
+	strUp.LoadString( IDS_SLISTVIEW_UP );
+	strDown.LoadString( IDS_SLISTVIEW_DOWN );
+
+	LVCOLUMN	column;
+	memset( &column, 0, sizeof( column ) );
+	column.mask	=	LVCF_TEXT;
+	column.pszText	=	strColTitle.GetBuffer(SLMAX_SLHTEXTLEN+2);
+	column.cchTextMax	=	SLMAX_SLHTEXTLEN+1;
+	if( ctrl.GetColumn( m_nColSort, &column ) )
+	{
+		strColTitle.ReleaseBuffer();
+
+		if( 0 == strncmp( strColTitle, strUp, strUp.GetLength() ) )
+			strColTitle	=	strColTitle.Mid( strUp.GetLength() );
+		if( 0 == strncmp( strColTitle, strDown, strDown.GetLength() ) )
+			strColTitle	=	strColTitle.Mid( strDown.GetLength() );
+
+		column.mask	=	LVCF_TEXT;
+		column.pszText	=	strColTitle.GetBuffer(SLMAX_SLHTEXTLEN+2);
+		column.cchTextMax	=	SLMAX_SLHTEXTLEN+1;
+		ctrl.SetColumn( m_nColSort, &column );
+	}
+
+	strColTitle.ReleaseBuffer();
+
+	m_nColSort		=	-1;
+	m_bSortAscend	=	FALSE;
+}
+
+void CSListView::SetSortSign( )
+{
+	CListCtrl	& ctrl	=	GetListCtrl();
+	CHeaderCtrl	* pHeader	=	ctrl.GetHeaderCtrl();
+	int	nColumnCount	=	pHeader ? pHeader->GetItemCount() : 0 ;
+
+	if( m_nColSort < 0 || m_nColSort >= nColumnCount )
+		return;
+
+	CString	strPrefix, strColTitle;
+	if( m_bSortAscend )
+		strPrefix.LoadString( IDS_SLISTVIEW_UP );
+	else
+		strPrefix.LoadString( IDS_SLISTVIEW_DOWN );
+
+	LVCOLUMN	column;
+	memset( &column, 0, sizeof( column ) );
+	column.mask	=	LVCF_TEXT;
+	column.pszText	=	strColTitle.GetBuffer(SLMAX_SLHTEXTLEN+2);
+	column.cchTextMax	=	SLMAX_SLHTEXTLEN+1;
+	if( ctrl.GetColumn( m_nColSort, &column ) )
+	{
+		strColTitle.ReleaseBuffer();
+
+		strColTitle	=	strPrefix + strColTitle;
+
+		column.mask	=	LVCF_TEXT;
+		column.pszText	=	strColTitle.GetBuffer(SLMAX_SLHTEXTLEN+2);
+		column.cchTextMax	=	SLMAX_SLHTEXTLEN+1;
+		ctrl.SetColumn( m_nColSort, &column );
+	}
+
+	strColTitle.ReleaseBuffer();
+}
+
+void CSListView::SetCurrentStatus( int nType, LPCTSTR lpszDomain, DWORD dwDate )
+{
+	RemoveSortSign( );
+
+	GetListCtrl().DeleteAllItems( );
+	AfxGetProfile().GetSListStockContainer().RetrieveFromStatic( nType, lpszDomain, dwDate );
+	OnUpdate( NULL, UPDATE_HINT_SLISTVIEW, NULL );
+
+	CMainFrame	* pFrame = AfxGetMainFrame();
+	if( pFrame )
+		pFrame->m_wndSListBar.m_DateBox.SetCurrentWindowText( );
+}
+
+void CSListView::StoreColumnOrderArray( )
+{
+	CUIntArray	& anShow = AfxGetProfile().GetSListColumnsShow();
+	CUIntArray	& anAll = AfxGetProfile().GetSListColumnsOrder();
+
+	CListCtrl	& ctrl	=	GetListCtrl();
+	CHeaderCtrl * pHeader = ctrl.GetHeaderCtrl( );
+	int	nColumnCount	=	pHeader ? pHeader->GetItemCount( ) : 0;
+	if( nColumnCount == 0 )
+		return;
+
+	CUIntArray	anShowBak;
+	anShowBak.Copy( anShow );
+	ASSERT( nColumnCount == anShowBak.GetSize() );
+	BOOL bEqual = ( anShowBak.GetSize() == nColumnCount );
+	int	nAllCurPos	=	0;
+
+	int	* pnOrder = new int[nColumnCount];
+	if( pnOrder && ctrl.GetColumnOrderArray( pnOrder, nColumnCount ) )
+	{
+		anShow.RemoveAll();
+		anShow.SetSize( 0, nColumnCount );
+
+		LVCOLUMN	column;
+		column.mask	=	LVCF_SUBITEM;
+		for(int nOrder = 0; nOrder < nColumnCount && ctrl.GetColumn(pnOrder[nOrder],&column); nOrder ++ )
+		{
+			anShow.Add( column.iSubItem );
+
+			// reset anAll
+			if( bEqual )
+			{
+				BOOL	bFin	=	FALSE;
+				for( ; nAllCurPos<anAll.GetSize(); nAllCurPos++ )
+				{
+					for( int m=0; m<anShowBak.GetSize(); m++ )
+					{
+						if( anAll[nAllCurPos] == anShowBak[m] )
+						{
+							anAll.SetAt(nAllCurPos, column.iSubItem);
+							anShowBak.RemoveAt( m );
+							bFin	=	TRUE;
+							break;
+						}
+					}
+					if( bFin )
+						break;
+				}
+				ASSERT( nAllCurPos != anAll.GetSize() );
+				nAllCurPos	++;
+			}
+		}
+	}
+
+	if( pnOrder )
+		delete pnOrder;
+}
+
+void CSListView::ResetColumns( )
+{
+	//  its list control through a call to GetListCtrl().
+	CListCtrl & ctrl = GetListCtrl();
+	CUIntArray	& auint = AfxGetProfile().GetSListColumnsShow( );
+
+	SetRedraw( FALSE );
+
+	CHeaderCtrl	* pHeader	=	ctrl.GetHeaderCtrl();
+	int	nColumnCount	=	pHeader ? pHeader->GetItemCount() : 0 ;
+	for( int i=nColumnCount-1; i>=0; i-- )
+		ctrl.DeleteColumn( i );
+
+	for( i=0; i<auint.GetSize(); i++ )
+	{
+		CString	string	=	AfxGetVariantName(auint[i]);
+		ctrl.InsertColumn( i, string, LVCFMT_CENTER, -1, auint[i] );
+	}
+
+	SetColumnWidth( );
+
+	OnUpdate( NULL, UPDATE_HINT_SLISTVIEW, NULL );
+
+	SetRedraw( TRUE );
+}
+
+void CSListView::SetColumnWidth( )
+{
+	CRect	rect;
+	GetClientRect( &rect );
+	if( rect.Width() < 20 )
+		return;
+
+	double	width	=	rect.Width();
+	// width	=	(int)(width * 0.95);
+
+	CListCtrl & ctrl = GetListCtrl();
+	CHeaderCtrl * pHeader = ctrl.GetHeaderCtrl( );
+	int	nColumnCount	=	pHeader ? pHeader->GetItemCount( ) : 0;
+	CDC	*pDC	=	ctrl.GetDC( );
+
+//	CUIntArray	anWeight;
+//	anWeight.SetSize( nColumnCount );
+
+	char	buffer[SLMAX_SLHTEXTLEN+2];
+
+	int weightsum	=	0;
+	for( int nCol=0; nCol < nColumnCount; nCol ++ )
+	{
+		LVCOLUMN column;
+		memset( &column, 0, sizeof( column ) );
+		column.mask	|=	LVCF_SUBITEM | LVCF_TEXT;
+		column.pszText		=	buffer;
+		column.cchTextMax	=	SLMAX_SLHTEXTLEN+1;
+
+		CSize	sizeText(0,0);
+		if( pDC && ctrl.GetColumn( nCol, &column ) )
+			sizeText	=	pDC->GetTextExtent( buffer, strlen(buffer) );
+		int	nWidthReal	=	max( int(sizeText.cx*1.1), SLH_WIDTH_MIN );
+		ctrl.SetColumnWidth( nCol, nWidthReal );
+
+		// The old resolve
+/*		if( ctrl.GetColumn( nCol, &column )
+				&& column.iSubItem >= SLH_MIN && column.iSubItem <= SLH_MAX )
+		{
+			anWeight.SetAt( nCol, slh_data_array[column.iSubItem].weight );
+			weightsum	+=	slh_data_array[column.iSubItem].weight;
+		}
+		else
+		{
+			anWeight.SetAt( nCol, slh_data_array[0].weight );
+			weightsum	+=	slh_data_array[0].weight;
+		}
+*/
+	}
+/*	double	factor	=	1.0;
+	if( weightsum > 0 && (int)(width*100/weightsum) < SLH_WIDTH_MIN )
+		factor	=	SLH_WIDTH_MIN / (width*slh_data_array[0].weight/weightsum);
+	for( nCol=0; nCol < nColumnCount; nCol ++ )
+		ctrl.SetColumnWidth( nCol, (int)(factor*width*anWeight[nCol]/weightsum) );
+*/
+}
+
+BOOL CSListView::SetAverageItem( CListCtrl &ctrl, CUIntArray & anSubItems, CStockContainer & container )
+{
+	CStockInfo & infoAve = container.GetAverage( );
+	CStockInfo & infoWAve = container.GetWeightAverage( );
+	int	iItemAve=0, iItemWAve=0;
+
+	if( ctrl.GetItemCount() >= 2
+		&& ctrl.GetItemData(ctrl.GetItemCount()-2) == (DWORD)ID_STOCKCNTN_AVERAGE
+		&& ctrl.GetItemData(ctrl.GetItemCount()-1) == (DWORD)ID_STOCKCNTN_WEIGHTAVERAGE )
+	{
+		// get item id
+		iItemAve	=	ctrl.GetItemCount()-2;
+		iItemWAve	=	ctrl.GetItemCount()-1;
+	}
+	else
+	{
+		// Insert item
+		iItemAve = ctrl.InsertItem( ctrl.GetItemCount(), infoAve.name, 0 );
+		ctrl.SetItemData( iItemAve, (DWORD)ID_STOCKCNTN_AVERAGE );
+		iItemWAve = ctrl.InsertItem( ctrl.GetItemCount(), infoWAve.name, 0 );
+		ctrl.SetItemData( iItemWAve, (DWORD)ID_STOCKCNTN_WEIGHTAVERAGE );
+	}
+
+	// Set Average
+	for( int j=0; j<anSubItems.GetSize(); j++ )
+		ctrl.SetItemText( iItemAve, j, AfxGetVariantDispString(anSubItems[j], infoAve, NULL) );
+
+	// Set Weight Average
+	for( j=0; j<anSubItems.GetSize(); j++ )
+		ctrl.SetItemText( iItemWAve, j, AfxGetVariantDispString(anSubItems[j], infoWAve, NULL) );
+
+	//	Set SubItem which is
+	//	SLH_MARKETVALUE, SLH_MARKETVALUEA, SLH_MARKETVALUEB and more than SLH_USERDEFINE_BEGIN
+	for( int iCol=0; iCol < anSubItems.GetSize(); iCol ++ )
+	{
+		UINT	nSubItem	=	anSubItems[iCol];
+		if( SLH_RATIO_CURRENCY == nSubItem || SLH_RATIO_CHANGEHAND == nSubItem
+			|| SLH_RATIO_VOLUME == nSubItem || SLH_RS == nSubItem
+			|| SLH_MARKETVALUE == nSubItem || SLH_MARKETVALUEA == nSubItem
+			|| SLH_MARKETVALUEB == nSubItem || nSubItem >= SLH_USERDEFINE_BEGIN )
+		{
+			double	dc = 0., average = 0.;
+			double	wsum = 0., waverage = 0., w = 0.;
+			for( int iItem=0; iItem<ctrl.GetItemCount(); iItem++ )
+			{
+				if( iItem == iItemAve || iItem == iItemWAve )
+					continue;
+
+				int	nStockIndex	=	ctrl.GetItemData(iItem);
+				if( nStockIndex < 0 || nStockIndex > container.GetSize() )
+					continue;
+
+				CStockInfo	& info = container.ElementAt(nStockIndex);
+				if( 0 == info.share_count_total )
+					continue;
+
+				w	=	info.share_count_total;
+				double	dValue	=	0.;
+				if( !AfxGetVariantValue( nSubItem, info, &dValue, &container ) )
+					continue;
+
+				average		=	(average * dc + dValue)/(dc+1);
+				waverage	=	(waverage * wsum + dValue * w)/(wsum+w);
+
+				dc		+=	1;
+				wsum	+=	w;
+			}
+
+			CString	strText;
+			if( SLH_MARKETVALUE == nSubItem || SLH_MARKETVALUEA == nSubItem || SLH_MARKETVALUEB == nSubItem )
+			{
+				strText.Format( "%u", (DWORD)average );
+				ctrl.SetItemText( iItemAve, iCol, strText );
+				ctrl.SetItemText( iItemWAve, iCol, "-" );
+			}
+			else
+			{
+				strText.Format( "%.2f", average );
+				ctrl.SetItemText( iItemAve, iCol, strText );
+				strText.Format( "%.2f", waverage );
+				ctrl.SetItemText( iItemWAve, iCol, strText );
+			}
+		}
+	}
+	return TRUE;
+}
+
+BOOL CSListView::PreCreateWindow(CREATESTRUCT& cs)
+{
+	// TODO: Modify the Window class or styles here by modifying
+	//  the CREATESTRUCT cs
+
+	return CListView::PreCreateWindow(cs);
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// CSListView drawing
+
+void CSListView::OnDraw(CDC* pDC)
+{
+	CStaticDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	// TODO: add draw code for native data here
+}
+
+void CSListView::OnInitialUpdate()
+{
+	CListView::OnInitialUpdate();
+
+	// TODO: You may populate your ListView with items by directly accessing
+	CListCtrl & ctrl = GetListCtrl();
+	ctrl.SendMessage( LVM_SETEXTENDEDLISTVIEWSTYLE, 0, LVS_EX_FULLROWSELECT | LVS_EX_HEADERDRAGDROP
+						| LVS_EX_FLATSB | LVS_EX_REGIONAL | LVS_EX_INFOTIP | LVS_EX_UNDERLINEHOT );
+	ctrl.SetBkColor( AfxGetProfile().GetColor( CNDProfile::clrSListBK ) );
+	ctrl.SetTextBkColor( AfxGetProfile().GetColor( CNDProfile::clrSListBK ) );
+
+	//	SetColumn
+	ResetColumns( );
+}
+
+void CSListView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
+{
+	// TODO: Add your specialized code here and/or call the base class
+	if( UPDATE_HINT_SLISTVIEW != lHint )
+		return;
+
+	if( GetParentFrame()->GetSafeHwnd() != AfxGetMainFrame()->GetActiveFrame()->GetSafeHwnd() )
+	{
+		m_bShouldUpdate	=	TRUE;
+		return;
+	}
+	m_bShouldUpdate	=	FALSE;
+
+	SetRedraw( FALSE );
+
+	CListCtrl & ctrl = GetListCtrl();
+	ctrl.DeleteAllItems( );
+
+	// Progress
+	CMainFrame	* pMainFrame = AfxGetMainFrame();
+	if( pMainFrame )
+	{
+		pMainFrame->ShowProgressBar( );
+		pMainFrame->SetProgress( 0 );
+		pMainFrame->SetMessageText( IDS_MAINFRAME_WAITING );
+	}
+
+	int nCountPerPage = ctrl.GetCountPerPage();
+
+	CHeaderCtrl * pHeader = ctrl.GetHeaderCtrl( );
+	int	nColumnCount	=	pHeader ? pHeader->GetItemCount( ) : 0;
+	CUIntArray	anSubItems;
+	anSubItems.SetSize( nColumnCount );
+	for( int nCol=0; nCol < nColumnCount; nCol ++ )
+	{
+		LVCOLUMN column;
+		column.mask	=	LVCF_SUBITEM;
+		
+		if( ctrl.GetColumn( nCol, &column ) )
+			anSubItems.SetAt( nCol, column.iSubItem );
+		else
+			anSubItems.SetAt( nCol, (UINT)-1 );
+	}
+
+	CStockContainer & container = AfxGetProfile().GetSListStockContainer();
+	for( int i=0; i<container.GetSize(); i++ )
+	{
+		CStockInfo & info = container.ElementAt(i);
+		int iItem = ctrl.InsertItem( i, info.name, 0 );
+		ctrl.SetItemData( iItem, i );
+
+		// Calculate for later use
+		double	dValue	=	0;
+		for( int j=0; j<anSubItems.GetSize(); j++ )
+		{
+			if( anSubItems[j] >= SLH_USERDEFINE_BEGIN )
+				AfxGetVariantValue(anSubItems[j], info, &dValue, &container);
+		}
+
+		if( pMainFrame )
+			pMainFrame->SetProgress( 100*i/container.GetSize() );
+	}
+
+	// Set Average and Weight Average
+	SetAverageItem( ctrl, anSubItems, container );
+
+	if( pMainFrame )
+	{
+		pMainFrame->SetProgress( 100 );
+		pMainFrame->HideProgressBar( );
+		pMainFrame->SetMessageText( IDS_MAINFRAME_FINISHED );
+		pMainFrame->SetMessageText( IDS_HELPTIP_SLIST );
+	}
+
+	SetRedraw( TRUE );
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// CSListView printing
+
+BOOL CSListView::OnPreparePrinting(CPrintInfo* pInfo)
+{
+	// default preparation
+	return DoPreparePrinting(pInfo);
+}
+
+void CSListView::OnBeginPrinting(CDC* pDC, CPrintInfo* pInfo)
+{
+	// TODO: add extra initialization before printing
+}
+
+void CSListView::OnEndPrinting(CDC* pDC, CPrintInfo* pInfo)
+{
+	// TODO: add cleanup after printing
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// CSListView diagnostics
+
+#ifdef _DEBUG
+void CSListView::AssertValid() const
+{
+	CListView::AssertValid();
+}
+
+void CSListView::Dump(CDumpContext& dc) const
+{
+	CListView::Dump(dc);
+}
+#endif //_DEBUG
+
+/////////////////////////////////////////////////////////////////////////////
+// CSListView message handlers
+
+int CSListView::OnCreate(LPCREATESTRUCT lpCreateStruct) 
+{
+	if (CListView::OnCreate(lpCreateStruct) == -1)
+		return -1;
+
+	// TODO: Add your specialized creation code here
+
+	return 0;
+}
+
+void CSListView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
+{
+	// TODO: Add your specialized code here and/or call the base class
+	CMainFrame	* pFrame	=	AfxGetMainFrame( );
+	if( pFrame )
+		pFrame->SetMessageText( bActivate ? IDS_HELPTIP_SLIST : AFX_IDS_IDLEMESSAGE );
+
+	if( bActivate && m_bShouldUpdate )
+	{
+		OnUpdate( NULL, UPDATE_HINT_SLISTVIEW, NULL );
+		m_bShouldUpdate	=	FALSE;
+	}
+
+	CListView::OnActivateView(bActivate, pActivateView, pDeactiveView);
+}
+
+LRESULT CSListView::OnGetViewTitle(WPARAM wParam, LPARAM lParam)
+{
+	CString	strTitle;
+	strTitle.LoadString( IDS_TITLE_SLISTVIEW );
+
+	lstrcpyn((LPTSTR)lParam, (LPCTSTR)strTitle, wParam);
+	if ((int)wParam > strTitle.GetLength())
+		wParam = strTitle.GetLength();
+	return wParam;
+}
+
+LRESULT CSListView::OnGetViewCmdid(WPARAM wParam, LPARAM lParam)
+{
+	if( lParam )
+		*((LPARAM *)lParam)	=	ID_VIEW_SLIST;
+	return 0L;
+}
+
+BOOL CSListView::OnEraseBkgnd(CDC* pDC) 
+{
+	// TODO: Add your message handler code here and/or call default
+	if( pDC && pDC->IsKindOf(RUNTIME_CLASS(CDC)) )
+	{
+		CRect rect;
+		GetClientRect( &rect );
+		CBrush brush;
+		brush.CreateSolidBrush( AfxGetProfile().GetColor(CNDProfile::clrSListBK) );
+		pDC->FillRect( &rect, &brush );
+		return TRUE;
+	}
+	return CListView::OnEraseBkgnd(pDC);
+}
+
+void CSListView::OnSize(UINT nType, int cx, int cy) 
+{
+	CListView::OnSize(nType, cx, cy);
+	
+	// TODO: Add your message handler code here
+}
+
+BOOL CSListView::OnCmdMsg(UINT nID, int nCode, void* pExtra, AFX_CMDHANDLERINFO* pHandlerInfo) 
+{
+	// TODO: Add your specialized code here and/or call the base class
+
+	return CListView::OnCmdMsg(nID, nCode, pExtra, pHandlerInfo);
+}
+
+BOOL CSListView::Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName, DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID, CCreateContext* pContext) 
+{
+	// TODO: Add your specialized code here and/or call the base class
+	dwStyle	|=	LVS_REPORT | LVS_OWNERDRAWFIXED; // | LVS_SINGLESEL;
+
+	return CWnd::Create(lpszClassName, lpszWindowName, dwStyle, rect, pParentWnd, nID, pContext);
+}
+
+void CSListView::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
+{
+	if (lpDrawItemStruct->CtlType != ODT_LISTVIEW)
+        return;
+
+	CStockContainer & container = AfxGetProfile().GetSListStockContainer();
+
+	CListCtrl	& ctrl	=	GetListCtrl();
+	CHeaderCtrl	* pHeader	=	ctrl.GetHeaderCtrl();
+	int	nColumnCount	=	pHeader ? pHeader->GetItemCount() : 0 ;
+
+	CRect	rcItem	=	lpDrawItemStruct->rcItem;
+	int	nItem	=	lpDrawItemStruct->itemID;
+	CStockInfo & info	=	container.GetStockInfoByID((int)(lpDrawItemStruct->itemData));
+	COLORREF crBackground, crText;
+
+	CDC		dc;
+	dc.Attach( lpDrawItemStruct->hDC );
+
+	if(lpDrawItemStruct->itemAction == ODA_DRAWENTIRE)
+	{
+		// Set the text background
+		if (lpDrawItemStruct->itemState & ODS_SELECTED)
+			crBackground = AfxGetProfile().GetColor( CNDProfile::clrSListSelected );
+		else
+			crBackground = AfxGetProfile().GetColor( CNDProfile::clrSListBK );
+
+		//Draw selection bar (erase old selection too)
+		dc.SetBkColor (crBackground);
+
+		//fill background color
+		ExtTextOut(dc.GetSafeHdc(), 0, 0, ETO_OPAQUE, rcItem, NULL, 0, NULL);
+		
+		//draw selection rect in col if selected
+		if( lpDrawItemStruct->itemState & ODS_SELECTED )
+			dc.DrawFocusRect(rcItem);
+
+		//draw subitems..
+		CRect	rcCol	=	rcItem;
+		rcCol.right = rcCol.left;
+
+		CString	strText;
+
+		int	* pnOrder = new int[nColumnCount];
+		if( pnOrder && ctrl.GetColumnOrderArray( pnOrder, nColumnCount ) )
+		{
+			LVCOLUMN	column;
+			column.mask	=	LVCF_WIDTH | LVCF_SUBITEM;
+			for(int nOrder = 0; nOrder < nColumnCount && ctrl.GetColumn(pnOrder[nOrder],&column); nOrder ++ )
+			{
+				rcCol.left = rcCol.right;
+				rcCol.right += column.cx;
+
+				if( (int)(lpDrawItemStruct->itemData) < 0 )
+					strText	=	ctrl.GetItemText( nItem, pnOrder[nOrder] );
+				else
+					strText = AfxGetVariantDispString( column.iSubItem, info, &container);
+				crText	=	AfxGetVariantColor( column.iSubItem, info );
+				dc.SetTextColor( crText );
+				dc.DrawText( strText, rcCol, DT_RIGHT | DT_END_ELLIPSIS | DT_NOPREFIX | DT_VCENTER | DT_NOCLIP );
+			}
+		}
+		else
+		{
+			ASSERT( FALSE );
+		}
+		if( pnOrder )
+			delete	pnOrder;
+	}
+
+	dc.Detach( );
+}
+
+void CSListView::OnDblclk(NMHDR* pNMHDR, LRESULT* pResult) 
+{
+	// TODO: Add your control notification handler code here
+	CListCtrl	& ctrl	=	GetListCtrl();
+	if( 0 == ctrl.GetSelectedCount() )
+		return;
+
+	POSITION pos = ctrl.GetFirstSelectedItemPosition();
+	int nItem = ctrl.GetNextSelectedItem( pos );
+	if( -1 != nItem )
+	{
+		int	nStockIndex	=	ctrl.GetItemData( nItem );
+		if( nStockIndex >= 0 )
+			AfxShowStockGraph( nStockIndex, TRUE );
+	}
+	
+	*pResult = 0;
+}
+
+void CSListView::OnReturn(NMHDR* pNMHDR, LRESULT* pResult) 
+{
+	// TODO: Add your control notification handler code here
+	CListCtrl	& ctrl	=	GetListCtrl();
+	if( 0 == ctrl.GetSelectedCount() )
+		return;
+
+	POSITION pos = ctrl.GetFirstSelectedItemPosition();
+	int nItem = ctrl.GetNextSelectedItem( pos );
+	if( -1 != nItem )
+	{
+		int	nStockIndex	=	ctrl.GetItemData( nItem );
+		if( nStockIndex >= 0 )
+			AfxShowStockGraph( nStockIndex, TRUE );
+	}
+	
+	*pResult = 0;
+}
+
+extern int SortFunction(const void *s1,const void *s2);
+
+int CALLBACK ItemCompareFunc(LPARAM lParam1, LPARAM lParam2, 
+	LPARAM lParamSort)
+{
+	if( lParam1 < 0 && lParam2 < 0 )
+		return 0;
+	if( lParam1 < 0 )
+		return 1;
+	if( lParam2 < 0 )
+		return -1;
+
+	CStockContainer	& container = AfxGetProfile().GetSListStockContainer();
+	if( lParam1 >= container.GetSize() || lParam2 >= container.GetSize() )
+	{
+		ASSERT( FALSE );
+		return 0;
+	}
+	CStockInfo &s1 = container.ElementAt(lParam1);
+	CStockInfo &s2 = container.ElementAt(lParam2);
+	return SortFunction( &s1, &s2 );
+}
+
+void CSListView::OnColumnclick(NMHDR* pNMHDR, LRESULT* pResult) 
+{
+	NM_LISTVIEW* pNMListView = (NM_LISTVIEW*)pNMHDR;
+	// TODO: Add your control notification handler code here
+
+	CListCtrl	& ctrl	=	GetListCtrl();
+	CHeaderCtrl	* pHeader	=	ctrl.GetHeaderCtrl();
+	int	nColumnCount	=	pHeader ? pHeader->GetItemCount() : 0 ;
+
+	int	nCol	=	pNMListView->iSubItem;
+	if( nCol < 0 || nCol >= nColumnCount )
+		return;
+
+	SetRedraw( FALSE );
+
+	BOOL	bSortAscendNew	=	( m_nColSort == nCol ? !m_bSortAscend : FALSE );
+
+	RemoveSortSign( );
+
+	m_nColSort		=	nCol;
+	m_bSortAscend	=	bSortAscendNew;
+	SetSortSign( );
+
+	SetColumnWidth( );
+
+	LVCOLUMN	column;
+	memset( &column, 0, sizeof( column ) );
+	column.mask	=	LVCF_SUBITEM;
+	if( ctrl.GetColumn( nCol, &column ) )
+	{
+		CStockContainer & container = AfxGetProfile().GetSListStockContainer();
+		// if( container.Sort( column.iSubItem, m_bSortAscend ) )
+		//	OnUpdate( NULL, UPDATE_HINT_SLISTVIEW, NULL );
+		CStockContainer::m_pSortContainer	=	&container;
+		CStockContainer::m_nSortVariantID	=	column.iSubItem;
+		CStockContainer::m_bSortAscend		=	m_bSortAscend;
+		ctrl.SortItems( ItemCompareFunc, 0 );
+		
+		CUIntArray	auid;
+		auid.SetSize( 0, ctrl.GetItemCount() );
+		for( int i=0; i<ctrl.GetItemCount(); i++ )
+		{
+			int	nData	=	ctrl.GetItemData(i);
+			if( nData >= 0 )
+				auid.Add( nData );
+		}
+		container.SetSortID( auid );
+	}
+
+	SetRedraw( TRUE );
+
+	*pResult = 0;
+}
+
+
+void CSListView::OnDestroy() 
+{
+	StoreColumnOrderArray( );
+	
+	CListView::OnDestroy();
+	
+	// TODO: Add your message handler code here
+}
+
+void CSListView::ExportList( CListExportDlg * pDlg )
+{
+	ASSERT( pDlg );
+	if( NULL == pDlg )
+		return;
+
+	CListCtrl	&ctrl	=	GetListCtrl();
+	CHeaderCtrl	* pHeader	=	ctrl.GetHeaderCtrl();
+	int	nColumnCount	=	pHeader ? pHeader->GetItemCount() : 0 ;
+
+	CStockContainer & container = AfxGetProfile().GetSListStockContainer();
+	// Get Current StockList Time
+	int	nType;
+	CString	strDomain;
+	DWORD	dwDate;
+	CSPTime	sptime;
+	CTime	time;
+	if( container.GetCurrentType( &nType, &strDomain, &dwDate )
+		&& sptime.FromStockTimeDay( dwDate ) )
+		time	=	CTime( sptime.GetTime() );
+
+
+	int	* pnOrder = new int[nColumnCount];
+	if( pnOrder && ctrl.GetColumnOrderArray( pnOrder, nColumnCount ) )
+	{
+		// Set Column
+		CStringArray	astrColumn;
+		CUIntArray		anWidth;
+		CUIntArray		anSubItems;
+		char	buffer[SLMAX_SLHTEXTLEN+2];
+		LVCOLUMN	column;
+		column.mask	=	LVCF_WIDTH | LVCF_SUBITEM | LVCF_TEXT;
+		column.pszText	=	buffer;
+		column.cchTextMax	=	SLMAX_SLHTEXTLEN+1;
+		for(int nOrder = 0; nOrder < nColumnCount && ctrl.GetColumn(pnOrder[nOrder],&column); nOrder ++ )
+		{
+			astrColumn.Add( buffer );
+			anWidth.Add( column.cx );
+			anSubItems.Add( column.iSubItem );
+		}
+		if( ! pDlg->ExportBegin( astrColumn, anWidth, TRUE )
+			|| ! pDlg->ExportOpenTable( time, TRUE ) )
+			return;
+
+		// set Item
+		CString	strText;
+		int	nCount = 0, nTotalCount = 0;
+		if( pDlg->m_bItemAll )
+		{
+			nTotalCount	=	ctrl.GetItemCount();
+			pDlg->SetProgressRange( 0, nTotalCount );
+			for( int nItem=0; nItem<ctrl.GetItemCount(); nItem++ )
+			{
+				CStringArray	astrItemText;
+				astrItemText.SetSize( 0, ctrl.GetItemCount() );
+				int	nItemData	=	(int)ctrl.GetItemData(nItem);
+				CStockInfo & info	=	container.GetStockInfoByID(nItemData);
+				for(nOrder=0; nOrder<anSubItems.GetSize(); nOrder++ )
+				{
+					if( nItemData < 0 )
+						strText	=	ctrl.GetItemText( nItem, pnOrder[nOrder] );
+					else
+						strText = AfxGetVariantDispString( anSubItems[nOrder], info, &container);
+					astrItemText.Add( strText );
+				}
+				pDlg->ExportAddItem( astrItemText );
+
+				nCount	++;
+				pDlg->SetProgress( nCount );
+			}
+		}
+		else if( pDlg->m_bItemSelected )
+		{
+			nTotalCount	=	ctrl.GetSelectedCount();
+			pDlg->SetProgressRange( 0, nTotalCount );
+			POSITION	pos	=	ctrl.GetFirstSelectedItemPosition();
+			while( pos )
+			{
+				int	nItem = ctrl.GetNextSelectedItem( pos );
+				CStringArray	astrItemText;
+				astrItemText.SetSize( 0, ctrl.GetItemCount() );
+				int	nItemData	=	(int)ctrl.GetItemData(nItem);
+				CStockInfo & info	=	container.GetStockInfoByID(nItemData);
+				for(nOrder=0; nOrder<anSubItems.GetSize(); nOrder++ )
+				{
+					if( nItemData < 0 )
+						strText	=	ctrl.GetItemText( nItem, pnOrder[nOrder] );
+					else
+						strText = AfxGetVariantDispString( anSubItems[nOrder], info, &container);
+					astrItemText.Add( strText );
+				}
+				pDlg->ExportAddItem( astrItemText );
+
+				nCount	++;
+				pDlg->SetProgress( nCount );
+			}
+		}
+		else if( pDlg->m_bItemDefine )
+		{
+			nTotalCount	=	min(ctrl.GetItemCount()-1,pDlg->m_nItemEnd) - max(0,pDlg->m_nItemBegin-1) + 1;
+			pDlg->SetProgressRange( 0, nTotalCount );
+			for( int nItem=max(0,pDlg->m_nItemBegin-1); nItem<=min(ctrl.GetItemCount()-1,pDlg->m_nItemEnd); nItem++ )
+			{
+				CStringArray	astrItemText;
+				astrItemText.SetSize( 0, ctrl.GetItemCount() );
+				int	nItemData	=	(int)ctrl.GetItemData(nItem);
+				CStockInfo & info	=	container.GetStockInfoByID(nItemData);
+				for(nOrder=0; nOrder<anSubItems.GetSize(); nOrder++ )
+				{
+					if( nItemData < 0 )
+						strText	=	ctrl.GetItemText( nItem, pnOrder[nOrder] );
+					else
+						strText = AfxGetVariantDispString( anSubItems[nOrder], info, &container);
+					astrItemText.Add( strText );
+				}
+				pDlg->ExportAddItem( astrItemText );
+
+				nCount	++;
+				pDlg->SetProgress( nCount );
+			}
+		}
+	}
+	if( pnOrder )
+		delete	pnOrder;
+
+	pDlg->ExportFinish( );
+}
+
+void CSListView::OnDataExportlist() 
+{
+	// TODO: Add your command handler code here
+	CListCtrl	&ctrl	=	GetListCtrl();
+
+	CListExportDlg	dlg;
+	dlg.m_nItemMax	=	ctrl.GetItemCount();
+	dlg.DoModal( );
+}
+
+

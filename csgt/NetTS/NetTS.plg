@@ -1,0 +1,36 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: NetTS - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\SUNZHE~1\LOCALS~1\Temp\RSP30.tmp" with contents
+[
+/nologo /o"Debug/NetTS.bsc" 
+.\Debug\StdAfx.sbr
+.\Debug\base64.sbr
+.\Debug\EditSrvDlg.sbr
+.\Debug\NetTS.sbr
+.\Debug\ProxySetDlg.sbr
+.\Debug\ProxySocket.sbr
+.\Debug\QSProfile.sbr
+.\Debug\SelectSrvDlg.sbr
+.\Debug\SpTime.sbr
+.\Debug\Stockdrv.sbr
+.\Debug\TSCache.sbr
+.\Debug\TSWnd.sbr
+.\Debug\TW.sbr
+.\Debug\TWSocket.sbr]
+Creating command line "bscmake.exe @C:\DOCUME~1\SUNZHE~1\LOCALS~1\Temp\RSP30.tmp"
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+NetTS.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

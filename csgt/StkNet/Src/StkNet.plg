@@ -1,0 +1,270 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: StkLib - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\SUNZHE~1\LOCALS~1\Temp\RSPCA.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /I "../Include" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_USRDLL" /D "STKLIB_DLL" /FR"Debug/" /Fp"Debug/StkLib.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\Projects\CLKing\Src\StkLib\Src\AfxCore.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\Alarm.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\BaseData.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\Boyermor.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\CommFuns.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\Container.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\Database.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\DayTrader.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\DRData.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\Express.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\IMCode.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\KData.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\MathParser.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\Minute.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\Outline.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\Packets.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\Profile.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\QianLong.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\Report.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\SelfDB.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\ShengLong.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\StdAfx.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\StkLib.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\Stock.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\Strategy.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\Strings.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\StStore.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\TechCLK.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\TechEnergy.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\TechKLine.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\Technique.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\TechOther.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\TechSwing.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\TechTrend.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\TechUser.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\SpArchive.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\SpAssert.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\SpColl.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\SpDebug.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\SpFile.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\SpMemory.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\SpObject.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\SpString.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\SpTime.cpp"
+"D:\Projects\CLKing\Src\StkLib\Src\SpValid.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\SUNZHE~1\LOCALS~1\Temp\RSPCA.tmp" 
+Creating temporary file "C:\DOCUME~1\SUNZHE~1\LOCALS~1\Temp\RSPCB.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /dll /profile /debug /machine:I386 /def:".\StkLib.def" /out:"../../StkUI/Debug/StkLib30d.dll" /implib:"../Lib/StkLib30d.lib" 
+.\Debug\AfxCore.obj
+.\Debug\Alarm.obj
+.\Debug\BaseData.obj
+.\Debug\Boyermor.obj
+.\Debug\CommFuns.obj
+.\Debug\Container.obj
+.\Debug\Database.obj
+.\Debug\DayTrader.obj
+.\Debug\DRData.obj
+.\Debug\Express.obj
+.\Debug\IMCode.obj
+.\Debug\KData.obj
+.\Debug\MathParser.obj
+.\Debug\Minute.obj
+.\Debug\Outline.obj
+.\Debug\Packets.obj
+.\Debug\Profile.obj
+.\Debug\QianLong.obj
+.\Debug\Report.obj
+.\Debug\SelfDB.obj
+.\Debug\ShengLong.obj
+.\Debug\StdAfx.obj
+.\Debug\StkLib.obj
+.\Debug\Stock.obj
+.\Debug\Strategy.obj
+.\Debug\Strings.obj
+.\Debug\StStore.obj
+.\Debug\TechCLK.obj
+.\Debug\TechEnergy.obj
+.\Debug\TechKLine.obj
+.\Debug\Technique.obj
+.\Debug\TechOther.obj
+.\Debug\TechSwing.obj
+.\Debug\TechTrend.obj
+.\Debug\TechUser.obj
+.\Debug\SpArchive.obj
+.\Debug\SpAssert.obj
+.\Debug\SpColl.obj
+.\Debug\SpDebug.obj
+.\Debug\SpFile.obj
+.\Debug\SpMemory.obj
+.\Debug\SpObject.obj
+.\Debug\SpString.obj
+.\Debug\SpTime.obj
+.\Debug\SpValid.obj
+.\Debug\StkLib.res
+]
+Creating command line "link.exe @C:\DOCUME~1\SUNZHE~1\LOCALS~1\Temp\RSPCB.tmp"
+<h3>Output Window</h3>
+Compiling...
+Minute.cpp
+SpTime.cpp
+Skipping... (no relevant changes detected)
+AfxCore.cpp
+Alarm.cpp
+BaseData.cpp
+Boyermor.cpp
+CommFuns.cpp
+Container.cpp
+Database.cpp
+DayTrader.cpp
+DRData.cpp
+Express.cpp
+IMCode.cpp
+KData.cpp
+MathParser.cpp
+Outline.cpp
+Packets.cpp
+Profile.cpp
+QianLong.cpp
+Report.cpp
+SelfDB.cpp
+ShengLong.cpp
+StdAfx.cpp
+StkLib.cpp
+Stock.cpp
+Strategy.cpp
+Strings.cpp
+StStore.cpp
+TechCLK.cpp
+TechEnergy.cpp
+TechKLine.cpp
+Technique.cpp
+TechOther.cpp
+TechSwing.cpp
+TechTrend.cpp
+TechUser.cpp
+SpArchive.cpp
+SpAssert.cpp
+SpColl.cpp
+SpDebug.cpp
+SpFile.cpp
+SpMemory.cpp
+SpObject.cpp
+SpString.cpp
+SpValid.cpp
+Linking...
+   Creating library ../Lib/StkLib30d.lib and object ../Lib/StkLib30d.exp
+<h3>
+--------------------Configuration: StkNet - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\SUNZHE~1\LOCALS~1\Temp\RSPCF.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I "../Include" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_AFXEXT" /D "STKNET_DLL" /FR"Debug/" /Fp"Debug/StkNet.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\Projects\CLKing\Src\StkNet\Src\AfxCore.cpp"
+"D:\Projects\CLKing\Src\StkNet\Src\base64.cpp"
+"D:\Projects\CLKing\Src\StkNet\Src\EditSrvDlg.cpp"
+"D:\Projects\CLKing\Src\StkNet\Src\HttpClt.cpp"
+"D:\Projects\CLKing\Src\StkNet\Src\InfoZip.cpp"
+"D:\Projects\CLKing\Src\StkNet\Src\Markup.cpp"
+"D:\Projects\CLKing\Src\StkNet\Src\NetDB.cpp"
+"D:\Projects\CLKing\Src\StkNet\Src\ProxySetDlg.cpp"
+"D:\Projects\CLKing\Src\StkNet\Src\ProxySocket.cpp"
+"D:\Projects\CLKing\Src\StkNet\Src\QSProfile.cpp"
+"D:\Projects\CLKing\Src\StkNet\Src\Secret.cpp"
+"D:\Projects\CLKing\Src\StkNet\Src\StartupDlg.cpp"
+"D:\Projects\CLKing\Src\StkNet\Src\StkNet.cpp"
+"D:\Projects\CLKing\Src\StkNet\Src\Strings.cpp"
+"D:\Projects\CLKing\Src\StkNet\Src\XMLDoc.cpp"
+"D:\Projects\CLKing\Src\StkNet\Src\STKDRV.cpp"
+"D:\Projects\CLKing\Src\StkNet\Src\STKDRVContainer.cpp"
+"D:\Projects\CLKing\Src\StkNet\Src\Tongshi.cpp"
+"D:\Projects\CLKing\Src\StkNet\Src\Yongxin.cpp"
+"D:\Projects\CLKing\Src\StkNet\Src\SelectEngineDlg.cpp"
+"D:\Projects\CLKing\Src\StkNet\Src\StkReceiver.cpp"
+"D:\Projects\CLKing\Src\StkNet\Src\MUtils\Base64Helper.cpp"
+"D:\Projects\CLKing\Src\StkNet\Src\SMailer\SMailer.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\SUNZHE~1\LOCALS~1\Temp\RSPCF.tmp" 
+Creating temporary file "C:\DOCUME~1\SUNZHE~1\LOCALS~1\Temp\RSPD0.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I "../Include" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_AFXEXT" /D "STKNET_DLL" /FR"Debug/" /Fp"Debug/StkNet.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\Projects\CLKing\Src\StkNet\Src\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\SUNZHE~1\LOCALS~1\Temp\RSPD0.tmp" 
+Creating temporary file "C:\DOCUME~1\SUNZHE~1\LOCALS~1\Temp\RSPD1.tmp" with contents
+[
+/nologo /subsystem:windows /dll /profile /debug /machine:I386 /def:".\StkNet.def" /out:"../../StkUI/Debug/StkNet30d.dll" /implib:"../Lib/StkNet30d.lib" /libpath:"../../StkLib/Lib" /libpath:"../../GuiLib/Lib" 
+.\Debug\AfxCore.obj
+.\Debug\base64.obj
+.\Debug\EditSrvDlg.obj
+.\Debug\HttpClt.obj
+.\Debug\InfoZip.obj
+.\Debug\Markup.obj
+.\Debug\NetDB.obj
+.\Debug\ProxySetDlg.obj
+.\Debug\ProxySocket.obj
+.\Debug\QSProfile.obj
+.\Debug\Secret.obj
+.\Debug\StartupDlg.obj
+.\Debug\StdAfx.obj
+.\Debug\StkNet.obj
+.\Debug\Strings.obj
+.\Debug\XMLDoc.obj
+.\Debug\STKDRV.obj
+.\Debug\STKDRVContainer.obj
+.\Debug\Tongshi.obj
+.\Debug\Yongxin.obj
+.\Debug\SelectEngineDlg.obj
+.\Debug\StkReceiver.obj
+.\Debug\Base64Helper.obj
+.\Debug\SMailer.obj
+.\Debug\StkNet.res
+\Projects\CLKing\Src\StkLib\Lib\StkLib30d.lib
+\Projects\CLKing\Src\GUILib\Lib\GuiLib.lib
+]
+Creating command line "link.exe @C:\DOCUME~1\SUNZHE~1\LOCALS~1\Temp\RSPD1.tmp"
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Automatically linking with StkLib30d.dll
+Automatically linking with GuiLib.dll
+Compiling...
+StkReceiver.cpp
+Generating Code...
+Skipping... (no relevant changes detected)
+AfxCore.cpp
+base64.cpp
+EditSrvDlg.cpp
+HttpClt.cpp
+InfoZip.cpp
+Markup.cpp
+NetDB.cpp
+ProxySetDlg.cpp
+ProxySocket.cpp
+QSProfile.cpp
+Secret.cpp
+StartupDlg.cpp
+StkNet.cpp
+Strings.cpp
+XMLDoc.cpp
+STKDRV.cpp
+STKDRVContainer.cpp
+Tongshi.cpp
+Yongxin.cpp
+SelectEngineDlg.cpp
+Base64Helper.cpp
+SMailer.cpp
+Linking...
+   Creating library ../Lib/StkNet30d.lib and object ../Lib/StkNet30d.exp
+
+
+
+<h3>Results</h3>
+StkNet30d.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

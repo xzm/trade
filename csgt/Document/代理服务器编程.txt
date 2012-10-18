@@ -1,0 +1,184 @@
+穿透代理服务器编程 
+    在网络程序设计过程中，我们经常要与各种类型的代理服务器打交道，比如在企业内部网通过代理去访问Internet网上的服务器等等，一般代理服务器支持几种常见的代理协议标准，如Socks4,Socks5,Http代理，其中Socks5需要用户验证，代理相对复杂。我在查阅RFC文档和相关资料后，特总结一些TCP协议穿透代理服务器的程序片断，希望对大家有所帮助。  
+
+//使用到的结构 
+struct sock4req1 
+{ 
+char VN; 
+char CD; 
+unsigned short Port; 
+unsigned long IPAddr; 
+char other[1]; 
+}; 
+
+struct sock4ans1 
+{ 
+char VN; 
+char CD; 
+}; 
+
+struct sock5req1 
+{ 
+char Ver; 
+char nMethods; 
+char Methods[255]; 
+}; 
+
+struct sock5ans1 
+{ 
+char Ver; 
+char Method; 
+}; 
+
+struct sock5req2 
+{ 
+char Ver; 
+char Cmd; 
+char Rsv; 
+char Atyp; 
+char other[1]; 
+}; 
+
+struct sock5ans2 
+{ 
+char Ver; 
+char Rep; 
+char Rsv; 
+char Atyp; 
+char other[1]; 
+}; 
+
+struct authreq 
+{ 
+char Ver; 
+char Ulen; 
+char Name[255]; 
+char PLen; 
+char Pass[255]; 
+}; 
+
+struct authans 
+{ 
+char Ver; 
+char Status; 
+}; 
+
+//通过Socks4方式代理 
+if( !ClientSock.Connect( g_ProxyInfo.m_strProxyIP,g_ProxyInfo.m_nProxyPort) ) 
+{ 
+m_sError = _T("不能连接到代理服务器!"); 
+ClientSock.Close(); 
+return FALSE; 
+} 
+char buff[100]; 
+memset(buff,0,100); 
+struct sock4req1 *m_proxyreq; 
+m_proxyreq = (struct sock4req1 *)buff; 
+m_proxyreq->VN = 4; 
+m_proxyreq->CD = 1; 
+m_proxyreq->Port = ntohs(GetPort()); 
+m_proxyreq->IPAddr = inet_addr(GetServerHostName()); 
+ClientSock.Send(buff,9); 
+struct sock4ans1 *m_proxyans; 
+m_proxyans = (struct sock4ans1 *)buff; 
+memset(buff,0,100); 
+ClientSock.Receive(buff,100); 
+if(m_proxyans->VN != 0 || m_proxyans->CD != 90) 
+{ 
+m_sError = _T("通过代理连接主站不成功!"); 
+ClientSock.Close(); 
+return FALSE; 
+} 
+
+
+//通过Socks5方式代理 
+if( !ClientSock.Connect( g_ProxyInfo.m_strProxyIP,g_ProxyInfo.m_nProxyPort) ) 
+{ 
+m_sError = _T("不能连接到代理服务器!"); 
+ClientSock.Close(); 
+return FALSE; 
+} 
+char buff[600]; 
+struct sock5req1 *m_proxyreq1; 
+m_proxyreq1 = (struct sock5req1 *)buff; 
+m_proxyreq1->Ver = 5; 
+m_proxyreq1->nMethods = 2; 
+m_proxyreq1->Methods[0] = 0; 
+m_proxyreq1->Methods[1] = 2; 
+ClientSock.Send(buff,4); 
+struct sock5ans1 *m_proxyans1; 
+m_proxyans1 = (struct sock5ans1 *)buff; 
+memset(buff,0,600); 
+ClientSock.Receive(buff,600); 
+if(m_proxyans1->Ver != 5 || (m_proxyans1->Method!=0 && m_proxyans1->Method!=2)) 
+{ 
+m_sError = _T("通过代理连接主站不成功!"); 
+ClientSock.Close(); 
+return FALSE; 
+} 
+if(m_proxyans1->Method == 2) 
+{ 
+int nUserLen = strlen(g_ProxyInfo.m_strProxyUser); 
+int nPassLen = strlen(g_ProxyInfo.m_strProxyPass); 
+struct authreq *m_authreq; 
+m_authreq = (struct authreq *)buff; 
+m_authreq->Ver = 1; 
+m_authreq->Ulen = nUserLen; 
+strcpy(m_authreq->Name,g_ProxyInfo.m_strProxyUser); 
+m_authreq->PLen = nPassLen; 
+strcpy(m_authreq->Pass,g_ProxyInfo.m_strProxyPass); 
+ClientSock.Send(buff,513); 
+struct authans *m_authans; 
+m_authans = (struct authans *)buff; 
+memset(buff,0,600); 
+ClientSock.Receive(buff,600); 
+if(m_authans->Ver != 1 || m_authans->Status != 0) 
+{ 
+m_sError = _T("代理服务器用户验证不成功!"); 
+ClientSock.Close(); 
+return FALSE; 
+} 
+} 
+struct sock5req2 *m_proxyreq2; 
+m_proxyreq2 = (struct sock5req2 *)buff; 
+m_proxyreq2->Ver = 5; 
+m_proxyreq2->Cmd = 1; 
+m_proxyreq2->Rsv = 0; 
+m_proxyreq2->Atyp = 1; 
+unsigned long tmpLong = inet_addr(GetServerHostName()); 
+unsigned short port = ntohs(GetPort()); 
+memcpy(m_proxyreq2->other,&tmpLong,4); 
+memcpy(m_proxyreq2->other+4,&port,2); 
+ClientSock.Send(buff,sizeof(struct sock5req2)+5); 
+struct sock5ans2 *m_proxyans2; 
+memset(buff,0,600); 
+m_proxyans2 = (struct sock5ans2 *)buff; 
+ClientSock.Receive(buff,600); 
+if(m_proxyans2->Ver != 5 || m_proxyans2->Rep != 0) 
+{ 
+m_sError = _T("通过代理连接主站不成功!"); 
+ClientSock.Close(); 
+return FALSE; 
+} 
+
+
+//通过HTTP方式代理 
+if( !ClientSock.Connect( g_ProxyInfo.m_strProxyIP,g_ProxyInfo.m_nProxyPort) ) 
+{ 
+m_sError = _T("不能连接到代理服务器!"); 
+ClientSock.Close(); 
+return FALSE; 
+} 
+char buff[600]; 
+sprintf( buff, "%s%s:%d%s","CONNECT ",GetServerHostName(),GetPort()," HTTP/1.1\r\nUser-Agent: MyApp/0.1\r\n\r\n"); 
+ClientSock.Send(buff,strlen(buff)); //发送请求 
+memset(buff,0,600); 
+ClientSock.Receive(buff,600); 
+if(strstr(buff, "HTTP/1.0 200 Connection established") == NULL) //连接不成功 
+{ 
+m_sError = _T("通过代理连接主站不成功!"); 
+ClientSock.Close(); 
+return FALSE; 
+} 
+我们一般先与代理服务器连通，然后向代理服务器发送代理验证的用户名和密码(如果需要,如Socks5代理)，验证成功后，再向代理服务器发送需要连接的目的地址和端口。以上代码仅用于TCP连接，如果在内部网侦听或通过UDP协议发送信息，可查阅RFC1829等文档资料。 
+ 

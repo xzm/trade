@@ -1,0 +1,14 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=StockAna.chm
+Contents file=Table of Contents.hhc
+Default topic=htm/index.htm
+Display compile progress=Yes
+Error log file=log1.log
+Full-text search=Yes
+Language=0x804 中文(中国)
+Title=策略为王证券分析系统
+
+
+[INFOTYPES]
+

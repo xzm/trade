@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<OBJECT type="text/site properties">
+	<param name="ImageType" value="Folder">
+</OBJECT>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="欢迎使用策略为王证券分析系统">
+		<param name="Local" value="htm\index.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="十大特色功能">
+		<param name="Local" value="htm\func.htm">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="个性化的投资策略设计">
+			<param name="Local" value="htm\func.htm#func1">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="投资策略指导实战，操作简单">
+			<param name="Local" value="htm\func.htm#func2">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="详尽的策略报表">
+			<param name="Local" value="htm\func.htm#func3">
+			<param name="URL" value="htm\func.htm#func3">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="股票列表提供详尽的基本资料和行情数据排序">
+			<param name="Local" value="htm\func.htm#func4">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="基本资料和行情数据的自定义任意组合计算">
+			<param name="Local" value="htm\func.htm#func5">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="板块和自定义分组管理及统计">
+			<param name="Local" value="htm\func.htm#func6">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="丰富的技术指标显示">
+			<param name="Local" value="htm\func.htm#func7">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="技术图表动态计算">
+			<param name="Local" value="htm\func.htm#func8">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="添加未来K线数据">
+			<param name="Local" value="htm\func.htm#func9">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="方便强大的数据管理">
+			<param name="Local" value="htm\func.htm#func10">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="软件使用说明">
+		<param name="Local" value="htm\menu.htm">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="菜单使用简介">
+			<param name="Local" value="htm\menu.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="工具条使用简介">
+			<param name="Local" value="htm\toolbar.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="快捷键">
+			<param name="Local" value="htm\acce.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="技术分析理论">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="技术分析的理论常识">
+			<param name="Local" value="htm\theory.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="对K线图的深入分析">
+			<param name="Local" value="htm\kline.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="常用技术指标">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="常用技术指标">
+			<param name="Local" value="htm\techs.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="股海沉浮，股市人生">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="不被情绪困扰的丹尼">
+			<param name="Local" value="htm\danni.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="着重风险管理的钟士">
+			<param name="Local" value="htm\zhongshi.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="无招胜有招的博文">
+			<param name="Local" value="htm\bowen.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="曾受军训制胜的史华兹">
+			<param name="Local" value="htm\shihuazi.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="如何购买">
+		<param name="Local" value="htm\purchase.htm">
+		</OBJECT>
+</UL>
+</BODY></HTML>

@@ -1,0 +1,41 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: TestBench - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\SUNZHE~1\LOCALS~1\Temp\RSP3B.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/TestBench.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\Projects\CLKing\Src\NetTS\TestBench\MainFrm.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\SUNZHE~1\LOCALS~1\Temp\RSP3B.tmp" 
+Creating temporary file "C:\DOCUME~1\SUNZHE~1\LOCALS~1\Temp\RSP3C.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/TestBench.pdb" /debug /machine:I386 /out:"Debug/TestBench.exe" /pdbtype:sept /libpath:"../Debug" 
+.\Debug\MainFrm.obj
+.\Debug\StdAfx.obj
+.\Debug\TestBench.obj
+.\Debug\TestBenchDoc.obj
+.\Debug\TestBenchView.obj
+.\Debug\TestBench.res
+\Projects\CLKing\Src\NetTS\Debug\NetTS.lib
+]
+Creating command line "link.exe @C:\DOCUME~1\SUNZHE~1\LOCALS~1\Temp\RSP3C.tmp"
+<h3>Output Window</h3>
+Compiling...
+MainFrm.cpp
+Linking...
+Creating command line "bscmake.exe /nologo /o"Debug/TestBench.bsc"  .\Debug\StdAfx.sbr .\Debug\MainFrm.sbr .\Debug\TestBench.sbr .\Debug\TestBenchDoc.sbr .\Debug\TestBenchView.sbr"
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+TestBench.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,31 @@
+# Microsoft Developer Studio Generated Dependency File, included by StateInFile.mak
+
+.\ChildView.cpp : \
+	".\ChildView.h"\
+	".\StateInFile.h"\
+	".\StdAfx.h"\
+	
+
+.\MainFrm.cpp : \
+	".\ChildView.h"\
+	".\MainFrm.h"\
+	".\StateInFile.h"\
+	".\StdAfx.h"\
+	
+
+.\StateInFile.cpp : \
+	".\ChildView.h"\
+	".\MainFrm.h"\
+	".\StateInFile.h"\
+	".\StdAfx.h"\
+	
+
+.\StateInFile.rc : \
+	".\res\StateInFile.ico"\
+	".\res\StateInFile.rc2"\
+	".\res\Toolbar.bmp"\
+	
+
+.\StdAfx.cpp : \
+	".\StdAfx.h"\
+	

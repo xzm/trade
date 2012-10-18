@@ -1,0 +1,1523 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=GB2312">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./kline.files/filelist.xml">
+<title>第二章 对K线图的深入分析</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Szy</o:Author>
+  <o:LastAuthor>szy</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>17</o:TotalTime>
+  <o:Created>2002-09-17T20:28:00Z</o:Created>
+  <o:LastSaved>2002-09-17T20:28:00Z</o:LastSaved>
+  <o:Pages>16</o:Pages>
+  <o:Words>2382</o:Words>
+  <o:Characters>13581</o:Characters>
+  <o:Company>WXD</o:Company>
+  <o:Lines>113</o:Lines>
+  <o:Paragraphs>27</o:Paragraphs>
+  <o:CharactersWithSpaces>16678</o:CharactersWithSpaces>
+  <o:Version>9.2812</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:PunctuationKerning/>
+  <w:DrawingGridVerticalSpacing>7.8 磅</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>2</w:DisplayVerticalDrawingGridEvery>
+  <w:Compatibility>
+   <w:SpaceForUL/>
+   <w:BalanceSingleByteDoubleByteWidth/>
+   <w:DoNotLeaveBackslashAlone/>
+   <w:ULTrailSpace/>
+   <w:DoNotExpandShiftReturn/>
+   <w:AdjustLineHeightInTable/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:SimSun;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 135135232 16 0 262145 0;}
+@font-face
+	{font-family:黑体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:SimHei;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:1 135135232 16 0 262144 0;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 135135232 16 0 262145 0;}
+@font-face
+	{font-family:"\@黑体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:1 135135232 16 0 262144 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	mso-pagination:none;
+	font-size:10.5pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:宋体;
+	mso-font-kerning:1.0pt;}
+h1
+	{mso-style-next:正文;
+	margin-top:17.0pt;
+	margin-right:0cm;
+	margin-bottom:16.5pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:240%;
+	mso-pagination:lines-together;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:22.0pt;
+	font-family:"Times New Roman";
+	mso-font-kerning:22.0pt;}
+h2
+	{mso-style-next:正文;
+	margin-top:13.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:173%;
+	mso-pagination:lines-together;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:16.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:黑体;
+	mso-bidi-font-family:"Times New Roman";
+	mso-font-kerning:1.0pt;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	text-indent:17.95pt;
+	mso-char-indent-count:1.71;
+	mso-char-indent-size:10.45pt;
+	mso-pagination:none;
+	font-size:10.5pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:宋体;
+	mso-font-kerning:1.0pt;}
+ /* Page Definitions */
+@page
+	{mso-page-border-surround-header:no;
+	mso-page-border-surround-footer:no;}
+@page Section1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:36.0pt;
+	mso-footer-margin:36.0pt;
+	mso-paper-source:0;
+	layout-grid:15.6pt;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+</head>
+
+<body lang=ZH-CN style='tab-interval:21.0pt;text-justify-trim:punctuation'>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+<h1 align=center style='text-align:center'><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>第二章</span>
+<span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>对</span><span lang=EN-US>K</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>线图的深入分析</span></h1>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-family:黑体;mso-ascii-font-family:Arial'>第一节</span> <span
+style='font-family:黑体;mso-ascii-font-family:Arial'>Ｋ线图分析法简介</span></h2>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>Ｋ线图这种图表源处于日本，被当时日本米市的商人用来记录米市的行情与价格波动，后因其细腻独到的标画方式而被引入到股市及期货市场。目前，这种图表分析法在我国以至整个东南亚地区均尤为流行。由于用这种方法绘制出来的图表形状颇似一根根蜡烛，加上这些蜡烛有黑白之分，因而也叫阴阳线图表。通过Ｋ线图，我们能够把每日或某一周期的市况表现完全记录下来，</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>股价经过一段时间的盘档后，在图上即形成一种特殊区域或形态，不同的形态显示出不同意义。我们可以从这些形态的变化中摸索出一些有规律的东西出来。Ｋ线图形态可分为反转形态、整理形态及缺口和趋向线等，从本章的第三节开始，我们将逐一地对这些形态进行具体分析。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>一、绘制方法</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>首先我们找到该日或某一周期的最高和最低价，垂直地连成一条直线；然后再找出当日或某一周期的开市和收市价，把这二个价位连接成一条狭长的长方柱体。假如当日或某一周期的收市价较开市价为高（即低开高收），我们便以红色来表示，或是在柱体上留白，这种柱体就称之为“阳线”。如果当日或某一周期的收市价较开市价为低（即高开低收），我们则以蓝色表示，又或是在住柱上涂黑色，这柱体就是“阴线”了。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>二、优点</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>能够全面透彻地观察到市场的真正变化。我们从Ｋ线图中，既可看到股价（或大市）的趋势，也同时可以了解到每日市况的波动情形。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>三、缺点</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（１）绘制方法十分繁复，是众多走势图中最难制作的一种。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（２）阴线与阳线的变化繁多，对初学者来说，在掌握分析方面会有相当的困难，不及柱线图那样简单易明。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>四、分析意义</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>由于“阴阳线”变化繁多，“阴线”与“阳线”里包涵着许多大小不同的变化，因此其分析的意义，有特别提出一谈的必要。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在讨论“阴阳线”的分析意义之前，先让我们知道阳线每一个部分的名称。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>我们以阳线为例，最高与收市价之间的部分称之为“上影”，开市价与收市价之间称为“实体”，开市价与最低价之间就称作“下影”。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>１．长红线或大阳线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>此种图表示最高价与收盘价相同，最低价与开盘价一样。上下没有影线。从一开盘，买方就积极进攻，中间也可能出现买方与卖方的斗争，但买方发挥最大力量，一直到收盘。买方始终占优势，使价格一路上扬，直至收盘。表示强烈的涨势，股市呈现高潮，买方疯狂涌进，不限价买进。握有股票者，因看到买气的旺盛，不愿抛售，出现供不应求的状况。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>２．长黑线或大阴线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>此种图表示最高价与开盘价相同，最低价与收盘价一样。上下没有影线。从一开始，卖方就占优势。股市处于低潮。握有股票者不限价疯狂抛出，造成恐慌心理。市场呈一面倒，直到收盘、价格始终下跌，表示强烈的跌势。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>３．先跌后涨型</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>这是一种带下影线的红实体。最高价与收盘价相同，开盘后，卖气较足，价格下跌。但在低价位上得到买方的支撑，卖方受挫，价格向上推过开盘价，一路上扬，直至收盘，收在最高价上。总体来讲，出现先跌后涨型，买方力量较大，但实体部分与下影线长短不同，买方与卖方力量对比不同。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>实体部分比下影线长。价位下跌不多，即受到买方支撑，价格上推。破了开盘价之后，还大幅度推进，买方实力很大。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>实体部分与下影线相等，买卖双方交战激烈，但大体上，买方占主导地位，对买方有利。</span><span
+lang=EN-US> </span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>实体部分比下影线短。买卖双方在低价位上发生激战。遇买方支撑逐步将价位上推。但从图中可发现，上面实体部分较小，说明买方所占据的优势不太大，如卖方次日全力反攻，则买方的实体很容易被攻占。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>４．下跌抵抗型</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>这是一种带下影线的黑实体，开盘价是最高价。一开盘卖方力量就特别大，价位一种下跌，但在低价位上遇到买方的支撑。后市可能会反弹。实体部分与下影线的长短不同也可分为三种情况：</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>1</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）实体部分比影线长</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>卖压比较大，一开盘，大幅度下压，在低点遇到买方抵抗，买方与卖方发生激战，影线部分较短，说明买方把价位上推不多，从总体上看，卖方占了比较大的优势。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>2</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）实体部分与影线同长</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>表示卖方把价位下压后，买方的抵抗也在增加，但可以看出，卖方仍占优势。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>3</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）实体部分比影线短</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>卖方把价位一路压低，在低价位上，遇到买方顽强抵抗并组织反击，逐渐把价位上推，最后虽以黑棒收盘，但可以看出卖方只占极少的优势。后市很可能买方会全力反攻，把小黑实体全部吃掉。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>５．上升阻力</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>这是一种带上影线的红实体。开盘价即最低价。一开盘买方强盛，价位一路上推，但在高价位遇卖方压力，使股价上升受阻。卖方与买方交战结果为买方略胜一筹。具体情况仍应观察实体与影线的长短。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>红实体比影线长，表示买方在高价位是遇到阻力，部分多头获利回吐。但买方仍是市场的主导力量，后市继续看涨。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>实体与影线同长，买方把价位上推，但卖方压力也在增加。二者交战结果，卖方把价位压回一半，买方虽占优势。但显然不如其优势大。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>实体比影线短。在高价位遇卖方的压力、卖方全面反击，买方受到严重考验。大多短线投资者纷纷获利回吐，在当日交战结束后，卖方已收回大部分失地。买方一块小小的堡垒（实体部分）将很快被消灭，这种Ｋ线如出现在高价区，则后市看跌。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>６．先涨后跌型</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>这是一种带上影线的黑实体。收盘价即是最低价。一开盘，买方与卖方进行交战。买方占上风，价格一路上升。但在高价位遇卖压阻力，卖方组织力量反攻，买方节节败退，最后在最低价收盘，卖方占优势，并充分发挥力量，使买方陷入“套牢”的困境。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>具体情况仍有以下三种：</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>1</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）黑实体比影线长</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>表示买方把价位上推不多，立即遇到卖方强有力的反击，把价位压破开盘价后乘胜追击，再把价位下推很大的一段。卖方力量特别强大，局势对卖方有利。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>2</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）黑实体与影线相等买方把价位上推；但卖方力量更强，占据主动地位。卖方具有优势。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>3</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）黑实体比影线短</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>卖方虽将价格下压，但优势较少，明日入市，买方力量可能再次反攻，黑实体很可能被攻占。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>７．反转试探型</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>这是一种上下都带影线的红实体。开盘后价位下跌，遇买方支撑，双方争斗之后，买方增强，价格一路上推，临收盘前，部分买者获利回吐，在最高价之下收盘。这是一种反转信号。如在大涨之后出现，表示高档震荡，如成交量大增，后市可能会下跌。如在大跌后出现，后市可能会反弹。这里上下影线及实体的不同又可分为多种情况：</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（１）上影线长于下影线之红实体：又分为：影线部分长于红实体表示买方力量受挫折。红实体长于影线部分表示买方虽受挫折，但仍占优势。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（２）下影线长于上影线之红实体：亦可分为：红实体长于影线部分表示买方虽受挫折，仍居于主动地位。影线部分长于红实体表示买方尚需接受考验。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>８．弹升试探型</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>这是一种上下都带影线的黑实体，在交易过程中，股价在开盘后，有时会力争上游，随着卖方力量的增加，买方不愿追逐高价，卖方渐居主动，股价逆转，在开盘价下交易，股价下跌。在低价位遇买方支撑，买气转强，不至于以最低价收盘。有时股价在上半场以低于开盘价成交，下半场买意增强，股价回至高于开盘价成交，临收盘前卖方又占优势，而以低于开盘价之价格收盘。这也是一种反转试探。如在大跌之后出现，表示低档承接，行情可能反弹。如大涨之后出现，后市可能下跌。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>９．十字线型</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>这是一种只有上下影线，没有实体的图形。开盘价即是收盘价，表示在交易中，股价出现高于或低于开盘价成交，但收盘价与开盘价相等。买方与卖方几乎势均力敌。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>其中：上影线越长，表示卖压越重。下影线越长，表示买方旺盛。上下影线看似等长的十字线，可称为转机线，在高价位或低价位，意味着出现反转。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>１０．“┴”图形</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>又称空胜线，开盘价与收盘价相同。当日交易都在开盘价以上之价位成交，并以当日最低价（即开盘价）收盘，表示买方虽强，但卖方更强，买方无力再挺升，总体看卖方稍占优势，如在高价区，行情可能会下跌。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>“Ｔ”图形又称多胜线，开盘价与收盘价相同，当日交易以开盘价以下之价位成交，又以当日最高价（即开盘价）收盘。卖方虽强，但买方实力更大，局势对买方有利，如在低价区，行情将会回升。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>１１．“一”图形</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>此较形不常见，即开盘价、收盘价、最高价、最低价在同一价位。只出现于交易非常冷清，全日交易只有一档价位成交。冷门股此类情形较易发生。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-family:黑体;mso-ascii-font-family:Arial'>第二节</span> <span
+style='font-family:黑体;mso-ascii-font-family:Arial'>Ｋ线线势型态分析</span></h2>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>所谓线势型态是以日线图中，三至五天行情变化为对象，对未来股价走势的分析也是以短期行情变化为目标，不过在许多时候也必须把它放在大的长期的行情中去分析理解。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>一、上升线势行情</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>１．二颗星</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>上升行情中出现极线的情形即称为二颗星、三颗星，此时股价上涨若再配合成交量放大，即为可信度极高的买进时机，股价是必再出现另一波涨升行情</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>２．跳空上扬</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在上涨行情中，某日跳空拉出一条阳线后，即刻出现一条下降阴线，此为加速股价上涨的前兆，投资人无须惊慌抛出持股，股价必将持续前一波涨势继续上升。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>３．下降阴线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在涨升的途中，出现如图般的三条连续下跌阴线，为逢低承接的大好时机。当第四天的阳线超越前一天的开盘价时，表示买盘强于卖盘，应立刻买进以期股价扬升</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>４．上档盘旋</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>股价随着强而有力的大阳线往上涨升，在高档将稍做整理，也就是等待大量换手，随着成交量的扩大，即可判断另一波涨势的出现。上档盘整期间约</span><span
+lang=EN-US>6</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>日至</span><span lang=EN-US>11</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>日，若期间过长则表示上涨无力。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>５．并排阳线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>持续涨势中，某日跳空现阳线，隔日又出现一条与其几乎并排的阳线，如果隔日开高盘，则可期待大行情的出现。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>６．超越覆盖线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>行情上涨途中若是出现覆盖线，表示已达天价区，此后若是出现创新天价的阳线，代表行情有转为买盘的迹象，股价会继续上涨。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>７．上涨插入线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在行情震荡走高之际，出现覆盖阴线的隔日，拉出一条下降阳线，这是短期的回档，股价必上涨。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>８．三条大阴线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在下跌行情中出现三条连续大阴线，是股价隐入谷底的征兆，行情将转为买盘，股价上扬。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>９．上升三法</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>行情上涨中，大阳线之后出现三根连续小阴线，这是蓄势待发的征兆，股价将上升。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>１０．向上跳空阴线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>此图形虽不代表将有大行情出现，但约可持续七天左右的涨势，为买进时机</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>二、反弹线势行情</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>１．反弹线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在底价圈内，行情出现长长的下影线时，往往即为买进时机，出现买进信号之后，投资人即可买进，或为了安全起见，可待候行情反弹回升之后再买进，若无重大利空出现，行情必定反弹。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>２．舍子线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在大跌行情中，跳空出现十字线，这暗示着筑底已经完成，为反弹之征兆。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>３．阴线孕育阳线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在下跌行情中，出现大阴线的次日行情呈现一条完全包容在大阴线内的小阴线，显示卖盘出尽，有转盘的迹象，股价将反弹。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>４．五条阴线后一条大阴线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>当阴阳交错拉出五条阴线后，出现一条长长的大阴线，可判断“已到底部”，如果隔日开高盘，则可视为反弹的开始。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>５．二条插入线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>此图形暗示逢低接手力道强劲，股价因转盘而呈上升趋势。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>６．最后包容线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在连续的下跌行情中出现小阳线，隔日即刻出现包容的大阴线，此代表筑底完成，行情即将反弹。虽然图形看起来呈现弱势，但该杀出的浮码均已出尽，股价必将反弹而上。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>７．下档五根阳线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在底价圈内出现五条阳线，暗未逢低接手力道不弱，底部形成，股价将反弹。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>８．反弹阳线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>确认股价已经跌得很深，某一天，行情出现阳线，即“反弹阳线”时，即为买进信号，若反弹阳线附带着长长的下影线，表示低档已有主力大量承接，股价将反弹而上。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>９．三空阴线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>当行情出现连续三条跳空下降阴线，则为强烈的买进信号，股价即将反弹。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>１０．连续下降三颗星</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>确认股价已跌深，于低档盘整时跳空出现连续三条小阴线（极线），</span>
+<span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>这是探底的前兆，如果第四天出现十字线，第五天出现大阳线，则可确认底部已筑成，股价反转直上。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>三、下跌线势行情</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>１．覆盖线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>股价连续数天扬升之后，隔日以高盘开出，随后买盘不愿追高，大势持续滑落，收盘价跌到前一日阳线之内。这是超买之后所形成的卖压涌现，获利了结股票大量释出之故，股价将下跌。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>２．十字线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在高价圈出现十字线（开盘收盘等价线），并留下上下影线，其中上影线较长。此情形表示股价经过一段时日后，已涨得相当高，欲振乏力，开始要走下坡，这是明显的卖出讯号。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>３．阴线孕育于较长阳线内</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>经过连日飚涨后，当日的开收盘价完全孕育在前一日的大阳线之中，并出现一根阴线，这也代表上涨力道不足，是股价下跌的前兆，若隔天再拉出一条上影阴线，更可判断为股价暴跌的征兆。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>４．阳线孕育在较长阳线内</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>股价连续数天扬升之后，隔天出现一根小阳线，并完全孕育在前日之大阳线之中，表示上升乏力，是暴跌的前兆。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>５．孕育十字线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>亦即今日的十字线完全包含在前一日的大阳线之中的情况。此状态代表买盘力道减弱，行情即将回软转变成卖盘，股价下跌。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>６．最后包容线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>当股价持续数天涨势后出现一根阴线，隔天又开低走高拉出一根大阳线，将前一日的阴线完全包住，这种现象看来似乎买盘增强，但只要隔日行情出现比大阳线的收盘价低，则投资人应该断然释出持股。若是隔日行情高于大阳线的收盘价，也很有可能成为“覆盖阴线”，投资人应慎防。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>７．跳空</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>所谓跳空即两条阴阳线之间不互相接触，中间有空格的意思。连续出现三根跳空阳线后，卖压必现，一般投资人在第二根跳空阳线出现后，即应先行获利了结，以防回档惨遭套牢。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>８．下影线过长</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>股价于高档开盘，先前的买盘因获利了结而杀出，使得大势随之滑落，低档又逢有力承接，股价再度攀升，形成下影线为实线的三倍以上。此图型看起来似乎买盘转强，然宜慎防主力拉高出货，空手者不宜冒然介入，持股者宜逢高抛售。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>９．尽头线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>持续涨升的行情一旦出现此图形，表示上涨力道即将不足，行情将回档盘整，投资人宜先行获利了结。这也是一种“障眼线”，小阳线并没有超越前一日的最高点，证明上涨乏力，股价下跌。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>１０．反击顺沿线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>此处所称之顺沿线为自高档顺次而下出现的二根阴线。为了打击此二根阴线所出现的一大根阳线，看起来似乎买盘力道增强了，但投资人须留意这只不过是根“障眼线”，主力正在拉高出货，也是投资人难得的逃命线，宜抛出持股。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>１１．跳空舍字线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>行情跳空上涨开成一条十字线，隔日却又跳空拉出一根阴线，暗示行情即将暴跌。此时股价涨幅已经相当大，无力再往上冲，以致跳空而下，为卖出信号，在此情况下，成交量往往也会随之减少。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>１２．跳空孕育十字线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>当股价跳空上涨后拉出三根大阳线，随后又出现一条十字线，代表涨幅过大，买盘不愿追高，持股者纷纷杀出，这也是融券放空者千载难逢的好机会，股价将暴跌。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>１３．下降插入线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>持续下降阴线中，出现一条开低走高的阳线，为卖出时机，股价必将持续下跌。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>１４．下降覆盖线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在高档震荡行情中，出现一条包容大阴线，隔日牵出一条下降阳线，接下来又出出覆盖线，则暗示行情已到达天价价位，此时为脱手线。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>１５．高档五阴线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>股价涨幅已高，线路图出现五条连续阴线，显示股价进入盘局，此时若成交量萎缩，更可确信行情不妙。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>１６．下降三法</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在行情持续下跌中，出现一条大阴线，隔天起却又连现三根小阳线，这并不代表筑底完成，接下来若再出现一条大阴线，则为卖出时机，股价必将持续往下探底。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>１７．三段大阳线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>行情持续下跌中出现一条大阳线，此大阳线将前三天的跌幅完全包容，这是绝好的逃命线，投资人宜尽快出脱持股，股价将持续下跌。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>１８．三颗星</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>下跌行情中出现极线，这是出脱持股的好机会，股价将再往下探底。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>１９．低档盘旋</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>通常盘整时间在六日至十一日之间，若接下来出现跳空阴线，则为大跌的起步，也就是说前段的盘整只不过是中段的盘整罢了，股价将持续回档整理。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>２０．跳空下降二阴线</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在下降的行情中又出现跳空下降的连续二条阴线，这是暴跌的前兆。通常在两条阴线出现之前，会有一小段反弹行情，但若反弹无力，连续出现阴线时，表示买盘大崩盘，股价将继续往下探底。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-family:黑体;mso-ascii-font-family:Arial'>第三节</span> <span
+style='font-family:黑体;mso-ascii-font-family:Arial'>反转型态——头肩顶</span></h2>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>反转形态指股价趋势逆转所形成的图形，亦即股价由涨势转为跌势，或由跌势转为涨势的信号。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>1</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．型态分析</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>头肩顶走势，可以划分为以下不同的部分：</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>1</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）左肩部分──持续一段上升的时间，成交量很大，</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>过去在任何时间买进的人都有利可图，于是开始获利沽出，令股价出现短期的回落，成交较上升到其顶点时有显著的减少。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>2</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）头部──股价经过短暂的回落后</span><span
+lang=EN-US>,</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>又有一次强力的上升，成交亦随之增加。不过，成交量的最高点较之于左肩部分，明显减退。股价升破上次的高点后再一次回落。成交量在这回落期间亦同样减少。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>3</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）右肩部分──股价下跌到接近上次的回落低点又再获得支持回升，可是，</span>
+<span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>市场投资的情绪显著减弱，成交较左肩和头部明显减少，股价没法抵达头部的高点便告回落，于是形成右肩部分。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>4</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）突破──从右肩顶下跌穿破由左肩底和头部底所连接的底部颈线，</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>其突破颈线的幅度要超过市价的</span><span lang=EN-US>3</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>％以上。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>简单来说，头肩顶的形状呈现三个明显的高峰，其中位于中间的一个高峰较其他两个高峰的高点略高。至于成交量方面，则出现梯级型的下降。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>2</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．市场含义</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>头肩顶是一个不容忽视的技术性走势，我们从这型态可以观察到好淡双方的激烈争夺情况。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>初时，看好的力量不断推动股价上升，市场投资情绪高涨，出现大量成交，经过一次短期的回落调整后，那些锗过上次升势的人在调整期间买进，股价继续上升，而且攀越过上次的高点，表面看来市场仍然健康和乐观，但成交已大不如前，反映出买方的力量在减弱中。那些对前景没有信心和错过了上次高点获利回吐的人，或是在回落低点买进作短线投机的人纷纷沽出，于是股价再次回落。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>第三次的上升，为那些后知后觉错过了上次上升机会的投资者提供了机会，但股价无力升越上次的高点，而成交量进一步下降时，差不多可以肯定过去看好的乐观情绪已完全扭转过来。未来的市场将是疲弱无力，一次大幅的下跌即将来临。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>对此型态的分析是：</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>1</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）这是一个长期性趋势的转向型态，通常会在牛市的尽头出现。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>2</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）当最近的一个高点的成交量较前一个高点为低时，</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>就暗示了头肩顶出现的可能性；当第三次回升股价没法升抵上次的高点，成交继续下降时，有经验的投资者就会把握机会沽出。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>3</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）当头肩顶颈线击破时，就是一个真正的沽出讯号，虽然股价和最高点比较，</span>
+<span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>已回落了相当的幅度，但跌势只是刚刚开始，未出货的投资者继续沽出。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>4</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）当颈线跌破后，</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>我们可根据这型态的最少跌幅量度方法预测股价会跌至哪一水平。这量度的方法是一一从头部的最高点画一条垂直线到颈线，然后在完成右肩突破颈线的一点开始，向下量出同样的长度，由此量出的价格就是该股将下跌的最小幅度。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>3</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．要点提示</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>1</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）一般来说左肩和右肩的高点大致相等，部分头肩顶的右肩较左肩为低。</span>
+<span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>但如果右肩的高点较头部还要高，型态便不能成立。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>2</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）如果其颈线向下倾斜，</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>显示市场非常疲乏无力。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>3</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）成交量方面，左肩最大，头部次之，而右肩最少。不过，</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>根据有些统计所得，大约有三分之一的头肩顶左肩成交量较头部为多，三分之一的成交量大致相等，其余的三分之一是头部的成交大于左肩的。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>4</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）当颈线跌破时，不必成交增加也该信赖，倘若成交在跌破时激增，</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>显示市场的抛售力量十分庞大，股价会在成交量增加的情形下加速下跌。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>5</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）在跌破颈线后可能会出现暂时性的回升（后抽），</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>这情形通常会在低成交量的跌破时出现。不过，暂时回升应该不超越颈线水平。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>6</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）头肩顶是一个杀伤力十分强大的形态，通常其跌幅大于量度出来的最少跌幅。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>7</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）假如股价最后在颈线水平回升，而且高于头部，</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>又或是股价于跌破颈线后回升高于颈线，这可能是一个失败的头肩顶，不宜信赖。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-family:黑体;mso-ascii-font-family:Arial'>第四节</span> <span
+style='font-family:黑体;mso-ascii-font-family:Arial'>反转型态——头肩底</span></h2>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>1</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．型态分析</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>和头肩顶的形状一样，只是整个形态倒转过来而已，又称“倒转头肩式”。形成左肩时，股价下跌，成交量相对增加，接着为一次成交量较小的次级上升。接着股价又再下跌且跌破上次的最低点，成交量再次随着下跌而增加，较左肩反弹阶段时的交投为多——形成头部；从头部最低点回升时，成交量有可能增加。整个头部的成交量来说，较左肩为多。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>当股价回升到上次的反弹高点时，出现第三次的回落，这时的成交量很明显少于左肩和头部，股价在跌至左肩的水平，跌势便稳定下来，形成右肩。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>最后，股价正式策动一次升势，且伴随成交大量增加，当其颈线阻力冲破时，成交更显著上升，整个型态便告成立。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>2</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．市场含义</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>头肩底的分析意义和头肩顶没有两样，它告诉我们过去的长期性趋势已扭转过来，股价一次再一次的下跌，第二次的低点（头部）显然较先前的一个低点为低，但很快地掉头弹升，接下来的一次下跌股价末跌到上次的低点水平已获得支持而回升，反映出看好的力量正逐步改变市场过去向淡的形势。当两次反弹的高点阻力线（颈线）打破后，显示看好的一方已完全把淡方击倒，买方代替卖方完全控制整个市场。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>3</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．要点提示</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>1</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）头肩顶和头肩底的形状差不多，主要的区别在于成交量方面。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>2</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）当头肩底颈线突破时，就是一个真正的买入讯号，虽然股价和最低点比较，已上升一段幅度，但升势只是刚刚开始，尚示买入的投资者应该继续追入。其最少升幅的量度方法是从头部的最低点画一条垂直线相交于颈线，然后在右肩突破颈线的一点开始，向上量度出同样的高度，所量出的价格就是该股将会上升的最小幅度。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>另外，当颈线阻力突破时，必须要有成交量激增的配合，否则这可能是一个错误的突破。不过，如果在突破后成交逐渐增加，型态也可确认。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>3</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）一般来说，头肩底型态较为平坦，因此需要较长的时间来完成。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>4</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）在升破颈线后可能会出现暂时性的回跌，但回不应低于线。如果回跌低于颈线，又或是股价在颈线水平回落，没法突破颈线阻力，而且还跌低于头部，这可能是一个失败的头肩底型态。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>5</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）头肩底是极具预测威力的型态之一，一旦获得确认，升幅大多会多于其最少升幅的。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-family:黑体;mso-ascii-font-family:Arial'>第五节</span> <span
+style='font-family:黑体;mso-ascii-font-family:Arial'>反转形态——复合头肩型</span></h2>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>1</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．型态分析</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>复合头肩型是头肩式（头肩顶或头肩底）的变形走势，其形状和头肩式十分相似，只是肩部、头部、或两者同时出现多于一次，大致来说可划分为以下几大类：</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>1</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）一头双肩式型态：一个头分别有二个大小相同的左肩和右肩，</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>左右双肩大致平衡。比较多的是一头双右肩，在形成第一个右肩时，股价并不马上跌破颈线，反而掉头回升，不过回升却止于右肩高点之下，最后股价继续沿着原来的趋势向下。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>2</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）一头多肩式型态：一般的头肩式都有对称的倾向，因此当二个左肩形成后，很有可能也会形成一个有肩。除了成交量之外，图形的左半部和右半部几乎完全相等。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>3</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）多头多肩式型态：在形成头部期间，股价一再回升，</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>而且回升至上次同样的高点水平才向下回落，形成明显的两个头部，也可称作两头两肩式走势。有一点必须留意：成交量在第二个头往往会较第一个减少。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>2</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．市场含义</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>复合头肩型态的分析意义和普通的头肩式型态一样，当在底部出现时，即表示一次较长期的升市即将来临；假如在顶部出现，显示市场将转趋下跌。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在形成复合头肩型的初期，因成交量可能不规则，使型态难以辨认，但稍久就很容易看出它和头肩型的趋势完全一致。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>许多人都高估复合头肩型态的预期上升（或下跌）威力，其实复合头肩型态的力量往往较普通的头肩型态为弱。在中期性趋势出现时，复合头肩型态完成其最少升幅（或跌幅）便不再继续下去，而普通头肩型态的上升（或下跌），往往是较其量度出来的最蓨幅度为大的。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>3</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．要点提示</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>1</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）复合头肩型态的最少升帽／跌帼量度方法和普通的头肩型态的量度方法一样。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>2</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）复合头肩型态的颈线很难画出来，</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>因为每一个肩和头的回落部分（复合头肩底则是回升部分），并不会全都落在同一条线上。因此，应该以最明显的二个短期低点（复合头肩底则是短期反弹高点），连接成颈线。另外又或是以回落（或反弹）到其价位次数最多的水平接连戍颈线。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-family:黑体;mso-ascii-font-family:Arial'>第六节</span> <span
+style='font-family:黑体;mso-ascii-font-family:Arial'>反转形态——单日（双日）反转</span></h2>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>1</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．型态分析</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>当一只股票持续上升一段时间，在某个交易日中股价突然不寻常地被推高，但马上又受到了强大的抛售压力，把当日所有的升幅都完全跌去，可能还会多跌一部分，并以全日最低价（或接近全日最低价）收市。这个交易日就叫做顶部单日反转。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>两日反转就是这型态的变形。在上升的过程中，某交易日该股股价大幅扳升，并以全日的最高价收市。可是翌日股价以昨天的收市价开盘后，全日价格不断下跌，把昨日的升幅完全跌去，而且可能是以上日的最低价收市。这走势的表现就称之为顶部两日反。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>同样在下跌时，某个交易日里股价突告大幅滑落，但接着的一个交易日便完全收复失地，并以当日最高价收和市，这就是底部两日反转。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>2</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．市场含义</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>我们以底部单日反转为例，解释这现象出现的成因。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在下跌的阶段中，由于股价不断下跌，愈来愈多的投资者没法承担更大损失，于是止蚀沽出。他们的沽售令股价进一步推低，更低的价格使他们更急于沽出，因此令到当日价位急速下跌。当他们沽售完毕之后，抛售压力突告消失，其他投资者因为新低价的引诱而尝试买人，马上就获得利润，于是有更多的投资者加进买入的行列，由于较早时沽盘已全被消化，因此买盘很快便推动股价上升，把当天跌去的价位全部升回。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>单日反转型态的市场含义至少有两点：</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（１）大市暂时见顶（当顶部单日反转出现），或是见底（当底部单日反转出现）。顶部单日反转通常在消耗性上升的后期出现；底部单日反转则是在恐慌性抛售的末段出现。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（２）这并非是长期性趋势逆转的讯号，通常在整理型态的顶部中出现，</span>
+<span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>虽然亦可能在长期性趋势的顶点（或底点）出现。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>3</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．要点揭示</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>1</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）单日反转当天，成交量突然大增，而价位的波动幅度很大，两者较平时都明显增大。如果成交量不高或全日价格波幅不大，型态就不能确认。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>2</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）当日股价一、二个小时内的波动可能较平时三、四个交易日的波幅更大。顶部单日反转时，股价开市较上个交易日高出多个价位，但很快地形势逆转过来，价格迅速以反方向移动，最后这一天的收市价和上个交易日比较几无变化。底部单日反转情形则是完全相反。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>3</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）一般在临收市前</span><span lang=EN-US>15</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>分钟，交投突然大增，价格迅速朝反方向移动。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>4</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）二日反转的成交和价位，两天的波幅同样巨大。顶部二日反转第二个交易日把前交易日的升幅完全跌去；而底部二日反转则完全升回前交易日的跌幅。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-family:黑体;mso-ascii-font-family:Arial'>第七节</span> <span
+style='font-family:黑体;mso-ascii-font-family:Arial'>反转形态——圆形顶</span></h2>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>1</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．型态分析</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>股价呈孤形上升。即虽不断升高。但每一个高点亦不了多少就回落，先是新高点较前点高，后是回升点略低于前点，这样把短期高点连接起来，就形成一圆形顶。在成交量方面也会有一个圆形状。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>2</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．市场含义</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>经过一段买方力量强于卖方力量的升势之后，买方趋弱或仅能维持原来的购买力量，使涨势缓和，而卖方力量却不断加强，最后双方力量均衡，此时股价会保持没有上落的静止状态。如果卖方力量超过买方，股价就回落，开始只是慢慢改变，跌势不明显，但后期则由卖方完全控制市场，跌势便告转急，说明一个大跌市快将来临，未来下跌之势将转急转大，那些先知先觉者在形成圆形顶前离市，但在圆形顶完全形成后，仍有机会撤离。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>3</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．要点提示</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>1</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）有时当圆形头部形成后，股价并不马上下跌，只反复向横发展形成徘徊区域，这徘徊区称作碗柄。一般来说，这碗柄很快便会突破，股价继续朝着预期中的下跌趋势发展。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>2</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）圆形反转在股价的顶部和底部均会出现，其型态相似，意义相反。</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>在底部时表现为股价呈孤形下跌，初时卖方的压力不断减轻，于是成交量持续下降，但买人的力量仍畏缩不前，这时候股价虽是下跌，然而幅度缓慢和细小，其趋势曲线渐渐接近水平。在底部时买卖力量达致均衡状态，因此仅有极小的成交量。然后需求开始增加，价格随着上升，最后买方完全控制市场，价格大幅上扬，出现突破性的上升局面。成交量方面，初时缓慢地减少到一个水平，然后又增加，形成一个圆底形。这型态显示一次巨大的升市即将到临。投资者可以在圆形底升势转急之初追入。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-family:黑体;mso-ascii-font-family:Arial'>第八节</span> <span
+style='font-family:黑体;mso-ascii-font-family:Arial'>反转型态——双重顶（底）</span></h2>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>1</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．型态分析</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>一只股票上升到某一价格水平时，出现大成交量，股价随之下跌，成交量减少。接着股价又升至与前一个价格几乎相等之顶点，成交量再随之增加却不能达到上一个高峰的成交量，再第二次下跌，股价的移动轨迹就象Ｍ字。这就是双重顶，又称Ｍ头走势。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>一只股票持续下跌到某一平后出现技术性反弹，但回升幅度不大，时间亦不长，股价又再下跌，当跌至上次低点时却获得支持，再一次回升，这次回升时成交量要大于前次反弹时成交量。股价在这段时间的移动轨迹就象Ｗ字，这就双重底，又称Ｗ走势。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>无认是“双重顶”还是“双重底”，都必须突破颈线（双头的颈线是第一次从高峰回落的最低点；双底之颈线就是第一次从低点反弹之最高点），型态才算完成。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>2</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．市场含义</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>股价持续上升为投资者带来了相当的利润，于是他们沽售，这一股沽售力量令上升的行情转为下跌。当股价回落到某水平，吸引了短期投资者的兴趣，另外较早前沽出获利的亦可能在这水平再次买入补回，于是行情开始回复上升。但与此同时，对该股信心不足的投资者会因觉得错过了在第一次的高点出货的机会而马上在市场出货，加上在低水平获利回补的投资者亦同样在这水平再度卖出，强大有沽售压力令股价再次下跌。由于高点二次都受阻而回，令投资者感到该股没法再继续上升（至少短期该是如此），假如愈来愈多的投资者沽出，令到股价跌破上次回落的低点（即颈线），于是整个双头型态便告形成。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>双底走势的情形则完全相反。股价持续的下跌令到持货的投资者觉得价太低而惜售，而另一些的投资者则因为新低价的吸引尝试买入，于是股价呈现回升，当上升至某水平时，较早前短线投机买入者获利回吐，那些在跌市中持货的亦趁回升时沽出，因此股价又再一次下挫。但对后市充满信心的投资者觉得他们错过了上次低点买入的良机，所以这次股价回落到上次低点时便立即跟进，当愈来愈多的投资者买入时，求多供少的力量便推动股价扬升，而且还突破上次回升的高点。（即颈线），扭转了过去下跌的趋势。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>双头或双底型态是一个转向型态。当出现双头时，即表示股价的升势已经终结，当出现双底昔，即表示跌势告一段落。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>通常这些型态现在长期性趋势的顶部或底部，所以当双头形成时，我们可以肯定双头的最高点就是该股的顶点；而双底的最低点就是该股的底部了。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>当双头颈线跌破，就是一个可靠的出货讯号；而双底的颈线冲破，则是一个入货的讯号。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>3</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．要点提示</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（１）双头的两个最高点并不一定在同一水平，二者相差少于３％是可接受的。通常来说，第二个头可能较第一个头高出一些，原因是看好的力量企图推动股价继续再升，可是却没法使股价上升超逾百分之三的差距。一般双底的第二个底点都较第一个底点稍高，原因是先知先觉的投资者在第二次回落时已开始买入，</span><span
+lang=EN-US></span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>令股价没法再次跌回上次的低点。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（２）双头最少跌幅的量度方法，是由颈线开始计起，至少会再下跌从双头最高点至颈线之间的差价距离。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>双底最少涨幅的量度方法也是一样，双底之最低点和颈线之间的距离，股价于突破颈线后至少会升抵相当长度。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（３）形成第一个头部（或底部）时，其回落的低点约是最高点的１０％－２０％（底部回升的幅度也是相若。）</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（４）双重顶（底）不一定都是反转信号，有时也会是整理形态，这要视二个波谷的时间差决定，通常两个高点（或两个低点）形成的时间相隔超过一个月为常见。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（５）双头的两个高峰都有明显的高成交量，这两个高峰的成交量同样尖锐和突出，但第二个头部的成交较第一个头部显著为少，反映出市场的购买力量已在转弱。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>双底第二个底部成交量十分低沉，但在突破颈线时，必须得到成交量激增的配合方可确认。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>双头跌破颈线时，不须成交量的上升也应该信赖。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（６）通常突破颈线后，会出现短暂的反方向移动，称之为反抽，双底只要反抽不低于颈线（双头之反抽则不能高于颈线），型态依然有效。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（７）一般来说，双头或双底的升跌幅度都较量度出来的最少升／跌幅为大。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-family:黑体;mso-ascii-font-family:Arial'>第九节</span> <span
+style='font-family:黑体;mso-ascii-font-family:Arial'>反转型态——三重顶（底）</span></h2>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>1</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．型态分析</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>任何头肩型，特别是头部超过肩部不够多时，可称为三重顶（底）型。三重顶型态也和双重顶十分相似，只是多一个顶，且各顶分得很开、很深。成交量在上升期间一次比一次少。三重底则是倒转的三重顶，分析含义一样。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>2</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．市场含义</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>股价上升一段时间后投资者开始获利回吐，市场在他们的沽售下从第一个峰顶回落，当股价落至某一区域即吸引了一些看好后市的投资者的兴趣，另外以前在高位沽出的投资者亦可能逢低回补，于是行情再度回升，但市场买气不是十分旺盛，在股价回复至与前一高位附近时即在一些减仓盘的抛售下令股价再度走软，但在前一次回档的低点被错过前一低点买进机会的投资者及短线客的买盘拉起，但由于高点二次都受阻而回，令投资者在股价接近前两次高点时都纷纷减仓，股价逐步下滑至前两次低点时一些短线买盘开始止蚀，此时若愈来愈多的投资者意识到大势已去均沽出，令股行跌破上两次回落的低点（即颈线），于是整个三重次型态便告形成。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>三重底走势则完全相反，股价下跌一段时间后，由于股价的调整，使得部分胆大的投资开始逢低吸纳，而另一些高抛低吸的投资者亦部分回补，于是股价出现第一次回升，当升至某一水平时，前期的短线投机者及解套盘开始沽出，股价出现再一次回挫。当股价落至前一低点附近时，一些短线投资者高抛后开始回补，由于市场抛压不重，股价再次回弹，当回弹至前次回升的交点附近时，前次未能获利而出的持仓者纷纷回吐，令股价重新回落，但这次在前两次反弹的起点处买盘活跃，当愈来愈多的投资者跟进买入，股价放量突破两次转折回调的高点，（即颈线），三重底走势正式成立。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>3</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．要点提示</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（１）三重顶（底）之顶峰与顶峰，或底谷与底谷的间隔距离与时间不必相等，同时三重顶之底部与三重底之顶部不一定要在相同的价格形成。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（２）三个顶点价格不必相等，大至相差３％以内就可以了。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（３）三重顶的第三个顶，成交量非常小时，即显示出下跌的征兆，而三重底在第三个底部上升时，成交量大增，即显示出股价具有突破颈线的趋势。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（４）从理论上讲，三重底或三重顶最小涨幅或跌幅，底部或顶部愈宽，力量愈强。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-family:黑体;mso-ascii-font-family:Arial'>第十节</span> <span
+style='font-family:黑体;mso-ascii-font-family:Arial'>反转型态——潜伏底</span></h2>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>1</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．型态分析</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>股价在一个极狭窄的范围内横向移动，每日股价的高低波幅极少，且成交量亦十分稀疏，图表上形成一条横线般的形状，这型态称之为潜伏底。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>经过一段长时间的潜伏静止后，价位和成交量同时摆脱了沉寂不动的闷局，股价大幅向上抢升，成交亦转趋畅旺。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>2</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．市场含义</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>潜伏底大多出现在市场淡静之时，及一些股本少的冷门股上。，由于这些股票流通量少，而且公司不注重宣传，前景模糊，结果受到投资者的忽视，稀少的买卖使股票的供求十分平衡。持有股票的人找不到急于沽售的理由，有意买进的也找不到急于追入的原因，于是股价就在一个狭窄的区域里一天天地移动，既没有上升的趋势，也没有下跌的迹象，表现令人感到沉闷，就像是处于冬眠时期的蛇虫，潜伏不动。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>最后，该股突然出现不寻常的大量成交，原因可能是受到某些突如其来的消息，例如公司盈利大增、分红前景好等的刺激，股价亦脱离潜伏底，大幅向上扬或。在这潜伏底中，先知先觉的投资者在潜伏底形成期间不断在作收集性买入，当型态突破后，未来的上升趋势将会强而有力，而且股价的升幅甚大。所以，当潜伏底明显向上突破时，值得投资者马上跟进，跟进这些股票利润十分可观，但风险却是很低。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>3</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．要点提示</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（１）通常潜伏底时间应较长。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（２）投资者必须在长期性底部出现明显突破时方可跟进。突破的特征是成交量激增。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（３）在突破后的上升途中，必须继续维持高成交量。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-family:黑体;mso-ascii-font-family:Arial'>第十一节</span> <span
+style='font-family:黑体;mso-ascii-font-family:Arial'>反转型态——Ｖ型和伸延Ｖ型</span></h2>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>1</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．型态分析</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>Ｖ型走势，可分为三个部分：</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（１）下跌阶段：通常Ｖ型的左方跌势十分陡峭，而且持续一段短时间。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（２）转势点：Ｖ型的底部十分尖锐，一般来说形成这转势点的时间仅三、两个交易日，而且成交在这低点明显增多。有时候转势点就在恐慌交易日中出现。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（３）回升阶段：接着股价从低点回升，成交量亦随之而增加。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>“伸延Ｖ型”走势是“Ｖ型走势”的变形。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在形成Ｖ型走势期间，其中上升（或是下跌）阶段呈现变异，股价有一部分出现向横发展的成交区域，其后打破这徘徊区，继续完成整个型态。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>倒转Ｖ型和倒转伸延Ｖ型的型态特征，与Ｖ型走势刚相反。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>2</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．市场含义</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>由于市场中卖方的力量很大，令股价稳定而又持续地挫落，当这股沽售力量消失之后，买方的力量完全控制整个市场，使得股价出现戏剧性的回升，几乎以下跌时同样的速度收复所有失地；因此在图表上股价的运行，形成一个像Ｖ字般的移动轨迹。</span>
+<span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>倒转Ｖ型情形则刚刚相反，市场看好的情绪使得股价节节扳升，可是突如其来的一个因素扭转了整个趋势，卖方以上升时同样的速度下跌，形成一个倒转Ｖ型的移动轨迹。通常这形态是由一些突如其来的因素簥一些消息灵通的投资者所不能预见的因素造成。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>Ｖ型走势是个转向型态，显示过去的趋势已逆转过来。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>伸延Ｖ型走势在上升或下跌阶段，其中一部分出现横行的区域，这是因为形成这走势期间，部分人士对型态没有信心，当这股力量被消化之后，股价又再继续完成整个型态。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在出现伸延Ｖ型走势的徘徊区时，我们可以这徘徊区的低点买进，等待整个型态的完成。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>伸延Ｖ型与Ｖ型走势具有同样的预测威力。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>3</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．要点提示</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（１）Ｖ型走势在转势点必须有明显成交量配合，在图形上形成倒Ｖ型。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（２）股价在突破伸延Ｖ型的徘徊区顶部时，必须有成交量增加的配合，在跌破倒转伸延Ｖ型的徘徊底部时，则不必要成交量增加。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-family:黑体;mso-ascii-font-family:Arial'>第十二节</span> <span
+style='font-family:黑体;mso-ascii-font-family:Arial'>反转型态——喇叭型</span></h2>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>1</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．型态分析</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>股价经过一段时间的上升后下跌，然后再上升再下跌，上升的高点较上次为高，下跌的低点亦较上次的低点为低。整个型态以狭窄的波动开始，然后和上下两方扩大，如果我们把上下的高点和低点分别连接起来，就可以画出一个镜中反照的三角形状，这便是喇叭形。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>成交量方面，喇叭型在整个型态形成的过程中，保持着高而且不规则的成交。喇叭型分为上升型和下降型，其含义一样。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>2</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．市场含义</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>整个型态是因为投资者冲动的投资情绪所造成，通常在长期性上升的最后阶段出现，这是一个缺乏理性和失去控制的市场，投资者受到市场炽烈的投机风气或传言所感染，当股价上升时便疯狂追上，但他们对市场的前景（或公司前景）却一无所知，又或是没有信心，所以当股价下跌时又盲目地加入抛售行列。他们冲动和杂乱无章的行动，使得股价不正常地大上大落，形成上升时，高点较上次为高，低点则较上次为低。至于不规则而巨额的成交，正反映出投资激动的买卖情绪。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>这型态说明大跌市来临前的先兆，因此喇叭型可说是一个下跌型态，暗示升蕣将到尽头，可是型态却没有明确指出跌市出现的时间。只有当下限跌破时，型态便可确定，未离市的投资者就该马上沽出撤离了。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>3</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．要点提示</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（１）一个标准的喇叭型应该有三个高点，二个底点。这三个高点一个比一个高，中间的二个低点则一个较一个低；当股价从第三个高点回跌，其回落的低点较前一个低点为低时，可以假设型态的成立。和头肩顶一样，喇叭型属于“五点转向”型态，故此一个较平缓的喇叭型也可视之为一个有较高右肩和下倾颈线的头肩式走势。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（２）这型态并没有最少跌幅的量度公式估计未来跌势，但一般来说，祳幅都是很大。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（３）这型态也有可能会向上突破，尤其在喇叭型的顶部是由两个同一水平的高点连成，如果股价以高成交量向上突破（收市价超越阻力水平百分之三），那么这型态最初预期的分析意义就要修正，它显示前面上升的趋势仍会持续，未来的升幅将十分可观。这是因为当喇叭型向上冲破时，理论上是一次消耗性上升的开始，显示市场激动的投资情绪进一步扩大，投资者已完全失去理性的控制，疯狂地不计价追入。当购买力消耗完结后，股价最终便大幅跌下来。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>喇叭型是由投资者冲动和不理性的情绪造成的，因此它绝少在跌市的底部出现，詩因是股价经过一段时间的下跌之后，投资意愿薄弱，因此它在低沉的市场气氛中，不可能形成这型态。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-family:黑体;mso-ascii-font-family:Arial'>第十三节</span> <span
+style='font-family:黑体;mso-ascii-font-family:Arial'>反转型态——菱型</span></h2>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>1</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．型态分析</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>菱型的型态犹如钻石，其颈线为Ｖ字状。成交量如同三角状，渐次减少。菱型实际是喇叭型和对称三角型的结合。左半部和喇叭型一样，第二个上升点较前一个高，回落低点亦较前一个为低，当第三次回升时，高点却不能升越第二个高点水平，接着的下跌回落点却又较上一个为高，股价的波动从不断地向外扩散转为向内收窄，右半部的变化类似于对称三角型。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>2</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．市场含义</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>当股价愈升愈高之际，投资者显得冲动和失去理智，因此价格波动增大，成交亦大量增加，但很快地投资情绪渐渐冷静下来，成交减少，股价波幅收窄，市场从高涨的投资意愿转为观望，投资者等待市场进一步的变化再作新投资决定。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>3</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．要点提示</span></p>
+
+<p class=MsoBodyTextIndent><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（１）菱型很少为底部反转，通常它在中级下跌前的顶部或大量成交的顶点出现，是个转向型态。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（２）当菱型右下方支持跌破后，就是一个沽出讯号；但如果股价向上突破右方阻力时，而且成交量激增，那就是一个买入讯号。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（３）其最小跌幅的量度方法是从股价向下跌破菱型右下线开始，量度出型态内最高点和最低点的垂直距离，这距离就是未来股价将会下跌的最少幅度。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

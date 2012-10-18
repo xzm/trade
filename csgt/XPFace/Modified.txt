@@ -1,0 +1,45 @@
+ Modified by Z.Y. Sun
+
+1. 
+
+void PxLib::DrawEmbossed(CDC& dc, CImageList& il, int i,
+	CPoint p, BOOL bColor)
+{
+	// memdc.CreateCompatibleDC(&dc); // Old Version
+	if( !memdc.CreateCompatibleDC(&dc) )
+		return TRUE;
+}
+
+2.
+
+CCoolMenuManager:
+	Add Member Variant	m_hbmCheck
+	Add Member Function	SetCheckBitmap( HBITMAP hbmp )
+	Change Member Function Draw3DCheckmark( ... )
+
+BOOL CCoolMenuManager::Draw3DCheckmark(CDC& dc, const CRect& rc,
+	BOOL bSelected, HBITMAP hbmCheck)
+{
+		if( m_hbmCheck )
+			hbmCheck	=	m_hbmCheck;
+		else
+		{
+			CBitmap bm;
+			VERIFY(bm.LoadOEMBitmap( OBM_CHECK )); // Old Version
+			hbmCheck = (HBITMAP)bm.Detach();
+			ASSERT(hbmCheck);
+		}
+
+
+	// memdc.CreateCompatibleDC(&dc); // Old Version
+	if( !memdc.CreateCompatibleDC(&dc) )
+		return TRUE;
+}
+
+3.
+
+Added files: MenuXP.h, MenuXP.cpp, Tools.h, Tools.cpp, Draw.h, Draw.cpp
+Added DECLARE_MENUXP, ON_MENUXP_MESSAGES, IMPLEMENT_MENUXP to CCJFrameWnd and CCJMDIFrameWnd
+Added #include "MenuXP.h" to CJFrameWnd.h and CJMDIFrameWnd.h
+
+

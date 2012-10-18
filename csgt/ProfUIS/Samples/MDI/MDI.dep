@@ -1,0 +1,38 @@
+# Microsoft Developer Studio Generated Dependency File, included by MDI.mak
+
+.\ChildFrm.cpp : \
+	".\ChildFrm.h"\
+	".\ChildView.h"\
+	".\MDI.h"\
+	".\StdAfx.h"\
+	
+
+.\ChildView.cpp : \
+	".\ChildView.h"\
+	".\MDI.h"\
+	".\StdAfx.h"\
+	
+
+.\MainFrm.cpp : \
+	".\MainFrm.h"\
+	".\MDI.h"\
+	".\StdAfx.h"\
+	
+
+.\MDI.cpp : \
+	".\ChildFrm.h"\
+	".\ChildView.h"\
+	".\MainFrm.h"\
+	".\MDI.h"\
+	".\StdAfx.h"\
+	
+
+.\MDI.rc : \
+	".\res\MDI.ico"\
+	".\res\MDI.rc2"\
+	".\res\Toolbar.bmp"\
+	
+
+.\StdAfx.cpp : \
+	".\StdAfx.h"\
+	

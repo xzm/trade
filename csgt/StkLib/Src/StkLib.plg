@@ -1,0 +1,70 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: StkLib - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\SUNZHE~1\LOCALS~1\Temp\RSP26B.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /dll /profile /debug /machine:I386 /def:".\StkLib.def" /out:"../../StkUI/Debug/StkLib30d.dll" /implib:"../Lib/StkLib30d.lib" 
+.\Debug\AfxCore.obj
+.\Debug\Alarm.obj
+.\Debug\BaseData.obj
+.\Debug\Boyermor.obj
+.\Debug\CommFuns.obj
+.\Debug\Container.obj
+.\Debug\Database.obj
+.\Debug\DayTrader.obj
+.\Debug\DRData.obj
+.\Debug\Express.obj
+.\Debug\IMCode.obj
+.\Debug\KData.obj
+.\Debug\MathParser.obj
+.\Debug\Minute.obj
+.\Debug\Outline.obj
+.\Debug\Packets.obj
+.\Debug\Profile.obj
+.\Debug\QianLong.obj
+.\Debug\Report.obj
+.\Debug\SelfDB.obj
+.\Debug\ShengLong.obj
+.\Debug\StdAfx.obj
+.\Debug\StkLib.obj
+.\Debug\Stock.obj
+.\Debug\Strategy.obj
+.\Debug\Strings.obj
+.\Debug\StStore.obj
+.\Debug\TechCLK.obj
+.\Debug\TechEnergy.obj
+.\Debug\TechKLine.obj
+.\Debug\Technique.obj
+.\Debug\TechOther.obj
+.\Debug\TechSwing.obj
+.\Debug\TechTrend.obj
+.\Debug\TechUser.obj
+.\Debug\SpArchive.obj
+.\Debug\SpAssert.obj
+.\Debug\SpColl.obj
+.\Debug\SpDebug.obj
+.\Debug\SpFile.obj
+.\Debug\SpMemory.obj
+.\Debug\SpObject.obj
+.\Debug\SpString.obj
+.\Debug\SpTime.obj
+.\Debug\SpValid.obj
+.\Debug\StkLib.res
+]
+Creating command line "link.exe @C:\DOCUME~1\SUNZHE~1\LOCALS~1\Temp\RSP26B.tmp"
+<h3>Output Window</h3>
+Linking...
+   Creating library ../Lib/StkLib30d.lib and object ../Lib/StkLib30d.exp
+
+
+
+<h3>Results</h3>
+StkLib30d.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

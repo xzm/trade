@@ -1,0 +1,125 @@
+
+      软件由Microsoft Visual C++ 6.0开发而成，亦可在VC7下编译通过。本说明中的
+  所有文件缺省目录都是当前工作区Src\。
+
+★★1.编译注意事项
+      使用VC6打开工作区StkUI.dsw
+      然后可以按照以下顺序依次编译各个工程
+      GuiLib、profuisdll、XPFace、StkLib、StkNet、StkUI、Tools
+      其中工程StkUI是软件的主界面程序，Tools 是注册机以及一些简单的工具，其他
+  都是动态连接库。
+
+★★2.工程profuisdll介绍
+      profuisdll是一套比较专业的Windows界面库，是俄国人做的，还不错，本软件
+  改正了它的几个bug。在ProfUIS\Modified.txt文件中有说明。
+      本软件3.0版仅使用了该界面库的颜色选择对话框。
+
+★★3.工程GuiLib介绍
+      GuiLib是另一套Windows界面库，本软件改正了它的几个bug。在GuiLib\Modified.txt
+  文件中有说明。
+      本软件3.0版使用了该界面库的界面框架、菜单条、工具条。
+
+★★4.工程XPFace介绍
+      主要是本软件的一些界面美化的类，放在了这个DLL里面。
+
+★★5.工程StkLib介绍
+      这个工程是实现股票数据结构、技术指标计算的动态连接库，代码与平台无关。
+  其中比较重要的几个文件如下：
+      Database.h        读取数据文件接口定义
+      QianLong.h        钱龙格式数据文件接口定义
+      SelfDB.h          自有格式数据文件接口定义，除了除权数据和行情数据外，
+			其他与钱龙一样
+      Stock.h           股票数据结构定义
+      Technique.h       技术指标类定义
+      Container.h       股票信息数据CStockInfo的数组类
+      Express.h         股票列表视图的列变量定义，以及自定义列的表达式计算
+      Strategy.h        策略定义
+      Profile.h         记录软件的用户配置并保存
+
+      BaseData.cpp      基本资料数据结构类实现
+      Database.cpp      数据文件读写实现
+      DRData.cpp        除权数据结构数组类实现
+      KData.cpp         K线数据结构数组类实现
+      Report.cpp        行情数据结构数组类实现
+      Minute.cpp        行情分时数据结构数组类实现
+      Outline.cpp       行情额外数据结构数组类实现
+      QianLong.cpp      钱龙数据文件读写实现
+      SelfDB.cpp        自有格式数据文件读写实现
+      Stock.cpp         股票数据结构实现
+      StStore.cpp       数据文件读写实现
+      TechCL.cpp        自有技术指标
+      TechEnergy.cpp    能量类技术指标
+      TechKLine.cpp     K线叠加类技术指标
+      Technique.cpp     技术指标基类
+      TechSwing.cpp     摆动类技术指标
+      TechTrend.cpp     趋势类技术指标
+      TechOther.cpp     其它类技术指标
+      Container.cpp     股票信息数据CStockInfo的数组类实现
+      Express.cpp       股票列表视图的列变量定义，以及自定义列的表达式计算实现
+      Strategy.cpp      策略定义实现
+      Profile.cpp       记录软件的用户配置并保存
+      有关详细的说明，参看源文件中的注释。
+
+      工程StkLib的几个全局静态变量：
+      g_stockcontainer：AfxGetStockContainer()可以得到该变量的引用，该
+              变量记录所有股票的行情信息和基本信息，CStockInfo的数组。
+      g_domaincontainer：AfxGetDomainContainer()可以得到该变量的引用，
+              该变量记录所有板块的信息。
+      g_groupcontainer：AfxGetGroupContainer()可以得到该变量的引用，该
+              变量记录所有分组的信息。
+      g_stdatabase：AfxGetDB()可以得到该变量的引用，该变量实现了本软件的
+              数据文件接口。
+      g_stprofile：AfxGetProfile()可以得到该变量的引用，该变量记录当前软
+              件的一些设置。
+      
+★★6.工程StkNet介绍
+      这个工程是实现网络数据自动下载功能的动态连接库。其中比较重要的几个文
+  件如下：
+      NetDB.h          一些数据下载，安装的接口
+      HttpClt.h        HTTP协议客户端类
+      InfoZip.h        压缩/解压缩Zip文件
+      Markup.h         XML解析
+      XMLDoc.h         XML辅助
+      secret.h         主要包括一些注册机的加密算法和读取硬盘序列号的类。
+
+      NetDB.cpp        一些数据下载，安装的接口实现
+      HttpClt.cpp      HTTP协议客户端类实现
+      InfoZip.cpp      压缩/解压缩
+      Markup.cpp       XML解析实现
+      Secret.cpp       加密文件，读取硬盘系列号等
+      XMLDoc.cpp       XML辅助实现
+      secret.cpp       主要包括一些注册机的加密算法和读取硬盘序列号的类实现。
+
+      其中工程中的Tongshi Files为支持通视卡行情的实现程序
+      其中工程中的Yongxin Files为支持清华永新卡行情的实现程序
+      其中工程中的Receiver Files为本软件的行情接收的实现程序，其中将通视卡和清
+  华永新卡的数据结构转换成本软件内的通用数据结构，报价（REPORT）、分时（MINUTE）、
+  额外（OUTLINE）、K线（KDATA）、除权信息（DRDATA）
+
+      工程StkNet的全局静态变量：
+      g_sview：AfxGetSView()可以得到该变量的引用，该变量记录注册信息。
+
+
+★★7.工程StkUI介绍
+      该工程生成最终可执行文件，主要是软件的界面。主要几个文件如下：
+      BaseView.cpp     基本资料视图
+      ChildFrm.cpp     子窗口框架
+      MainFrm.cpp      主框架，响应菜单命令
+      StkUI.cpp        应用程序类，主程序初始化，初始数据读取等
+      StaticDoc.cpp    文档类
+      WizardView.cpp   向导视图
+      SimuView.cpp     策略视图
+      MarketView.cpp   实时行情视图
+      SListView.cpp    股票列表视图
+      StockGraph.cpp   技术指标视图画图类
+      DrawTech.cpp     画具体技术指标的函数，属于CGraphView类的方法
+      GraphView.cpp    技术指标视图
+      StrategyView.cpp      策略树视图
+      GroupView.cpp    股票分组树视图
+      TechsView.cpp    技术指标树视图
+
+★★8.工程Tools介绍
+      该工程包含以下几个模块：
+      注册机，利用了StkNet工程导出的AfxGetSView()。
+      从txt基本资料文件中提取财务数据的小工具。
+      修改文件时间的小工具。

@@ -1,0 +1,61 @@
+1. FILE:	ExtPopupMenuWnd.cpp
+   FUNC:	BOOL CExtPopupMenuWnd::TrackPopupMenu( ... )
+   LINE:	3229
+   REMOVE:	// ASSERT( g_CurrentPopup.IsEmpty() );
+   ADD:	
+	if( !g_CurrentPopup.IsEmpty() )
+	{
+		CExtPopupMenuWnd::CExtPopupMenuWndAutoPtr menuwndAutoPtr;
+		menuwndAutoPtr	=	this;
+		menuwndAutoPtr.DoneInstance();
+		return FALSE;
+	}
+
+2. FILE:	ExtPopupMenuWnd.cpp
+   FUNC:	BOOL CExtPopupMenuWnd::_TrackPopupMenu( ... )
+   LINE:	3845
+   REMOVE:	// pWndCmdReciever->SetFocus();
+
+3. FILE:	ExtHook.cpp 
+   FUNC:	bool CExtHookSink::SetupHookWndSink( HWND hWnd, bool bRemove, // = false
+			bool bAddToHead // = true )
+   LINE:	470
+   REMOVE:	// pHookChains->DestroyChains( true );
+   LINE:	437
+   REMOVE:	// ASSERT( ::IsWindow(hWnd) );
+
+4. FILE:	extpopupmenuwnd.h
+   LINE:	68
+   ADD:
+// MODIFIED BY SUNZHENYU, correct message
+inline WPARAM CommandIDToStringID( UINT nCmdID )
+{
+	UINT nStringID = nCmdID;
+	if (nCmdID >= 0xF000 && nCmdID < 0xF1F0) // max of 31 SC_s
+	{
+		// special strings table entries for system commands
+		nStringID = ID_COMMAND_FROM_SC(nCmdID);
+		ASSERT(nStringID >= AFX_IDS_SCFIRST &&
+			nStringID < AFX_IDS_SCFIRST + 31);
+	}
+	else if (nCmdID >= AFX_IDM_FIRST_MDICHILD)
+	{
+		// all MDI Child windows map to the same help id
+		nStringID = AFX_IDS_MDICHILD;
+	}
+	return (WPARAM)(nStringID);
+}
+
+5. String Resoure
+   Add Chinese P.R.C 显示或隐藏工具条 颜色对话框
+   Remove All Russian
+
+6. FILE:	ExtPopupMenuWnd.cpp
+   Line:	89
+   MODIFIED:	#define ID_PERIOD_ANIMATION 10  // Old Value is 30
+   Line:	92
+   MODIFIED:	#define ID_PERIOD_ITEM_FOCUS_DELAY 200	// 500
+
+7. Resolve All GDI Objects's SelectObject(...)
+   Search For   MODIFIED BY SUNZHENYU
+

@@ -1,0 +1,54 @@
+
+1。修改StkNet工程中的StkReceiver.cpp
+	将UINT StkProcessReceiveReport( LPVOID pParam )方法中的Sleep(1000)改为Sleep(100)。
+
+2。修改NetTS工程中的TSWnd.cpp
+	将UINT TSDispatchThreadMain( LPVOID pParam )方法中的Sleep(1000)改为Sleep(100)。
+
+3。修改NetTS工程中的TSCache.cpp
+	加入：#include "TWSocket.h"
+	将BOOL CTSCache::PushPacket( UINT nMsgType, PRCV_DATA pRCV_DATA )方法改为如下样子：
+	BOOL CTSCache::PushPacket( UINT nMsgType, PRCV_DATA pRCV_DATA )
+	{
+		if( pRCV_DATA && pRCV_DATA->m_pData )
+			CTSWnd::GetInstance().SendMessage( nMsgType, (LPARAM)pRCV_DATA );
+		FreePacket( pRCV_DATA );
+	}
+
+4。修改行情列表刷新速度
+	修改StkUI工程中的SListView.cpp
+	将int CSListView::OnCreate(LPCREATESTRUCT lpCreateStruct) 方法中的
+	SetTimer( SLV_TIMER_REFRESH, 20000, NULL );	// 20秒刷新一次
+	改为：
+	SetTimer( SLV_TIMER_REFRESH, 5000, NULL );	// 5秒刷新一次
+
+5。修改分时行情图标刷新速度
+	修改StkUI工程中的RealTimeView.cpp
+	将int CRealTimeView::OnCreate(LPCREATESTRUCT lpCreateStruct) 方法中的
+	SetTimer( RTV_TIMER_REFRESHBIGTRADE, 30000, NULL );	// 30秒刷新一次大单成交
+	SetTimer( RTV_TIMER_REFRESH, 30000, NULL );		// 30秒刷新一次
+	改为：
+	SetTimer( RTV_TIMER_REFRESHBIGTRADE, 5000, NULL );	// 5秒刷新一次
+	SetTimer( RTV_TIMER_REFRESH, 5000, NULL );		// 5秒刷新一次
+
+6。修改综合排名刷新速度
+	修改StkUI工程中的MultiSortView.cpp
+	将int CMultiSortView::OnCreate(LPCREATESTRUCT lpCreateStruct) 方法中的
+	SetTimer( MSV_TIMER_REFRESH, 30000, NULL );	// 30秒刷新一次
+	改为：
+	SetTimer( MSV_TIMER_REFRESH, 5000, NULL );	// 5秒刷新一次
+
+7。进一步修改可以将工程NetTS所有代码加入到工程StkNet中。
+	这一步需要修改相应代码的调用，即原来对NetTS.dll的引用（修改CNetSTKDRV类
+中的方法），使程序正常运行。
+	然后修改StkReceiver.cpp中的OnStkReceiverTsdata方法和TW.cpp中的以下方法：
+	int TryGetInit( BYTE * buffer, size_t len, PRCV_DATA pRCV_DATA );
+	int TryGetReport( BYTE * buffer, size_t len, PRCV_DATA pRCV_DATA );
+	int TryGetMinute( BYTE * buffer, size_t len, PRCV_DATA pRCV_MINUTE, PRCV_DATA pRCV_REPORT );
+	int TryGetHistory( BYTE * buffer, size_t len, PRCV_DATA pRCV_DATA );
+	int TryGetMultisort( BYTE * buffer, size_t len, PRCV_DATA pRCV_DATA );
+	int TryGetDetail( BYTE * buffer, size_t len, PRCV_DATA pRCV_DATA );
+	int TryGetBase( BYTE * buffer, size_t len, PRCV_DATA pRCV_DATA );
+	将网络服务器来的数据直接转换成COMMPACKET，而不是先转换成PRCV_DATA，然后再
+转换成COMMPACKET。
+	这样修改需要改动的较多，对行情速度只会有少许改善，改动前将原版本备份一下。

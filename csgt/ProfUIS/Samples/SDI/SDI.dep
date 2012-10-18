@@ -1,0 +1,31 @@
+# Microsoft Developer Studio Generated Dependency File, included by SDI.mak
+
+.\ChildView.cpp : \
+	".\ChildView.h"\
+	".\SDI.h"\
+	".\StdAfx.h"\
+	
+
+.\MainFrm.cpp : \
+	".\ChildView.h"\
+	".\MainFrm.h"\
+	".\SDI.h"\
+	".\StdAfx.h"\
+	
+
+.\SDI.cpp : \
+	".\ChildView.h"\
+	".\MainFrm.h"\
+	".\SDI.h"\
+	".\StdAfx.h"\
+	
+
+.\SDI.rc : \
+	".\res\SDI.ico"\
+	".\res\SDI.rc2"\
+	".\res\Toolbar.bmp"\
+	
+
+.\StdAfx.cpp : \
+	".\StdAfx.h"\
+	

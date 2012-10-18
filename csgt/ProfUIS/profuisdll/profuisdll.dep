@@ -1,0 +1,13 @@
+# Microsoft Developer Studio Generated Dependency File, included by profuisdll.mak
+
+.\profuisdll.cpp : \
+	".\StdAfx.h"\
+	
+
+.\profuisdll.rc : \
+	".\res\profuisdll.rc2"\
+	
+
+.\StdAfx.cpp : \
+	".\StdAfx.h"\
+	

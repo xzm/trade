@@ -1,0 +1,860 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 中文(中华人民共和国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Tools.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#include ""l.chs\\afxprint.rc""        // printing/print preview resources\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Tools.ico"
+IDR_TOOLSTYPE           ICON                    "res\\ToolsDoc.ico"
+IDI_INDICATOR           ICON                    "res\\idr_main.ico"
+IDI_BALANG              ICON                    "res\\icon1.ico"
+IDI_STRATEGY            ICON                    "res\\ico00001.ico"
+IDI_STRATEGY2           ICON                    "res\\strategy.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINBAR             BITMAP                  "res\\Toolbar.bmp"
+IDB_DLGLEFTLOGO         BITMAP                  "res\\bmp00011.bmp"
+IDB_DLGTOPLOGO          BITMAP                  "res\\bmp00007.bmp"
+IDB_HELPLOGO            BITMAP                  "res\\bmp00005.bmp"
+IDB_MENUCHECKED         BITMAP                  "res\\bitmap2.bmp"
+IDB_SPLASH              BITMAP                  "res\\splash.bmp"
+IDB_BALANG              BITMAP                  "res\\balang.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINBAR TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_TOOL_GENEVA
+    BUTTON      ID_TOOL_GENSERIAL
+    SEPARATOR
+    BUTTON      ID_TOOL_GENCODETBL
+    BUTTON      ID_TOOL_GENNAMEENU
+    SEPARATOR
+    BUTTON      ID_TOOL_GENBASE
+    BUTTON      ID_TOOL_BASERMCR
+    BUTTON      ID_TOOL_GENDOMAIN
+    SEPARATOR
+    BUTTON      ID_TOOL_FILETIME
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "文件(&F)"
+    BEGIN
+        MENUITEM "新建(&N)\tCtrl+N",            ID_FILE_NEW
+        MENUITEM "打开(&O)...\tCtrl+O",         ID_FILE_OPEN
+        MENUITEM "保存(&S)\tCtrl+S",            ID_FILE_SAVE
+        MENUITEM "另存为(&A)...",               ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "打印(&P)...\tCtrl+P",         ID_FILE_PRINT
+        MENUITEM "打印预览(&V)",                ID_FILE_PRINT_PREVIEW
+        MENUITEM "打印设置(&R)...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "最近文件",                    ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "退出(&X)",                    ID_APP_EXIT
+    END
+    POPUP "编辑(&E)"
+    BEGIN
+        MENUITEM "撤消(&U)\tCtrl+Z",            ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "剪切(&T)\tCtrl+X",            ID_EDIT_CUT
+        MENUITEM "复制(&C)\tCtrl+C",            ID_EDIT_COPY
+        MENUITEM "粘贴(&P)\tCtrl+V",            ID_EDIT_PASTE
+    END
+    POPUP "查看(&V)"
+    BEGIN
+        MENUITEM "常用工具栏(&T)",              IDW_MAINBAR
+        POPUP "文字标签(&E)"
+        BEGIN
+            MENUITEM "按钮下方(&B)",                ID_VIEW_MAINBARTEXTBOT
+            MENUITEM "按钮右方(&R)",                ID_VIEW_MAINBARTEXTRIGHT
+        END
+        MENUITEM "状态栏(&S)",                  ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        MENUITEM "全屏(&F)",                    ID_VIEW_FULLSCREEN
+    END
+    POPUP "工具(&T)"
+    BEGIN
+        MENUITEM "生成试用码(&G)...",           ID_TOOL_GENEVA
+        MENUITEM "生成序列号(&G)...",           ID_TOOL_GENSERIAL
+        MENUITEM "打开用户数据文件(&O)",        ID_TOOL_OPENDBFILE
+        MENUITEM SEPARATOR
+        MENUITEM "生成代码表(&C)...",           ID_TOOL_GENCODETBL
+        MENUITEM "生成英文名称(&C)...",         ID_TOOL_GENNAMEENU
+        MENUITEM SEPARATOR
+        MENUITEM "生成基本资料文件(&B)",        ID_TOOL_GENBASE
+        MENUITEM "去掉基本资料版权信息(&R)...", ID_TOOL_BASERMCR
+        MENUITEM "生成板块(&D)...",             ID_TOOL_GENDOMAIN
+        MENUITEM SEPARATOR
+        MENUITEM "改变文件日期(&M)...",         ID_TOOL_FILETIME
+    END
+    POPUP "帮助(&H)"
+    BEGIN
+        MENUITEM "注册(&R)...",                 ID_HELP_REGISTER
+        MENUITEM "关于 Tools(&A)...",           ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY 
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_TOOLS_FORM DIALOG  0, 0, 425, 282
+STYLE DS_SETFONT | WS_CHILD
+FONT 9, "宋体"
+BEGIN
+END
+
+IDR_MAINFRAME DIALOG  0, 0, 330, 16
+STYLE DS_SETFONT | WS_CHILD
+FONT 9, "宋体"
+BEGIN
+END
+
+IDD_REGISTER DIALOGEX 0, 0, 321, 231
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "注册"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_USERNAME,197,77,87,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_SOFTNO,197,99,87,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_REGCODE,140,144,144,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
+                    NOT WS_BORDER,WS_EX_STATICEDGE
+    PUSHBUTTON      "？如何购买",IDC_HOWTO_REG,245,170,50,14,BS_FLAT
+    DEFPUSHBUTTON   "注册",IDOK,194,204,50,14,BS_FLAT
+    PUSHBUTTON      "关闭",IDCANCEL,255,204,50,14,BS_FLAT
+    LTEXT           "立即网上购买",IDC_GOPURCHASE,230,41,51,8
+    LTEXT           "注册用户名：",IDC_STATIC,142,80,50,8
+    CONTROL         194,IDC_PICTURE,"Static",SS_BITMAP,7,7,119,199,
+                    WS_EX_STATICEDGE
+    LTEXT           "Static",IDC_LEFTDAYS,239,26,50,8
+    GROUPBOX        "注册信息",IDC_STATIC,129,61,167,104
+    GROUPBOX        "购买信息",IDC_STATIC,129,10,167,47
+    LTEXT           "现在是试用期，剩余天数：",IDC_LEFTDAYSTITLE,135,26,97,8
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,0,192,321,1,
+                    WS_EX_STATICEDGE
+    LTEXT           "正在注册...",IDC_STATIC_REGISTER,128,178,45,8,NOT 
+                    WS_VISIBLE
+    LTEXT           "输入注册码：",IDC_STATIC,143,128,49,8
+    LTEXT           "软件系列号：",IDC_STATIC,142,100,49,8
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,203,20,20
+    PUSHBUTTON      "复制系列号",IDC_COPY_SOFTNO,235,111,50,14,BS_FLAT
+END
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 272, 255
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于策略为王证券分析系统"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,196,219,50,14,BS_FLAT
+    CTEXT           "The URL of Product",IDC_URL_ADDRESS,35,85,201,9
+    RTEXT           "立即网上购买",IDC_GOPURCHASE,144,187,51,8
+    LTEXT           "如何购买",IDC_HOWTO_REG,211,187,35,8
+    RTEXT           "The Support Mail",IDC_URL_MAILME,110,200,133,8
+    LTEXT           "版权所有 2001-2006 九牛投资",IDC_STATIC,14,216,167,8
+    LTEXT           "Copyright 1998-2001 Balang Technology",IDC_STATIC,14,
+                    226,160,8
+    CONTROL         160,IDC_CODEJOCKEY,"Static",SS_BITMAP,61,14,149,66,
+                    WS_EX_STATICEDGE
+    ICON            IDR_MAINFRAME,IDC_STATIC,8,9,20,20
+    LTEXT           "注册码",IDC_STATIC,32,150,25,8
+    LTEXT           "未知用户",IDC_USER,81,117,159,9
+    LTEXT           "未购买",IDC_REGCODE,81,150,162,9
+    GROUPBOX        "产品信息",IDC_STATIC,23,102,225,66
+    LTEXT           "Static",IDC_LEFTDAYS,135,176,56,8
+    LTEXT           "现在是试用期，剩余天数：",IDC_LEFTDAYSTITLE,30,176,97,8
+    LTEXT           "授权用户",IDC_STATIC,32,117,33,8
+    LTEXT           "软件系列号",IDC_STATIC,32,133,41,8
+    LTEXT           "未知",IDC_SOFTNO,81,133,152,8
+    LTEXT           "测试版",IDC_VERSION,212,66,48,8
+END
+
+IDD_GENSERIAL DIALOGEX 0, 0, 259, 179
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "生成序列号"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_USERNAME,100,30,119,12,ES_AUTOHSCROLL | NOT 
+                    WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_SOFTNO,100,58,120,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
+                    NOT WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_REGCODE,100,86,120,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
+                    NOT WS_BORDER,WS_EX_STATICEDGE
+    CONTROL         "专业版",IDC_PROFESSIONAL,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,29,114,40,10
+    DEFPUSHBUTTON   "生成",IDOK,179,113,50,14,BS_FLAT
+    PUSHBUTTON      "保存分发...",IDC_SAVEDISPATCH,38,146,48,14,BS_FLAT
+    PUSHBUTTON      "保存用户",IDC_SAVE,90,146,48,14,BS_FLAT
+    PUSHBUTTON      "保存注册...",IDC_SAVEREG,142,146,48,14,BS_FLAT
+    PUSHBUTTON      "关闭",IDCANCEL,194,146,48,14,BS_FLAT
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,0,134,259,1,
+                    WS_EX_STATICEDGE
+    LTEXT           "注册用户名：",IDC_STATIC,47,33,50,8
+    LTEXT           "产品注册码：",IDC_STATIC,47,89,49,8
+    GROUPBOX        "注册信息",IDC_STATIC,29,10,200,98
+    LTEXT           "产品序列号：",IDC_STATIC,47,61,49,8
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,151,20,20
+END
+
+IDD_GENBASE DIALOGEX 0, 0, 324, 265
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "根据巨灵F10信息生成基本资料表"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_SRCPATH,68,35,133,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "浏览...",IDC_EXPLORER_QLSRC,208,34,46,14,BS_FLAT
+    EDITTEXT        IDC_263SRCFILE,68,72,133,12,ES_AUTOHSCROLL | NOT 
+                    WS_BORDER,WS_EX_STATICEDGE
+    PUSHBUTTON      "浏览...",IDC_EXPLORER_263SRC,208,71,46,14,BS_FLAT
+    EDITTEXT        IDC_DESTFILE,34,107,134,12,ES_AUTOHSCROLL | NOT 
+                    WS_BORDER,WS_EX_STATICEDGE
+    PUSHBUTTON      "浏览...",IDC_EXPLORER_DEST,175,106,46,14,BS_FLAT
+    CONTROL         "重新创建文件",IDC_NEWFILE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,225,108,64,10
+    CONTROL         "年报",IDC_RADIO_ANN,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,45,152,32,10
+    CONTROL         "中报",IDC_RADIO_MID,"Button",BS_AUTORADIOBUTTON,82,152,
+                    32,10
+    CONTROL         "季报",IDC_RADIO_QUARTER,"Button",BS_AUTORADIOBUTTON,120,
+                    153,32,10
+    CONTROL         "三季度季报",IDC_RADIO_QUARTER3,"Button",
+                    BS_AUTORADIOBUTTON,159,153,56,10
+    CONTROL         "DateTimePicker1",IDC_DATETIME,"SysDateTimePick32",
+                    DTS_RIGHTALIGN | WS_TABSTOP,216,149,62,15
+    CONTROL         "年报或中报中找到季报数据，缺省为一季度",
+                    IDC_RADIO_DEFAULT1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,78,173,168,10
+    CONTROL         "年报或中报中找到季报数据，缺省为三季度",
+                    IDC_RADIO_DEFAULT3,"Button",BS_AUTORADIOBUTTON,77,187,
+                    168,10
+    EDITTEXT        IDC_ERATE_DOLLAR,92,210,64,12,ES_AUTOHSCROLL | NOT 
+                    WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_ERATE_HKDOLLAR,234,211,64,12,ES_AUTOHSCROLL | NOT 
+                    WS_BORDER,WS_EX_STATICEDGE
+    DEFPUSHBUTTON   "生成",IDOK,187,244,50,14,BS_FLAT
+    PUSHBUTTON      "关闭",IDCANCEL,262,244,50,14,BS_FLAT
+    LTEXT           "钱龙数据源路径（含巨灵F10信息）：",IDC_STATIC,70,22,133,
+                    8
+    LTEXT           "保存文件：",IDC_STATIC,37,93,41,8
+    GROUPBOX        "基本资料信息",IDC_STATIC,14,12,295,118
+    GROUPBOX        "报告类型",IDC_STATIC,14,134,295,93
+    LTEXT           "263数据文件（提取板块和省份信息）：",IDC_STATIC,72,59,
+                    141,8
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,0,235,323,1,
+                    WS_EX_STATICEDGE
+    LTEXT           "1美元兑人民币：",IDC_STATIC,25,212,61,8
+    LTEXT           "1港币兑人民币：",IDC_STATIC,167,212,61,8
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,237,20,20
+END
+
+IDD_BASERMRIGHT DIALOGEX 0, 0, 333, 171
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "基本资料"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_SRCPATH,34,46,220,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "浏览...",IDC_EXPLORER_SRC,257,45,46,14,BS_FLAT
+    EDITTEXT        IDC_DESTPATH,34,79,221,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "浏览...",IDC_EXPLORER_DEST,258,78,46,14,BS_FLAT
+    DEFPUSHBUTTON   "开始",IDOK,192,143,50,14,BS_FLAT
+    PUSHBUTTON      "关闭",IDCANCEL,259,143,50,14,BS_FLAT
+    GROUPBOX        "数据源",IDC_STATIC,20,15,296,104
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,0,132,333,1,
+                    WS_EX_STATICEDGE
+    LTEXT           "基本资料数据源路径：",IDC_STATIC,37,33,81,8
+    LTEXT           "保存路径：",IDC_STATIC,37,65,41,8
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,142,21,21
+END
+
+IDD_FILETIME DIALOGEX 0, 0, 333, 171
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "文件时间"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_SRCPATH,34,46,220,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "浏览...",IDC_EXPLORER_SRC,257,45,46,14,BS_FLAT
+    CONTROL         "DateTimePicker1",IDC_TIMECREATE,"SysDateTimePick32",
+                    DTS_RIGHTALIGN | WS_TABSTOP,46,85,60,15
+    CONTROL         "DateTimePicker1",IDC_TIMEACCESS,"SysDateTimePick32",
+                    DTS_RIGHTALIGN | WS_TABSTOP,136,85,60,15
+    CONTROL         "DateTimePicker1",IDC_TIMEWRITE,"SysDateTimePick32",
+                    DTS_RIGHTALIGN | WS_TABSTOP,226,85,60,15
+    DEFPUSHBUTTON   "开始",IDOK,192,144,50,14,BS_FLAT
+    PUSHBUTTON      "关闭",IDCANCEL,259,144,50,14,BS_FLAT
+    GROUPBOX        "文件路径",IDC_STATIC,20,16,296,100
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,0,136,333,1,
+                    WS_EX_STATICEDGE
+    LTEXT           "源路径：",IDC_STATIC,37,33,33,8
+    LTEXT           "创建时间",IDC_STATIC,62,71,33,8
+    LTEXT           "访问时间",IDC_STATIC,150,71,33,8
+    LTEXT           "修改时间",IDC_STATIC,238,71,33,8
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,143,21,21
+END
+
+IDD_GENDOMAIN DIALOGEX 0, 0, 333, 171
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "板块生成"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_SRCPATH,34,46,220,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "浏览...",IDC_EXPLORER_SRC,257,45,46,14,BS_FLAT
+    EDITTEXT        IDC_DESTFILE,34,79,221,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "浏览...",IDC_EXPLORER_DEST,258,78,46,14,BS_FLAT
+    DEFPUSHBUTTON   "开始",IDOK,192,143,50,14,BS_FLAT
+    PUSHBUTTON      "关闭",IDCANCEL,259,143,50,14,BS_FLAT
+    GROUPBOX        "板块数据",IDC_STATIC,20,15,296,104
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,0,132,333,1,
+                    WS_EX_STATICEDGE
+    LTEXT           "金融街板块数据源路径：",IDC_STATIC,37,33,89,8
+    LTEXT           "保存板块数据文件：",IDC_STATIC,37,65,73,8
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,143,21,21
+END
+
+IDD_GENCODETBL DIALOGEX 0, 0, 333, 171
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "生成代码表"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_SRCPATH,34,46,220,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "浏览...",IDC_EXPLORER_SRC,257,45,46,14,BS_FLAT
+    EDITTEXT        IDC_DESTPATH,34,79,221,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "浏览...",IDC_EXPLORER_DEST,258,78,46,14,BS_FLAT
+    DEFPUSHBUTTON   "开始",IDOK,192,143,50,14,BS_FLAT
+    PUSHBUTTON      "关闭",IDCANCEL,259,143,50,14,BS_FLAT
+    CONTROL         "",-1,"Static",SS_BLACKFRAME,0,132,333,1,
+                    WS_EX_STATICEDGE
+    LTEXT           "乾龙数据路径：",-1,37,33,57,8
+    LTEXT           "保存路径：",-1,37,65,41,8
+    ICON            IDR_MAINFRAME,-1,7,142,20,20
+END
+
+IDD_GENNAMEENU DIALOGEX 0, 0, 333, 171
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "生成英文名称"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_SRCPATH,34,46,220,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "浏览...",IDC_EXPLORER_SRC,257,45,46,14,BS_FLAT
+    EDITTEXT        IDC_DESTPATH,34,79,221,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "浏览...",IDC_EXPLORER_DEST,258,78,46,14,BS_FLAT
+    DEFPUSHBUTTON   "开始",IDOK,192,143,50,14,BS_FLAT
+    PUSHBUTTON      "关闭",IDCANCEL,259,143,50,14,BS_FLAT
+    CONTROL         "",-1,"Static",SS_BLACKFRAME,0,132,333,1,
+                    WS_EX_STATICEDGE
+    LTEXT           "含基本资料的数据路径根目录：",-1,37,33,113,8
+    LTEXT           "生成新代码表的路径：",-1,37,65,81,8
+    ICON            IDR_MAINFRAME,-1,7,142,20,20
+END
+
+IDD_GENEVA DIALOGEX 0, 0, 259, 136
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "生成试用码"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_REGCODE,100,71,120,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
+                    NOT WS_BORDER,WS_EX_STATICEDGE
+    DEFPUSHBUTTON   "生成",IDOK,130,114,50,14,BS_FLAT
+    PUSHBUTTON      "关闭",IDCANCEL,194,114,48,14,BS_FLAT
+    CONTROL         "",-1,"Static",SS_BLACKFRAME,0,108,259,1,
+                    WS_EX_STATICEDGE
+    LTEXT           "试用码：",-1,48,74,33,8
+    GROUPBOX        "注册信息",-1,29,10,200,88
+    CONTROL         "DateTimePicker1",IDC_DATETIME,"SysDateTimePick32",
+                    DTS_RIGHTALIGN | WS_TABSTOP,100,36,100,15
+    LTEXT           "过期时间：",-1,47,40,41,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404B0"
+        BEGIN
+            VALUE "FileDescription", "Tools Microsoft 基础类应用程序"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "Tools"
+            VALUE "LegalCopyright", "版权所有 (C) 2002"
+            VALUE "OriginalFilename", "Tools.EXE"
+            VALUE "ProductName", "Tools 应用程序"
+            VALUE "ProductVersion", "1, 0, 0, 1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_TOOLS_FORM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 418
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 275
+    END
+
+    IDD_REGISTER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 314
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 224
+    END
+
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 265
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 248
+    END
+
+    IDD_GENSERIAL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 252
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 172
+    END
+
+    IDD_GENBASE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 317
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 258
+        HORZGUIDE, 6
+    END
+
+    IDD_BASERMRIGHT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 326
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 164
+    END
+
+    IDD_FILETIME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 326
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 164
+    END
+
+    IDD_GENDOMAIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 326
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 164
+    END
+
+    IDD_GENCODETBL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 326
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 164
+    END
+
+    IDD_GENNAMEENU, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 326
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 164
+    END
+
+    IDD_GENEVA, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 252
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 129
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXT
+//
+
+IDR_TEXT_NSA            TEXT                    "res\\bin00002.bin"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "Tools\n\nTools\nTools 文件 (*.dbt)\n.dbt\nTools.Document\nTools Document"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "Tools"
+    AFX_IDS_IDLEMESSAGE     "就绪"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "扩展名"
+    ID_INDICATOR_CAPS       "大写"
+    ID_INDICATOR_NUM        "数字"
+    ID_INDICATOR_SCRL       "滚动"
+    ID_INDICATOR_OVR        "改写"
+    ID_INDICATOR_REC        "记录"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_NEW             "建立新文档\n新建"
+    ID_FILE_OPEN            "打开一个现有文档\n打开"
+    ID_FILE_CLOSE           "关闭活动文档\n关闭"
+    ID_FILE_SAVE            "保存活动文档\n保存"
+    ID_FILE_SAVE_AS         "将活动文档以一个新文件名保存\n另存为"
+    ID_FILE_PAGE_SETUP      "改变打印选项\n页面设置"
+    ID_FILE_PRINT_SETUP     "改变打印机及打印选项\n打印设置"
+    ID_FILE_PRINT           "打印活动文档\n打印"
+    ID_FILE_PRINT_PREVIEW   "显示整页\n打印预览"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "显示程序信息，版本号和版权\n关于"
+    ID_APP_EXIT             "退出应用程序；提示保存文档\n退出"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "打开该文档"
+    ID_FILE_MRU_FILE2       "打开该文档"
+    ID_FILE_MRU_FILE3       "打开该文档"
+    ID_FILE_MRU_FILE4       "打开该文档"
+    ID_FILE_MRU_FILE5       "打开该文档"
+    ID_FILE_MRU_FILE6       "打开该文档"
+    ID_FILE_MRU_FILE7       "打开该文档"
+    ID_FILE_MRU_FILE8       "打开该文档"
+    ID_FILE_MRU_FILE9       "打开该文档"
+    ID_FILE_MRU_FILE10      "打开该文档"
+    ID_FILE_MRU_FILE11      "打开该文档"
+    ID_FILE_MRU_FILE12      "打开该文档"
+    ID_FILE_MRU_FILE13      "打开该文档"
+    ID_FILE_MRU_FILE14      "打开该文档"
+    ID_FILE_MRU_FILE15      "打开该文档"
+    ID_FILE_MRU_FILE16      "打开该文档"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_NEXT_PANE            "切换到下一个窗格\n下一窗格"
+    ID_PREV_PANE            "切换回前一个窗格\n前一窗格"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "将活动的窗口分隔成窗格\n分隔"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_CLEAR           "删除被选对象\n删除"
+    ID_EDIT_CLEAR_ALL       "全部删除\n全部删除"
+    ID_EDIT_COPY            "复制被选对象并将其置于剪贴板上\n复制"
+    ID_EDIT_CUT             "剪切被选对象并将其置于剪贴板上\n剪切"
+    ID_EDIT_FIND            "查找指定的正文\n查找"
+    ID_EDIT_PASTE           "插入剪贴板内容\n粘贴"
+    ID_EDIT_REPEAT          "重复上一步操作\n重复"
+    ID_EDIT_REPLACE         "用不同的正文替换指定的正文\n替换"
+    ID_EDIT_SELECT_ALL      "选择整个文档\n选择全部"
+    ID_EDIT_UNDO            "撤消最后一步操作\n撤消"
+    ID_EDIT_REDO            "重新执行先前已撤消的操作\n重新执行"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "显示或隐藏工具栏\n显隐工具栏"
+    ID_VIEW_STATUS_BAR      "显示或隐藏状态栏\n显隐状态栏"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "改变窗口大小"
+    AFX_IDS_SCMOVE          "改变窗口位置"
+    AFX_IDS_SCMINIMIZE      "将窗口缩小成图标"
+    AFX_IDS_SCMAXIMIZE      "把窗口放大到最大尺寸"
+    AFX_IDS_SCNEXTWINDOW    "切换到下一个文档窗口"
+    AFX_IDS_SCPREVWINDOW    "切换到先前的文档窗口"
+    AFX_IDS_SCCLOSE         "关闭活动的窗口并提示保存所有文档"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "把窗口恢复到正常大小"
+    AFX_IDS_SCTASKLIST      "激活任务表"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "关闭打印预览模式\n取消预阅"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_TITLE_MAINBAR       "常用"
+    IDS_EVALUATEINFO        "试用期已经结束，或者试用码已过期。程序将退出。"
+    IDS_EVALUATEFMT         "离试用期结束还有%d天，请尽快购买本软件。"
+    IDS_USERNAMETOOSHORTFMT "请输入注册用户名。用户名长度不能小于%d个字符，不能大于%d个字符。"
+    IDS_REGCODETOOSHORT     "请输入完整的注册码。"
+    IDS_INVALIDREGCODE      "注册码不正确，请检查输入是否有误。"
+    IDS_AUTHORIZEDUSER_UNKNOWN "未知用户"
+    IDS_REGCODE_UNPURCHASED "未购买"
+    IDS_BUILTREGCODE_FAILED "生成注册码失败，请重试。"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_MAINBARTEXTBOT  "文字标签在按钮下方\n按钮下方"
+    IDW_MAINBAR             "显示或隐藏常用工具栏\n工具栏"
+    ID_VIEW_MAINBARTEXTRIGHT "文字标签在按钮右方\n按钮右方"
+    ID_VIEW_FULLSCREEN      "全屏显示\n全屏"
+    ID_TOOL_GENSERIAL       "生成序列号\n序列号"
+    ID_HELP_REGISTER        "输入软件注册号\n注册"
+    ID_TOOL_OPENDBFILE      "打开用户数据文件\n打开数据文件"
+    ID_TOOL_GENBASE         "生成基本资料文件\n基本资料"
+    ID_TOOL_BASERMCR        "去掉基本资料版权信息\n版权信息"
+    ID_TOOL_FILETIME        "改变文件日期\n文件日期"
+    ID_TOOL_GENDOMAIN       "生成板块文件\n生成板块"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STORESECRETFILE_FAILED "保存代理文件失败，请重试。"
+    IDS_SELECT_DIRECTORY    "请选择目录："
+    IDS_ERROR_SELFDBPATH    "指定的策略为王数据目录无效，请重新指定。"
+    IDS_GENBASE_FINISH      "成功生成基本资料文件。"
+    IDS_GENBASE_FAILED      "生成基本资料文件失败。"
+    IDS_OPENFILE_FAILED     "打开文件失败。"
+    IDS_GENBASE_REPORTFMT   "生成基本资料完毕，共生成%d只股票的基本资料。其中%d只取自中报数据，%d只取自季报数据。"
+    IDS_DOMAINFUND          "基金"
+    IDS_GENBASE_NOSZZS      "上证指数的日线数据不足，无法计算β值。"
+    IDS_GENBASE_FUNDINDEX   "基金指数"
+    IDS_BASERMRIGHT_PATHERROR "路径不完整。"
+    IDS_FILETIME_PATHERROR  "路径不完整。"
+    IDS_BASERMRIGHT_NODESTPATH "目标路径无法创建。"
+    IDS_BASERMRIGHT_REPORTFMT "共完成%d个基本资料的转换。"
+    IDS_BASERMRIGHT_ZIPOK   "并压缩至文件："
+    IDS_FILETIME_REPORTFMT  "共完成%d个文件时间的修改。"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_SECRET_ASSERTMESSAGE 
+                            "试用版本已经到期，要继续使用该软件，请购买。谢谢您的使用，再见。"
+    IDS_SECRET_FUNCLIMIT    "对不起，要想使用该功能，请购买软件。有问题请与供应商联系。"
+    IDS_REGISTER_SUCCESS    "注册成功。"
+    IDS_REGISTER_PURCHASED  "用户已经购买。"
+    IDS_REGISTER_NOTIMELIMIT "无限制"
+    IDS_AFXCORE_SUNDAY      "星期日"
+    IDS_AFXCORE_MONDAY      "星期一"
+    IDS_AFXCORE_TUESDAY     "星期二"
+    IDS_AFXCORE_WEDNESDAY   "星期三"
+    IDS_AFXCORE_THURSDAY    "星期四"
+    IDS_AFXCORE_FRIDAY      "星期五"
+    IDS_AFXCORE_SATURDAY    "星期六"
+    IDS_PATHERROR           "路径不完整。"
+    IDS_NODESTPATH          "目标路径无法创建。"
+    IDS_GENCODETBL_REPORTFMT "共完成%d个代码的转换。"
+    IDS_PROFILE_SUBJECTSUPPORT "技术支持"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_GENDOMAIN_REPORTFMT "共生成%d个板块。"
+    IDS_GENSERIAL_STD       "标准版"
+    IDS_GENSERIAL_PROF      "专业版"
+    IDS_ERROR_QIANLONGDBPATH "指定的乾龙数据目录无效，请重新指定。"
+    IDS_ERROR_OPENDESTFILE  "无法打开目标文件。"
+    IDS_GENNAMEENU_REPORTFMT "共完成%d/%d个代码的转换。"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_TOOL_GENCODETBL      "生成代码表\n代码表"
+    ID_TOOL_GENNAMEENU      "生成英文名称\n英文名称"
+    ID_TOOL_GENEVA          "生成试用码\n试用码"
+END
+
+#endif    // 中文(中华人民共和国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\Tools.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#include "l.chs\afxprint.rc"        // printing/print preview resources
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

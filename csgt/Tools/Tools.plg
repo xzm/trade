@@ -1,0 +1,51 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Tools - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\SUNZHE~1\LOCALS~1\Temp\RSP7F.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/Tools.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\Projects\CLKing\Src\Tools\MainFrm.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\SUNZHE~1\LOCALS~1\Temp\RSP7F.tmp" 
+Creating temporary file "C:\DOCUME~1\SUNZHE~1\LOCALS~1\Temp\RSP80.tmp" with contents
+[
+htmlhelp/htmlhelp.lib /nologo /subsystem:windows /profile /debug /machine:I386 /out:"Debug/Tools.exe" /libpath:"../StkLib/Lib" /libpath:"../StkNet/Lib" /libpath:"../GuiLib/Lib" /libpath:"../XPFace/Lib" 
+.\Debug\AfxCore.obj
+.\Debug\BaseRmrightDlg.obj
+.\Debug\FiletimeDlg.obj
+.\Debug\GenBaseDlg.obj
+.\Debug\GenCodetblDlg.obj
+.\Debug\GenDomainDlg.obj
+.\Debug\GenEvaDlg.obj
+.\Debug\GenNameEnuDlg.obj
+.\Debug\GenSerialDlg.obj
+.\Debug\MainFrm.obj
+.\Debug\RegisterDlg.obj
+.\Debug\StdAfx.obj
+.\Debug\Tools.obj
+.\Debug\ToolsDoc.obj
+.\Debug\ToolsView.obj
+.\Debug\Tools.res
+\Projects\CLKing\Src\GUILib\Lib\GuiLib.lib
+\Projects\CLKing\Src\StkLib\Lib\StkLib30d.lib
+\Projects\CLKing\Src\StkNet\Lib\StkNet30d.lib
+\Projects\CLKing\Src\XPFace\Lib\XPFaced.lib
+]
+Creating command line "link.exe @C:\DOCUME~1\SUNZHE~1\LOCALS~1\Temp\RSP80.tmp"
+<h3>Output Window</h3>
+Compiling...
+MainFrm.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+Tools.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

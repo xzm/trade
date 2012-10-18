@@ -1,0 +1,391 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Russian resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+#ifdef _WIN32
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\ProfUIS_Controls.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\ProfUIS_Controls.ico"
+#endif    // Russian resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Prof-UIS Controls Sample"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "Prof-UIS Controls Sample Version 1.0",IDC_STATIC,40,10,
+                    119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) Foss-On-Line corp. 2002",IDC_STATIC,40,25,
+                    119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_PROFUIS_CONTROLS_DIALOG DIALOGEX 0, 0, 216, 220
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "ProfUIS Controls Sample"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,159,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,159,23,50,14
+    CONTROL         "Show icon in the System Tray",IDC_CHECK_SHOW_IN_TRAY,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,7,117,10
+    CONTROL         "Enable context menu on dialog",
+                    IDC_ENABLE_DIALOG_CONTEXT_MENU,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,22,117,10
+    LTEXT           "UI look:",IDC_STATIC,7,41,29,9
+    COMBOBOX        IDC_COMBO_UI_LOOK,42,40,82,33,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Editable combobox can auto complete text:",IDC_STATIC,7,
+                    59,202,9
+    COMBOBOX        IDC_COMBO_EDITABLE,7,70,202,48,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_SAMPLE,7,102,202,15,ES_AUTOHSCROLL
+    LTEXT           "Single line edit control:",IDC_STATIC,7,89,202,9
+    PUSHBUTTON      "With menu",IDC_BUTTON_WITH_MENU,7,124,81,24
+    PUSHBUTTON      "Color ...",IDC_BUTTON_COLOR1,98,124,62,15
+    PUSHBUTTON      "",IDC_BUTTON_COLOR2,166,124,26,15
+    COMBOBOX        IDC_COMBO_MENU_OPEN_EFFECT,7,201,202,48,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Animate menu when expanding",
+                    IDC_CHECK_MENU_ANIM_EXPANDING,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,161,202,11
+    LTEXT           "Select menu animation effect:",IDC_STATIC,7,188,202,9
+    CONTROL         "",IDC_STATIC_BEFORE_MENU,"Static",SS_ETCHEDHORZ,7,153,
+                    202,1
+    CONTROL         "Menu with shadows",IDC_CHECK_MENU_WITH_SHADOWS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,174,202,11
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "ProfUIS_Controls MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "ProfUIS_Controls\0"
+            VALUE "LegalCopyright", "Copyright (C) 2002\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "ProfUIS_Controls.EXE\0"
+            VALUE "ProductName", "ProfUIS_Controls Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_PROFUIS_CONTROLS_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 209
+        VERTGUIDE, 42
+        VERTGUIDE, 124
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 213
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU1 MENU DISCARDABLE 
+BEGIN
+    POPUP "__POPUP__"
+    BEGIN
+        MENUITEM "&About ...",                  ID_APP_ABOUT
+        MENUITEM SEPARATOR
+        MENUITEM "&Show icon in tray",          IDC_CHECK_SHOW_IN_TRAY
+        MENUITEM "&Dialog with context menu",   IDC_ENABLE_DIALOG_CONTEXT_MENU
+
+        MENUITEM SEPARATOR
+        MENUITEM "Look Office 2K",              IDC_LOOK_2K
+        MENUITEM "Look Office XP",              IDC_LOOK_XP
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_PROFUIS_CONTROLS_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_UI_LOOK, 0x403, 16, 0
+0x2020, 0x4f20, 0x6666, 0x6369, 0x2065, 0x3839, 0x322f, 0x004b, 
+    IDC_COMBO_UI_LOOK, 0x403, 21, 0
+0x2020, 0x2a20, 0x2a2a, 0x4f20, 0x6666, 0x6369, 0x2065, 0x5058, 0x2a20, 
+0x2a2a, "\000" 
+    IDC_COMBO_EDITABLE, 0x403, 25, 0
+0x7468, 0x7074, 0x2f3a, 0x772f, 0x7777, 0x692e, 0x746e, 0x7265, 0x6f66, 
+0x7373, 0x632e, 0x6d6f, "\000" 
+    IDC_COMBO_EDITABLE, 0x403, 24, 0
+0x7468, 0x7074, 0x2f3a, 0x772f, 0x7777, 0x662e, 0x736f, 0x7773, 0x7261, 
+0x2e65, 0x6f63, 0x006d, 
+    IDC_COMBO_EDITABLE, 0x403, 27, 0
+0x7468, 0x7074, 0x2f3a, 0x772f, 0x7777, 0x662e, 0x736f, 0x2e73, 0x686b, 
+0x7261, 0x6f6b, 0x2e76, 0x6175, "\000" 
+    IDC_COMBO_EDITABLE, 0x403, 19, 0
+0x7468, 0x7074, 0x2f3a, 0x772f, 0x7777, 0x752e, 0x726b, 0x6e2e, 0x7465, 
+"\000" 
+    IDC_COMBO_EDITABLE, 0x403, 21, 0
+0x7468, 0x7074, 0x2f3a, 0x772f, 0x7777, 0x792e, 0x6861, 0x6f6f, 0x632e, 
+0x6d6f, "\000" 
+    IDC_COMBO_EDITABLE, 0x403, 20, 0
+0x7468, 0x7074, 0x2f3a, 0x772f, 0x7777, 0x6d2e, 0x6961, 0x2e6c, 0x6f63, 
+0x006d, 
+    IDC_COMBO_EDITABLE, 0x403, 27, 0
+0x7468, 0x7074, 0x2f3a, 0x772f, 0x7777, 0x632e, 0x646f, 0x7065, 0x6f72, 
+0x656a, 0x7463, 0x632e, 0x6d6f, "\000" 
+    IDC_COMBO_EDITABLE, 0x403, 24, 0
+0x7468, 0x7074, 0x2f3a, 0x772f, 0x7777, 0x632e, 0x646f, 0x6765, 0x7275, 
+0x2e75, 0x6f63, 0x006d, 
+    IDC_COMBO_EDITABLE, 0x403, 19, 0
+0x7468, 0x7074, 0x2f3a, 0x772f, 0x7777, 0x732e, 0x6e75, 0x632e, 0x6d6f, 
+"\000" 
+    IDC_COMBO_EDITABLE, 0x403, 25, 0
+0x7468, 0x7074, 0x2f3a, 0x772f, 0x7777, 0x6d2e, 0x6369, 0x6f72, 0x6f73, 
+0x7466, 0x632e, 0x6d6f, "\000" 
+    IDC_COMBO_EDITABLE, 0x403, 21, 0
+0x7468, 0x7074, 0x2f3a, 0x772f, 0x7777, 0x6a2e, 0x7567, 0x7572, 0x632e, 
+0x6d6f, "\000" 
+    IDC_COMBO_EDITABLE, 0x403, 30, 0
+0x7468, 0x7074, 0x2f3a, 0x772f, 0x7777, 0x6d2e, 0x6473, 0x2e6e, 0x696d, 
+0x7263, 0x736f, 0x666f, 0x2e74, 0x6f63, 0x006d, 
+    IDC_COMBO_EDITABLE, 0x403, 24, 0
+0x7468, 0x7074, 0x2f3a, 0x772f, 0x7777, 0x762e, 0x616c, 0x6964, 0x6f63, 
+0x2e6e, 0x6f63, 0x006d, 
+    IDC_COMBO_EDITABLE, 0x403, 22, 0
+0x7468, 0x7074, 0x2f3a, 0x772f, 0x7777, 0x612e, 0x616d, 0x6f7a, 0x2e6e, 
+0x6f63, 0x006d, 
+    IDC_COMBO_EDITABLE, 0x403, 21, 0
+0x7468, 0x7074, 0x2f3a, 0x772f, 0x7777, 0x6c2e, 0x6379, 0x736f, 0x632e, 
+0x6d6f, "\000" 
+    IDC_COMBO_EDITABLE, 0x403, 19, 0
+0x7468, 0x7074, 0x2f3a, 0x772f, 0x7777, 0x6d2e, 0x6961, 0x2e6c, 0x7572, 
+"\000" 
+    IDC_COMBO_EDITABLE, 0x403, 22, 0
+0x7468, 0x7074, 0x2f3a, 0x772f, 0x7777, 0x6f2e, 0x6172, 0x6c63, 0x2e65, 
+0x6f63, 0x006d, 
+    IDC_COMBO_MENU_OPEN_EFFECT, 0x403, 10, 0
+0x5f5f, 0x5441, 0x4e5f, 0x4e4f, 0x0045, 
+    IDC_COMBO_MENU_OPEN_EFFECT, 0x403, 12, 0
+0x5f5f, 0x5441, 0x525f, 0x4e41, 0x4f44, 0x004d, 
+    IDC_COMBO_MENU_OPEN_EFFECT, 0x403, 10, 0
+0x5f5f, 0x5441, 0x525f, 0x4c4f, 0x004c, 
+    IDC_COMBO_MENU_OPEN_EFFECT, 0x403, 11, 0
+0x5f5f, 0x5441, 0x535f, 0x494c, 0x4544, "\000" 
+    IDC_COMBO_MENU_OPEN_EFFECT, 0x403, 10, 0
+0x5f5f, 0x5441, 0x465f, 0x4441, 0x0045, 
+    IDC_COMBO_MENU_OPEN_EFFECT, 0x403, 22, 0
+0x5f5f, 0x5441, 0x525f, 0x4c4f, 0x5f4c, 0x4e41, 0x5f44, 0x5253, 0x4545, 
+0x4354, 0x0048, 
+    IDC_COMBO_MENU_OPEN_EFFECT, 0x403, 23, 0
+0x5f5f, 0x5441, 0x535f, 0x494c, 0x4544, 0x415f, 0x444e, 0x535f, 0x4552, 
+0x5445, 0x4843, "\000" 
+    IDC_COMBO_MENU_OPEN_EFFECT, 0x403, 11, 0
+0x5f5f, 0x5441, 0x4e5f, 0x494f, 0x4553, "\000" 
+    IDC_COMBO_MENU_OPEN_EFFECT, 0x403, 11, 0
+0x5f5f, 0x5441, 0x425f, 0x584f, 0x5345, "\000" 
+    IDC_COMBO_MENU_OPEN_EFFECT, 0x403, 13, 0
+0x5f5f, 0x5441, 0x435f, 0x5249, 0x4c43, 0x5345, "\000" 
+    IDC_COMBO_MENU_OPEN_EFFECT, 0x403, 11, 0
+0x5f5f, 0x5441, 0x485f, 0x4c4f, 0x5345, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_TOOLBAR1 TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_TOOLBAR1            BITMAP  DISCARDABLE     "res\\toolbar1.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About Prof-UIS Controls ..."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDC_CHECK_SHOW_IN_TRAY  "Show icon in the System Tray\nShow icon in the System Tray"
+    IDC_ENABLE_DIALOG_CONTEXT_MENU 
+                            "Enable context menu on dialog\nEnable context menu on dialog"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDC_LOOK_2K             "Change UI appearance to Office 98/2K like\nChange UI appearance to Office 98/2K like"
+    IDC_LOOK_XP             "Change UI appearance to Office XP like\nChange UI appearance to Office XP like"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\ProfUIS_Controls.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

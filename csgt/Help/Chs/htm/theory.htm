@@ -1,0 +1,1404 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=GB2312">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./techique.files/filelist.xml">
+<title>第一章 技术分析的理论常识</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Szy</o:Author>
+  <o:LastAuthor>szy</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>29</o:TotalTime>
+  <o:Created>2002-09-17T20:23:00Z</o:Created>
+  <o:LastSaved>2002-09-17T20:23:00Z</o:LastSaved>
+  <o:Pages>20</o:Pages>
+  <o:Words>3557</o:Words>
+  <o:Characters>20275</o:Characters>
+  <o:Company>WXD</o:Company>
+  <o:Lines>168</o:Lines>
+  <o:Paragraphs>40</o:Paragraphs>
+  <o:CharactersWithSpaces>24899</o:CharactersWithSpaces>
+  <o:Version>9.2812</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:PunctuationKerning/>
+  <w:DrawingGridVerticalSpacing>7.8 磅</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>2</w:DisplayVerticalDrawingGridEvery>
+  <w:Compatibility>
+   <w:SpaceForUL/>
+   <w:BalanceSingleByteDoubleByteWidth/>
+   <w:DoNotLeaveBackslashAlone/>
+   <w:ULTrailSpace/>
+   <w:DoNotExpandShiftReturn/>
+   <w:AdjustLineHeightInTable/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:SimSun;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 135135232 16 0 262145 0;}
+@font-face
+	{font-family:黑体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:SimHei;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:1 135135232 16 0 262144 0;}
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:134;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 2031871 0;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 135135232 16 0 262145 0;}
+@font-face
+	{font-family:"\@黑体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:1 135135232 16 0 262144 0;}
+@font-face
+	{font-family:"\@Arial Unicode MS";
+	mso-font-charset:134;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 2031871 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	mso-pagination:none;
+	font-size:10.5pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:宋体;
+	mso-font-kerning:1.0pt;}
+h1
+	{mso-style-next:正文;
+	margin-top:17.0pt;
+	margin-right:0cm;
+	margin-bottom:16.5pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:240%;
+	mso-pagination:lines-together;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:22.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:宋体;
+	mso-font-kerning:22.0pt;
+	font-weight:bold;}
+h2
+	{mso-style-next:正文;
+	margin-top:13.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:173%;
+	mso-pagination:lines-together;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:16.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:黑体;
+	mso-bidi-font-family:"Times New Roman";
+	mso-font-kerning:1.0pt;
+	font-weight:bold;}
+h3
+	{mso-style-next:正文;
+	margin-top:13.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:173%;
+	mso-pagination:lines-together;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:16.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:宋体;
+	mso-font-kerning:1.0pt;
+	font-weight:bold;}
+p
+	{margin-right:0cm;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Arial Unicode MS";}
+ /* Page Definitions */
+@page
+	{mso-page-border-surround-header:no;
+	mso-page-border-surround-footer:no;}
+@page Section1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:36.0pt;
+	mso-footer-margin:36.0pt;
+	mso-paper-source:0;
+	layout-grid:15.6pt;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+</head>
+
+<body lang=ZH-CN style='tab-interval:21.0pt;text-justify-trim:punctuation'>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1 align=center style='text-align:center'><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>第一章</span>
+<span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>技术分析的理论常识</span></h1>
+
+<h2 style='text-indent:18.0pt;mso-char-indent-count:1.12;mso-char-indent-size:
+16.05pt'><span style='font-family:黑体;mso-ascii-font-family:Arial'>第一节</span> <span
+style='font-family:黑体;mso-ascii-font-family:Arial'>技术分析的定义及特点</span></h2>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>股票价格指数和平均数仅仅为人们提供了一种衡量股票价格变动历史的工具，然而，人们更关心的是如何预测股票价格的未来趋势，以及买卖股票的适当时机。多少年来，人们不断地对股价走势进行研究，产生了种种方法。现在大多数人采用技术分析法或基本分析法预测股市的走势。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>所谓股价的技术分析，是相对于基本分析而言的。正如上一部分所述，基本分析法着重于对一般经济情况以及各个公司的经营管理状况、行业动态等因素进行分析，以此来研究股票的价值，衡量股价的高低。而技术分析则是透过图表或技术指标的记录，研究市场过去及现在的行为反应，以推测未来价格的变动趋势。其依据的技术指标的主要内容是由股价、成交量或涨跌指数等数据计算而得的，我们也由此可知──技术分析只关心证券市场本身的变化，而不考虑会对其产生某种影响的经济方面、政治方面的等各种外部的因素。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>基本分析的目的是为了判断股票现行股价的价位是否合理并描绘出它长远的发展空间，而技术分析主要是预测短期内股价涨跌的趋势。通过基本分析我们可以了解应购买何种股票，而技术分析则让我们把握具体购买的时机。在时间上，技术分析法注重短期分析，在预测旧趋势结束和新趋势开始方面优于基本分析法，但在预测较长期趋势方面则不如后者。大多数成功的股票投资者都是把两种分析方法结合起来加以运用。他们用基本分析法估计较长期趋势，而用技术分析法判断短期走势和确定买卖的时机。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>股价技术分析和基本分析都认为股价是由供求关系所决定。基本分析主要是根据对影响供需关系种种因素的分析来预测股价走势，而技术分析则是根据股价本身的变化来预测股价走势。技术分析的基本观点是：所有股票的实际供需量及其背后起引导作用的种种因素，包括股票市场上每个人对未来的希望、担心、恐惧等等，都集中反映在股票的价格和交易量上。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>技术分析的理论基础是空中楼阁理论。空中楼阁理论是美国著名经济学家凯恩斯于</span><span
+lang=EN-US>1936</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>年提出的，该理论完全抛开股票的内在价值，强调心理构造出来的空中楼阁。投资者之所以要以一定的价格购买某种股票，是因为他相信有人将以更高的价格向他购买这种股票。至于股价的高低，这并不重要，重要的是存在更大的“笨蛋”愿以更高的价格向你购买。精明的投资者无须去计算股票的内在价值，他所须做的只是抢在最大“笨蛋”之前成交，即股价达到最高点之前买进股票，而在股价达到最高点之后将其卖出。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='text-indent:27.45pt;mso-char-indent-count:1.71;mso-char-indent-size:
+16.05pt'><span style='font-family:黑体;mso-ascii-font-family:Arial'>第二节</span> <span
+style='font-family:黑体;mso-ascii-font-family:Arial'>道氏股价波动理论</span></h2>
+
+<h3 style='text-indent:27.45pt;mso-char-indent-count:1.71;mso-char-indent-size:
+16.05pt'><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>１．道氏理论的基本要点</span></h3>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>根据道氏理论，股票价格运动有三种趋势，其中最主要的是股票的基本趋势，即股价广泛或全面性上升或下降的变动情形。这种变动持续的时间通常为一年或一年以上，股价总升（降）的幅度超过２０％。对投资者来说，基本趋势持续上升就形成了多头市场，持续下降就形成了空头市场。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>股价运动的第二种趋势称为股价的次级趋势。因为次级趋势经常与基本趋势的运动方向相反，并对其产生一定的牵制作用，因而也称为股价的修正趋势。这种趋势持续的时间从３周至数月不等，其股价上升或下降的幅度一般为股价基本趋势的１／３或２／３。股价运动的第三种趋势称为短期趋势，反映了股价在几天之内的变动情况。修正趋势通常由３个或３个以上的短期趋势所组成。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在三种趋势中，长期投资者最关心的是股价的基本趋势，其目的是想尽可能地在多头市场上买入股票，而在空头市场形成前及时地卖出股票。投机者则对股价的修正趋势比较感兴趣。他们的目的是想从中获取短期的利润。短期趋势的重要性较小，且易受人为操纵，因而不便作为趋势分析的对象。人们一般无法操纵股价的基本趋势和修正趋势，只有国家的财政部门才有可能进行有限的调节。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>基本趋势</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>即从大的角度来看的上涨和下跌的变动。其中，只要下一个上涨的水准超过前一个高点。而每一个次级的下跌其波底都较前一个下跌的波底高，那么，主要趋势是上升的。这被称为多头市场。相反地，当每一个中级下跌将价位带至更低的水准，而接着的弹升不能将价位带至前面弹升的高点，主要趋势是下跌的，这称之为空头市场。通常（至少理论上以此作为讨论的对象）主要趋势是长期投资人在三种趋势中唯一考虑的目标，其做法是在多头市场中尽早买进股票，只要他可以确定多头市场已经开始发动了，一直持有到确定空头市场已经形成了。对于所有在整个大趋势中的次级下跌和短期变动，他们是不会去理会的。当然，对于那些作经常性交易的人来说，次级变动是非常重要的机会。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>1</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）多头市场</span><span lang=EN-US>,</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>也称之为主要上升趋势。它可以分为三个阶段，</span> <span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>第一个阶段是进货期。在这个阶段中，一些有远见的投资人觉察到虽然目前是处于不景气的阶段，但却即将会有所转变。因此，买进那些没有信心，不顾血本抛售的股票，然后，在卖出数量减少时逐渐地提高买进的价格。事实上，此时市场氛围通常是悲观的。一般的群众非常憎恨股票市场以至于完全离开了股票市场。此时，交易数量是适度的。但是在弹升时短期变动便开始增大了。第二个阶段是十分稳定的上升和增多的交易量，此时企业景气的趋势上升和公司盈余的增加吸引了大众的注意。在这个阶段，使用技术性分析的交易通常能够获得最大的利润。最后，第三个阶段出现了。此时，整个交易沸腾了。人们聚集在交易所，交易的结果经常出现在的报纸的“第一版”，增资迅速在进行中，在这个阶段，朋友间常谈论的是“你看买什么好？”大家忘记了市场景气已经持续了很久，股价已经上升了很长一段时间，而目前正达到更恰当地说“真是卖出的好机会”的时候了。在这个阶段的最后部分，随着投机气氛的高涨，成交量持续地上升。“冷门股”交易逐渐频繁，没有投资价值的低价股的股价急速地上升。但是，却有越来越多的优良股票，投资人拒绝跟进。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（</span><span
+lang=EN-US>2</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）空头市场，也称为主要下跌趋势，也分为三个阶段。第一阶段是“出货”期。它真正的形成是在前一个多头市场的最后一个阶段。在这个阶段，有远见的投资人觉察到企业的盈余到达了不正常的高点，而开始加快出货的步伐。</span>
+<span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>此时成交量仍然很高。虽然在弹升时有逐渐减少的倾向，此时，大众仍热衷于交易，但是，开始感觉到预期的获利已逐渐地消逝。第二个阶段是恐慌时期，想要买进的人开始退缩的，而想要卖出的人则急着要脱手。价格下跌的趋势突然加速到几乎是垂直的程度，此时成交量的比例差距达到最大。在恐慌时期结束以后，通常会有一段相当长的次级反弹或者横向的变动。接着，第三阶段来临了。它是由那些缺乏信心者的卖出所构成的。在第三阶段的进行时，下跌趋势并没有加速。“没有投资价值的低价股”可能在第一或第二阶段就跌掉了前面多头市场所涨升的部分。业绩较为优良的股票持续下跌，因为这种股票的持有者是最后推动信心的。在过程上，空头市场最后阶段的下跌是集中于这些业绩优良的股票。空头市场在坏消息频传的情况下结束。最坏的情况已经被预期了，在股价上已经实现了。通常，在坏消息完全出尽之前，空头市场已经过去了。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>次级趋势</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>它是主要趋势运动方向相反的一种逆动行情，干扰了主要趋势。在多头市场里，它是中级的下跌或“调整”行情；在空头市场里，它是中级的上升或反弹行情。通常，在多头市场里，它会跌落主要趋势涨升部分的三分之一至三分之二。属于调整行情可能是回落不少于１０点，下多于２０点。然而，需要注意的是：三分之一到三分之二的原则并非是一成不变的。它只是机率的简单说明。大部分的次级趋势的涨落幅度在这个范围里。它们之中的大部分停在非常接近半途的位置。回落原先主要涨幅的５０％：这种回落达不到三分之一者很少，同时也有一些是将前面的涨幅几乎都跌掉了。</span>
+<span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>因此，我们有两项判断一个次级趋势的标准，任何和主要趋势相反方向的行情，通常情况下至少持续三个星期左右；回落主要趋势涨升的１</span><span
+lang=EN-US>/</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>３，然而，除了这个标准外，</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>次级趋势通常是混淆不清的。它的确认，对它发展的正确评价及它的进行的全过程的断定，始终是理论描述中的一个难题。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>短期变动</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>它们是短暂的波动。很少超过三个星期，通常少于六天。它们本身尽管是没有什么意义，但是使得主要趋势的发展全过程富于了神秘多变的色彩。通常，不管是次级趋势或两个次级趋势所夹的主要趋势部分都是由一连串的三个或更多可区分的短期变动所组成。由这些短期变化所得出的推论很容易导至错误的方向。在一个无论成熟与否的股市中，短期变动都是唯一可以被“操纵”的。而主要趋势和次要趋势却是无法被操纵的。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>上述股票市场波动的三种趋势，与海浪的波动极其相似。在股票市场里，主要趋势就像海潮的每一次涨（落）的整个过程。其中，多头市场好比涨潮，一个接一个的海浪不断地涌来拍打海岸，直到最后到达标示的最高点。而后逐渐退去。逐渐退去的落潮可以和空头市场相比较。在涨潮期间，每个接下来的波浪其水位都比前一波涨升的多而退的却比前一波要少，尽而使水位逐渐升高。在退潮期间，每个接下来的波浪比先前的更低，后一波者不能恢复前一波所达到的高度。涨潮（退潮）期的这些波浪就好比是次级趋势。同样，海水的表面被微波涟漪所覆盖，这和市场的短期变动相比较它们是不重要的日常变动。潮汐，波浪，涟漪代表着市场的主要趋势，次级趋势，短期变动。</span></p>
+
+<h3 style='text-indent:27.45pt;mso-char-indent-count:1.71;mso-char-indent-size:
+16.05pt'><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>２．道氏理论的其他分析方法</span></h3>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（１）用两种指数来确定整体走势</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>著名的道琼斯混合指数是由２０种铁路，３０种工业和１５种公共事业三部分组成的。据历史的经验，其中工业和铁路两种分类指数数据有代表性。因此，在判断走势时，道氏理论更注重于分析铁路和工业两种指数的变动。其中任何单纯一种指数所显示的变动都不能作为断定趋势上有效反转的信号。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（２）据成交量判断趋势的变化</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>成效量会随着主要的趋势而变化。因此，据成交量也可以对主要趋势做出一个判断。通常，在多头市场，价位上升，成交量增加；价位下跌，成交量减少。在空头市场，当价格滑落时，成交量增加；在反弹时，成交量减少。当然，这条规则有时也有例外。因此正确的结论只据几天的成交量是很难下的，只有在持续一段时间的整个交易的分析中才能够做出。在道氏理论中，为了判定市场的趋势，最终结论性</span>
+<span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>信号只由价位的变动产生。成产量仅仅是在一些有疑问的情况下提供解释的参考。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（３）盘局可以代替中级趋势</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>一个盘局出现于一种或两种指数中，持续了两个或三个星期，有时达数月之久，价位仅在约５％的距离中波动。这种形状显示买进和卖出两者的力量是平衡。当然，最后的情形之一是，在这个价位水准的供给完毕了，而那些想买进的人必须提高价位来诱使卖者出售。另一种情况是，本来想要以盘局价位水准出售的人发觉买进的气氛削弱了，结果他们必须削价来处理他们的股票。因此，价位往上突破盘局的上限是多头市场的征兆。相反价位往下跌破盘局的下限是空头市场的征兆。一般来说，盘局的时间愈久，价位愈窄，它最后的突破愈容易。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>盘局常发展成重要的顶部和底部，分别代表着出货和进货的阶段，但是，它们更常出现在主要趋势时的休息和整理的阶段。在这种情形下，它们取代了正式上的次级波动。很可能一种指数正在形成盘局，而另一种却发展成典型的次级趋势。在往上或往下突破盘局后，有时在同方向继续停留一段较长的时间，这是不足为奇的。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（４）把收盘价放在首位</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>道氏理论并不注意一个交易日当中的最高价、最低价、而只注意收盘价。因为收盘价是时间匆促的人看财经版唯一阅读的数目，是对当天股价的最后评价，大部分人根据这个价位作买卖的委托。这是又一个经过时间考验的道氏理论规则。这一规则在断定主要趋势的未来发展动向上的作用表现在：假定一个主要的上升趋势中，一个中级上升早上１１点钟到达最高点，在这个小时的道氏工业指数为１５２．４５而收盘为１５０．７０，未来的收盘必须超过１５０．７０，主要趋势才算是继续上升的。当天交易中高点的１５２．４５并不算数，如果下一次的上升的当天高点达到１５２．６０，但收盘仍然低于１５０．７０主要的多头趋势仍然是不能确定的。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（５）在反转趋势出现之前主要趋势仍将发挥影响</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>当然，在反转信号出现前，提前改变对市场的态度，就好比赛跑时于发出信号前抢先跑出固然不错。这条规则也并意味着在趋势反转信号已经明朗化以后，一个人还应再迟延一下他的行动，而是说在经验上，我们等到已经确定了以后再行动较为有利，以避免在还没有成熟前买进（或卖出）。自然，股价主变动趋势是在经常变化着的。多头市场并不能永远持续下去，空头市场总有到达底的一天。当一个新的主要趋势第一次由两种指数确定后，如不管短期间的波动，趋势绝大部分会持续，但愈往后这种趋势延势下去的可能性会愈小。这条规则告诉人们：一个旧趋势的反转可能发生在新趋势被确认后的任何时间，作为投资人，一旦作出委托后，必须随时注意市场。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（６）股市波动反映了一切市场行为</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>股市指数的收市价和波动情况反映了一切市场行为。在股票市场，你可能觉得政治局势稳定，所以买股票。另外一些人可能觉得经济前景乐观所以买股票。再另外一部分人以为利率将会调低，值得在市场吸纳股票。更有一些人有内幕消息谓大财团出现收购合并，所以要及早入货，无论大家抱有什么态度，市价上升就反映了情绪，即使是不同的观点角度。相反，当大家有不同恐惧因素时，有人以为沽空会获大，有人以为政局动荡而恐慌，有人恐怕大萧条来临。有人听到内幕消息谓大股东要出货套现，或者政客受到行刺。不论甚么因素，股市指数的升跌变化都反映了群众心态。群众乐观，无论有理或无理，适中或过度，都会推动股价上升。群众悲观，亦不论盲目恐惧，有实质问题也好，或者受其他人情绪影响而歇斯度里也好，都会反映在市场上指数下挫。以其分析市场上千千万万人每一个投资人士的心态，做一些没有可能做到的事，投资人士应该分析反映整个市场心态的股市指数。股市指数代表了群众心态，市场行为的总和。指数反映了市场的实际是乐观一方面或是悲观情绪控制大局。</span></p>
+
+<h3 style='text-indent:27.45pt;mso-char-indent-count:1.71;mso-char-indent-size:
+16.05pt'><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>３．道氏理论的缺陷</span></h3>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（１）道氏理论主要目标乃探讨股市的基本趋势（</span><span
+lang=EN-US>Primary Trend</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）。一旦基本趋势确立，道氏理论假设这种趋势会一路持续，直到趋势遇到外来因素破坏而改变为止。好像物理学里牛顿定律所说，所有物体移动时都会以直线发展，除非有额外因素力量加诸其上。但有一点要注意的是，道氏理论只推断股市的大势所趋，却不能推动大趋势里面的升幅或者跌幅将会去到那个程度。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（２）道氏理论每次都要两种指数互相确认，这样做已经慢了半拍，走失了最好的入货和出货机会。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（３）道氏理论对选股没有帮助。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（４）道氏理论注重长期趋势，对中期趋势，特别是在不知是牛还是熊的情况下，不能带给投资者明确启示。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='text-indent:27.45pt;mso-char-indent-count:1.71;mso-char-indent-size:
+16.05pt'><span style='font-family:黑体;mso-ascii-font-family:Arial'>第三节</span> <span
+style='font-family:黑体;mso-ascii-font-family:Arial'>波浪理论</span></h2>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>波浪理论是技术分析大师</span><span
+lang=EN-US> R</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>·</span><span lang=EN-US>E</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>·艾略特（</span><span lang=EN-US>R</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>·</span><span
+lang=EN-US>E</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>·</span><span lang=EN-US>Elliot</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>）所发明的一种价格趋势分析工具，它是一套完全靠而观察得来的规律，可用以分析股市指数、价格的走势，它也是世界股市分析上运用最多，而又最难于了解和精通的分析工具。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>艾略特认为，不管是股票还是商品价格的波动，都与大自然的潮汐，波浪一样，一浪跟着一波，周而复始，具有相当程度的规律性，展现出周期循环的特点，任何波动均有迹有循。因此，投资者可以根据这些规律性的波动预测价格未来的走势，在买卖策略上实施适用。</span></p>
+
+<h3 style='text-indent:27.45pt;mso-char-indent-count:1.71;mso-char-indent-size:
+16.05pt'><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>１．波浪理论的四个基本特点</span></h3>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（１）股价指数的上升和下跌将会交替进行；</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（２）推动浪和调整浪是价格波动两个最基本型态，而推动浪（即与大市走向一致的波浪）可以再分割成五个小浪，一般用第１浪、第２浪、第３浪、第４浪、第５浪来表示，调整浪也可以划分成三个小浪，通常用Ａ浪、Ｂ浪、Ｃ浪表示。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（３）在上述八个波浪（五上三落）完毕之后，一个循环即告完成，走势将进入下一个八波浪循环；</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（４）时间的长短不会改变波浪的形态，因为市场仍会依照其基本型态发展。波浪可以拉长，也可以缩细，但其基本型态永恒不变。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>总之，波浪理论可以用一句话来概括：即“八浪循环”</span></p>
+
+<h3 style='text-indent:27.45pt;mso-char-indent-count:1.71;mso-char-indent-size:
+16.05pt'><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>２．波浪的形态</span></h3>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>那么，如何来划分上升五浪和下跌三浪呢？一般说来，八个浪各有不同的表现和特性：</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>第１浪：（</span><span
+lang=EN-US>1</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）几乎半数以上的第１浪，是属于营造底部型态的第一部分，第１浪是循环的开始，由于这段行情的上升出现在空头市场跌势后的反弹和反转，买方力量并不强大，加上空头继续存在卖压，因此，在此类第１浪上升之后出现第２浪调整回落时，其回档的幅度往往很深；（</span><span
+lang=EN-US>2</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）另外半数的第１浪，出现在长期盘整完成之后，在这类第１浪中，其行情上升幅度较大，经验看来，第１浪的涨幅通常是５浪中最短的行情。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>第２浪：这一浪是下跌浪，由于市场人士误以为熊市尚未结束，其调整下跌的幅度相当大，几乎吃掉第１浪的升幅，当行情在此浪中跌至接近底部（第１浪起点）时，市场出现惜售心理，抛售压力逐渐衰竭，成交量也逐渐缩小时，第２浪调整才会宣告结束，在此浪中经常出现图表中的转向型态，如头底、双底等。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>第３浪：第３浪的涨势往往是最大，最有爆发力的上升浪，这段行情持续的时间与幅度，经常是最长的，市场投资者信心恢复，成交量大幅上升，常出现传统图表中的突破讯号，例如裂口跳升等，这段行情走势非常激烈，一些图形上的关卡，非常轻易地被穿破，尤其在突破第１浪的高点时，是最强烈的买进讯号，由于第３浪涨势激烈，经常出现“延长波浪”的现象。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>第４浪：第４浪是行情大幅劲升后调整浪，通常以较复杂的型态出现，经常出现“倾斜三角形”的走势，但第４浪的底点不会低于第１浪的顶点。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>第５浪：在股市中第５浪的涨势通常小于第３浪，且经常出现失败的情况，在第５浪中，二，三类股票通常是市场内的主导力量，其涨幅常常大于一类股（绩优蓝筹股、大型股），即投资人士常说的“鸡犬升天”，此期市场情绪表现相当乐观。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>第Ａ浪：在Ａ浪中，市场投资人士大多数认为上升行情尚未逆转，此时仅为一个暂时的回档现象，实际上，Ａ浪的下跌，在第５浪中通常已有警告讯号，如成交量与价格走势背离或技术指标上的背离等，但由于此时市场仍较为乐观，Ａ浪有时出现平势调整或者“之”字型态运行。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>第Ｂ浪：Ｂ浪表现经常是成交量不大，一般而言是多头的逃命线，然而由于是一段上升行情，很容易让投资者误以为是另一波段的涨势，形成“多头陷井”，许多人士在此期惨遭套牢。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>第Ｃ浪：是一段破坏力较强的下跌浪，跌势较为强劲，跌幅大，持续的时间较长久，而且出现全面性下跌。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>从以上看来，波浪理论似乎颇为简单和容易运用，实际上，由于其每一个上升</span><span
+lang=EN-US>/</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>下跌的完整过程中均包含有一个八浪循环，大循环中有小循环，小循环中有更小的循环，即大浪中有小浪，小浪中有细浪，因此，使数浪变得相当繁杂和难于把握，再加上其推劫浪和调整浪经常出现延伸浪等变化型态和复杂型态，使得对浪的准确划分更加难以界定，这两点构成了波浪理论实际运用的最大难点。</span></p>
+
+<h3 style='text-indent:27.45pt;mso-char-indent-count:1.71;mso-char-indent-size:
+16.05pt'><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>３．波浪之间的比例</span></h3>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>波浪理论推测股市的升幅和跌幅采取黄金分割率和神秘数字去计算。一个上升浪可以是上一次高点的１．６１８，另一个高点又再乘以１．６１８，以此类推。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>另外，下跌浪也是这样，一般常见的回吐幅度比率有０．２３６（０．３８２×０．６１８），０．３８２，０．５，０．６１８等。</span></p>
+
+<h3 style='text-indent:27.45pt;mso-char-indent-count:1.71;mso-char-indent-size:
+16.05pt'><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>４．波浪理论内容的几个基本的要点</span></h3>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（１）一个完整的循环包括八个波浪，五上三落。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（２）波浪可合并为高一级的浪，亦可以再分割为低一级的小浪。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（３）跟随主流行走的波浪可以分割为低一级的五个小浪。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（４）１、３、５三个推浪中，第３浪不可以是最短的一个波浪。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（５）假如三个推动论中的任何一个浪成为延伸浪，其余两个波浪的运行时间及幅度会趋一致。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（６）调整浪通常以三个浪的形态运行。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（７）黄金分割率奇异数字组合是波浪理论的数据基础。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（８）经常遇见的回吐比率为０．３８２、０．５及０．６１８。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（９）第四浪的底不可以低于第一浪的顶。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（１０）波浪理论包括三部分：型态、比率及时间，其重要性以排行先后为序。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（１１）波浪理论主要反映群众心理。越多人参与的市场，其准确性越高。</span></p>
+
+<h3 style='text-indent:27.45pt;mso-char-indent-count:1.71;mso-char-indent-size:
+16.05pt'><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>５．波浪理论的缺陷</span></h3>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（１）波浪理论家对现象的看法并不统一。每一个波浪理论家，包括艾略特本人，很多时都会受一个问题的困扰，就是一个浪是否已经完成而开始了另外一个浪呢？有时甲看是第一浪，乙看是第二浪。差之毫厘，失之千里。看错的后果却可能十分严重。一套不能确定的理论用在风险奇高的股票市场，运作错误足以使人损失惨重。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（２）甚至怎样才算是一个完整的浪，也无明确定义，在股票市场的升跌次数绝大多数不按五升三跌这个机械模式出现。但波浪理论家却曲解说有些升跌不应该计算入浪里面。数浪（</span><span
+lang=EN-US>Wave Count</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）完全是随意主观。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（３）波浪理论有所谓伸展浪（</span><span
+lang=EN-US>Extension Waves</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>），</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>有时五个浪可以伸展成九个浪。但在什么时候或者在什么准则之下波浪可以伸展呢？艾略特却没有明言，使数浪这回事变成各自启发，自己去想。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（４）波浪理论的浪中有浪，可以无限伸延，亦即是升市时可以无限上升，都是在上升浪之中，一个巨型浪，一百几十年都可以。下跌浪也可以跌到无影无踪都仍然是在下跌浪。只要是升势未完就仍然是上升浪，跌势未完就仍然在下跌浪。这样的理论有什么作用？能否推测浪顶浪底的运行时间甚属可疑，等于纯粹猜测。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（５）艾略特的波浪理论是一套主观分析工具，毫无客观准则。市场运行却是受情绪影响而并非机械运行。波浪理论套用在变化万千的股市会十分危险，出错机会大于一切。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（６）波浪理论不能运用于个股的选择上。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='text-indent:27.45pt;mso-char-indent-count:1.71;mso-char-indent-size:
+16.05pt'><span style='font-family:黑体;mso-ascii-font-family:Arial'>第四节</span> <span
+style='font-family:黑体;mso-ascii-font-family:Arial'>股市发展阶段与成长周期理论</span></h2>
+
+<h3 style='text-indent:27.45pt;mso-char-indent-count:1.71;mso-char-indent-size:
+16.05pt'><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>１．股市成长阶段论</span></h3>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>证券市场发展的道路不完全一样，但一般都要经历５个阶段。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>休眠阶段：此阶段了解证券市场的人并不多，股票公开上市的公司也少，但过了很长一段时间，投资者发现，即便不算潜在的资本增值，获得的股利都超过其它投资形式得到的收益，于是他们就买进股票，但开始还是小心谨慎。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>操纵阶段：一些证券经纪商和交易商发现，由于股票不多，流动性有限，只要买进一小部分股票就能哄抬价格。只要价格持续高涨，就会吸引其他人购买，这时操纵者抛售股票就能获取暴利。因此，他们开始哄压市价，操纵市场，获取暴利。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>投资阶段：有些人通过买卖股票得到了大量的资本增值，不管已经实现了的或还只是帐面上的，这些暴利的示范作用都会吸引更多的人加入投机行列，投机阶段就开始了，股票价格大大超过实际的价值，交易量扶摇直上。新发行的股票往往被超额急购，吸引了许多公司都来发行股票，原来惜售的持股者也出售股票以获利，于是扩大了上市股票的供应。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>崩溃阶段：到一定时机，用来投机的资金来源会枯竭，认购新发的股票越来越少，而越来越多的投资者头脑静下来，开始认识到股票的价格被抬得太高了，与本来的价值脱节得太厉害。这时只要外界一有风吹草动，股价就会动摇，然后价格开始下降。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>成熟阶段：在股市下跌之后，需要几个月甚至几年的时间使公众对股票市场重新恢复信心。这个时间的长短视价格跌落的幅度，购买新股票的刺激，机构投资者的行为等因素而定。跌市使有这些人亏了大本。他们只留着作长期投资，寄望于将来价格的回升，一些私人投资者变得谨慎了，一些没有经历过崩溃阶段的新的投资者加入进来，机构投资者的队伍也扩大了，这样成熟阶段就开始了这里股票供应增加，流动性更大，投资者更有经验，交易量更稳定，虽然股票价格还是会波动，但不像以前那样激烈了，而是随着经济和企业的发展上下波动。</span></p>
+
+<h3 style='text-indent:27.45pt;mso-char-indent-count:1.71;mso-char-indent-size:
+16.05pt'><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>２．股市周期循环论</span></h3>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>构成股价涨跌变化的因素颇多，除了政治、财经、业绩等实质因素之外，人为因素等的变化，往往是促成股价涨跌的主要原因。虽说影响股价的因素颇多，但一些精明的操作者，在长期统计和归纳之后，发现了有规则的周期性。聪明的投资人，把这些周期循环的原则应用到股票的买卖操作上来，经常是无往而不利。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>循环性周期，可分为下述几个阶段：</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（１）低迷期：行情持续屡创低价，此时投资意愿甚低，一般市场人士对于远景大多持悲观的看法，不论主力或中散户都是亏损累累。做短线交易不易获利时，部分中散户暂时停止买卖，以待股市反弹时再予低价套现伏空；没有耐性的投资人在失望之余，纷纷认赔抛出手中的股票，退出市场观望。低迷期为真正具有实力的大户默默进货的时候，少数较具长期投资眼光的精明投资者多在此时按计划买入。该期盘旋整理的时间越久，表示筹码换手的整理越彻底，而此期的成交量往往最低。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（２）青年涨升期：此时的景气尚未好，但由于前段低迷期的长期盘跌已久，股价大多已经跌至不合理的低价，市场浮股亦已大为减少，在此时买进的人因成本极低再跌有限，大多不轻易卖出，而高价套牢未卖的人，因亏损已多，也不再追价求售，市场卖压大为减轻。此时的成交量大多呈现着不规则的递增状态，平均成交量比低迷时期多出一半以上，少数领导股的价格大幅上涨，多数股价呈现着盘坚局面，冷门股票也已略有成交并蠢蠢欲动。大部分的内行人及半内行人开始较积极的买进股票进行短线操作，但也有不少自认精明的人士及尝到未跌段做空小甜头的投资者，仍予套现卖出。该期多数股票上涨的速度虽嫌缓慢，但却是真正可买进作长期投资的时候，即为一般所称的“初升段”。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（３）反动期：即为一般所称多头市场的回档期，而第二阶段所称的青年涨升期，即称作初升段。股价在初升段的未期，由于不少股票亦已持续涨升，经过长期空头市场亏损的投资者，在好不容易略有获利之余，多数采取“落袋为安”的观念，获利了结改为观望；而未及搭上车的有心人，及抱股甚多主力大户，为求摆脱坐车浮额，大多趁着投资大众的信心尚未稳定之际，乃以转帐冲销或掼压甚多，而多数股价在盘软之余，市场上大户出货的传言特别多，此时空头又再呈活跃，但股价下跌至某一程度时，即让人有着跌不下去的感觉。反动期是大户真正进货的时期，也是真正买卖股票的精明投资人，所乐于大量介入投资的时期，但该期真正到来时，中散户的两手大多空空，甚至有少数在低迷期尝到作空小甜头的散户们，还有融券尚未补回的。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（４）壮年涨升期：即为一般所称的“主升段”，由于景气亦已步入繁荣阶段，发行公司有盈余大增。此时大户手上的股票特别多，市场的浮动筹码已大量的减少，有心人利用各种利多消息将股价持续拉高，甚至于重复的利多消息一再公布，炒冷饭也在所不惜，该期反应在股票市场的是人头攒动到处客满。由于股价节节上涨，不管内行外行，只要买进股票便能获利，做空头的信心已经动摇，并逐渐由空翻多，形成抢购的风潮，而股价会在此种越涨越抢，越抢越涨的循环，甚至形成全面暴涨的局面。市场充满着一片欢笑声，从来不知道股票为何物的外行人，在时常听到“股票赚了多少”的鼓动下，也开始产生兴趣，买进几张试试。该阶段的特性，大多为成交量持续大量的增加，发行公司趁着此时大量增资扩股及推出新股，上涨的股票也逐渐地强势门股延伸到冷门股票，冷门股票并又逐渐转势而列居于热门榜中，“轮做”的风气特盛，有心大户的动态到处可闻。此期为有心大户操作甚久之后，逐渐获利了结的时期，他们所卖的虽非最高价，但结算获利已不少，精明的投资人也趁此机会了结观望，只有中散户被乐观气氛冲昏了头而越买越多。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（５）老年涨升期：即一般所称的未升段。此时景气十分繁荣，发行公司的盈余均为大增，反映在证券市场上的，除了人气一片沸腾之外，新股亦为大量发行，而上涨的股票多为以前少有成交的冷门股，原为热门的股票反而开始有着步履沉重的感觉。该期的成交量常破记录地暴增，暴涨暴跌的现象屡有可见，投资大众手中大多拥有股票，以期待着股价进一步上升，但是股价的涨升却显得步履蹒跚，而反映在成交量上面的，便常有：股价上升但成交量减少，股价下跌</span>
+<span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>但成交量反而增加。该阶段行情的操作犹如刀口舐血，如果短线操作成功的话会大有斩获但是一般投资人大多在此阶段惨遭亏损，甚至落得倾家荡产的局面。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（６）下跌幼年期：即为Ｋ线理论上的渐落期，也称初跌期，由于多数股价都已偏高，欲涨乏力的结果，不少投资人于较难获利之余已开始反省。此时大主力多头均已出货不少，精明的投资人见利渐减少，套得饱饱的中散户们心里虽然产生犹豫，但还是期望着行情仅是回档，期待着另一段涨升的到来，甚至买进摊平的实例也到处可见，只有冷门股已开始大幅下跌，此为该段行情的重要指标之一。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（７）中间反弹期：即称新多头进场或术语上所称的逃命期。该期由于成交量的暴减，再加上部分浮额的赔本抛售，使得多数股价的跌幅已深。高价卖出者和企图摊平高档套牢的多头们相继进场，企图挽回市场的颓势，加上部分短空的补货，使得股价止跌而转向坚挺，但由于反弹后抢高价者已具戒心，再加上部分短线者的获利回吐，使得股价欲涨乏力，于弹升之后又再度滑落。少数精明的投资人纷纷趁此机会将手上的股票卖出以求“逃命”，而部分空头趁此机会介入卖出。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（８）下跌的壮年期：一般称为主跌段行情，此时大部分股价的跌幅渐深，利空的消息满天飞，股价下跌的速度甚快，甚至有连续几个停板都卖不掉的。以前套牢持股不卖的人信心也已动摇，成交量逐渐缩小，不少多头于失望之余纷纷卖光股票退出市场，而做多的中散户也已逐渐试着做点小空。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（９）下跌的老年期：即称未跌段，有以沉衰期称之。此时股价跌幅已深，高价套牢要卖的已经卖光了，未卖的也因赔得太多，而宁愿抱股等待。该阶段的成交量很少是其特色之一，股价的跌幅已经缩小，散户浮空到处可见，多数股票只要一笔买进较多股票的话，便可涨上好几档，但不再有支撑续进的话，不久则又将回跌还原。股市投资大众手上大多已无股票，真真有眼光的投资人及大户们，往往利用此期大量买进。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>大波段的周期循环为上述九大阶段，只要我们能够适时将现段的行情性质予以分析，明确区分属哪一时期，再确立做多，做空，长线，短线等操作原则，获利机会便可增加许多。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='text-indent:27.45pt;mso-char-indent-count:1.71;mso-char-indent-size:
+16.05pt'><span style='font-family:黑体;mso-ascii-font-family:Arial'>第五节</span> <span
+style='font-family:黑体;mso-ascii-font-family:Arial'>信心理论</span></h2>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>信心股价理论，是基于市场心态的观点去分析股价。由于传统股价理论，过于机械性地重视影响公司盈余，而并不能解释在多变的股市中股价涨跌的全盘因素。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>尤其当一些突发性因素导致股价应涨不涨，反而下跌，或应跌不跌，反而上升，此种现象，更使传统的股价理论变得矛盾。因此信心股价理论，强调股票市场由心理或信心因素影响股价。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>根据信心理论，促成市场股价变动的因素，是市场对于未来的股票价格、公司盈利与股票投放比率等条件，所产生信心的强弱。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>投资者若对于股市基本情况乐观，信心越强，就必然以买入股票来表现其心态，股价因而上升，倘若资金本身过于乐观时，可能漠视股票超越了合理正常价格水平，而盲目大量买入，使股票价格上涨至不合情理的价位水平。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>相反，投资人士若对股票市场基本情况表示悲观时，信心转低落，将抛出手中股票，股价因此而下跌，倘若投资人士心理过度悲观，以致不顾正常股票价格、公司盈余与股息水平而大量抛售股票，则可导致股票价格被抛低至不合理水平。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>就因为投资人信心的强弱，而产生了各种不同的情况，有时甚至与上市公司营运状况，以及获利能力等基本因素完全脱节，使股价狂升暴跌原因就在这里。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>信心股价理论，以市场心理为基础，来解释市场股价的变动，并完全依靠公司财务的上的资料，故此理论可以弥补传统股价理论的缺点，对股市的反常现象，提出合理的解释。譬如经济状况良好，股价却疲弱，或者经济情况欠佳而股价反而上升的原因，如果这个理论是对的话，投资的策略就是研究市场心态，是悲观还是乐观，而顺应市势去做，必可获利。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>但信心股价理论亦有其缺点。严重的弱点，因于股票市场的群众信心很难衡量，常使分析股票市场动态的人士感到困惑，因此仍有不少投资人士信任传统股价理论，可是在很多情况下，传统股价学说，又被证明失败。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>比较上述的两种股价理论，传统股价理论过于重视公司的运作情况和经营获利能力，忽视其他影响股价的众多外在因素，自然有所缺失。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>信心股价理论则又过于重视影响股价的各种短期外来因素，而忽略公司本质的优劣。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='text-indent:27.45pt;mso-char-indent-count:1.71;mso-char-indent-size:
+16.05pt'><span style='font-family:黑体;mso-ascii-font-family:Arial'>第六节</span> <span
+style='font-family:黑体;mso-ascii-font-family:Arial'>股票价值理论</span></h2>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>资本主义经济进入二十世纪之后，经济更加发达，一般大企业则越来越依赖社会大众的零星资金，仅打算赚取股利以及差价利益，而且对参与企业经营毫无兴趣的中小股东人数越来越多，有与经营分离的色彩随着股份有限公司制度的发展而越来越浓厚。而公司本身逐渐成为独立自主自立成长的经营体，尤其法律上成为具有法人资格的团体；投资人也逐渐致力于探讨股票的特点如何？从经济的眼光看，股票作用如何？基础价值又何在？关于股票价值理论的探讨逐渐受到人的注目。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>最初提出股票的价格与价值分离的是美国的帕拉特（</span><span
+lang=EN-US>S</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>·</span><span lang=EN-US>S</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>·</span><span lang=EN-US>Pratt</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>），他在１９０３年出版的《华尔街的动态》（</span><span
+lang=EN-US>The mork of wall street,1903</span><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）一书中，提出股票价值的经济本质在于股息请示权其影响因素中，诸如：股息企业收益、经营者素质以及企业收益能力，其中以前者最为重要，其他的重要因素均属影响股息的间接因素。帕拉特认为，在理论上股票价格与真实价值是一致的，但实际上两者差异颇大。但他认为两者差异的现象并不限于股票，其他财产也有这种情形，只是股票比较特殊而已。因为就价格的形成而言，是由供需因素来决定，不见得就会与真实价值完全一致。而且，除了形成股票价格的主要决定因素真实价值之外，仍有许多其他的影响因素，诸如：这种好坏消息、证券市场结构、“股市人气”、投资气氛等，加上绝大多数对上市公司的生产事业外行的投资人结合成的各种判断，帕氏虽然强调证券市场的分析，但其理论尚缺乏“严谨性”，不明确之处颇多。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>其后，哈布纳</span><span
+lang=EN-US>(S</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>·</span><span lang=EN-US>S</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>·</span><span lang=EN-US>Hebner) </span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>在《证券市场》</span><span lang=EN-US>(The Stock Market,1934) </span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>一书将帕氏的论点加以补充，哈布纳以股票价值和价格的关系作为投资的指针，而且利用财务分析来把握股票价值，并强调股票标价格和市场因素与金融的关系，他认为“股票价格倾向与其本质的价值一致”，就长期的股价变化因素而言，与其本质的价值有关的即为长期预期收益与资本还原率。他认为，“就长期来看，股票价格的变化，主要是依存于财产价值的变化。”此外，哈布纳还致力于证券分析与证券市场分析的结合。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>贺斯物在《股票交易》（</span><span
+lang=EN-US>The Stack Exchange</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）一书中，</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>则站在证券市场分析的立场，除了区别股票的价值与价格之外，再进一步确认股票的本质价值在于股息，强调股票价格与一般商品价格的根本区别点在于股票价值与市场操作有所歧异。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>与帕拉特同时代的莫迪</span><span
+lang=EN-US>(J</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>·</span><span lang=EN-US>Moody) </span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>在《华尔街投资的艺术》</span><span lang=EN-US>( The Art Of Wall Street
+Investing,1906)</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>一书中，则认为普通股的权利重点不仅仅是领取股利权利而已，还要看“发行公司负担其支出，诸如：公司债息、董事、监事酬劳、利息支出之后的可分配于股息之纯收益之多少的大小来看。因为，大部分上市股票有限公司的收益情况变动幅度大，有时候扣除其他费用之后，企业收益变成亏损的情形也颇为常见。因此，对于普通股的议决权（参加经营权）与公司资产价值的的评价，需要加上“投机性”因素。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>莫迪更强调上市公司产业别“质”的考虑，当时的两大产业－－铁路与工业股票之中，前者富有安定性、发展性，后者具有较大的投机性。即使两者收益一致，价格也会有所差别。因此，莫迪的著作中更进一步强调了资本还原率和风险因素对股票市场价格的影响。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>探讨股票价值本质的，还有戴斯（</span><span
+lang=EN-US>D</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>·</span><span lang=EN-US>A</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>·</span><span lang=EN-US>Dace</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）和埃特曼（</span><span
+lang=EN-US>W</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>·</span><span lang=EN-US>J</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>·</span><span lang=EN-US>Eiteman</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>）两人。他俩合著了《股票市场》（</span><span lang=EN-US>Stock Market,1952</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>）一书。在该书中，作者从历史，</span> <span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>法律的观点来探讨股份有限公司制度，从法律上规定股东的权利来把握股票本质。他们指出，股东有三个基本权利：（１）参加公司的经营决策权；（２）剩余财产分配权；（３）股利请求权。但是由于现代证券流通市场的发达，中小股东越来越多，大部分的股东都没有参与企业经营的打算，而且以分配剩余财产目的才购买股票的已绝无仅有。从而，购买股票的目的于领取股息，而分配股息的多少又取决于企业收益，因此，作者认为，“投资人购买股票之际，实际上是买进企业现在和将来收益的请求权”。</span><span
+lang=EN-US> </span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='text-indent:27.45pt;mso-char-indent-count:1.71;mso-char-indent-size:
+16.05pt'><span style='font-family:黑体;mso-ascii-font-family:Arial'>第七节</span> <span
+style='font-family:黑体;mso-ascii-font-family:Arial'>证券市场分析论</span></h2>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>从</span><span
+lang=EN-US>19</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>世纪重视投机性的证券市场分析后，进入</span><span
+lang=EN-US>20</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>世纪，证券分析家逐渐提出了理论上的体系。</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>首先是柯丁雷（</span><span lang=EN-US>W</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>·</span><span lang=EN-US>G</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>·</span><span
+lang=EN-US>Cordinly</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）在《证券交易入门》（</span><span
+lang=EN-US>Guide To The Stock Exchang,1907</span><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）一书中，提出“股票价格由供需规律来决定”的观点。为了深入探讨“供需规律和供求关系的变动”。必须重视社会大众的意见。但他的著作的理论基础仍然不够，缺乏精确性。哥罗丁斯基（</span><span
+lang=EN-US>J</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>·</span><span lang=EN-US>Grodinsky</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>）在《投资学》（</span><span lang=EN-US>Investment.1953</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>）一书中，从另一个角度对证券市场进行了分析。他从研究供需因此来预测股价。</span><span lang=EN-US>
+</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>并具体指出了两种途径。第一种途径是重视股价与其他经济现象的关系。从这些关系的变化来预测股价的波动。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>此种方法就是现在通称的“基本分析”（</span><span
+lang=EN-US>Fundamental Analysis</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）。</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>另一种方法不重视股价与其他经济现象的关系，而仅股票市场内部的技术性因素的各种现象来预测股价。此即为现在通称“技术分析”</span><span
+lang=EN-US>(Technical Analysis</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）。</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>前者考虑诸如：（１）股票利率与股价关系；（２）比较股息利殖率与债券利殖率来判断市场状况：（３）股价与利率的关系：（４）经济成长，景气与股价波动之关系。后者则考虑诸如：（１）证券市场内部投机因素之分析；（２）观察过去股价趋势推测未来股价动向，主要采用各种曲线图；（３）观察社会大众的投资动向；（４）检讨股票交易量值与股价关系等等。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>孟德尔</span><span
+lang=EN-US>(Mindell,J.)</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在《股票市场》</span><span
+lang=EN-US>(The Stock Market,1948)</span><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>一书中</span><span
+lang=EN-US>,</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>则认为股价的变动不仅仅是由单一因素决定的。事实上。影响股价变动的因素不但多，而且复杂，分析各种因素的影响程度及影响方向颇为困难。所以孟德尔列述以下各主要影响因素：（１）利率；（２）企业收益；（３）景气活动；（４）股票市场动态；（５）货币政策情况：（６）价格总水平的变动情况；（７）大众投资者的市场心理；（８）政治的影响；（９）天灾人祸的发生；（１０）经济情况状态；（１１）人口变动等等。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>证券市场分析论的代表性著作有多纳（</span><span
+lang=EN-US>O</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>·</span><span lang=EN-US> Donner </span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>）的《证券市场与景气波动原理》（</span><span lang=EN-US>Die Kursbilduing an
+Aktienmarket,1934</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）和雷福勒（</span><span lang=EN-US>G</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>·</span><span lang=EN-US>L</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>·</span><span
+lang=EN-US>Leffler</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）的《证券市场》（</span><span
+lang=EN-US>The Stock Market,1951</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>多纳认为，股票价格是由市场供求关系决定的，也就是由具体的买卖价格来决定，有效买卖则又看企业收益以及投资人的投资机关可用资金而定，股价形成的因素也是以它们为基础，前者即为股价形成的“收益”因素，后者则是“信用”的基本因素，其他的则是间接影响股价的次要因素，以及使股票价格暂时波动的市场内部投机因素。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>多纳进一步分析了“收益”的基本因素，认为是在于股息和利率，并就第二次世界大战前的股票市场，尝试对股价水平和股息关系的实证研究，在今天颇具有参考性。多纳还认为股息的基础就是企业的收益，在这一点上，多纳更加重视企业的收益，认为“企业收益的变动，才是形成股价波动的真正原因。”虽然实际的股价波动趋势与企业的收益趋势有所差异，但就长期而论，股价波动是依存于企业收益和利率的。从而，“收益”的基本因素就是证券分析论中形成股票价值的因素了。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>至于雷富勒。则从传统的股价理论再扩而广之，他的推论为“股价波动是以预期企业为根本因素”，加上了“预期”因素；证券投资机构或一般投资者主要是以预期企业收益为基础来决定买卖股票。结果，股价波动趋势即包含企业收益今后的变动，他又推论，股价波动趋势，有个隐含假定即“投资者或证券投资机构买进股票有两个目的，其一为股价本身的上涨，其二为利率本身。”他又认为“价格上升或利率两者都取决于企业的收益增减。”他的理论进一步提出了重视企业的保留盈余，如果企业把大部分收益再投资，则更增加企业将来的成长性，并增加企业未来的股息。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>雷氏根据第二次世界大战后，美国纽约证券交易所３０种道·琼斯工业股价平均数为基准作实证研究，结果证明实际上股价并不必然与企业收益有密切关系，于是提出变动是以市场心理动向为基础，而不再一时强调传统理论主张的“基本因素才是市场心理因素的变化原因”，即提出“市场心理说”，所谓市场心理说是指传统理论认为股价是依存于企业收益，实际上根据统计上的。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='text-indent:27.45pt;mso-char-indent-count:1.71;mso-char-indent-size:
+16.05pt'><span style='font-family:黑体;mso-ascii-font-family:Arial'>第八节</span> <span
+style='font-family:黑体;mso-ascii-font-family:Arial'>亚当理论</span></h2>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>亚当理论的精义是没有任何分析工具可以绝对准确地推测市势的走向。每一套分析工具都有其缺陷。市势根本不可以推测。如果市势可以预测的话，凭籍ＲＳＩ，ＰＡＲ，ＭＯＭ等辅助指标，理论上就可以发达。但是不少人运用这些指标却得不到预期后果，仍然蚀得很惨，原因就是依赖一些并非完美的工具推测去向不定、难以捉摸的市势，将会是徒劳无功的。所以亚当理论的精神就是教导投资人士要放弃所有主观的分析工具。在市场生存就是适应市势，顺势而行就是亚当理论的精义。市场是升市，抓逆水做沽空，或者市场是跌市，持相反理论去入市，将会一败涂地。原因是升市，升完可以再升。跌市时，跌完可以再跌。事前无人可以预计升跌会何时完结。只要顺势而行，则将损失风险减到最低限度简而言之，亚当理论提出下列做法</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>亚当理论：十大戒条</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>１．一定要认识市场运作，认识市势，否则绝对不买卖。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>２．入市买卖时，应在落盘时立即订下止蚀价位。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>３．止蚀价位一到即要执行，不可以随便更改，调低止蚀位。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>４．入市看错，不宜一错再错，手风不顺者要离，再冷静分析检讨。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>５．入市看错，只可止蚀，不可一路加注平均价位，否则可能越蚀越多。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>６．切勿看错市而不肯认输，越错越深。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>７．每一种分析工具都并非完善，一样会有出错机会。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>８．市升买升，市跌买跌，顺势而行。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>９．切勿妄自推测升到哪个价位或跌到哪个价位才升到尽，跌到尽，浪顶浪底最难测，不如顺势而行。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>１０．看错市，一旦蚀１０％就一定要斩立刻断，重新来过，不要蚀本超过１０％，否则再追翻就很困难。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='text-indent:27.45pt;mso-char-indent-count:1.71;mso-char-indent-size:
+16.05pt'><span style='font-family:黑体;mso-ascii-font-family:Arial'>第九节</span> <span
+style='font-family:黑体;mso-ascii-font-family:Arial'>随机漫步理论</span></h2>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>一切图表走势派的存在价值，都是基于一个假设，就是股票、外汇、黄金、债券等。所有投资都会受到经济、政治、社会因素影响，而这些因素会像历史一样不断重演。譬如经济如果由大萧条复苏过来，物业价格、股市、黄金等都会一路上涨。升完会有跌，但跌完又会再升得更高。即使短线而言，支配一切投资价值规律都离不开上述所说因素，只要投资人士能够预测哪一些因素支配着价格，他们就可以预知未来走势。在股票而言，图表趋势、成交量、价位等反映了投资人士的心态趋向。这种心态去向构成原因，否认他们的收入、年龄、对消息了解、接受消化程度、信心热炽，全部都由股价和成交反映出来。根据图表就可以预知未来股价走势。不过，随机漫步理论却反对这种说法，意见相反。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>随机漫步理论指出，股票市场内有成千上万的精明人士，并非全部都是愚昧的人。每一个人都懂得分析，而且资料流入市场全部都是公开的，所有人都可以知道，并无甚么秘密可言。既然你也知，我也知，股票现在的价格就已经反映了供求关系。或者本身价值不会太远。所谓内在价值的衡量方法就是看每股资产值、市盈率、派息率等基本因素来决定。这些因素亦非什么大秘密。每一个人打开报章或杂志都可以找到这些资料。如果一只股票资产值十元，断不会在市场变到值一百元或者一元。市场不会有人出一百元买入这只股票或以一元沽出。现时股票的市价根本已经代表了千万醒目人士的看法，构成了一个合理价位。市价会围绕着内在价值而上下波动。这些波动却是随意而没有任何轨迹可寻。做成波动的原因是：</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（１）新的经济、政治新闻消息是随意，并无固定地流入市场。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（２）这些消息使基本分析人士重新估计股票的价值，而作出买卖方针，致使股票发生新变化。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（３）因为这些消息无迹可寻，是突然而来，事前并无人能够预告估计，股票走势推测这回事并不可以成立，图表派所说的只是一派胡言。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（４）既然所有股价在市场上的价钱已经反映其基本价值。这个价值是公平的由买卖双方决定，这个价值就不会再出现变动，除非突发消息如战争、收购、合并、加息减息、石油战等利好或利淡等消息出现才会再次波动。但下一次的消息是利好或利淡大家都不知道，所以股票现时是没有记忆系统的。昨日升并不代表今日升。今日跌，明日可以升亦可以跌。每日与另一日之间的升跌并无相关。就好像掷铜板一样，今次掷出是正面，并不代表下一次掷出的又是正面，下一次所掷出的是正面，或反面各占机会率</span><span
+lang=EN-US>50%</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>。亦没有人会知道下一次会一定是下面或反面。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（５）既然股价是没有记忆系统的，企图用股价波动找出一个原理去战胜市场，赢得大市，全部肯定失败。因为股票价格完全没有方向，随机漫步，乱升乱跌。我们无法预知股市去向，无人肯定一定是赢家，亦无人一定会输。至于股票专家的作用其实不大，甚至可以说全无意义。因为他们是那么专长的话，就一定自己用这些理论致富，那里会公布研究使其他人发达？</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>随机漫步理论对图表派无疑是一个正面大敌，如果随机漫步理论成立，所有股票专家都无立足之地。所以不少学者曾经进行研究，看这个理论的可信程度。在无数研究之中，有三个研究，特别支持随机漫步的论调：</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（１）曾经有一个研究，用美国标准普尔指数（</span><span
+lang=EN-US>Standard &amp; Poor</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）的股票作长期研究，发觉股票狂升或者暴跌，狂升四五倍，或是跌</span><span
+lang=EN-US>99%</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>的，比例只是很少数，大部分的股票都是升跌</span><span
+lang=EN-US>10%</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>至</span><span lang=EN-US>30%</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>不等。在统计学上有常态分配的现象。即升跌幅越大的占比例越少。所以股价并无单一趋势。买股票要看你是否幸运，买中升的股票还是下跌的股票机会均等。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（２）另外一次试验，有一个美国参议员用飞镖去掷一份财经报纸，拣出</span><span
+lang=EN-US>20</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>只股票作为投资组合，结果这个乱来的投资组合竟然和股市整体表现相若，更不逊色于专家们建议的投资组合，甚至比某些专家的建议更表现出色。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（３）亦有人研究过单位基金的成绩，发觉今年成绩好的，明年可能表现得最差，一些往年令人失望的基金，今年却可能脱颖而出，成为升幅榜首。所以无迹可寻，买基金也要看你的运气，投资技巧并不实际，因为股市并无记忆，大家都只是瞎估估。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>随机漫步总的观点就是：买方与卖方两样聪明机智，卖方也与买方同样聪明机智。他们都能够接触同样的情报，因此在买卖双方都认为价格公平合理时，交易才会完成；股价确切地反应股票实质。结果，股价无法在买卖双方能够猜测的单纯，有系统情况下变动。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>股价变动基本上是有随机的。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>此一说法的真正涵义是，没有什么单方能够战胜股市，股价早就反映一切了，而且股价不会有系统地变动。天真的选股方法，如对着报纸的股票版丢掷飞镖，也照样可以选出战胜市场的投资组合。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='text-indent:27.45pt;mso-char-indent-count:1.71;mso-char-indent-size:
+16.05pt'><span style='font-family:黑体;mso-ascii-font-family:Arial'>第十节</span> <span
+style='font-family:黑体;mso-ascii-font-family:Arial'>相反理论</span></h2>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>相反理论的基本要点是投资买卖决定全部基于群众的行为。它指出不论股市及期货市场，当所有人都看好时，就是牛市开始到顶。当人人看淡时，熊市已经见底。只要你和群众意见相反的话，致富机会永远存在。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（１）相反理论并非只是大部分人看好，我们就要看淡，或大众看淡时我们便要看好。相反理论会考虑这些看好看淡比例的趋势，这是一个动概念。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（２）相反理论并不是说大众一定是错的。群众通常都在主要趋势上看得对。大部分人看好，市势会因这些看好情绪变成实质购买力而上升。这个现象有可能维持很久。直至到所有人看好情绪趋于一致时，市势社会发生质的变化──供求的失衡培利尔</span><span
+lang=EN-US>( Humphrey</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>·</span><span
+lang=EN-US>Neil)</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>说过：当每一个人都有相同想法时，每一个人都错。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（３）相反理论从实际市场研究中，发现赚大钱的人只占</span><span
+lang=EN-US>5%</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>，</span><span lang=EN-US>95%</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>都是输家。要做赢家只可以和群众思想路线相背，切不可以同流。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（４）相反理论的论据就是在市场行情将转势，由牛市转入熊市前一刻，每一个人都看好，都会觉得价位会再上升，无止境的升。大家都有这个共识时候，大家会尽量买入了，升势消耗了买家的购买力，直到想买入的人都已经买入了，而后来资金，却无以为继。牛市就会在大家所有人看好声中完结。相反，在熊市转入牛市时，就是市场一片淡风，所有看淡的人士都想沽货，直到他们全部都了货，市场已经再无看淡的人采取行动，市场就会在所有人都沽清货时见到了谷底。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（５）在牛市最疯狂，但行将死亡之前，大众媒介如报章、电视、杂志等都反映了普通大众的意见，尽量宣传市场的看好情绪。人人热情高涨时，就是市场暴跌的先兆。相反，大众媒介懒得去报导市场消息，市场已经没有人去理会，报章新闻，全部都是市场坏消息时，就是市场黎明的前一刻，最沉寂最黑暗时候，曙光就在前面。大众媒介永远都采取群众路线，所以和相反理论原则刚刚违背。这反而做成相反理论借鉴的资料。大众媒介全面看好，就要看淡，大众媒介看淡反而是入市时机。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>上述所说的，只是相反理论的精神。我们凭什么而知道大家的看法是看好还是看淡呢？单赁直觉印象或者想象并不足够。运用相反理论时，真正的数据通常有两个，一是好友指数（</span><span
+lang=EN-US>Bullish Consensus</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）；另一个叫做市场情绪指标（</span><span
+lang=EN-US>Market Sentiment Index</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）。</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>两个指标都是一些大经纪行，专业投资机构的期货或股票部门收集的资料。资料来源为各大纪经纪，基金，专业投资通讯录，甚至报章，杂志的评论，计算出看好和看淡情绪的比例。就以好友指数为例，指数由零开始，即所有人都绝对看淡。直到</span><span
+lang=EN-US>100%</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>为止，即人人看好，包括基金，大经纪行，投资机构，报章杂志的报导。如果好友指数在</span><span
+lang=EN-US>50%</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>左右，则表示看好看淡情绪参半。指数通常会在</span><span
+lang=EN-US>30</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>至</span><span lang=EN-US>80</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>之间升沉。若果一面倒的看好看淡，显示牛市或熊市已经去到尽头，行将转角。因为好友指数由</span><span
+lang=EN-US>0-100</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>，都有不同启示，详细的分析将会给投资者一个更清晰的概念，运用理论时也较有把握：</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>好友指数比例</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>指示</span><span lang=EN-US> </span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>０－５％</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>一个主要的上升趋势已经就在目前，为期不远。人人看淡时，淡友要沽货</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>的已经你也沽我也沽，以致沽无可沽。大市淡无可淡，这就是转势的时机。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>把握时机入货，博取无穷利润，就是在这个时候！</span><span
+lang=EN-US> </span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>５－２０％</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>这是一个不明的区域，大部分人看淡，只有少部分人看好。这些看淡的人</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>足以压倒性姿势将大市推低。但因为看淡的人比例大，市势亦可以随时见</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>底。很多时转势情形都会在这个区域产生。投资人士可以辅之以图表，成</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>交量等去探测大市是否已经见底</span><span
+lang=EN-US> </span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>２０－４０％</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>看淡的人在比例上仍然盖过乐观情绪。从统计数字看出，继续看淡赢面机</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>会较大。如果在这一个区域，大市不再向下，市势就会变得十分不明朗，</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>要忍手为上。如果在这个区域，大市转势上升，通常升幅会十分凌厉，而</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>且创出新高点。因为大众看淡时，却看错了，市势一升就一发不可收拾。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>创新高点机会大于一切。</span><span
+lang=EN-US> </span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>４０－５５％</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>市价可以向上向下，绝对不明朗。在这个区域，投资人士一定忍手，切勿</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>轻率入市作买卖，因为赢面和输面比例差不多。在保本为第一原则之下，</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>不作买卖反面最安全。</span><span
+lang=EN-US> </span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>５５－７５％</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>看好的人占多数，但又并非绝大多数。市势发展有很大上升余地。但如果</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>这个比例看好的人多，大市却不升反跌，一定会是急促而且令人害怕的。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>通常大家看好时下跌，多数会出现近期的低点。</span><span
+lang=EN-US> </span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>７５－９５％</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>未得十分明朗。很多时市场都会在这个区域转势向下，但仍然有机会在看</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>好情绪一路高涨之下，一路攀升一段时间直到去到百分之百的人都看好止。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>所以利用图表分析作为辅助工具就比较安全得多。</span><span
+lang=EN-US> </span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>９５－１００％</span> <span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>大市已经出现全人类看好的局面。投资的本钱已经全部投入大市。是弹尽</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>粮绝，强弩之末之兆，大市转势迫在眉睫。速速沽货为上，要离开市场。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>如果加多一脚，做淡友沽空，胜算最大。</span><span
+lang=EN-US> </span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>相反理论带给投资者的讯息十分有启发性。首先，这个理论并非局限于股票或期货，其实亦可以运用于地产、黄金、外汇等。它指示投资者一个时间指针，何时离市，那个时候是机会，那个时刻市势末明朗而应该忍手。相反理论更加像一个处世哲学。古今多少成功的人士，都是超越了他们同辈的狭窄思维，即使面对挖苦、讽刺、奚落、遇到不世欲的白眼闲言，仍然一往无前向自己目标迈进，才成为杰出人物。人云亦云，将会是在人海消失的小人物。作为投资人士借鉴的地方，相反理论提醒投资者应该要：</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（１）深思熟虑，不要被他人所影响，要自己去判断。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（２）要向传统智慧挑战，群众所想所做未必是对的。即使投资专家所说的，也要用怀疑态度去看待处理。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（３）凡事物发展，并不一定好似表面一样，你想象市升就一定市升。我们要高瞻远瞩，看得远，看得深，才会是胜利。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（４）一定要控制个人情绪。恐惧贪贪都是成事不足，败事有余。周围环境的人，他们的情绪会影响到你，你反而因此要加婪冷静。其他人恐惧大市已经无得玩，有可能这才是时机来临。在一窝蜂的争着在市场买入期货，股票时，你要考虑市势是否很快就会见顶而转入熊市。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（５）当事实摆在眼前和希望并非相符时，勇于承认错误。因为投资者都是普通人。普通人总不免会发生错误。只要肯认输，接受失败的现实，不作自欺欺人，将自己从普通大众中提升为有独到眼光见解的人，才可改变自己为成功人物。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在任何市场，相反理论都可以大派用场，因为每一个市场的人心、性格、思想、行为都是一样。大部分人都是追随者，见好就追入，见淡就看淡。只有少部分人才是领袖人物。领袖人物之所以成为领导人，皆因他们见解、眼光、判断能力和智慧超越常人。亦只有这些异于常人的眼光和决策才可以在群众角力的投资市场脱颖而出，在金钱游戏中成为胜利者。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>实际运用相反理论时，一般的难题都出于搜集资料方面。好友指数并非随时可以得知，在报章上亦并非随时找到。</span></p>
+
+<p class=Mso蝟rmal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>投资人士可以自行将报纸杂志投资专家发表的言论去归纳分析好淡观感的比例，以作买卖决策。但资料是否全面，当然是一大疑问。另外，相反理论有个很好的启示，那就是当大众媒介都争着报导好消息时，大市见顶已为时不远。这个说法，屡经印证，屡试不破。投资人士可以加倍留意。最后一点要提醒大家，即使收集到一个可靠的好友指数也不等待百分之一百的人看好时才决定离市，或者所有人看淡时才入市。因为当你的数据确认有这些现象出现时，时间上已经出现了差距，其他人早比你洞悉先机可能已经比你快一步采取行动。你有可能错失在最高价估出或出最低价买入货的机会。快人一步，早过好友指数采取适当行动的投资人士将会更加稳操胜券。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='text-indent:27.45pt;mso-char-indent-count:1.71;mso-char-indent-size:
+16.05pt'><span style='font-family:黑体;mso-ascii-font-family:Arial'>第十一节</span> <span
+style='font-family:黑体;mso-ascii-font-family:Arial'>黄金分割率理论</span></h2>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>1</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．黄金分割率由来</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>数学家法布兰斯在１３世纪写了一本书，关于一些奇异数字的组合。这些奇异数字的组合是１、１、２、３、５、８、１３、２１、３４、５５、８９、１４４、２３３┅┅</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>任何一个数字都是前面两数字的总和</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>２＝１＋１、３＝２＋１、５＝３＋２、８＝５＋３┅┅，如此类推。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>有人说这些数字是他从研究金字塔所得出。金字塔和上列奇异数字息息相关。金字塔的几何形状有五个面，八个边，总数为十三个层面。由任何一边看入去，都可以看到三个层面。金字塔的长度为５８１３寸（５－８－１３），而高底和底面百分比率是０．６１８，那即是上述神秘数字的任何两个连续的比率，譬如５５</span><span
+lang=EN-US>/</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>８９＝０．６１８，８９</span><span lang=EN-US>/</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>１４４＝０．６１８，１４４</span><span lang=EN-US>/</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>２３３＝０．６１８。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>另外，一个金字塔五角塔的任何一边长度都等于这个五角型对角线（</span><span
+lang=EN-US>Diagonal</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）的０．６１８。还有，底部四个边的总数是３６５２４．２２寸，这个数字等于光年的一百倍！</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>这组数字十分有趣。０．６１８的倒数是１．６１８。譬如１４</span><span
+lang=EN-US>/</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>８９＝１．１６８、２３３</span><span lang=EN-US>/</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>１４４＝１．１６８，而０．６１８×１．１６８＝就等于１。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>另外有人研究过向日葵，发现向日葵花有８９个花辫，５５个朝一方，３４个朝向另一方。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>神秘？不错，这组数字就叫做神秘数字。而０．６１８，１．６１８就叫做黄金分割率（</span><span
+lang=EN-US>Golden Section</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>2</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．黄金分割率的特点</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>黄金分割率的最基本公式，是将１分割为０．６１８和０．３８２，它们有如下一些特点：</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（１）数列中任一数字都是由前两个数字之和构成。（２）前一数字与后一数字之比例，趋近于一固定常数，即０．６１８。（３）后一数字与前一数字之比例，趋近于１．６１８。（４）１．６１８与０．６１８互为倒数，其乘积则约等于１。（５）任一数字如与后两数字相比，其值趋近于２．６１８；如与前两数字相比，其值则趋近于０．３８２。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>理顺下来，上列奇异数字组合除能反映黄金分割的两个基本比值０．６１８和０．３８２以外，尚存在下列两组神秘比值。即：</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（１）０．１９１、０．３８２、０．５、０．６１８、０．８０９</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>（２）１、１．３８２、１．５、１．６１８、２、２．３８２、２．６１８</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>3</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．黄金分割率在投资中的运用</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在股价预测中，根据该两组黄金比有两种黄金分割分析方法。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>第一种方法：以股价近期走势中重要的峰位或底位，即重要的高点或低点为计算测量未来走势的基础，当股价上涨时，以底位股价为基数，跌幅在达到某一黄金比时较可能受到支撑。当行情接近尾声，股价发生急升或急跌后，其涨跌幅达到某一重要黄金比时，则可能发生转势。第二种方法：行情发生转势后，无论是止跌转升的反转抑或止升转跌的反转，以近期走势中重要的峰位和底位之间的涨额作为计量的基数，将原涨跌幅按０．１９１、０．３８２、０．５、０．６１８、０．８０９分割为五个黄金点。股价在后转后的走势将有可能在这些黄金点上遇到暂时的阻力或支撑。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>举例：当下跌行情结束前，某股的最低价１０元，那么，股价反转上升时，投资人可以预先计算出各种不同的反压价位，也主不是１０×（１＋１９．１％）＝１１．９元，１０×（１＋３８．２％）＝１３．８，１＝×（１＋６１．８％）＝１６．２元，１０×（１＋８０．９％）＝１８．１元，１０×（１＋１００％）＝２０元，１０＋（１＋１１９．１％）＝２１．９元，然后，再依照实际股价变动情形做斟酌。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>反之上升行情结束前，某股最高价为３０元，那么，股价反转下跌时，投资人也可以计算出各种不同的持价位，也就是３０×（１－１９．１％）＝２４．３元，３０×（１－３８．２％）＝１８．５元，３０×（１－６１．８％）＝１１．５元，３０×（１－８０．９％）＝５．７元。然后，依照实际变动情形做斟酌。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>黄金分割率的神密数字由于没有理论作为依据，所以有人批评是迷信，是巧合，但自然界的确充满一些奇妙的巧合，一直难以说出道理。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>黄金分割率为艾略特所创的波浪理论所套用，成为世界闻名的波浪的骨干，广泛地为投资人士所采用。神秘数字是否真的只是巧合呢？还是大自然一切生态都可以用神秘数字解释呢？这个问题只能见仁见智。但黄金分割率在股市上无人不知，无人不用，作为一个投资者不能不此研究，只是不能太过执着而已。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='text-indent:27.45pt;mso-char-indent-count:1.71;mso-char-indent-size:
+16.05pt'><span style='font-family:黑体;mso-ascii-font-family:Arial'>第十二节</span> <span
+style='font-family:黑体;mso-ascii-font-family:Arial'>技术分析的操作原则</span></h2>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>由技术分析定义得知，其主要内容有图表解析与技术指标两大类。事实上早期的技术分析只是单纯的图表解析，亦即透过市场行为所构成的图表型态，来推测未来的股价变动趋势。但因这种方法在实际运用上，易受个人主观意识影响，而有不同的判断。这也就是为什么许多人戏称图表解析是一项艺术工作，九个人可能产生十种结论的原因。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>为减少图表判断的主观性，市场逐渐发展一些可运用数据计算的方式，来辅助个人对图形型态的知觉与辨认，使分析更具客观性。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>从事技术分析时，有下述</span><span
+lang=EN-US>11</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>项基本操作原则可供遵循：</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>1.</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>股价的涨跌情况呈一种不规则的变化，但整个走势却有明显的趋势，也就是说，虽然在图表上看不出第二天或下周的股价是涨是跌，但在整个长期的趋势上，仍有明显的轨迹可循。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>2.</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>一旦一种趋势开始后，即难以制止或转变。这个原则意指当一种股票呈现上涨或下跌趋势后，不会于短期内产生一百八十度的转弯，但须注意，这个原则是指纯粹的市场心理而言，并不适用于重大利空或利多消息出现时。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>3.</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>除非有肯定的技术确认指标出现，否则应认为原来趋势仍会持续发展。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>4.</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>未来的趋势可由线本身推论出来。基于这个原则，我们可在线路图上依整个头部或底部的延伸线明确画出往后行情可能发展的趋势。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>5.</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>任何特定方向的主要趋势经常遭反方向力量阻挡而改变，但</span><span
+lang=EN-US>1/3</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>或</span><span lang=EN-US>2/3</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>幅度的波动对整个延伸趋势的预测影响不会太大。也就是说，假设个别股票在一段上涨幅度为三元的行情中，回档一元甚至二元时，仍不应视为上涨趋势已经反转只要不超过</span><span
+lang=EN-US>2/3</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>的幅度，仍应认为整个趋势属于上升行情中。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>6.</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>股价横向发展数天甚至数周时，可能有效地抵消反方向的力量。这种持续横向整理的形态有可辨认的特性。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>7.</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>趋势线的背离现象伴随线路的正式反转而产生，但这并不具有必然性。换句话说，这个这个原则具有相当的可靠性，但并非没有例外。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>8.</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>依据道氏理论的推断，股价趋势产生关键性变化之前，必然有可资辨认的形态出现。例如，头肩顶出现时，行情可能反转；头肩底形成时，走势会向上突破。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>9.</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在线路产生变化的关键时刻，个别股票的成交量必定含有特定意义。例如，线路向上挺升的最初一段时间，成交量必定配合扩增；线路反转时，成交量必定随着萎缩。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>10.</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>市场上的强势股票有可能有持续的优良表现，而弱势股票的疲态也可能持续一段时间。我们不必从是否有主力介入的因素来探讨这个问题，只从最单纯的追涨心理即可印证此项原则。</span><span
+lang=EN-US> </span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US>11</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>．在个别股票的日线图或周线图中，可清楚分辨出支撑区及抵抗区。这两种区域可用来确认趋势将持续发展或是完全反转。假设线路已向上突破抵抗区，那么股价可能继续上扬，一旦向下突破支撑区，则股价可能再现低潮。</span><span
+lang=EN-US> </span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt;mso-char-indent-count:1.71;
+mso-char-indent-size:10.45pt'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

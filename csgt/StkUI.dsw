@@ -1,0 +1,164 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "GuiLib"=.\GUILib\GuiLib\GuiLib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "NetTS"=.\NetTS\NetTS.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "StkLib"=.\StkLib\Src\StkLib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "StkNet"=.\StkNet\Src\StkNet.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name StkLib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name GuiLib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "StkTech"=.\StkTech\StkTech.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "StkUI"=.\StkUI\StkUI.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name GuiLib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name profuisdll
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name StkLib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name StkNet
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name XPFace
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name NetTS
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "Tools"=.\Tools\Tools.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name GuiLib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name StkLib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name StkNet
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name XPFace
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "XPFace"=.\XPFace\Src\XPFace.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name GuiLib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "profuisdll"=.\ProfUIS\profuisdll\profuisdll.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

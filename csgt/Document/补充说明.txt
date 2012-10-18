@@ -1,0 +1,56 @@
+
+1. GuiLib和ProfUISdll的下载
+
+    GuiLib和ProfUISdll都可以从http://www.codeproject.com/（需要免费注册一下）下载，
+
+    GuiLib下载地址:
+    http://www.codeproject.com/library/guitoolkit.asp
+
+    ProfUISdll下载地址:
+    http://www.codeproject.com/docking/prod_profuis.asp
+
+    如果以后网站有变动，可以通过www.google.com搜索guilib和profuisdll找到。
+
+2. ProfUISdll的使用
+
+    在本软件2.0版中使用了其中的界面框架，menu，toolbar，colorbutton。
+    3.0版的menu和toolbar使用的是GuiLib的，3.0版只使用了ProfUISdll的colorbutton和颜色选
+择对话框，也就是在颜色设置对话框（通过菜单“选项=〉颜色设定...”启动该对话框）中使用。
+
+    3.0版中将使用ProfUISdll menu和toolbar的代码注释掉，在工程StkUI中搜索ProfUIS即可找到
+这些被注释掉的代码。
+
+3. GuiLib的使用
+
+    本软件3.0版使用了该界面库的界面框架、菜单条、工具条。在工程StkUI中搜索Gui即可找到这
+些使用GuiLib的代码。
+
+    主要使用的类库
+        CGuiMDIFrame: CMainFrame从该类继承.
+        CGuiToolBarWnd: ToolBar为该类的对象.
+        CGuiControlBar, 左侧功能树为CWorkspBar的对象,CWorkspBar从CGuiControlBar继承,
+                CWorkspBar在工程XPFace中实现.
+
+        CGuiComboBoxExt和CGuiEdit: 另外在很多对话框中使用,其功能完全等同于CComboBox
+                和CEdit.
+
+        CGuiTabPowerPoint: 在GraphView和RealTimeView中,右下角的tab使用的是这个类.
+        CGuiWorkTab: 在SListView中,下方的tab使用的是这个类.
+
+4. XPFace的使用
+
+    CDeclareDlg：声明对话框
+    CWaitDlg：等待对话框，显示进度条和取消按钮
+    CXFPropertySheetEx：属性页对话框，可以显示上方位图
+    CPathDialog：选择路径对话框
+    CStringDialog：输入字符串对话框
+    CHyperLink：超级链接，从CStatic继承，点击后进入指定网址
+    CClickLink：超级链接，从CHyperLink继承，点击后执行制定操作
+    CMagicDlg，CMagicEdit：实现自定义指标编辑时的下拉选择ListBox
+    CSplashDlg：启动对话框
+    CTextToolBar：从CGuiToolBarWnd继承，实现带文字标签的工具条
+    CWorkspBar：从CGuiControlBar继承，实现左边功能树
+    CXFDialog：对话框基类，实现半透明效果
+    CKSFileDialog：文件对话框
+
+    其余类未使用。

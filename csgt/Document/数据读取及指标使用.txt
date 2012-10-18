@@ -1,0 +1,252 @@
+
+1. 数据结构及存储
+
+    有关股票的数据结构都在工程StkLib中定义。
+
+    其中StKLib/Include/Stock.h中定义了如下结构和类：
+
+    1) KDATA结构
+        K线数据结构，如果是日线，则日期，开盘价，最高价，最低价，收盘价几个信息。
+    CKData类是KDATA结构的数组形式及一些操作。例如：技术图表界面中的K线图就是依据
+    这个类画的。
+        CKData类里面有三个标志变量，
+        int m_nKType;	         记录这个数组是日线，周线，5分钟线等，见CKData::KTypes
+                                 枚举类型。
+        int m_nCurFormat;        记录K线的复权状态，见CKData::Formats枚举类型。
+                                 formatOriginal不复权，formatXDRup向上复权，
+                                 formatXDRdown向下复权。
+        int m_nCurMaindataType;  记录主数据类型，见CKData::MaindataTypes枚举类型。
+                                 例如：如果是mdtypeAverage，则MaindataAt(...)函数
+                                 返回的就是平均价。
+
+        K线数据在磁盘上的存储，与钱龙，核新格式兼容，每只股票一个文件。磁盘上日线，
+        周线，月线的数据格式是源文件StkLib\Src\Qianlong.h中定义的结构QL_Data_day的简单
+        重复，从文件头开始至文件尾都是这个结构，有多少个就说明有多少个数据。同样，5分
+        钟，15分钟，30分钟，60分钟线的结构是源文件StkLib\Src\Qianlong.h中的QL_Data_5min。
+
+        装载K线数据时，自动转换成CKData类的对象。
+
+    2) DRDATA结构
+        除权除息数据结构，即K线复权时使用的公司股本变动及分红等数据。CDRData类是
+        DRDATA结构的数组形式及一些操作。
+
+        DRDATA在磁盘上存储于data\CHNA.pwr文件中，该文件格式与分析家除权文件格式完全
+        相同。分析家除权文件的格式就是源文件StkLib\Src\SelfDB.h中的结构FXJ_DRDATA。
+
+        装载数据时，自动转换为CDRData类的对象。
+
+    3) BASEDATA结构
+        财务信息数据结构，即股票的财务数据信息。CBasedata类是BASEDATA结构的数组形式
+        及一些操作。
+
+        BASEDATA在磁盘上存储于data\CHNA.bst中。该文件的格式即为若干个BASEDATA结构。
+
+    4) REPORT结构
+        实时行情传送过来的股票报价包，类似于通视的RCV_REPORT_STRUCTEx。
+        StkNet\Src\StkReceiver.h中的CStkReceiver类是负责接收通视数据包的类，有一个静态
+        对象可以通过AfxGetStkReceiver()方法获得。该对象将收到的通视数据转换成相应的
+        REPORT，MINUTE,OUTLINE,MULTISORT结构。并创建线程，向需要数据的窗口发送消息。
+        同时将相应数据存储到本地dat\目录下，只保存当天数据。
+
+        dat\report.now保存最新RCV_REPORT_STRUCTEx数据，源文件NetTS\Src\TSCache.cpp中的
+        BOOL CTSCache::StoreReports( )和BOOL CTSCache::LoadReports( )方法保存和读取这个
+        文件。
+
+        dat\SHSE.rpt，dat\SZSE.rpt分别保存上证和深证的REPORT数据。格式为类CClkFile，定
+        义在StkLib\Include\SelfDB.h中。
+
+        dat\SHSE.min，dat\SZSE.min分别保存上证和深证的MINUTE数据。格式为类CClkFile，定
+        义在StkLib\Include\SelfDB.h中。
+
+    5) MINUTE结构
+        实时行情传送过来的分钟线数据，类似于通视的RCV_MINUTE_STRUCTEx。
+        即分时行情窗口中的分时价格线数据，每分钟一个数据。
+
+    6) OUTLINE结构
+        实时行情传送过来的行情额外数据，通视目前没有该类数据。
+
+    7) MULTISORT结构
+        实时行情传送过来的综合排名数据。通视目前没有该类数据。通视的综合排名是根据收到
+        的RCV_REPORT_STRUCTEx自己算出来的。这个结构是天网网络接口发送的，在服务器端计算
+        好的排名，直接发到客户端，显示在综合排名界面。
+
+        该数据不存盘。
+
+    8) COMMPACKET结构
+        为了写程序方便，定义的一个结构，该结构可以分配其他结构数组，分配方法在源文件
+        StkLib\Src\Packets.cpp中。
+
+        该数据不存盘。
+
+    9) CStockInfo类
+        股票基本信息数据，包含基本财务数据，最新报价数据，最近若干天的K线缓存。
+
+        该数据不存盘。
+
+    10) CStock类
+        某只股票的全部数据都可以存储在这个类里，装载过程参见后面的示例代码说明。
+
+    其中StKLib/Include/StockContainer.h中定义了如下结构和类：
+
+    11) CStockContainer类
+        CStockInfo类的数组容器，AfxGetStockContainer()函数得到该类的一个静态对象，保存
+        着当前所有股票的基本信息数据缓存。在程序启动时装载。
+        AfxGetSListContainer()函数得到该类的另一个静态对象，保存着当前股票列表窗口中的
+        股票及基本信息缓存。该对象的数据初始化根据用户操作自动从AfxGetStockContainer()
+        对象里装载。
+
+    12) CDomain类
+        一个板块或者一个分组。包含该板块（分组）名称及代码数组。
+
+    13) CDomainContainer类
+        板块或者分组容器类。
+        AfxGetDomainContainer()方法返回一个静态对象，包含当前板块信息。
+        AfxGetGroupContainer()方法返回一个静态对象，包含当前分组信息。
+
+    其中StKLib/Include/Database.h中定义了如下类：
+
+    14) CStDatabase类
+        访问本地数据的接口类。通过AfxGetDB()方法返回该类的一个静态对象，可以通过
+        该对象读取本地的K线数据，F10资料，除权数据。读取方法参看下面示例详解。
+
+2. 磁盘上的文件
+    dat\report.now  最新即时行情列表数据。
+    dat\SHSE.rpt    每天每只上证股票的成交数据。
+    dat\SZSE.rpt    每天每只深证股票的成交数据。
+    dat\SHSE.min    每天每只上证股票的分钟线数据。
+    dat\SZSE.min    每天每只深证股票的分钟线数据。
+    data\shase\base\   上证F10资料，每只股票一个文件。
+    data\shase\day\    上证日线数据，每只股票一个文件。
+    data\shase\week\   上证周线数据，每只股票一个文件。
+    data\shase\month\  上证月线数据，每只股票一个文件。
+    data\shase\mnt\    上证5分钟数据，每只股票一个文件。
+    data\shase\xdr\    上证除权数据，每只股票一个文件。最终结果是CHNA.pwr与该目录
+                       下的文件合并的结果。
+    data\shase\base\   深证F10资料，每只股票一个文件。
+    data\shase\day\    深证日线数据，每只股票一个文件。
+    data\shase\week\   深证周线数据，每只股票一个文件。
+    data\shase\month\  深证月线数据，每只股票一个文件。
+    data\shase\mnt\    深证5分钟数据，每只股票一个文件。
+    data\shase\xdr\    深证除权数据，每只股票一个文件。最终结果是CHNA.pwr与该目录
+                       下的文件合并的结果。
+
+    data\SHSE.cod      上证代码表。
+    data\SHSE.cod      深证代码表。
+    data\CHNA.bst      财务数据文件。
+    data\CHNA.pwr      除权数据文件。
+    data\domain.dat    板块数据文件。
+    group.dat          分组数据文件。
+
+3. 指标数据结构及调用接口
+
+    其中StKLib/Include/Technique.h中定义了如下类：
+    1) CTechnique类
+    该类为所有技术指标类的父类，该类里保存着计算指标用的数据，即一个CKData对象。
+    另外还有一些Cache，是对刚刚计算过的指标值进行缓存，提高显示速度，以免总是重复计算。
+    几个虚函数接口：
+
+        // 得到nIndex位置处的买卖信号，nIndex为CKData的数组位置，pnCode为原因代号
+        virtual	int GetSignal( int nIndex, UINT * pnCode = NULL );
+
+        // 得到nStart到nEnd之间的指标值的最大最小值，画图时用来判断画图坐标区间。
+        virtual	BOOL GetMinMaxInfo( int nStart, int nEnd, double *pdMin, double *pdMax );
+
+        // 计算指标值，对不同的指标类型，对应参数的个数不同。
+        virtual	BOOL Calculate( double * pValue, int nIndex, int nDays, BOOL bUseLast );
+        virtual	BOOL Calculate( double * pValue, int nIndex, BOOL bUseLast );
+        virtual	BOOL Calculate( double * pValue1, double * pValue2, int nIndex, BOOL bUseLast );
+        virtual	BOOL Calculate( double * pValue1, double * pValue2, double * pValue3, int nIndex, BOOL bUseLast );
+        virtual	BOOL Calculate( double * pValue1, double * pValue2, double * pValue3, double * pValue4, int nIndex, BOOL bUseLast );
+        virtual	BOOL Calculate( double * pValue1, double * pValue2, double * pValue3, double * pValue4, double * pValue5, int nIndex, BOOL bUseLast );
+
+        // 计算单个指标值及该指标值nMADays日均线
+        virtual	BOOL CalculateMA( double * pValue, double * pMA, int nIndex, BOOL bUseLast, int nMADays );
+
+4. 读取某只股票数据的示例程序详解
+
+   方法一：
+        CStock	stock;       // 创建CStock对象，用于存储数据。
+        stock.SetStockCode( CStock::marketSHSE, "600036" );   // 股票代码
+        AfxPrepareStockData( &AfxGetDB(), stock, CKData::ktypeDay, CKData::formatXDRdown, CKData::mdtypeClose, FALSE, TRUE );
+                             // 装载stock的日线，并向下除权。
+        
+        CKData & kday  = stock.GetKData(CKData::ktypeDay);    // 访问stock的日K线数据
+
+   方法二：
+        CStock	stock;       // 创建CStock对象，用于存储数据。
+        stock.SetStockCode( CStock::marketSHSE, "600036" );   // 股票代码
+	AfxReloadStock( stock );    // 装载stock的所有本地数据
+
+        CKData & kday  = stock.GetKData(CKData::ktypeDay);    // 访问stock的日K线数据
+        CKData & kweek = stock.GetKData(CKData::ktypeWeek);   // 访问stock的周K线数据
+
+   方法三：
+        CStock	stock;       // 创建CStock对象，用于存储数据。
+        stock.SetStockCode( CStock::marketSHSE, "600036" );   // 股票代码
+        stock.SetDatabase( &AfxGetDB() );                     // 告诉stock一个CStDatabase的指针
+        stock.PrepareData( CStock::dataK, CKData::ktypeDay ); // 装载日K线
+        stock.PrepareData( CStock::dataK, CKData::ktypeWeek ); // 装载周K线，实际上是从日K线计算转换而来，磁盘上无需存放。
+        stock.PrepareData( CStock::dataDR );                  // 装载除权数据
+
+        CStockInfo	& info	=	stock.GetStockInfo(); // 访问stock的基本信息数据
+        CKData & kday  = stock.GetKData(CKData::ktypeDay);    // 访问stock的日K线数据
+        CKData & kweek = stock.GetKData(CKData::ktypeWeek);   // 访问stock的周K线数据
+        kday.SetDRData( stock.GetDRData() );                 // 设置kdata的除权数据，用来复权
+        kday.ChangeCurFormat( CKData::formatXDRdown, AfxGetProfile().GetAutoResumeDRBegin(), AfxGetProfile().GetAutoResumeDRLimit() );  // 对kday向下复权
+
+5. 调用某指标信号计算的示例程序详解
+
+        CStock	stock;
+        if( !stock.SetStockCode( CStock::marketSHSE, "600036" ) )
+                return;
+        if( !AfxPrepareStockData( &AfxGetDB(), stock, CKData::ktypeDay, CKData::formatXDRdown, CKData::mdtypeClose, FALSE, TRUE ) )
+                continue;
+        CKData & kdata = stock.GetKData( nKType );
+
+        CTechnique * pTech	=	CTechnique::CreateTechnique( STT_MACD, &kdata ); // 创建MACD指标类的对象
+        if( NULL == pTech )
+                return;
+        AfxGetProfile().GetTechParameters().FindParameters( STT_MACD, pTech );  // 找到配置文件中的指标参数,并赋给pTech
+        UINT itsc = ITSC_NOTHING;
+        UINT its = pTech->GetSignal( kdata.GetSize()-1, &itsc );  // 得到最后一天的买卖信号
+        if( ITS_BUY == its )  // 买入信号
+        {
+        }
+        if( ITS_SELL == its ) // 卖出信号
+        {
+        }
+        delete pTech;
+
+
+6. 调用某指标画图的示例程序详解
+
+        画图的函数都在StkUI\View\StockGraph.cpp和SktUI\View\DrawTech.cpp中。
+
+void CStockGraph::DrawTechR( CDC * pDC, CRect rect, BOOL bDrawTitle )
+// 在rect矩形区域画出威廉指标R的指标曲线,bDrawTitle表示是否画标题.
+{
+        CStock	stock;
+        if( !stock.SetStockCode( CStock::marketSHSE, "600036" ) )
+                return;
+        if( !AfxPrepareStockData( &AfxGetDB(), stock, CKData::ktypeDay, CKData::formatXDRdown, CKData::mdtypeClose, FALSE, TRUE ) )
+                continue;
+        CKData & kdata = stock.GetKData( nKType );
+
+        CTechnique * pTech	=	CTechnique::CreateTechnique( STT_R, &kdata );
+        if( NULL == pTech )
+                return;
+        AfxGetProfile().GetTechParameters().FindParameters( STT_R, pTech );
+
+        int nIndexStart = 0, nIndexEnd = 200;  // 指标值起始和结束下标。
+        double	dMin = 0, dMax = 0;
+        if( !m_techparam.r.GetMinMaxInfo( nIndexStart, nIndexEnd, &dMin, &dMax )  // 取得区间内的指标值最大最小值
+                || !DrawAxis( pDC, rect, 10, 5, dMin, dMax, FALSE, TRUE, 0 ) )    // 画坐标线及坐标数值, 10为标题高度, 5为纵轴坐标线个数
+                return;
+	
+        DrawTechUtil1(	pDC, rect, bDrawTitle, dMin, dMax, STT_R, pTech, &kdata,
+                        AfxGetProfile().GetColor(CColorClass::clrLine1), drawtechtype_line );
+                        // 画只有一根线的指标.AfxGetProfile().GetColor(CColorClass::clrLine1)为线的颜色,
+                        // drawtechtype_line表示画线,drawtechtype_dot表示画点.
+        delete pTech;
+}
+

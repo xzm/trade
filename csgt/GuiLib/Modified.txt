@@ -1,0 +1,141 @@
+1. GuiMDITabbed.cpp
+	Line:		65
+	Function:	void CGuiMDITabbed::UpdateWindows()
+	Date:		2003/6/13
+
+2. GuiControlBar.cpp
+	Line:		28
+	Function:	CGuiControlBar::CGuiControlBar()
+	Date:		2003/6/21
+
+	Line:		1042
+	Function:	void CGuiControlBar::DrawGripper(CDC* pDC,CRect* rc)
+	Date:		2003/6/21
+
+3. GuiWorkTab.cpp
+	Line:		64
+	Function:	void CGuiWorkTab::PintaSeparador(CDC* dc)
+	Date:		2003/6/21
+
+4. resources
+	IDB_DOCKBAR
+	Date:		2003/6/21
+
+5. GuiToolBarWnd.cpp
+	Line:		311
+	Function:	void CGuiToolBarWnd::OnPaint()
+	Date:		2003/6/27
+
+	Line:		154
+	Function:	CGuiToolBarWnd::~CGuiToolBarWnd()
+	Date:		2003/8/22
+
+6. GuiButton.cpp
+	Line:		71
+	Function:	void CGuiButton::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct) 
+	Date:		2003/8/8
+
+7. GuiTabWnd.cpp
+	Line:		51
+	Function:	CGuiTabWnd::~CGuiTabWnd()
+	Date:		2003/8/22
+
+	Line:		571
+	Function:	void CGuiTabWnd::DeleteTab(int m_numtab)
+	Date:		2003/8/22
+
+8. GuiContainer.cpp
+	Line:		37
+	Function:	CGuiContainer::~CGuiContainer()
+	Date:		2003/8/22
+
+9. GuiFolder.cpp
+	Line:		51
+	Function:	CGuiFolder::~CGuiFolder()
+	Date:		2003/8/22
+
+	Line:		484
+	Function:	void CGuiFolder::DeleteFolder(int m_iNumFolder)
+	Date:		2003/8/22
+
+	Line:		514
+	Function:	void CGuiFolder::RemoveAllFolder()
+	Date:		2003/8/22
+
+10. GuiMiniTool.cpp
+	Line:		44
+	Function:	CGuiMiniTool::~CGuiMiniTool()	
+	Date:		2003/8/22
+
+	Line:		153
+	Function:	void  CGuiMiniTool::DelButton(int nIndex)
+	Date:		2003/8/22
+
+11. GuiOutLook.cpp
+	Line:		54
+	Function:	CGuiOutLook::~CGuiOutLook()
+	Date:		2003/8/22
+
+12. 
+	Line:		In All Files
+	Function:	CreateFont()
+	Date:		2003/9/2
+
+13. 
+	Line:		In All Files
+	Function:	call for CDC::SelectObject()
+			GUI error for win98
+	Date:		2003/9/4
+
+14. GuiWorkTab.cpp
+	Line:		358
+	Function:	void CGuiWorkTab::OnHScroll(...)
+	Date:		2003/10/22
+
+	Line:		134
+	Function:	void CGuiWorkTab::ResetDeplaza( )
+	Date:		2003/10/28
+
+	Line:		149
+	Function:	void CGuiWorkTab::Drawtabs(CDC* dc)
+	Date:		2003/11/09
+
+15. GuiTabWnd.cpp
+	Line:		131
+	Function:	void CGuiTabWnd::OnPaint() 
+	Date:		2003/10/26
+
+	Line:		561
+	Function:	void CGuiTabWnd::SetCurtab(int m_numtab)
+	Date:		2003/10/28
+
+	Line:		629
+	Function:	CRect CGuiTabWnd::GetTabRect( int m_numtab )
+	Date:		2003/10/28
+
+	Line:		646
+	Function:	void CGuiWorkTab::SetSelectTabColor( COLORREF clrBK, COLORREF clrText )
+	Date:		2003/11/09
+
+	Line:		655
+	Function:	LRESULT CGuiTabWnd::OnColorChange(WPARAM wParam, LPARAM lParam)
+	Date:		2003/11/11
+
+16. GuiTabPowerPoint.cpp
+	Line:		117
+	Function:	void CGuiTabPowerPoint::Drawtabs(CDC* dc)
+	Date:		2003/11/11
+
+17. GuiButton.cpp
+	Line:		33
+	Function:	CGuiButton::CBuiButton()
+	Date:		2004/08/24
+
+	Line:		733
+	Function:	void CGuiButton::OnLButtonUp(UINT nFlags, CPoint point)
+	Date:		2004/08/24
+
+	Line:		753
+	Function:	void CGuiButton::OnLButtonDown(UINT nFlags, CPoint point) 
+	Date:		2004/08/24
+	
