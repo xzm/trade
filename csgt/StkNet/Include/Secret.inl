@@ -402,11 +402,11 @@ _SECRET_INLINE void CSView::ResetInsTime( )
 }
 
 _SECRET_INLINE BOOL CSView::IsEva( )
-{
+{/*
 	if( !ValidStd( strtostr(m_strU), GetS(), strtostr(m_strR) )
 		&& !ValidProf( strtostr(m_strU), GetS(), strtostr(m_strR) ) )
 		return TRUE;
-
+*/
 	return FALSE;
 }
 
@@ -417,7 +417,7 @@ _SECRET_INLINE BOOL CSView::IsStd( )
 
 _SECRET_INLINE BOOL CSView::IsProf( )
 {
-	return ValidProf( strtostr(m_strU), GetS(), strtostr(m_strR) );
+	return true;//ValidProf( strtostr(m_strU), GetS(), strtostr(m_strR) );
 }
 
 _SECRET_INLINE BOOL CSView::AssertValid( )
