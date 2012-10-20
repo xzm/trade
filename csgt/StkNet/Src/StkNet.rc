@@ -1,4 +1,4 @@
-// Microsoft Visual C++ generated resource script.
+//Microsoft Developer Studio generated resource script.
 //
 #include "resource.h"
 
@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// 中文（中华人民共和国） resources
+// Chinese (P.R.C.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
 #ifdef _WIN32
@@ -27,18 +27,18 @@ LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE 
+1 TEXTINCLUDE MOVEABLE PURE 
 BEGIN
     "resource.h\0"
 END
 
-2 TEXTINCLUDE 
+2 TEXTINCLUDE MOVEABLE PURE 
 BEGIN
     "#include ""afxres.h""\r\n"
     "\0"
 END
 
-3 TEXTINCLUDE 
+3 TEXTINCLUDE MOVEABLE PURE 
 BEGIN
     "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
     "#define _AFX_NO_OLE_RESOURCES\r\n"
@@ -59,6 +59,7 @@ END
 #endif    // APSTUDIO_INVOKED
 
 
+#ifndef _MAC
 /////////////////////////////////////////////////////////////////////////////
 //
 // Version
@@ -81,13 +82,13 @@ BEGIN
     BEGIN
         BLOCK "080404b0"
         BEGIN
-            VALUE "FileDescription", "Ninebulls Stock Analysis Platform Net DLL"
-            VALUE "FileVersion", "3, 0, 0, 0"
-            VALUE "InternalName", "StkNet"
-            VALUE "LegalCopyright", "Copy Right  (C) 2001-2004"
-            VALUE "OriginalFilename", "StkNet30.DLL"
-            VALUE "ProductName", "Ninebulls Stock Analysis Platform"
-            VALUE "ProductVersion", "3, 0, 0, 0"
+            VALUE "FileDescription", "Ninebulls Stock Analysis Platform Net DLL\0"
+            VALUE "FileVersion", "3, 0, 0, 0\0"
+            VALUE "InternalName", "StkNet\0"
+            VALUE "LegalCopyright", "Copy Right  (C) 2001-2004\0"
+            VALUE "OriginalFilename", "StkNet30.DLL\0"
+            VALUE "ProductName", "Ninebulls Stock Analysis Platform\0"
+            VALUE "ProductVersion", "3, 0, 0, 0\0"
         END
     END
     BLOCK "VarFileInfo"
@@ -96,6 +97,8 @@ BEGIN
     END
 END
 
+#endif    // !_MAC
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -103,7 +106,7 @@ END
 //
 
 IDD_SELECTENGINE DIALOGEX 0, 0, 257, 161
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "选择行情接收系统"
 FONT 9, "宋体", 0, 0, 0x1
 BEGIN
@@ -120,7 +123,7 @@ BEGIN
 END
 
 IDD_PROXYSET DIALOGEX 0, 0, 257, 161
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "设置代理服务器"
 FONT 9, "宋体", 0, 0, 0x1
 BEGIN
@@ -156,7 +159,7 @@ BEGIN
 END
 
 IDD_EDITSERVER DIALOGEX 0, 0, 228, 128
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "服务器信息"
 FONT 9, "宋体", 0, 0, 0x1
 BEGIN
@@ -184,33 +187,28 @@ BEGIN
                     WS_EX_STATICEDGE
 END
 
-IDD_STARTUP DIALOGEX 0, 0, 285, 168
-STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
-CAPTION "策略为王证券分析系统"
-FONT 9, "宋体", 0, 0, 0x1
+IDD_STARTUP DIALOGEX 0, 0, 285, 155
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "国泰君安富易"
+FONT 9, "宋体"
 BEGIN
-    DEFPUSHBUTTON   "连接",IDOK,224,26,50,14,BS_FLAT
-    PUSHBUTTON      "脱机使用",IDC_OFFLINE,224,53,50,14,BS_FLAT
-    PUSHBUTTON      "代理...",IDC_PROXY_SET,224,80,50,14,BS_FLAT
-    PUSHBUTTON      "取消",IDCANCEL,224,107,50,14,BS_FLAT
+    DEFPUSHBUTTON   "登陆",IDOK,222,26,50,14,BS_FLAT
+    PUSHBUTTON      "代理...",IDC_PROXY_SET,222,57,50,14,BS_FLAT
+    PUSHBUTTON      "取消",IDCANCEL,222,85,50,14,BS_FLAT
     COMBOBOX        IDC_COMBO_SERVER,115,33,103,108,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    PUSHBUTTON      "添加",IDC_ADD,122,51,30,14,BS_FLAT
-    PUSHBUTTON      "修改",IDC_MODIFY,155,51,30,14,BS_FLAT
-    PUSHBUTTON      "删除",IDC_DELETE,188,51,30,14,BS_FLAT
-    EDITTEXT        IDC_EDIT_USER,152,76,55,12,ES_AUTOHSCROLL | NOT 
+    EDITTEXT        IDC_EDIT_USER,150,53,55,12,ES_AUTOHSCROLL | NOT 
                     WS_BORDER,WS_EX_STATICEDGE
-    EDITTEXT        IDC_EDIT_PASSWD,152,94,55,12,ES_PASSWORD | 
+    EDITTEXT        IDC_EDIT_PASSWD,150,71,55,12,ES_PASSWORD | 
                     ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
     CONTROL         "保存密码",IDC_CHECK_SAVEPASSWD,"Button",BS_AUTOCHECKBOX | 
-                    BS_FLAT | WS_TABSTOP,151,111,48,10
-    LTEXT           "选择行情服务器:",IDC_STATIC,107,21,61,8
-    LTEXT           "用户名:",IDC_STATIC,120,79,29,8
-    LTEXT           "密码:",IDC_STATIC,120,96,21,8
-    CONTROL         "Progress1",IDC_STARTUPPROGRESS,"msctls_progress32",NOT 
-                    WS_VISIBLE | 0x1,116,145,148,8
-    LTEXT           "欢迎使用。",IDC_STATICINFO,112,130,148,8
+                    BS_FLAT | WS_TABSTOP,149,89,48,10
+    LTEXT           "选择开户营业部:",IDC_STATIC,107,21,61,8
+    LTEXT           "用户名:",IDC_STATIC,118,57,29,8
+    LTEXT           "密码:",IDC_STATIC,118,73,21,8
+    CONTROL         "Progress1",IDC_STARTUPPROGRESS,"msctls_progress32",
+                    PBS_SMOOTH | NOT WS_VISIBLE,114,123,148,8
+    LTEXT           "欢迎使用。",IDC_STATICINFO,110,107,148,8
     CONTROL         "",IDC_STARTUPPICTURE,"Static",SS_BITMAP,0,0,101,168,
                     WS_EX_STATICEDGE
 END
@@ -222,7 +220,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO MOVEABLE PURE 
 BEGIN
     IDD_SELECTENGINE, DIALOG
     BEGIN
@@ -253,7 +251,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 278
         TOPMARGIN, 7
-        BOTTOMMARGIN, 161
+        BOTTOMMARGIN, 148
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -264,7 +262,7 @@ END
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_VERSION_EVALUATE    "专业版"
     IDS_VERSION_STDANDARD   "标准版"
@@ -275,12 +273,12 @@ BEGIN
     IDS_SELECTSRV_DELCONFIRM "确定要删除吗？"
 END
 
-STRINGTABLE 
+STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_EDITSRV_NOADDRESS   "没有指定地址。"
     IDS_STARTUP_CONNECTSERVER "连接服务器..."
     IDS_STARTUP_LOADPROGRAM "正在装载..."
-    IDS_STARTUP_CONNECTFAILED "连接服务器失败。"
+    IDS_STARTUP_CONNECTFAILED "用户名密码错误"
     IDS_APPLYFOREVA_SUBJECT "试用申请"
     IDS_APPLYFOREVA_REPLYCONTENT "您的策略为王3.1试用码是："
     IDS_APPLYFOREVA_REPLYDESCRIPT 
@@ -290,15 +288,15 @@ BEGIN
     IDS_PROXYSOCKET_ERRCONNECTTHROUGHPROXY "通过代理连接主站不成功！"
     IDS_PROXYSOCKET_ERRAUTH "代理服务器用户验证不成功！"
     IDS_PROXYSOCKET_ERRVERSION "代理服务器版本不匹配！"
-    IDS_TWSOCKET_ERRLOGIN   "登录服务器失败。"
+    IDS_TWSOCKET_ERRLOGIN   "登录失败。"
 END
 
-#endif    // 中文（中华人民共和国） resources
+#endif    // Chinese (P.R.C.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// 英语（美国） resources
+// English (U.S.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -306,6 +304,7 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 #pragma code_page(1252)
 #endif //_WIN32
 
+#ifndef _MAC
 /////////////////////////////////////////////////////////////////////////////
 //
 // Version
@@ -328,13 +327,13 @@ BEGIN
     BEGIN
         BLOCK "040904b0"
         BEGIN
-            VALUE "FileDescription", "Ninebulls Stock Analysis Platform Net DLL"
-            VALUE "FileVersion", "3, 0, 0, 0"
-            VALUE "InternalName", "StkNet"
-            VALUE "LegalCopyright", "Copy Right  (C) 2001-2004"
-            VALUE "OriginalFilename", "StkNet30.DLL"
-            VALUE "ProductName", "Ninebulls Stock Analysis Platform"
-            VALUE "ProductVersion", "3, 0, 0, 0"
+            VALUE "FileDescription", "Ninebulls Stock Analysis Platform Net DLL\0"
+            VALUE "FileVersion", "3, 0, 0, 0\0"
+            VALUE "InternalName", "StkNet\0"
+            VALUE "LegalCopyright", "Copy Right  (C) 2001-2004\0"
+            VALUE "OriginalFilename", "StkNet30.DLL\0"
+            VALUE "ProductName", "Ninebulls Stock Analysis Platform\0"
+            VALUE "ProductVersion", "3, 0, 0, 0\0"
         END
     END
     BLOCK "VarFileInfo"
@@ -343,6 +342,8 @@ BEGIN
     END
 END
 
+#endif    // !_MAC
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -350,7 +351,7 @@ END
 //
 
 IDD_SELECTENGINE DIALOGEX 0, 0, 257, 161
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Select Receive System"
 FONT 9, "MS Sans Serif", 0, 0, 0x1
 BEGIN
@@ -367,7 +368,7 @@ BEGIN
 END
 
 IDD_PROXYSET DIALOGEX 0, 0, 257, 161
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Proxy Settings"
 FONT 9, "MS Sans Serif", 0, 0, 0x1
 BEGIN
@@ -403,7 +404,7 @@ BEGIN
 END
 
 IDD_EDITSERVER DIALOGEX 0, 0, 228, 128
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Server Information"
 FONT 9, "MS Sans Serif", 0, 0, 0x1
 BEGIN
@@ -432,20 +433,15 @@ BEGIN
 END
 
 IDD_STARTUP DIALOGEX 0, 0, 285, 168
-STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Ninebulls China Stock"
 FONT 9, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Connect",IDOK,224,26,50,14,BS_FLAT
-    PUSHBUTTON      "Offline",IDC_OFFLINE,224,53,50,14,BS_FLAT
     PUSHBUTTON      "Proxy...",IDC_PROXY_SET,224,80,50,14,BS_FLAT
     PUSHBUTTON      "Cancel",IDCANCEL,224,107,50,14,BS_FLAT
     COMBOBOX        IDC_COMBO_SERVER,116,33,103,108,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    PUSHBUTTON      "Add",IDC_ADD,122,51,30,14,BS_FLAT
-    PUSHBUTTON      "Modify",IDC_MODIFY,156,51,30,14,BS_FLAT
-    PUSHBUTTON      "Delete",IDC_DELETE,188,51,30,14,BS_FLAT
     EDITTEXT        IDC_EDIT_USER,152,76,55,12,ES_AUTOHSCROLL | NOT 
                     WS_BORDER,WS_EX_STATICEDGE
     EDITTEXT        IDC_EDIT_PASSWD,152,94,55,12,ES_PASSWORD | 
@@ -455,8 +451,8 @@ BEGIN
     LTEXT           "Select Quote Server:",IDC_STATIC,108,21,81,8
     LTEXT           "User:",IDC_STATIC,120,79,21,8
     LTEXT           "Password:",IDC_STATIC,120,96,37,8
-    CONTROL         "Progress1",IDC_STARTUPPROGRESS,"msctls_progress32",NOT 
-                    WS_VISIBLE | 0x1,116,145,148,8
+    CONTROL         "Progress1",IDC_STARTUPPROGRESS,"msctls_progress32",
+                    PBS_SMOOTH | NOT WS_VISIBLE,116,145,148,8
     LTEXT           "Welcom.",IDC_STATICINFO,112,130,156,8
     CONTROL         "",IDC_STARTUPPICTURE,"Static",SS_BITMAP,0,0,101,168,
                     WS_EX_STATICEDGE
@@ -469,7 +465,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO MOVEABLE PURE 
 BEGIN
     IDD_SELECTENGINE, DIALOG
     BEGIN
@@ -511,7 +507,7 @@ END
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_VERSION_EVALUATE    "Professional"
     IDS_VERSION_STDANDARD   "Standard"
@@ -522,7 +518,7 @@ BEGIN
     IDS_SELECTSRV_DELCONFIRM "Are you sure to delete it?"
 END
 
-STRINGTABLE 
+STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_EDITSRV_NOADDRESS   "No server address."
     IDS_STARTUP_CONNECTSERVER "Connect to server..."
@@ -542,7 +538,7 @@ BEGIN
     IDS_TWSOCKET_ERRLOGIN   "Login failed."
 END
 
-#endif    // 英语（美国） resources
+#endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

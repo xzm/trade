@@ -2,11 +2,8 @@
 // Microsoft Visual C++ generated include file.
 // Used by StkNet.rc
 //
-#define IDC_ADD                         3
-#define IDC_MODIFY                      4
-#define IDC_DELETE                      5
+
 #define IDC_PROXY_SET                   6
-#define IDC_OFFLINE                     7
 #define IDD_SELECTENGINE                100
 #define IDD_STARTUP                     101
 #define IDD_PROXYSET                    166

@@ -50,7 +50,6 @@ protected:
 	CStatic	m_staticInfo;
 	CProgressCtrl	m_ctrlProgress;
 	CStatic	m_staticPicture;
-	CGuiButton	m_btnOffline;
 	CGuiButton	m_btnOK;
 	CGuiComboBoxExt	m_comboServer;
 	CString	m_strUser;
@@ -74,9 +73,6 @@ protected:
 	// Generated message map functions
 	//{{AFX_MSG(CStartupDlg)
 	afx_msg void OnSelchangeComboServer();
-	afx_msg void OnAdd();
-	afx_msg void OnModify();
-	afx_msg void OnDelete();
 	virtual void OnOK();
 	afx_msg void OnProxySet();
 	virtual BOOL OnInitDialog();
