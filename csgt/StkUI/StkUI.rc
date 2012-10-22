@@ -4262,7 +4262,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    AFX_IDS_APP_TITLE       "策略为王证券分析系统"
+    AFX_IDS_APP_TITLE       "国泰君安证券交易系统"
     AFX_IDS_IDLEMESSAGE     "如需帮助，请点击帮助菜单"
     AFX_IDS_HELPMODEMESSAGE "选定一个要得到帮助的对象"
 END
