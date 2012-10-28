@@ -6,13 +6,13 @@
 --------------------Configuration: StkUI - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\Users\xzm\AppData\Local\Temp\RSP28E0.tmp" with contents
+Creating temporary file "C:\Users\xzm\AppData\Local\Temp\RSPF458.tmp" with contents
 [
 /nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/StkUI.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
-"D:\buffer\xslibrary\myclient\csgt\StkUI\StkUI.cpp"
+"D:\buffer\xslibrary\myclient\csgt\StkUI\View\SListView.cpp"
 ]
-Creating command line "cl.exe @C:\Users\xzm\AppData\Local\Temp\RSP28E0.tmp" 
-Creating temporary file "C:\Users\xzm\AppData\Local\Temp\RSP28F0.tmp" with contents
+Creating command line "cl.exe @C:\Users\xzm\AppData\Local\Temp\RSPF458.tmp" 
+Creating temporary file "C:\Users\xzm\AppData\Local\Temp\RSPF459.tmp" with contents
 [
 htmlhelp/htmlhelp.lib /nologo /subsystem:windows /profile /debug /machine:I386 /out:"Debug/StockAna.exe" /libpath:"../StkLib/Lib" /libpath:"../StkNet/Lib" /libpath:"../ProfUIS/Bin" /libpath:"../GuiLib/Lib" /libpath:"../XPFace/Lib" 
 .\Debug\AfxCore.obj
@@ -140,10 +140,10 @@ htmlhelp/htmlhelp.lib /nologo /subsystem:windows /profile /debug /machine:I386 /
 \buffer\xslibrary\myclient\csgt\XPFace\Lib\XPFaced.lib
 \buffer\xslibrary\myclient\csgt\NetTS\Debug\NetTS.lib
 ]
-Creating command line "link.exe @C:\Users\xzm\AppData\Local\Temp\RSP28F0.tmp"
+Creating command line "link.exe @C:\Users\xzm\AppData\Local\Temp\RSPF459.tmp"
 <h3>Output Window</h3>
 Compiling...
-StkUI.cpp
+SListView.cpp
 Linking...
 
 

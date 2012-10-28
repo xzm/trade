@@ -294,11 +294,16 @@ void CSListView::ResetColumns( )
 
 	m_Grid.DeleteAllItems();
 
+	
+	const char * strColName[] ={"名称","代码","股票余额","拥股数量","可用数量","最新价","成本","证券市值","浮动盈亏"};
+	const int colCnt= 9;
+
 	m_Grid.SetRowCount(1);
 	m_Grid.SetFixedRowCount(1);
 	m_Grid.SetFixedColumnCount(1);
-	m_Grid.SetColumnCount(auint.GetSize());
-
+	m_Grid.SetColumnCount(colCnt);
+	
+/*
 	for( int nCol=0; nCol<auint.GetSize(); nCol++ )
 	{
 		CString	string	=	AfxGetVariantName(auint[nCol],TRUE);
@@ -308,7 +313,16 @@ void CSListView::ResetColumns( )
 		m_Grid.SetItemBkColour( 0, nCol, AfxGetProfile().GetColor(CColorClass::clrSListBK) );
 		m_Grid.SetItemFgColour( 0, nCol, AfxGetProfile().GetColor(CColorClass::clrTitle) );
 	}
-
+	*/
+    for( int nCol=0; nCol<colCnt; nCol++ )
+	{
+		CString	string(strColName[nCol]);
+		m_Grid.SetItemText( 0, nCol, string );
+		m_Grid.SetItemData( 0, nCol, auint[nCol] );
+		m_Grid.SetItemFormat( 0, nCol, DT_CENTER|DT_VCENTER|DT_SINGLELINE );
+		m_Grid.SetItemBkColour( 0, nCol, AfxGetProfile().GetColor(CColorClass::clrSListBK) );
+		m_Grid.SetItemFgColour( 0, nCol, AfxGetProfile().GetColor(CColorClass::clrTitle) );
+	}
 	m_Grid.AutoSizeColumns();
 
 	m_Grid.SetRedraw( TRUE, TRUE );
@@ -436,7 +450,9 @@ BOOL CSListView::SetAverageItem( CGridCtrl &grid, CStockContainer & container, B
 }
 
 void CSListView::OnDblclkItem( int nStockIndex )
-{
+{/* 
+  ** want it do nothing
+  **
 	CStockContainer & container = AfxGetSListStockContainer();
 	int	nType;
 	CSPString	strDomain;
@@ -454,6 +470,7 @@ void CSListView::OnDblclkItem( int nStockIndex )
 		else
 			AfxShowStockGraph( nStockIndex, TRUE );
 	}
+	*/
 }
 
 void CSListView::StockInfoChanged( LONG infoid, CStockInfo & info )
@@ -615,13 +632,14 @@ BOOL CSListView::PreTranslateMessage(MSG* pMsg)
 			::ScreenToClient( m_Grid.GetSafeHwnd(), &pt );
 			if( pt.y >= rectCell.top && pt.y < rectCell.bottom )
 				return CFormView::PreTranslateMessage(pMsg);
-
+/*
 			int	nSelRow	=	m_Grid.GetFocusCell().row;
 			if( nSelRow >= 1 && nSelRow < m_Grid.GetRowCount() )
 			{
 				int	id	=	m_Grid.GetItemData(nSelRow,0);
 				OnDblclkItem( id );
 			}
+			*/
 		}
 		else if( WM_LBUTTONUP == pMsg->message )
 		{
@@ -638,7 +656,7 @@ BOOL CSListView::PreTranslateMessage(MSG* pMsg)
 
 			CCellID	cell	=	m_Grid.GetFocusCell();
 			if( cell.col >=0 && cell.col < nColumnCount )
-			{
+			{/*
 				BOOL	bSortAscendNew	=	( m_nColSort == cell.col ? !m_bSortAscend : FALSE );
 
 				RemoveSortSign( );
@@ -662,6 +680,7 @@ BOOL CSListView::PreTranslateMessage(MSG* pMsg)
 				}
 
 				m_Grid.Invalidate( );
+				*/
 			}
 		}
 	}
@@ -688,6 +707,7 @@ void CSListView::OnInitialUpdate()
 		&& m_wndWorkTab.Create(WS_CHILD|WS_VISIBLE, CRect(0,0,0,0), this, IDC_SLISTVIEW_WORKTAB) )
 	{
 		CString	strName;
+		/*
 		strName.LoadString( IDS_SLISTVIEW_CLASS );
 		m_wndWorkTab.Addtab( &m_Grid, strName, SL_WORKTAB_CLASS);
 		strName.LoadString( IDS_SLISTVIEW_A );
@@ -699,13 +719,13 @@ void CSListView::OnInitialUpdate()
 		strName.LoadString( IDS_SLISTVIEW_BOND );
 		m_wndWorkTab.Addtab( &m_Grid, strName, SL_WORKTAB_BOND);
 		strName.LoadString( IDS_SLISTVIEW_FUND );
-		m_wndWorkTab.Addtab( &m_Grid, strName, SL_WORKTAB_FUND);
+		m_wndWorkTab.Addtab( &m_Grid, strName, SL_WORKTAB_FUND);*/
 		strName.LoadString( IDS_SLISTVIEW_SELF );
-		m_wndWorkTab.Addtab( &m_Grid, strName, SL_WORKTAB_SELF);
+		m_wndWorkTab.Addtab( &m_Grid, strName, SL_WORKTAB_SELF);/*
 		strName.LoadString( IDS_SLISTVIEW_GROUP );
 		m_wndWorkTab.Addtab( &m_Grid, strName, SL_WORKTAB_GROUP);
 		strName.LoadString( IDS_SLISTVIEW_DOMAIN );
-		m_wndWorkTab.Addtab( &m_Grid, strName, SL_WORKTAB_DOMAIN);
+		m_wndWorkTab.Addtab( &m_Grid, strName, SL_WORKTAB_DOMAIN);*/
 
 		m_wndWorkTab.SetSelectTabColor( AfxGetProfile().GetColor(CColorClass::clrSListBK),
 										AfxGetProfile().GetColor(CColorClass::clrTitle) );
@@ -764,7 +784,7 @@ void CSListView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
 	CRect rectClient;
 	GetClientRect( &rectClient );
 	int nPageCount = 1 + rectClient.Height() / abs(m_Grid.GetFixedRowHeight()) + 1;
-
+/** disabled 
 	for( int i=0; i<container.GetSize(); i++ )
 	{
 		CStockInfo & info = container.GetStockInfoByID(i);
@@ -806,6 +826,23 @@ void CSListView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
 			container.m_nSortVariantID	=	lParam;
 			container.m_bSortAscend		=	m_bSortAscend;
 			m_Grid.SortItems( ItemCompareFunc, 0, TRUE );
+		}
+	}
+
+*/
+	for(int i= 0;i<1;i++)
+	{
+		int nRow = m_Grid.InsertRow( "sz002376");
+		m_Grid.SetItemData( nRow, 0, i );
+        const char * paramValues [] = {"新北洋","sz002376","1000","1000","1000","17.74","19.08","17740","-1340.0"};
+		for( int nCol=0; nCol<9; nCol++ )
+		{
+			m_Grid.SetItemFormat( nRow, nCol, DT_CENTER|DT_VCENTER|DT_SINGLELINE );
+			m_Grid.SetItemText( nRow, nCol, paramValues[nCol] );
+			m_Grid.SetItemBkColour( nRow, nCol, AfxGetProfile().GetColor(CColorClass::clrSListBK) );
+			//m_Grid.SetItemFgColour( nRow, nCol, );
+			if( anParams[nCol] == SLH_DATE )
+				m_Grid.SetColumnWidth( nCol, 80 );
 		}
 	}
 
