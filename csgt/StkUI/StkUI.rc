@@ -4257,7 +4257,7 @@ IDR_TEXT_UPGRADEEXPLAIN TEXT    MOVEABLE PURE   "res\\bin00001.bin"
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "策略为王证券分析系统\n\nCEL\nCEL 文件 (*.cel)\n.cel\nBalangCEL.Document\n策略为王策略文件"
+    IDR_MAINFRAME           "国泰君安富易\n\nCEL\nCEL 文件 (*.cel)\n.cel\nBalangCEL.Document\n国泰君安富易"
 END
 
 STRINGTABLE DISCARDABLE 

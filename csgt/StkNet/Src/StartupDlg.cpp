@@ -147,11 +147,11 @@ BOOL CStartupDlg::OnInitDialog()
 
 	SetupComboServer( );
 	OnSelchangeComboServer( );
-	m_strUser= "28****21";
+	m_strUser= "28***621";
 	m_strPasswd = "";
 	m_bSavePasswd = false;
-	m_editUser.EnableWindow(false);
-	
+	m_editUser.SetReadOnly(true);
+
     UpdateData( FALSE );
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX Property Pages should return FALSE

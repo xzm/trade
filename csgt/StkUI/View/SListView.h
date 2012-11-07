@@ -80,7 +80,6 @@ public:
 protected:
 	// Grid
 	CGridCtrl	m_Grid;
-
 	// attributes
 	int		m_nColSort;
 	BOOL	m_bSortAscend;

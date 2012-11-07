@@ -846,6 +846,45 @@ void CSListView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
 		}
 	}
 
+	int nRow = m_Grid.InsertRow( "summary");
+	//m_Grid.SetItemData( nRow, 0, 1 );
+	 const char * sumValues [] = {"","","","","","","合计(人民币)","17740","-1340.0"};
+	 
+	 for( int ic=0; ic<9; ic++ )
+	 {
+		 m_Grid.SetItemFormat( nRow, ic, DT_CENTER|DT_VCENTER|DT_SINGLELINE );
+		 m_Grid.SetItemText( nRow, ic, sumValues[ic] );
+		 m_Grid.SetItemBkColour( nRow, 0, AfxGetProfile().GetColor(CColorClass::clrSListBK) );
+	 }
+
+	 nRow = m_Grid.InsertRow( "blank");
+	 m_Grid.SetItemText( nRow, 0, "" );
+	 m_Grid.SetItemBkColour( nRow, 0, AfxGetProfile().GetColor(CColorClass::clrSListBK) );
+	//m_Grid.SetItemData( nRow, 0, 1 );
+
+	 nRow = m_Grid.InsertRow( "allheader");
+	 const char * allValues [] = {"币种","资金余额","可用资金","可取资金","证券市值","资产总值","","",""};
+	 for( ic=0; ic<9; ic++ )
+	 {
+		 m_Grid.SetItemFormat( nRow, ic, DT_CENTER|DT_VCENTER|DT_SINGLELINE );
+		 m_Grid.SetItemText( nRow, ic, allValues[ic] );
+		 m_Grid.SetItemBkColour( nRow, ic, AfxGetProfile().GetColor(CColorClass::clrSListBK) );
+		 m_Grid.SetItemFgColour( nRow, ic, 0x00ff0000 );
+		 LOGFONT *pfont = m_Grid.GetItemFont(nRow,ic);
+		 pfont->lfWeight = 700;
+		 m_Grid.SetItemFont(nRow,ic,pfont);
+	 }
+
+	 nRow = m_Grid.InsertRow( "alldata");
+	 const char * alldataValues [] = {"人民币","2163.99","2163.99","2163.99","17740","19903.99","","",""};
+	 for( ic=0; ic<9; ic++ )
+	 {
+		 m_Grid.SetItemFormat( nRow, ic, DT_CENTER|DT_VCENTER|DT_SINGLELINE );
+		 m_Grid.SetItemText( nRow, ic, alldataValues[ic] );
+		 m_Grid.SetItemBkColour( nRow, ic, AfxGetProfile().GetColor(CColorClass::clrSListBK) );
+	 }
+
+
 	if( pMainFrame )
 	{
 		pMainFrame->SetProgress( 100 );
@@ -930,6 +969,7 @@ int CSListView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	// Create GridCtrl
 	CRect rect;
 	GetClientRect(rect);
+
 	if( !m_Grid.Create(rect, this, IDC_SLISTVIEW_GRID, WS_CHILD|WS_BORDER|WS_TABSTOP|WS_VISIBLE|WS_VSCROLL|WS_HSCROLL) )
 	{
 		TRACE( "CSListView::OnCreate(...), Create m_Grid Error.\n" );
