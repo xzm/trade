@@ -142,12 +142,12 @@ BOOL CALLBACK LoadProgram( HWND hWnd, int nMinProgress, int nMaxProgress )
 	SendMessage( hWnd, WM_USER_STARTUP_PROGRESS, nMin+nRange*12/30, 0 );
 
 	// Show Views
-	if( !pStaticDoc->GetViewIfExist( RUNTIME_CLASS(CWizardView) ) )
+/*	if( !pStaticDoc->GetViewIfExist( RUNTIME_CLASS(CWizardView) ) )
 		pStaticDoc->ShowStaticView( RUNTIME_CLASS(CWizardView), TRUE );
 	SendMessage( hWnd, WM_USER_STARTUP_PROGRESS, nMin+nRange*14/30, 0 );
 	if( !pStaticDoc->GetViewIfExist( RUNTIME_CLASS(CSimuView) ) )
 		pStaticDoc->ShowStaticView( RUNTIME_CLASS(CSimuView), TRUE );
-	SendMessage( hWnd, WM_USER_STARTUP_PROGRESS, nMin+nRange*16/30, 0 );
+	SendMessage( hWnd, WM_USER_STARTUP_PROGRESS, nMin+nRange*16/30, 0 );*/
 	if( !pStaticDoc->GetViewIfExist( RUNTIME_CLASS(CSListView) ) )
 		pStaticDoc->ShowStaticView( RUNTIME_CLASS(CSListView), TRUE );
 	SendMessage( hWnd, WM_USER_STARTUP_PROGRESS, nMin+nRange*18/30, 0 );

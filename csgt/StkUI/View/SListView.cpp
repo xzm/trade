@@ -217,39 +217,9 @@ void CSListView::ExportList( CListExportDlg * pDlg )
 	pDlg->ExportFinish( );
 }
 
-void CSListView::RemoveSortSign( )
-{
-	if( m_nColSort < 0 || m_nColSort >= m_Grid.GetColumnCount() )
-		return;
-
-	LPARAM	lParam	=	m_Grid.GetItemData( 0, m_nColSort );
-	CString	strColTitle	=	AfxGetVariantName(lParam,TRUE);
-	m_Grid.SetItemText( 0, m_nColSort, strColTitle );
-
-	m_nColSort		=	-1;
-	m_bSortAscend	=	FALSE;
-}
-
-void CSListView::SetSortSign( )
-{
-	if( m_nColSort < 0 || m_nColSort >= m_Grid.GetColumnCount() )
-		return;
-
-	CString	strPrefix, strColTitle;
-	if( m_bSortAscend )
-		strPrefix.LoadString( IDS_SLISTVIEW_UP );
-	else
-		strPrefix.LoadString( IDS_SLISTVIEW_DOWN );
-
-	LPARAM	lParam	=	m_Grid.GetItemData( 0, m_nColSort );
-	strColTitle	=	AfxGetVariantName(lParam,TRUE);
-	strColTitle	=	strPrefix + strColTitle;
-	m_Grid.SetItemText( 0, m_nColSort, strColTitle );	
-}
 
 void CSListView::SetSortVariant( UINT nVariant )
 {
-	RemoveSortSign( );
 	for( int nCol=0; nCol < m_Grid.GetColumnCount(); nCol++ )
 	{
 		LPARAM	lParam	=	m_Grid.GetItemData( 0, nCol );
@@ -257,7 +227,6 @@ void CSListView::SetSortVariant( UINT nVariant )
 		{
 			m_nColSort		=	nCol;
 			m_bSortAscend	=	FALSE;
-			SetSortSign();
 			break;
 		}
 	}

@@ -37,8 +37,6 @@ public:
 	void			GetSelectedStocks( CSPStringArray & astr );
 	void			ExportList( CListExportDlg * pDlg );
 	
-	void			RemoveSortSign( );
-	void			SetSortSign( );
 	void			SetSortVariant( UINT nVariant );
 	virtual	void	SetCurrentStatus( int nType, LPCTSTR lpszDomain, DWORD dwDate );
 	void			StoreColumnOrderArray( );
