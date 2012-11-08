@@ -270,14 +270,6 @@ void CSelectorView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
 
 	m_Grid.DeleteNonFixedRows();
 
-	// Progress
-	CMainFrame	* pMainFrame = AfxGetMainFrame();
-	if( pMainFrame )
-	{
-		pMainFrame->ShowProgressBar( );
-		pMainFrame->SetProgress( 0 );
-		pMainFrame->SetMessageText( IDS_MAINFRAME_WAITING );
-	}
 
 	CRect rectClient;
 	GetClientRect( &rectClient );
@@ -319,16 +311,8 @@ void CSelectorView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
 			while (::PeekMessage(&msg, NULL, NULL, NULL, PM_NOREMOVE) )
 				AfxGetApp()->PumpMessage();
 		}
-		if( pMainFrame )
-			pMainFrame->SetProgress( 100*i/m_container.GetSize() );
 	}
 
-	if( pMainFrame )
-	{
-		pMainFrame->SetProgress( 100 );
-		pMainFrame->HideProgressBar( );
-		pMainFrame->SetMessageText( IDS_MAINFRAME_FINISHED );
-	}
 
 	m_Grid.Invalidate( );
 }

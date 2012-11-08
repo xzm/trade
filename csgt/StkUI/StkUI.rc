@@ -218,16 +218,7 @@ BEGIN
     END
     POPUP "查看(&V)"
     BEGIN
-        POPUP "工具栏(&T)"
-        BEGIN
-            MENUITEM "常用工具条(&S)",              IDW_MAINBAR
-            MENUITEM "视图选择工具条(&V)",          IDW_VIEWBAR
-            MENUITEM "周期选择工具条(&P)",          IDW_PERIODBAR
-            MENUITEM "股票选择工具条(&T)",          IDW_SLISTBAR
-            MENUITEM "策略工具条(&R)",              IDW_SIMUBAR
-        END
         MENUITEM "常用工具栏文字标签(&E)",      ID_VIEW_MAINBARTEXT
-        MENUITEM "状态栏(&S)",                  ID_VIEW_STATUS_BAR
         MENUITEM "策略区(&W)",                  IDW_WORKSPBAR
         MENUITEM SEPARATOR
         MENUITEM "全屏显示(&F)",                ID_VIEW_FULLSCREEN
@@ -454,39 +445,6 @@ BEGIN
             MENUITEM "深证债券(&D)\t86",            ID_REALTIME_MSSZNZQ
         END
     END
-    POPUP "资讯(&I)"
-    BEGIN
-        MENUITEM "本站资讯信息(&W)",            ID_INFO_SELF
-        MENUITEM SEPARATOR
-        MENUITEM "F10资讯(&F)",                 ID_INFO_F10
-        MENUITEM SEPARATOR
-        MENUITEM "证券之星行情(&S)",            ID_INFO_STOCKSTAR
-        MENUITEM "搜狐行情(&O)",                ID_INFO_SOHU
-        MENUITEM "新浪行情(&I)",                ID_INFO_SINA
-        MENUITEM "网易行情(&E)",                ID_INFO_163
-        MENUITEM SEPARATOR
-        MENUITEM "上海证券交易所(&H)",          ID_INFO_SHSE
-        MENUITEM "深圳证券交易所(&Z)",          ID_INFO_SZSE
-        MENUITEM "香港交易所(&K)",              ID_INFO_HKEX
-        MENUITEM "伦敦证券交易所(&L)",          ID_INFO_LSE
-        MENUITEM "纽约证券交易所(&Y)",          ID_INFO_NYSE
-        MENUITEM "纳斯达克股票市场(&A)",        ID_INFO_NASDAQ
-        MENUITEM SEPARATOR
-        MENUITEM "证券时报(&P)",                ID_INFO_P5W
-        MENUITEM "上海证券报(&C)",              ID_INFO_SSNEWS
-        MENUITEM "中国证券报(&U)",              ID_INFO_CS
-    END
-    POPUP "数据(&D)"
-    BEGIN
-        MENUITEM "历史数据下载(&H)...",         ID_DATA_DOWNLOAD
-        MENUITEM "指定本地数据源(&S)...",       ID_DATA_DATASOURCE
-        MENUITEM SEPARATOR
-        MENUITEM "数据管理(&M)...",             ID_DATA_MANAGE
-        MENUITEM "K线数据导出(&E)...",          ID_DATA_EXPORT
-        MENUITEM SEPARATOR
-        MENUITEM "重新计算年平均收益率和β值(&R)...", 
-                                                ID_DATA_RECALCULATEYIELD
-    END
     POPUP "工具(T)"
     BEGIN
         MENUITEM "交易(&T)...\tF12",            ID_TOOL_TRADER
@@ -523,7 +481,7 @@ BEGIN
         MENUITEM "声明(&D)...",                 ID_HELP_DECLARE
         MENUITEM "产品信息网站(&S)...",         ID_HELP_PRODUCT
         MENUITEM SEPARATOR
-        MENUITEM "关于 策略为王证券分析系统(&A)...", ID_APP_ABOUT
+        MENUITEM "关于 富易(&A)...",            ID_APP_ABOUT
     END
 END
 
@@ -1060,8 +1018,8 @@ END
 
 IDD_ABOUTBOX DIALOGEX 0, 0, 272, 255
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "关于策略为王证券分析系统"
-FONT 9, "宋体", 0, 0, 0x1
+CAPTION "关于国泰君安富易"
+FONT 9, "宋体"
 BEGIN
     DEFPUSHBUTTON   "确定",IDOK,196,219,50,14,BS_FLAT
     CTEXT           "The URL of Product",IDC_URL_ADDRESS,35,85,201,9
@@ -4628,7 +4586,7 @@ BEGIN
     IDS_SLISTVIEW_SHB       "沪B"
     IDS_SLISTVIEW_BOND      "债券"
     IDS_SLISTVIEW_FUND      "基金"
-    IDS_SLISTVIEW_SELF      "自选"
+    IDS_SLISTVIEW_SELF      "资产"
     IDS_SLISTVIEW_GROUP     "分组^"
     IDS_SLISTVIEW_DOMAIN    "板块^"
 END

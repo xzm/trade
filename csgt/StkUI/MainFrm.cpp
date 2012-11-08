@@ -579,7 +579,7 @@ BOOL CMainFrame::CreateSListBar( )
 
 	m_wndSListBar.SetButtonDropDown( ID_SLISTBAR_GROUP, m_wndSListBar.CommandToIndex(ID_SLISTBAR_GROUP), IDR_MENU_SLISTBARGROUP);
 	m_wndSListBar.SetButtonDropDown( ID_SLISTBAR_DOMAIN, m_wndSListBar.CommandToIndex(ID_SLISTBAR_DOMAIN), IDR_MENU_SLISTBARDOMAIN);
-	m_wndSListBar.SetButtonDropDown( ID_SLISTBAR_CLASS, m_wndSListBar.CommandToIndex(ID_SLISTBAR_CLASS), IDR_MENU_SLISTBARCLASS);
+//	m_wndSListBar.SetButtonDropDown( ID_SLISTBAR_CLASS, m_wndSListBar.CommandToIndex(ID_SLISTBAR_CLASS), IDR_MENU_SLISTBARCLASS);
 
 
 	// The ID of the ComboBox is important for two reasons.  One, so you
@@ -666,41 +666,6 @@ BOOL CMainFrame::CreateSimuBar( )
 	*/
 }
 
-BOOL CMainFrame::CreateStatusBar( )
-{
-	if (!m_wndStatusBar.Create(this) ||
-		!m_wndStatusBar.SetIndicators(indicators,
-		  sizeof(indicators)/sizeof(UINT)))
-	{
-		TRACE0("Failed to create status bar\n");
-		return FALSE;      // fail to create
-	}
-
-	if( !m_wndProgressBar.Create( this, IDD_PROGRESS, CBRS_BOTTOM, IDW_PROGRESSBAR ) )
-	{
-		TRACE0("Failed to create progress bar\n");
-		return FALSE;      // fail to create
-	}
-	CProgressCtrl* pPrg = (CProgressCtrl*)m_wndProgressBar.GetDlgItem( IDC_PROGRESS );
-	if( pPrg != NULL )
-		pPrg->SetRange( 0, 100 );
-	HideProgressBar();
-
-	// Set Status Bar Styles
-	UINT	nID, nStyle;
-	int		cxWidth;
-	m_wndStatusBar.GetPaneInfo( 1, nID, nStyle, cxWidth );
-	m_wndStatusBar.SetPaneInfo( 1, nID, nStyle, 140  );
-	m_wndStatusBar.GetPaneInfo( 2, nID, nStyle, cxWidth );
-	m_wndStatusBar.SetPaneInfo( 2, nID, nStyle, 140  );
-	m_wndStatusBar.GetPaneInfo( 3, nID, nStyle, cxWidth );
-	m_wndStatusBar.SetPaneInfo( 3, nID, nStyle, 165  );
-	m_wndStatusBar.GetStatusBarCtrl().SetMinHeight( 20 );
-	
-	HICON	icon = AfxGetApp()->LoadIcon( IDI_INDICATOR );
-	m_wndStatusBar.GetStatusBarCtrl().SetIcon( 0,  icon );
-	return TRUE;
-}
 
 BOOL CMainFrame::CreateWorkspBar( )
 {
@@ -785,7 +750,8 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	if( !CreateMenuBar( ) || !CreateMainBar( )
 		|| !CreateViewBar( ) || !CreatePeriodBar( )
 		|| !CreateSListBar( ) || !CreateSimuBar( )
-		|| !CreateStatusBar( ) || !CreateWorkspBar( ) )
+//		|| !CreateStatusBar( ) 
+		|| !CreateWorkspBar( ) )
 	{
 		return -1;      // failed to create
 	}
@@ -828,12 +794,12 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	DockControlBarLeftOf(&m_wndPeriodBar,&m_wndViewBar);
 
 	// Bar State and Window Placement
-	ShowControlBar( &m_wndMainBar, AfxGetApp()->GetProfileInt(szBarSection,szMainBar,1), FALSE );
-	ShowControlBar( &m_wndSListBar, AfxGetApp()->GetProfileInt(szBarSection,szSListBar,0), FALSE );
-	ShowControlBar( &m_wndSimuBar, AfxGetApp()->GetProfileInt(szBarSection,szSimuBar,0), FALSE );
-	ShowControlBar( &m_wndWorkspBar, AfxGetApp()->GetProfileInt(szBarSection,szWorkspBar,0), FALSE );
-	ShowControlBar( &m_wndViewBar, AfxGetApp()->GetProfileInt(szBarSection,szViewBar,1), FALSE );
-	ShowControlBar( &m_wndPeriodBar, AfxGetApp()->GetProfileInt(szBarSection,szPeriodBar,1), FALSE );
+	ShowControlBar( &m_wndMainBar, FALSE, FALSE );
+	ShowControlBar( &m_wndSListBar, FALSE, FALSE );
+	ShowControlBar( &m_wndSimuBar, FALSE, FALSE );
+	ShowControlBar( &m_wndWorkspBar, FALSE, FALSE );
+	ShowControlBar( &m_wndViewBar, FALSE, FALSE );
+	ShowControlBar( &m_wndPeriodBar, FALSE, FALSE );
 	
 	/* ProfUIS Using Code
 	sProfile = _T("BarState");
@@ -901,54 +867,8 @@ void CMainFrame::ActivateFrame(int nCmdShow)
 	CGuiMDIFrame::ActivateFrame(nCmdShow);
 }
 
-void CMainFrame::ShowProgressBar()
-{
-	m_wndStatusBar.SetWindowPos( &wndBottom, 0, 0, 0, 0,
-								 SWP_NOZORDER|SWP_NOMOVE|SWP_NOSIZE|
-								 SWP_NOACTIVATE|SWP_HIDEWINDOW );
-	CRect rect;
-	GetClientRect( &rect );
-	CSize size = m_wndProgressBar.CalcFixedLayout( TRUE, TRUE );
-	rect.top = rect.bottom - size.cy;
-	m_wndProgressBar.SetWindowPos( &wndTop,//m_wndStatusBar,
-								   rect.left, 
-								   rect.top,
-								   rect.right  - rect.left,
-								   rect.bottom - rect.top, 
-								   SWP_NOACTIVATE|SWP_SHOWWINDOW );
-	m_wndProgressBar.Invalidate();
 
-	MSG		msg;
-	while (::PeekMessage(&msg, NULL, NULL, NULL, PM_NOREMOVE) )
-	{
-		AfxGetApp()->PumpMessage();
-	}
-}
 
-void CMainFrame::HideProgressBar()
-{
-	m_wndProgressBar.SetWindowPos( &wndBottom, 0, 0, 0, 0,
-								 SWP_NOZORDER|SWP_NOMOVE|SWP_NOSIZE|
-								 SWP_NOACTIVATE|SWP_HIDEWINDOW );
-
-	CRect rect;
-	GetClientRect( &rect );
-	CSize size = m_wndStatusBar.CalcFixedLayout( TRUE, TRUE );
-	rect.top = rect.bottom - size.cy;
-	m_wndStatusBar.SetWindowPos( &wndTop, 
-								rect.left, 
-								rect.top,
-								rect.Width(), 
-								rect.Height(), 
-								SWP_NOACTIVATE|SWP_SHOWWINDOW );
-	m_wndStatusBar.Invalidate();
-
-	MSG		msg;
-	while (::PeekMessage(&msg, NULL, NULL, NULL, PM_NOREMOVE) )
-	{
-		AfxGetApp()->PumpMessage();
-	}
-}
 
 void CMainFrame::ShowWorkspBar( BOOL bShow )
 {
@@ -962,40 +882,12 @@ void CMainFrame::OnToggleWorkspBar( )
 
 void CMainFrame::SetStatusMsg( LPCTSTR lpszText )
 {
-	if( m_wndStatusBar.IsWindowVisible() )
-	{
-		SetMessageText( lpszText );
-	}
-	else if( m_wndProgressBar.IsWindowVisible() )
-	{
-		CWnd *pWnd = m_wndProgressBar.GetDlgItem(IDC_MESSAGE);
-		if( pWnd )
-			pWnd->SetWindowText( lpszText );
-	}
+
 }
 
 void CMainFrame::SetProgress( int nPercent )
 {
-	if( m_wndProgressBar.IsWindowVisible() )
-	{
-		CProgressCtrl* pPrg = (CProgressCtrl*)m_wndProgressBar.GetDlgItem( IDC_PROGRESS );
-		if( pPrg != NULL )
-			pPrg->SetPos( nPercent );
-	}
-	else if( m_wndStatusBar.IsWindowVisible() )
-	{
-		CString	string;
-		int	maxcount = nPercent/9;
-		CString	strProgress;
-		strProgress.LoadString( IDS_MAINFRAME_PROGRESS );
-		for( int i=0; i<maxcount; i++ )
-		{
-			string	+=	strProgress;
-		}
-		if( 100 == nPercent )
-			string	=	"";
-		m_wndStatusBar.SetPaneText(1,string);
-	}
+
 }
 
 void CMainFrame::DockControlBarLeftOf(CGuiToolBarWnd* Bar,CGuiToolBarWnd* LeftOf)
@@ -1224,9 +1116,7 @@ void CMainFrame::OnTimer(UINT nIDEvent)
 {
 	if( TIMER_TIME == nIDEvent )
 	{
-		CSPTime	time	=	CSPTime::GetCurrentTime();
-		CString	string	=	(LPCTSTR)AfxGetTimeString( time.GetTime(), "%b %d,%Y %H:%M:%S,", TRUE );
-		m_wndStatusBar.SetPaneText( 3, string );
+
 	}
 	else if( TIMER_STOCKINDEXREFRESH == nIDEvent )
 	{
@@ -1249,15 +1139,11 @@ void CMainFrame::OnTimer(UINT nIDEvent)
 		{
 			info.GetDiff(&dDiff,info.m_datetech,1);
 			string.Format( strSHTipFmt, info.m_fClose, dDiff, info.m_fAmount/dDevided );
-			// m_wndStatusBar.SetPaneColor( dDiff > 0 ? clrRise : clrFall );
-			m_wndStatusBar.SetPaneText( 1, string );
 		}
 		if( AfxGetStockContainer().GetStockInfo( STKLIB_CODE_SZNCZ, &info ) )
 		{
 			info.GetDiff(&dDiff,info.m_datetech,1);
 			string.Format( strSZTipFmt, info.m_fClose, dDiff, info.m_fAmount/dDevided );
-			// m_wndStatusBar.SetPaneColor( dDiff > 0 ? clrRise : clrFall );
-			m_wndStatusBar.SetPaneText( 2, string );
 		}
 
 		PostMessage( WM_APP_STKRECEIVER_ALARM, STKRCV_ALARM_REFRESH, 0 );
@@ -1868,8 +1754,6 @@ void CMainFrame::OnViewFullscreen()
 			OnBarCheck( IDW_SLISTBAR );
 		if( m_fullScreen.bSimuBar && !m_wndSimuBar.IsWindowVisible() )
 			OnBarCheck( IDW_SIMUBAR );
-		if( m_fullScreen.bStatusBar && !m_wndStatusBar.IsWindowVisible() )
-			OnBarCheck( AFX_IDW_STATUS_BAR );
 		if( m_fullScreen.bWorkspBar && !m_wndWorkspBar.IsWindowVisible() )
 			OnToggleWorkspBar( );
 
@@ -1910,11 +1794,6 @@ void CMainFrame::OnViewFullscreen()
 //			m_fullScreen.bSimuBar = 1;
 //			OnBarCheck( IDW_SIMUBAR );
 //		}
-		if( m_wndStatusBar.IsWindowVisible() )
-		{
-			m_fullScreen.bStatusBar = 1;
-			OnBarCheck( AFX_IDW_STATUS_BAR );
-		}
 		if( m_wndWorkspBar.IsWindowVisible() )
 		{
 			m_fullScreen.bWorkspBar = 1;
@@ -2915,7 +2794,7 @@ void CMainFrame::OnOptionAddtostrategy( )
 }
 
 void CMainFrame::OnUpdateOptionAddtostrategy(CCmdUI* pCmdUI) 
-{
+{/*
 	CView * pView = AfxGetStaticDoc()->GetActiveView();
 	if( pView && pView->IsKindOf(RUNTIME_CLASS(CSListView)) )
 	{
@@ -2940,7 +2819,7 @@ void CMainFrame::OnUpdateOptionAddtostrategy(CCmdUI* pCmdUI)
 	else
 	{
 		pCmdUI->Enable( FALSE );
-	}
+	}*/
 }
 
 // СЎПо

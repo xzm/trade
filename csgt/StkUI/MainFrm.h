@@ -66,11 +66,11 @@ public:
 	BOOL	CreatePeriodBar( );
 	BOOL	CreateSListBar( );
 	BOOL	CreateSimuBar( );
-	BOOL	CreateStatusBar( );
+
 	BOOL	CreateWorkspBar( );
 
-	void	ShowProgressBar( );
-	void	HideProgressBar( );
+	//void	ShowProgressBar( );
+	//void	HideProgressBar( );
 	void	ShowWorkspBar( BOOL bShow = TRUE );
 	void	SetStatusMsg( LPCTSTR lpszText );
 	void	SetProgress( int nPercent );
@@ -115,7 +115,7 @@ protected:
 	CTextToolBar	m_wndSListBar;
 	CGuiToolBarWnd	m_wndSimuBar;
 	// CStatusBar	m_wndStatusBar;
-	CDialogBar		m_wndProgressBar;
+	//CDialogBar		m_wndProgressBar;
 
 	//CImageList	m_ImageWorkspBox;
 	//CImageList	m_ImageWorkspTab;

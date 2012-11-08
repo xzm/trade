@@ -48,7 +48,7 @@ public:
 	void			OnDblclkItem( int nStockIndex );
 
 	// ÐÐÇéË¢ÐÂ
-	void			StockInfoChanged( LONG id, CStockInfo & info );
+	//void			StockInfoChanged( LONG id, CStockInfo & info );
 	void			SendRequestQuote( BOOL bForced );
 
 // Overrides
@@ -106,7 +106,6 @@ protected:
 	afx_msg LRESULT OnGetViewTitle( WPARAM wParam, LPARAM lParam );
 	afx_msg LRESULT OnGetViewCmdid( WPARAM wParam, LPARAM lParam );
 	afx_msg LRESULT OnColorChange( WPARAM wParam, LPARAM lParam );
-	afx_msg LRESULT OnStkReceiverData( WPARAM wParam, LPARAM lParam );
 	DECLARE_MESSAGE_MAP()
 };
 

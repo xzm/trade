@@ -54,7 +54,6 @@ BEGIN_MESSAGE_MAP(CSListView, CFormView)
 	ON_MESSAGE(WM_USER_GETVIEWTITLE, OnGetViewTitle)
 	ON_MESSAGE(WM_USER_GETVIEWCMDID, OnGetViewCmdid)
 	ON_MESSAGE(WM_USER_COLORCHANGE, OnColorChange)
-	ON_MESSAGE(WM_APP_STKRECEIVER_DATA, OnStkReceiverData)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -473,31 +472,6 @@ void CSListView::OnDblclkItem( int nStockIndex )
 	*/
 }
 
-void CSListView::StockInfoChanged( LONG infoid, CStockInfo & info )
-{
-	CStockContainer & container = AfxGetSListStockContainer();
-
-	container.Lock();
-
-	// update grid value
-	for( int nRow=m_Grid.GetRowCount()-1; nRow >= 0; nRow-- )
-	{
-		LPARAM	id	=	m_Grid.GetItemData(nRow,0);
-		if( id == infoid )
-		{
-			for( int nCol=0; nCol<m_Grid.GetColumnCount(); nCol++ )
-			{
-				LPARAM lParam = m_Grid.GetItemData(0,nCol);
-				m_Grid.SetItemText( nRow, nCol, AfxGetVariantDispString( lParam, info, &container ) );
-				m_Grid.SetItemFgColour( nRow, nCol, AfxGetVariantColor( lParam, info ) );
-			}
-			m_Grid.RedrawRow( nRow );
-			break;
-		}
-	}
-
-	container.UnLock();
-}
 
 void CSListView::SendRequestQuote( BOOL bForced )
 {
@@ -765,13 +739,6 @@ void CSListView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
 	m_Grid.DeleteNonFixedRows();
 
 	// Progress
-	CMainFrame	* pMainFrame = AfxGetMainFrame();
-	if( pMainFrame )
-	{
-		pMainFrame->ShowProgressBar( );
-		pMainFrame->SetProgress( 0 );
-		pMainFrame->SetMessageText( IDS_MAINFRAME_WAITING );
-	}
 
 	CUIntArray	anParams;
 	anParams.SetSize( 0, nColumnCount );
@@ -885,13 +852,6 @@ void CSListView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
 	 }
 
 
-	if( pMainFrame )
-	{
-		pMainFrame->SetProgress( 100 );
-		pMainFrame->HideProgressBar( );
-		pMainFrame->SetMessageText( IDS_MAINFRAME_FINISHED );
-		pMainFrame->SetMessageText( IDS_HELPTIP_SLIST );
-	}
 
 	if( m_bFirstUpdate )
 		m_Grid.AutoSizeColumns( );
@@ -1055,12 +1015,13 @@ void CSListView::OnSelchangeWorktab(NMHDR* pNMHDR, LRESULT* pResult)
 	switch( nCur )
 	{
 	case SL_WORKTAB_CLASS:
+		/*
 		if( menu.LoadMenu( IDR_MENU_SLISTBARCLASS ) )
 		{
 			CMenu* pPopupMenu = menu.GetSubMenu(0);
 			if( pPopupMenu )
 				pPopupMenu->TrackPopupMenu(TPM_LEFTALIGN | TPM_BOTTOMALIGN | TPM_LEFTBUTTON , rect.left+3, rect.top+6, AfxGetMainFrame() );
-		}
+		}*/
 		break;
 	case SL_WORKTAB_A:
 		SetCurrentStatus( CStockContainer::typeA, NULL, -1 );
@@ -1125,7 +1086,7 @@ LRESULT CSListView::OnGetViewCmdid(WPARAM wParam, LPARAM lParam)
 }
 
 LRESULT CSListView::OnColorChange(WPARAM wParam, LPARAM lParam)
-{
+{/*
 	m_wndWorkTab.SetSelectTabColor( AfxGetProfile().GetColor(CColorClass::clrSListBK),
 									AfxGetProfile().GetColor(CColorClass::clrTitle) );
 	m_wndWorkTab.Invalidate( );
@@ -1134,67 +1095,7 @@ LRESULT CSListView::OnColorChange(WPARAM wParam, LPARAM lParam)
 	m_Grid.SetTextBkColor( AfxGetProfile().GetColor(CColorClass::clrSListBK) );
 	m_Grid.SetSelectedBkColor(AfxGetProfile().GetColor(CColorClass::clrSListSelected));
 
-	OnUpdate( NULL, UPDATE_HINT_SLISTVIEW, NULL );
-	return 0L;
-}
-
-LRESULT CSListView::OnStkReceiverData(WPARAM wParam, LPARAM lParam)
-{
-	PCOMMPACKET	pCommPacket	=	(PCOMMPACKET)lParam;
-
-	switch( wParam )
-	{
-	case CStock::dataReport:
-		if( pCommPacket && CStock::dataReport == pCommPacket->m_dwDataType 
-			&& pCommPacket->m_dwCount > 0 )
-		{
-			CStockContainer & container = AfxGetSListStockContainer();
-			// 如果当前股票列表显示的日期不是今天的，返回，不做刷新
-			DWORD	dwDate = -1;;
-			AfxGetSListStockContainer().GetCurrentType(NULL,NULL,&dwDate);
-			if( -1 != dwDate && dwDate != CSPTime(pCommPacket->m_pReport[0].m_time).ToStockTimeDay() )
-				return 0L;
-
-			container.Lock();
-
-			// 刷新数据
-			BOOL	bNeedReSort	=	FALSE;
-			for( DWORD i=0; i<pCommPacket->m_dwCount; i++ )
-			{
-				int	id = 0;
-				if( container.GetStockInfo( pCommPacket->m_pReport[i].m_szCode, NULL, &id ) )
-				{
-					CStockInfo	& info	=	container.ElementAt(id);
-					UpdateStockInfoByREPORT( info, &(pCommPacket->m_pReport[i]) );
-					StockInfoChanged( id, info );
-					bNeedReSort	=	TRUE;
-				}
-			}
-
-			// 统计平均值刷新
-			if( bNeedReSort )
-			{
-				container.SetAverage( );
-				SetAverageItem( m_Grid, container, TRUE );
-			}
-
-			// 重新排序
-			if( -1 != m_nColSort && bNeedReSort )
-			{
-				LPARAM	lParam	=	m_Grid.GetItemData( 0, m_nColSort );
-				if( lParam >= 0 )
-				{
-					CStockContainer::m_pSortContainer	=	&container;
-					container.m_nSortVariantID	=	lParam;
-					container.m_bSortAscend		=	m_bSortAscend;
-					m_Grid.SortItems( ItemCompareFunc, 0, TRUE );
-				}
-				m_Grid.Invalidate( );
-			}
-			container.UnLock();
-		}
-		break;
-	}
+	OnUpdate( NULL, UPDATE_HINT_SLISTVIEW, NULL );*/
 	return 0L;
 }
 

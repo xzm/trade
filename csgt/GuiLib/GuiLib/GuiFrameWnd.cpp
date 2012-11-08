@@ -186,13 +186,6 @@ int CGuiFrameWnd::InitMenu(UINT uIDMenu)
 
 int CGuiFrameWnd::InitStatusBar(const UINT* lpIDArray,int nSize)
 {
-	if (!m_wndStatusBar.Create(this) ||
-		!m_wndStatusBar.SetIndicators(lpIDArray,
-		  nSize))
-	{
-		TRACE0("Failed to create status bar\n");
-		return -1;      // fail to create
-	}
 	return 0;
 }
 

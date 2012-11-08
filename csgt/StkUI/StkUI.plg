@@ -3,57 +3,11 @@
 <pre>
 <h1>Build Log</h1>
 <h3>
---------------------Configuration: StkNet - Win32 Debug--------------------
-</h3>
-<h3>Command Lines</h3>
-Creating temporary file "C:\Users\xzm\AppData\Local\Temp\RSP89C5.tmp" with contents
-[
-/nologo /MDd /W3 /Gm /GX /ZI /Od /I "../Include" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_AFXEXT" /D "STKNET_DLL" /FR"Debug/" /Fp"Debug/StkNet.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
-"D:\buffer\xslibrary\myclient\csgt\StkNet\Src\StartupDlg.cpp"
-]
-Creating command line "cl.exe @C:\Users\xzm\AppData\Local\Temp\RSP89C5.tmp" 
-Creating temporary file "C:\Users\xzm\AppData\Local\Temp\RSP89C6.tmp" with contents
-[
-/nologo /subsystem:windows /dll /profile /debug /machine:I386 /def:".\StkNet.def" /out:"../../StkUI/Debug/StkNet30d.dll" /implib:"../Lib/StkNet30d.lib" /libpath:"../../StkLib/Lib" /libpath:"../../GuiLib/Lib" 
-.\Debug\AfxCore.obj
-.\Debug\base64.obj
-.\Debug\EditSrvDlg.obj
-.\Debug\HttpClt.obj
-.\Debug\InfoZip.obj
-.\Debug\Markup.obj
-.\Debug\NetDB.obj
-.\Debug\ProxySetDlg.obj
-.\Debug\ProxySocket.obj
-.\Debug\QSProfile.obj
-.\Debug\Secret.obj
-.\Debug\StartupDlg.obj
-.\Debug\StdAfx.obj
-.\Debug\StkNet.obj
-.\Debug\Strings.obj
-.\Debug\XMLDoc.obj
-.\Debug\Yongxin.obj
-.\Debug\SelectEngineDlg.obj
-.\Debug\StkReceiver.obj
-.\Debug\Base64Helper.obj
-.\Debug\SMailer.obj
-.\Debug\STKDRV.obj
-.\Debug\STKDRVContainer.obj
-.\Debug\Tongshi.obj
-.\Debug\StkNet.res
-\buffer\xslibrary\myclient\csgt\StkLib\Lib\StkLib30d.lib
-\buffer\xslibrary\myclient\csgt\GUILib\Lib\GuiLib.lib
-]
-Creating command line "link.exe @C:\Users\xzm\AppData\Local\Temp\RSP89C6.tmp"
-<h3>Output Window</h3>
-Compiling...
-StartupDlg.cpp
-Linking...
-   Creating library ../Lib/StkNet30d.lib and object ../Lib/StkNet30d.exp
-<h3>
 --------------------Configuration: StkUI - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\Users\xzm\AppData\Local\Temp\RSPA5B0.tmp" with contents
+Creating command line "rc.exe /l 0x804 /fo"Debug/StkUI.res" /d "_DEBUG" /d "_AFXDLL" /d "AFX_RESOURCE_DLL" /d "AFX_TARG_CHS" "D:\buffer\xslibrary\myclient\csgt\StkUI\StkUI.rc"" 
+Creating temporary file "C:\Users\xzm\AppData\Local\Temp\RSP1776.tmp" with contents
 [
 htmlhelp/htmlhelp.lib /nologo /subsystem:windows /profile /debug /machine:I386 /out:"Debug/StockAna.exe" /libpath:"../StkLib/Lib" /libpath:"../StkNet/Lib" /libpath:"../ProfUIS/Bin" /libpath:"../GuiLib/Lib" /libpath:"../XPFace/Lib" 
 .\Debug\AfxCore.obj
@@ -181,8 +135,9 @@ htmlhelp/htmlhelp.lib /nologo /subsystem:windows /profile /debug /machine:I386 /
 \buffer\xslibrary\myclient\csgt\XPFace\Lib\XPFaced.lib
 \buffer\xslibrary\myclient\csgt\NetTS\Debug\NetTS.lib
 ]
-Creating command line "link.exe @C:\Users\xzm\AppData\Local\Temp\RSPA5B0.tmp"
+Creating command line "link.exe @C:\Users\xzm\AppData\Local\Temp\RSP1776.tmp"
 <h3>Output Window</h3>
+Compiling resources...
 Linking...
 
 
