@@ -3,6 +3,8 @@
 // Used by StkUI.rc
 //
 #define IDD_ABOUTBOX                    100
+#define IDD_SLIST_FORM1                 103
+#define IDR_SRECORDVIEW_TMPL            104
 #define IDR_MAINFRAME                   128
 #define IDR_SIMTYPE                     129
 #define IDD_SETGROUP                    130
@@ -1166,6 +1168,6 @@
 #define _APS_NEXT_RESOURCE_VALUE        293
 #define _APS_NEXT_COMMAND_VALUE         34592
 #define _APS_NEXT_CONTROL_VALUE         1325
-#define _APS_NEXT_SYMED_VALUE           101
+#define _APS_NEXT_SYMED_VALUE           105
 #endif
 #endif

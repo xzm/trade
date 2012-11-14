@@ -829,7 +829,7 @@ void CSListView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
 	m_bFirstUpdate	=	FALSE;
 	m_Grid.Invalidate( );
 
-	SendRequestQuote(TRUE);
+	//SendRequestQuote(TRUE);
 
 	container.UnLock();
 }
@@ -926,9 +926,9 @@ int CSListView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	SetFont( &lf );
 
 	// 实时行情刷新
-	AfxGetStkReceiver().AddRcvDataWnd( GetSafeHwnd() );
+	//AfxGetStkReceiver().AddRcvDataWnd( GetSafeHwnd() );
 
-	SetTimer( SLV_TIMER_REFRESH, 20000, NULL );
+	//SetTimer( SLV_TIMER_REFRESH, 20000, NULL );
 	
 	return 0;
 }
@@ -936,10 +936,10 @@ int CSListView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 void CSListView::OnDestroy() 
 {
 	// 停止行情刷新通知消息
-	AfxGetStkReceiver().RemoveRcvDataWnd( GetSafeHwnd() );
-	KillTimer( SLV_TIMER_REFRESH );
+	//AfxGetStkReceiver().RemoveRcvDataWnd( GetSafeHwnd() );
+	//KillTimer( SLV_TIMER_REFRESH );
 
-	StoreColumnOrderArray( );
+	//StoreColumnOrderArray( );
 
 	CFormView::OnDestroy();
 }

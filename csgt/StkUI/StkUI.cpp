@@ -20,6 +20,7 @@
 #include "Dialog/SimuRealOp.h"
 #include "Dialog/CloseStrategyDlg.h"
 
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -151,6 +152,10 @@ BOOL CALLBACK LoadProgram( HWND hWnd, int nMinProgress, int nMaxProgress )
 	if( !pStaticDoc->GetViewIfExist( RUNTIME_CLASS(CSListView) ) )
 		pStaticDoc->ShowStaticView( RUNTIME_CLASS(CSListView), TRUE );
 	SendMessage( hWnd, WM_USER_STARTUP_PROGRESS, nMin+nRange*18/30, 0 );
+
+	if( !pStaticDoc->GetViewIfExist( RUNTIME_CLASS(CSRecordView) ) )
+		pStaticDoc->ShowStaticView( RUNTIME_CLASS(CSRecordView), TRUE );
+	SendMessage( hWnd, WM_USER_STARTUP_PROGRESS, nMin+nRange*18/30, 0 );
 	/*
 	if( !pStaticDoc->GetViewIfExist( RUNTIME_CLASS(CRealTimeView) ) )
 		pStaticDoc->ShowStaticView( RUNTIME_CLASS(CRealTimeView), TRUE );
@@ -208,6 +213,7 @@ TCHAR	szRegKeyAppOld[]		=	_T("StockAna");
 
 BOOL CStkUIApp::InitInstance()
 {
+
 	// Standard initialization
 	// If you are not using these features and wish to reduce the size
 	//  of your final executable, you should remove from the following

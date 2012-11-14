@@ -9,6 +9,7 @@
 #include "View/WizardView.h"
 #include "View/SimuView.h"
 #include "View/SListView.h"
+#include "SRecordView.h"
 #include "View/RealTimeView.h"
 #include "View/MultiSortView.h"
 #include "View/GraphView.h"

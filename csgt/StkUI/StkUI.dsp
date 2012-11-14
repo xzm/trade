@@ -166,6 +166,10 @@ SOURCE=.\SListCombos.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\SRecordView.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\StaticDoc.cpp
 # End Source File
 # Begin Source File
@@ -208,6 +212,10 @@ SOURCE=.\Resource.h
 # Begin Source File
 
 SOURCE=.\SListCombos.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\SRecordView.h
 # End Source File
 # Begin Source File
 
@@ -1363,6 +1371,10 @@ SOURCE=.\res\periodba.bmp
 # Begin Source File
 
 SOURCE=.\res\prjview_.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\sdi.ico
 # End Source File
 # Begin Source File
 

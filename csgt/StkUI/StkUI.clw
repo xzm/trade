@@ -2,13 +2,13 @@
 
 [General Info]
 Version=1
-LastClass=CMainFrame
-LastTemplate=CDialog
+LastClass=CSRecordView
+LastTemplate=CFormView
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "stkui.h"
 LastPage=0
 
-ClassCount=116
+ClassCount=117
 Class1=CChildFrame
 Class2=CAlarmResultDlg
 Class3=CAlarmSettingDlg
@@ -126,249 +126,252 @@ Class114=CStrategyView
 Class115=CTechsView
 Class116=CWizardView
 
-ResourceCount=242
-Resource1=IDD_SETCOLOR (English (U.S.))
-Resource2=IDD_SIMUSTAT (English (U.S.))
-Resource3=IDD_SIMUADDOP (English (U.S.))
-Resource4=IDD_SIMUADDSTOCK (English (U.S.))
-Resource5=IDD_FILTERINFO (English (U.S.))
-Resource6=IDDP_MACD (English (U.S.))
-Resource7=IDDP_MIKE (English (U.S.))
-Resource8=IDDP_PSY (English (U.S.))
-Resource9=IDDP_VOLUME (English (U.S.))
-Resource10=IDDP_NVI (English (U.S.))
-Resource11=IDDP_BIAS (English (U.S.))
-Resource12=IDDP_MTM (English (U.S.))
-Resource13=IDDP_DMI (English (U.S.))
-Resource14=IDDP_ROC (English (U.S.))
-Resource15=IDDP_CCI (English (U.S.))
-Resource16=IDDP_CV (English (U.S.))
-Resource17=IDDP_ARBR (English (U.S.))
-Resource18=IDDP_CR (English (U.S.))
-Resource19=IDDP_OSC (English (U.S.))
-Resource20=IDDP_UOS (English (U.S.))
-Resource21=IDDP_MAOSC (English (U.S.))
-Resource22=IDDP_36BIAS (English (U.S.))
-Resource23=IDDP_DPO (English (U.S.))
-Resource24=IDDP_KST (English (U.S.))
-Resource25=IDDP_REI (English (U.S.))
-Resource26=IDDP_DMKI (English (U.S.))
-Resource27=IDDP_PCNT (English (U.S.))
-Resource28=IDDP_PVI (English (U.S.))
-Resource29=IDDP_VR (English (U.S.))
-Resource30=IDDP_VROC (English (U.S.))
-Resource31=IDDP_OBV (English (U.S.))
-Resource32=IDDP_MOBV (English (U.S.))
-Resource33=IDDP_RSI (English (U.S.))
-Resource34=IDDP_VMACD (English (U.S.))
-Resource35=IDDP_WVAD (English (U.S.))
-Resource36=IDDP_EMV (English (U.S.))
-Resource37=IDDP_VRSI (English (U.S.))
-Resource38=IDDP_NVRSI (English (U.S.))
-Resource39=IDDP_AD (English (U.S.))
-Resource40=IDDP_CI (English (U.S.))
-Resource41=IDDP_KDJ (English (U.S.))
-Resource42=IDDP_R (English (U.S.))
-Resource43=IDDP_MFI (English (U.S.))
-Resource44=IDDP_HLC (English (U.S.))
-Resource45=IDDP_CDP (English (U.S.))
-Resource46=IDDP_ASI (English (U.S.))
-Resource47=IDDP_ATR (English (U.S.))
-Resource48=IDD_SIMUADVANCED (English (U.S.))
-Resource49=IDDP_CYO (English (U.S.))
-Resource50=IDDP_DCYO (English (U.S.))
-Resource51=IDDP_HSL (English (U.S.))
-Resource52=IDDP_DPER
-Resource53=IDD_AUTOUPGRADE (English (U.S.))
-Resource54=IDD_REGISTER (English (U.S.))
-Resource55=IDD_TYDATA
-Resource56=IDD_SELECTTRADER (English (U.S.))
-Resource57=IDD_SETBASE (English (U.S.))
-Resource58=IDD_SLIST_FORM (English (U.S.))
-Resource59=IDD_SETBASEDATA (English (U.S.))
-Resource60=IDD_SETKDATA (English (U.S.))
-Resource61=IDD_CACHELOAD (English (U.S.))
-Resource62=IDD_QUOTETIP (English (U.S.))
-Resource63=IDD_ALARMTIP (English (U.S.))
-Resource64=IDD_ALARMRESULT (English (U.S.))
-Resource65=IDD_ALARMSETTING (English (U.S.))
-Resource66=IDD_REGAPPLYEVA (English (U.S.))
-Resource67=IDR_PERIODBAR
-Resource68=IDR_SLISTBAR
-Resource69=IDR_VIEWBAR
-Resource70=IDR_SIMUBAR
-Resource71=IDR_MAINBAR
-Resource72=IDR_MAINBAR (English (U.S.))
-Resource73=IDR_PERIODBAR (English (U.S.))
-Resource74=IDR_SIMUBAR (English (U.S.))
-Resource75=IDR_SLISTBAR (English (U.S.))
-Resource76=IDR_VIEWBAR (English (U.S.))
-Resource77=IDR_MAINFRAME
-Resource78=IDR_MENU_MAINBARSETTING (English (U.S.))
-Resource79=IDR_MENU_MAINBARVIEW (English (U.S.))
-Resource80=IDR_MENU_MAINBARTECH (English (U.S.))
-Resource81=IDR_MENU_MAINBARPERIOD (English (U.S.))
-Resource82=IDR_POPUP_SLISTVIEW (English (U.S.))
-Resource83=IDR_POPUP_GRAPHVIEW (English (U.S.))
-Resource84=IDR_MENU_SLISTBARCLASS (English (U.S.))
-Resource85=IDR_MENU_SLISTBARGROUP (English (U.S.))
-Resource86=IDR_MENU_SLISTBARDOMAIN (English (U.S.))
-Resource87=IDR_POPUP_WIZARDVIEWLISTTYPE (English (U.S.))
-Resource88=IDR_POPUP_WIZARDVIEW (English (U.S.))
-Resource89=IDR_POPUP_SIMUVIEW (English (U.S.))
-Resource90=IDR_POPUP_BASEVIEW (English (U.S.))
-Resource91=IDR_POPUP_SETTING (English (U.S.))
-Resource92=IDR_POPUP_REALTIMEVIEW (English (U.S.))
-Resource93=IDD_SETKDATA
-Resource94=IDR_MENU_MAINBARSETTING
-Resource95=IDR_MENU_MAINBARVIEW
-Resource96=IDR_MENU_MAINBARTECH
-Resource97=IDR_MENU_MAINBARPERIOD
-Resource98=IDR_POPUP_SLISTVIEW
-Resource99=IDR_POPUP_GRAPHVIEW
-Resource100=IDD_SELECTOR_FORM
-Resource101=IDR_MENU_SLISTBARGROUP
-Resource102=IDR_MENU_SLISTBARDOMAIN
-Resource103=IDR_POPUP_WIZARDVIEWLISTTYPE
-Resource104=IDR_POPUP_WIZARDVIEW
-Resource105=IDR_POPUP_SIMUVIEW
-Resource106=IDR_POPUP_BASEVIEW
-Resource107=IDR_POPUP_SETTING
-Resource108=IDR_POPUP_REALTIMEVIEW
-Resource109=IDR_POPUP_MULTISORTVIEW
-Resource110=IDR_MAINFRAME (English (U.S.))
-Resource111=IDD_WIZARD_FORM
-Resource112=IDD_PROGRESS
-Resource113=IDD_ABOUTBOX
-Resource114=IDD_SETPRPT
-Resource115=IDD_CLOSESTRATEGYDLG (English (U.S.))
-Resource116=IDD_DOWNLOAD
-Resource117=IDD_INSTALLPACKAGE
-Resource118=IDD_DATASOURCE
-Resource119=IDD_SETCOLUMN
-Resource120=IDD_BASEINDEX
-Resource121=IDD_LISTEXPORT
-Resource122=IDD_SETGROUP
-Resource123=IDD_SELECTGRP
-Resource124=IDD_SELECTSTK
-Resource125=IDD_EXPORTDEST
-Resource126=IDD_EXPORTOPTION
-Resource127=IDD_SETDRDATA
-Resource128=IDD_NETINFO
-Resource129=IDD_SETPARAM
-Resource130=IDDP_MA
-Resource131=IDDP_BBI
-Resource132=IDDP_BOLL
-Resource133=IDDP_MAOSC
-Resource134=IDDP_SAR
-Resource135=IDDP_DJ
-Resource136=IDDP_CW
-Resource137=IDD_SIMU_FORM
-Resource138=IDDP_DMKI
-Resource139=IDD_SETRATE
-Resource140=IDDP_REI
-Resource141=IDD_SIMUREPORT
-Resource142=IDD_SIMUREALOP
-Resource143=IDD_SETCOLOR
-Resource144=IDD_SIMUSTAT
-Resource145=IDD_SIMUADDOP
-Resource146=IDD_SIMUADDSTOCK
-Resource147=IDDP_HSL
-Resource148=IDDP_MACD
-Resource149=IDDP_MIKE
-Resource150=IDDP_PSY
-Resource151=IDDP_VOLUME
-Resource152=IDDP_NVI
-Resource153=IDDP_PVI
-Resource154=IDDP_VR
-Resource155=IDDP_VROC
-Resource156=IDDP_OBV
-Resource157=IDDP_MOBV
-Resource158=IDDP_MFI
-Resource159=IDDP_VMACD
-Resource160=IDDP_WVAD
-Resource161=IDDP_EMV
-Resource162=IDDP_VRSI
-Resource163=IDDP_NVRSI
-Resource164=IDDP_AD
-Resource165=IDDP_CI
-Resource166=IDDP_KDJ
-Resource167=IDDP_R
-Resource168=IDDP_RSI
-Resource169=IDDP_BIAS
-Resource170=IDDP_MTM
-Resource171=IDDP_DMI
-Resource172=IDDP_ROC
-Resource173=IDDP_CCI
-Resource174=IDDP_CV
-Resource175=IDDP_ARBR
-Resource176=IDDP_CR
-Resource177=IDDP_OSC
-Resource178=IDDP_UOS
-Resource179=IDDP_PV
-Resource180=IDDP_36BIAS
-Resource181=IDDP_DPO
-Resource182=IDDP_KST
-Resource183=IDD_SETRULE
-Resource184=IDD_EDITKDATA
-Resource185=IDDP_PCNT
-Resource186=IDDP_HLC
-Resource187=IDDP_CDP
-Resource188=IDDP_ASI
-Resource189=IDDP_ATR
-Resource190=IDD_SIMUADVANCED
-Resource191=IDDP_CYO
-Resource192=IDR_POPUP_MULTISORTVIEW (English (U.S.))
-Resource193=IDD_FILTERINFO
-Resource194=IDDP_DPER (English (U.S.))
-Resource195=IDD_AUTOUPGRADE
-Resource196=IDD_REGISTER
-Resource197=IDD_TYDATA (English (U.S.))
-Resource198=IDD_SELECTTRADER
-Resource199=IDD_SETBASE
-Resource200=IDD_SLIST_FORM
-Resource201=IDD_SETBASEDATA
-Resource202=IDDP_DCYO
-Resource203=IDD_CACHELOAD
-Resource204=IDD_QUOTETIP
-Resource205=IDD_ALARMTIP
-Resource206=IDD_ALARMSETTING
-Resource207=IDD_ALARMRESULT
-Resource208=IDD_REGAPPLYEVA
-Resource209=IDR_MENU_SLISTBARCLASS
-Resource210=IDD_WIZARD_FORM (English (U.S.))
-Resource211=IDD_PROGRESS (English (U.S.))
-Resource212=IDD_ABOUTBOX (English (U.S.))
-Resource213=IDD_SETPRPT (English (U.S.))
-Resource214=IDD_CLOSESTRATEGYDLG
-Resource215=IDD_DOWNLOAD (English (U.S.))
-Resource216=IDD_INSTALLPACKAGE (English (U.S.))
-Resource217=IDD_DATASOURCE (English (U.S.))
-Resource218=IDD_SETCOLUMN (English (U.S.))
-Resource219=IDD_BASEINDEX (English (U.S.))
-Resource220=IDD_LISTEXPORT (English (U.S.))
-Resource221=IDD_SETGROUP (English (U.S.))
-Resource222=IDD_SELECTGRP (English (U.S.))
-Resource223=IDDP_SAR (English (U.S.))
-Resource224=IDD_EXPORTDEST (English (U.S.))
-Resource225=IDD_EXPORTOPTION (English (U.S.))
-Resource226=IDD_SETDRDATA (English (U.S.))
-Resource227=IDD_NETINFO (English (U.S.))
-Resource228=IDD_SETPARAM (English (U.S.))
-Resource229=IDD_SETRULE (English (U.S.))
-Resource230=IDDP_BBI (English (U.S.))
-Resource231=IDDP_BOLL (English (U.S.))
-Resource232=IDDP_PV (English (U.S.))
-Resource233=IDD_SELECTSTK (English (U.S.))
-Resource234=IDDP_DJ (English (U.S.))
-Resource235=IDDP_CW (English (U.S.))
-Resource236=IDD_SIMU_FORM (English (U.S.))
-Resource237=IDD_EDITKDATA (English (U.S.))
-Resource238=IDD_SETRATE (English (U.S.))
-Resource239=IDDP_MA (English (U.S.))
-Resource240=IDD_SIMUREPORT (English (U.S.))
-Resource241=IDD_SIMUREALOP (English (U.S.))
-Resource242=IDD_SELECTOR_FORM (English (U.S.))
+ResourceCount=244
+Resource1=IDR_MENU_SLISTBARCLASS (English (U.S.))
+Resource2=IDR_MENU_SLISTBARGROUP (English (U.S.))
+Resource3=IDR_MENU_SLISTBARDOMAIN (English (U.S.))
+Resource4=IDR_POPUP_WIZARDVIEWLISTTYPE (English (U.S.))
+Resource5=IDR_POPUP_WIZARDVIEW (English (U.S.))
+Resource6=IDR_POPUP_SIMUVIEW (English (U.S.))
+Resource7=IDR_POPUP_BASEVIEW (English (U.S.))
+Resource8=IDR_POPUP_SETTING (English (U.S.))
+Resource9=IDR_POPUP_REALTIMEVIEW (English (U.S.))
+Resource10=IDR_POPUP_MULTISORTVIEW (English (U.S.))
+Resource11=IDR_POPUP_MULTISORTVIEW
+Resource12=IDR_MAINFRAME (English (U.S.))
+Resource13=IDD_WIZARD_FORM
+Resource14=IDD_PROGRESS
+Resource15=IDD_ABOUTBOX
+Resource16=IDD_SETPRPT
+Resource17=IDD_CLOSESTRATEGYDLG
+Resource18=IDD_DOWNLOAD
+Resource19=IDD_INSTALLPACKAGE
+Resource20=IDD_DATASOURCE
+Resource21=IDD_SETCOLUMN
+Resource22=IDD_BASEINDEX
+Resource23=IDD_LISTEXPORT
+Resource24=IDD_SETGROUP
+Resource25=IDD_SELECTGRP
+Resource26=IDD_SELECTSTK
+Resource27=IDD_EXPORTDEST
+Resource28=IDR_SRECORDVIEW_TMPL
+Resource29=IDR_MENU_MAINBARSETTING
+Resource30=IDR_MENU_MAINBARVIEW
+Resource31=IDR_MENU_MAINBARTECH
+Resource32=IDR_MENU_MAINBARPERIOD
+Resource33=IDR_POPUP_REALTIMEVIEW
+Resource34=IDR_POPUP_GRAPHVIEW
+Resource35=IDR_MENU_SLISTBARCLASS
+Resource36=IDR_MENU_SLISTBARGROUP
+Resource37=IDR_MENU_SLISTBARDOMAIN
+Resource38=IDR_POPUP_WIZARDVIEWLISTTYPE
+Resource39=IDR_POPUP_WIZARDVIEW
+Resource40=IDR_POPUP_SIMUVIEW
+Resource41=IDR_POPUP_BASEVIEW
+Resource42=IDR_POPUP_SETTING
+Resource43=IDR_POPUP_SLISTVIEW
+Resource44=IDD_EXPORTOPTION
+Resource45=IDD_SETDRDATA
+Resource46=IDD_NETINFO
+Resource47=IDD_SETPARAM
+Resource48=IDDP_MA
+Resource49=IDDP_BBI
+Resource50=IDDP_BOLL
+Resource51=IDDP_PV
+Resource52=IDDP_MAOSC (English (U.S.))
+Resource53=IDDP_DJ
+Resource54=IDDP_CW
+Resource55=IDDP_KST (English (U.S.))
+Resource56=IDD_EDITKDATA
+Resource57=IDD_SETRATE
+Resource58=IDD_SETRULE
+Resource59=IDD_SIMUREPORT
+Resource60=IDD_SIMUREALOP
+Resource61=IDD_SETCOLOR
+Resource62=IDD_SIMUSTAT
+Resource63=IDD_SIMUADDOP
+Resource64=IDD_SIMUADDSTOCK
+Resource65=IDD_FILTERINFO
+Resource66=IDDP_MACD
+Resource67=IDDP_MIKE
+Resource68=IDDP_PSY
+Resource69=IDDP_VOLUME
+Resource70=IDDP_NVI
+Resource71=IDDP_PVI
+Resource72=IDDP_VR
+Resource73=IDDP_VROC
+Resource74=IDDP_OBV
+Resource75=IDDP_MOBV
+Resource76=IDDP_MFI
+Resource77=IDDP_VMACD
+Resource78=IDDP_WVAD
+Resource79=IDDP_EMV
+Resource80=IDDP_VRSI
+Resource81=IDDP_NVRSI
+Resource82=IDDP_AD
+Resource83=IDDP_CI
+Resource84=IDDP_KDJ
+Resource85=IDDP_R
+Resource86=IDDP_RSI
+Resource87=IDDP_BIAS
+Resource88=IDDP_MTM
+Resource89=IDDP_DMI
+Resource90=IDDP_ROC
+Resource91=IDDP_CCI
+Resource92=IDDP_CV
+Resource93=IDDP_CDP (English (U.S.))
+Resource94=IDDP_CR
+Resource95=IDDP_OSC
+Resource96=IDDP_UOS
+Resource97=IDDP_MAOSC
+Resource98=IDDP_36BIAS
+Resource99=IDDP_DPO
+Resource100=IDDP_DPER (English (U.S.))
+Resource101=IDDP_REI
+Resource102=IDDP_DMKI
+Resource103=IDDP_PCNT
+Resource104=IDDP_HLC
+Resource105=IDDP_CDP
+Resource106=IDDP_ASI
+Resource107=IDDP_ATR
+Resource108=IDD_SIMUADVANCED
+Resource109=IDDP_CYO
+Resource110=IDDP_DCYO
+Resource111=IDDP_HSL
+Resource112=IDDP_DPER
+Resource113=IDD_AUTOUPGRADE
+Resource114=IDD_REGISTER
+Resource115=IDD_SETBASE (English (U.S.))
+Resource116=IDD_SELECTTRADER
+Resource117=IDD_SETBASE
+Resource118=IDD_SLIST_FORM
+Resource119=IDD_SETBASEDATA
+Resource120=IDD_SETKDATA
+Resource121=IDD_CACHELOAD
+Resource122=IDD_QUOTETIP
+Resource123=IDD_ALARMTIP
+Resource124=IDD_ALARMSETTING
+Resource125=IDD_ALARMRESULT
+Resource126=IDD_REGAPPLYEVA
+Resource127=IDD_SELECTOR_FORM
+Resource128=IDD_WIZARD_FORM (English (U.S.))
+Resource129=IDD_PROGRESS (English (U.S.))
+Resource130=IDD_ABOUTBOX (English (U.S.))
+Resource131=IDD_SETPRPT (English (U.S.))
+Resource132=IDD_CLOSESTRATEGYDLG (English (U.S.))
+Resource133=IDDP_AD (English (U.S.))
+Resource134=IDD_INSTALLPACKAGE (English (U.S.))
+Resource135=IDD_DATASOURCE (English (U.S.))
+Resource136=IDD_SETCOLUMN (English (U.S.))
+Resource137=IDD_BASEINDEX (English (U.S.))
+Resource138=IDDP_BIAS (English (U.S.))
+Resource139=IDD_SETGROUP (English (U.S.))
+Resource140=IDDP_RSI (English (U.S.))
+Resource141=IDDP_NVI (English (U.S.))
+Resource142=IDD_EXPORTOPTION (English (U.S.))
+Resource143=IDD_SETDRDATA (English (U.S.))
+Resource144=IDD_NETINFO (English (U.S.))
+Resource145=IDD_SETPARAM (English (U.S.))
+Resource146=IDDP_MA (English (U.S.))
+Resource147=IDDP_UOS (English (U.S.))
+Resource148=IDDP_BOLL (English (U.S.))
+Resource149=IDDP_PV (English (U.S.))
+Resource150=IDDP_SAR (English (U.S.))
+Resource151=IDDP_DJ (English (U.S.))
+Resource152=IDDP_CW (English (U.S.))
+Resource153=IDD_SIMU_FORM (English (U.S.))
+Resource154=IDD_EDITKDATA (English (U.S.))
+Resource155=IDD_SETRATE (English (U.S.))
+Resource156=IDD_SETRULE (English (U.S.))
+Resource157=IDD_SIMUREPORT (English (U.S.))
+Resource158=IDD_SIMUREALOP (English (U.S.))
+Resource159=IDD_SETCOLOR (English (U.S.))
+Resource160=IDD_SIMUSTAT (English (U.S.))
+Resource161=IDD_SIMUADDOP (English (U.S.))
+Resource162=IDD_SIMUADDSTOCK (English (U.S.))
+Resource163=IDD_FILTERINFO (English (U.S.))
+Resource164=IDDP_MACD (English (U.S.))
+Resource165=IDDP_MIKE (English (U.S.))
+Resource166=IDDP_PSY (English (U.S.))
+Resource167=IDDP_VOLUME (English (U.S.))
+Resource168=IDDP_PVI (English (U.S.))
+Resource169=IDDP_VR (English (U.S.))
+Resource170=IDDP_VROC (English (U.S.))
+Resource171=IDDP_OBV (English (U.S.))
+Resource172=IDDP_MOBV (English (U.S.))
+Resource173=IDDP_MFI (English (U.S.))
+Resource174=IDDP_VMACD (English (U.S.))
+Resource175=IDDP_WVAD (English (U.S.))
+Resource176=IDDP_EMV (English (U.S.))
+Resource177=IDDP_VRSI (English (U.S.))
+Resource178=IDDP_NVRSI (English (U.S.))
+Resource179=IDD_DOWNLOAD (English (U.S.))
+Resource180=IDDP_CI (English (U.S.))
+Resource181=IDDP_KDJ (English (U.S.))
+Resource182=IDDP_R (English (U.S.))
+Resource183=IDD_SELECTGRP (English (U.S.))
+Resource184=IDD_LISTEXPORT (English (U.S.))
+Resource185=IDDP_MTM (English (U.S.))
+Resource186=IDDP_DMI (English (U.S.))
+Resource187=IDDP_ROC (English (U.S.))
+Resource188=IDDP_CCI (English (U.S.))
+Resource189=IDDP_CV (English (U.S.))
+Resource190=IDDP_ARBR (English (U.S.))
+Resource191=IDDP_CR (English (U.S.))
+Resource192=IDDP_ARBR
+Resource193=IDDP_BBI (English (U.S.))
+Resource194=IDDP_SAR
+Resource195=IDDP_36BIAS (English (U.S.))
+Resource196=IDDP_DPO (English (U.S.))
+Resource197=IDD_SIMU_FORM
+Resource198=IDDP_REI (English (U.S.))
+Resource199=IDDP_DMKI (English (U.S.))
+Resource200=IDDP_PCNT (English (U.S.))
+Resource201=IDDP_HLC (English (U.S.))
+Resource202=IDDP_OSC (English (U.S.))
+Resource203=IDDP_ASI (English (U.S.))
+Resource204=IDDP_ATR (English (U.S.))
+Resource205=IDD_SIMUADVANCED (English (U.S.))
+Resource206=IDDP_CYO (English (U.S.))
+Resource207=IDDP_DCYO (English (U.S.))
+Resource208=IDDP_HSL (English (U.S.))
+Resource209=IDDP_KST
+Resource210=IDD_AUTOUPGRADE (English (U.S.))
+Resource211=IDD_REGISTER (English (U.S.))
+Resource212=IDD_TYDATA (English (U.S.))
+Resource213=IDD_SELECTTRADER (English (U.S.))
+Resource214=IDD_TYDATA
+Resource215=IDD_SLIST_FORM (English (U.S.))
+Resource216=IDD_SETBASEDATA (English (U.S.))
+Resource217=IDD_SETKDATA (English (U.S.))
+Resource218=IDD_CACHELOAD (English (U.S.))
+Resource219=IDD_QUOTETIP (English (U.S.))
+Resource220=IDD_ALARMTIP (English (U.S.))
+Resource221=IDD_ALARMRESULT (English (U.S.))
+Resource222=IDD_ALARMSETTING (English (U.S.))
+Resource223=IDR_SLISTBAR (English (U.S.))
+Resource224=IDD_SELECTOR_FORM (English (U.S.))
+Resource225=IDR_PERIODBAR
+Resource226=IDR_SLISTBAR
+Resource227=IDR_VIEWBAR
+Resource228=IDR_SIMUBAR
+Resource229=IDR_MENU_MAINBARPERIOD (English (U.S.))
+Resource230=IDR_MAINBAR (English (U.S.))
+Resource231=IDR_PERIODBAR (English (U.S.))
+Resource232=IDR_SIMUBAR (English (U.S.))
+Resource233=IDD_REGAPPLYEVA (English (U.S.))
+Resource234=IDR_VIEWBAR (English (U.S.))
+Resource235=IDR_MAINFRAME
+Resource236=IDR_MENU_MAINBARSETTING (English (U.S.))
+Resource237=IDR_MENU_MAINBARVIEW (English (U.S.))
+Resource238=IDR_MENU_MAINBARTECH (English (U.S.))
+Resource239=IDR_MAINBAR
+Resource240=IDR_POPUP_SLISTVIEW (English (U.S.))
+Resource241=IDR_POPUP_GRAPHVIEW (English (U.S.))
+Resource242=IDD_SELECTSTK (English (U.S.))
+Resource243=IDD_EXPORTDEST (English (U.S.))
+Class117=CSRecordView
+Resource244=IDD_SLIST_FORM1
 
 [CLS:CChildFrame]
 Type=0
@@ -1054,6 +1057,7 @@ Type=0
 BaseClass=CFormView
 HeaderFile=View\SListView.h
 ImplementationFile=View\SListView.cpp
+LastObject=CSListView
 
 [CLS:CStrategyView]
 Type=0
@@ -3931,7 +3935,7 @@ Control2=IDC_MESSAGE,static,1342308352
 
 [DLG:IDD_WIZARD_FORM (English (U.S.))]
 Type=1
-Class=?
+Class=CWizardView
 ControlCount=16
 Control1=IDC_COMBO_STOCK,combobox,1344340226
 Control2=IDC_GOTO_REALTIME,static,1342308352
@@ -3959,7 +3963,7 @@ Control2=IDC_MESSAGE,static,1342308352
 
 [DLG:IDD_ABOUTBOX (English (U.S.))]
 Type=1
-Class=?
+Class=CAboutDlg
 ControlCount=18
 Control1=IDOK,button,1342275585
 Control2=IDC_URL_ADDRESS,static,1342308353
@@ -3982,7 +3986,7 @@ Control18=IDC_VERSION,static,1342308352
 
 [DLG:IDD_SETPRPT (English (U.S.))]
 Type=1
-Class=?
+Class=CSetPrpt
 ControlCount=8
 Control1=IDC_TITLE,edit,1342242944
 Control2=IDC_FILENAME,edit,1342244992
@@ -3995,7 +3999,7 @@ Control8=IDC_STATIC,static,1342308352
 
 [DLG:IDD_CLOSESTRATEGYDLG (English (U.S.))]
 Type=1
-Class=?
+Class=CCloseStrategyDlg
 ControlCount=5
 Control1=IDOK,button,1342275585
 Control2=IDC_CLOSEALL,button,1342275584
@@ -4005,7 +4009,7 @@ Control5=IDC_STATIC,static,1342177287
 
 [DLG:IDD_DOWNLOAD (English (U.S.))]
 Type=1
-Class=?
+Class=CDownloadDlg
 ControlCount=27
 Control1=IDOK,button,1342275585
 Control2=IDC_STOP,button,1342275584
@@ -4037,7 +4041,7 @@ Control27=IDC_STATIC,static,1342177287
 
 [DLG:IDD_INSTALLPACKAGE (English (U.S.))]
 Type=1
-Class=?
+Class=CInstallPacDlg
 ControlCount=13
 Control1=IDC_EXPLORER,button,1342275584
 Control2=IDC_REMOVE,button,1342275584
@@ -4055,7 +4059,7 @@ Control13=IDC_STATIC_PROGRESS,static,1342308352
 
 [DLG:IDD_DATASOURCE (English (U.S.))]
 Type=1
-Class=?
+Class=CDataSrcDlg
 ControlCount=9
 Control1=IDC_CHECK_QIANLONG,button,1342275587
 Control2=IDC_EDIT_QLPATH,edit,1342242944
@@ -4069,7 +4073,7 @@ Control9=IDC_STATIC,static,1342177287
 
 [DLG:IDD_SETCOLUMN (English (U.S.))]
 Type=1
-Class=?
+Class=CSetColumnDlg
 ControlCount=12
 Control1=IDC_COLUMNLIST,SysListView32,1342275597
 Control2=IDC_SETALL,button,1342275587
@@ -4086,7 +4090,7 @@ Control12=IDC_STATIC,static,1342177287
 
 [DLG:IDD_BASEINDEX (English (U.S.))]
 Type=1
-Class=?
+Class=CBaseIndexDlg
 ControlCount=11
 Control1=IDC_INDEXNAME,edit,1342242944
 Control2=IDC_INDEXEXPRESS,edit,1345392836
@@ -4102,7 +4106,7 @@ Control11=IDC_STATIC,static,1342177287
 
 [DLG:IDD_LISTEXPORT (English (U.S.))]
 Type=1
-Class=?
+Class=CListExportDlg
 ControlCount=29
 Control1=IDC_ITEM_ALL,button,1342210057
 Control2=IDC_ITEM_SELECTED,button,1342210057
@@ -4136,7 +4140,7 @@ Control29=IDC_STATIC,static,1342177287
 
 [DLG:IDD_SETGROUP (English (U.S.))]
 Type=1
-Class=?
+Class=CSetGroupDlg
 ControlCount=17
 Control1=IDC_EDITCODE,edit,1342242944
 Control2=IDC_COMBO_GROUPSRC,combobox,1344339971
@@ -4158,7 +4162,7 @@ Control17=IDC_STATIC_INFO,static,1342308352
 
 [DLG:IDD_SELECTGRP (English (U.S.))]
 Type=1
-Class=?
+Class=CSelectGrpDlg
 ControlCount=6
 Control1=IDC_LISTGROUP,listbox,1344344321
 Control2=IDOK,button,1342275585
@@ -4169,7 +4173,7 @@ Control6=IDC_STATIC,static,1342177287
 
 [DLG:IDD_SELECTSTK (English (U.S.))]
 Type=1
-Class=?
+Class=CSelectStk
 ControlCount=11
 Control1=IDC_EDITCODE,edit,1342242944
 Control2=IDC_COMBO_GROUPSRC,combobox,1344339971
@@ -4185,7 +4189,7 @@ Control11=IDC_STATIC,static,1342308352
 
 [DLG:IDD_EXPORTDEST (English (U.S.))]
 Type=1
-Class=?
+Class=CExportDest
 ControlCount=18
 Control1=IDC_EXPORT_OVERWRITE,button,1342341129
 Control2=IDC_EXPORT_APPEND,button,1342210057
@@ -4208,7 +4212,7 @@ Control18=IDC_STATIC_PROGRESS,static,1342308352
 
 [DLG:IDD_EXPORTOPTION (English (U.S.))]
 Type=1
-Class=?
+Class=CExportOption
 ControlCount=24
 Control1=IDC_TIME_ALL,button,1342210057
 Control2=IDC_TIME_DEFINE,button,1342210057
@@ -4237,7 +4241,7 @@ Control24=IDC_STATIC,static,1342308352
 
 [DLG:IDD_SETDRDATA (English (U.S.))]
 Type=1
-Class=?
+Class=CSetDrdataDlg
 ControlCount=12
 Control1=IDC_EDITCODE,edit,1342242944
 Control2=IDC_COMBO_GROUPSRC,combobox,1344339971
@@ -4254,7 +4258,7 @@ Control12=IDC_STATICSTOCK,static,1342308352
 
 [DLG:IDD_NETINFO (English (U.S.))]
 Type=1
-Class=?
+Class=CNetInfoDlg
 ControlCount=6
 Control1=IDCANCEL,button,1342275584
 Control2=IDC_EDIT_EXPLAIN,edit,1342244996
@@ -4265,7 +4269,7 @@ Control6=IDC_NETINFOURL,static,1342308352
 
 [DLG:IDD_SETPARAM (English (U.S.))]
 Type=1
-Class=?
+Class=CSetParamDlg
 ControlCount=5
 Control1=IDC_TREE,SysTreeView32,1342242855
 Control2=IDC_ALLDEFAULT,button,1342275584
@@ -4275,7 +4279,7 @@ Control5=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_MA (English (U.S.))]
 Type=1
-Class=?
+Class=CMADlg
 ControlCount=23
 Control1=IDC_STDMA,button,1342210057
 Control2=IDC_EXPMA,button,1342210057
@@ -4303,7 +4307,7 @@ Control23=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_BBI (English (U.S.))]
 Type=1
-Class=?
+Class=CBBIDlg
 ControlCount=16
 Control1=IDC_DAYS1,edit,1342251136
 Control2=IDC_DAYS2,edit,1342251136
@@ -4324,7 +4328,7 @@ Control16=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_BOLL (English (U.S.))]
 Type=1
-Class=?
+Class=CBOLLDlg
 ControlCount=14
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_MULTIUP,edit,1342242944
@@ -4343,7 +4347,7 @@ Control14=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_PV (English (U.S.))]
 Type=1
-Class=?
+Class=CPVDlg
 ControlCount=5
 Control1=IDC_STATIC_NAME,static,1342308352
 Control2=IDC_STATIC,static,1342308352
@@ -4353,7 +4357,7 @@ Control5=IDC_STATIC,button,1342177287
 
 [DLG:IDDP_SAR (English (U.S.))]
 Type=1
-Class=?
+Class=CSARDlg
 ControlCount=17
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_RADIOMIN,button,1342177289
@@ -4375,7 +4379,7 @@ Control17=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_DJ (English (U.S.))]
 Type=1
-Class=?
+Class=CDJDlg
 ControlCount=8
 Control1=IDC_DJSHA,combobox,1344340226
 Control2=IDC_DJSZN,combobox,1344340226
@@ -4388,7 +4392,7 @@ Control8=65535,static,1342308352
 
 [DLG:IDDP_CW (English (U.S.))]
 Type=1
-Class=?
+Class=CCWDlg
 ControlCount=6
 Control1=IDC_CHANGEHAND,edit,1342242944
 Control2=IDC_DEFAULT,button,1342275584
@@ -4399,7 +4403,7 @@ Control6=65535,static,1342308352
 
 [DLG:IDD_SIMU_FORM (English (U.S.))]
 Type=1
-Class=?
+Class=CSimuView
 ControlCount=46
 Control1=IDC_KTYPE,combobox,1344339971
 Control2=IDC_MAINDATATYPE,combobox,1344339971
@@ -4450,7 +4454,7 @@ Control46=IDC_STATICYIELD2,static,1342308352
 
 [DLG:IDD_EDITKDATA (English (U.S.))]
 Type=1
-Class=?
+Class=CEditKDATADlg
 ControlCount=17
 Control1=IDC_DATE,SysDateTimePick32,1342242848
 Control2=IDC_OPEN,edit,1342242944
@@ -4472,7 +4476,7 @@ Control17=IDC_STATIC,static,1342308352
 
 [DLG:IDD_SETRATE (English (U.S.))]
 Type=1
-Class=?
+Class=CSetRate
 ControlCount=19
 Control1=IDC_TAXSZNA,edit,1342242944
 Control2=IDC_TAXSZNB,edit,1342242944
@@ -4496,7 +4500,7 @@ Control19=IDC_STATIC,static,1342308352
 
 [DLG:IDD_SETRULE (English (U.S.))]
 Type=1
-Class=?
+Class=CSetRule
 ControlCount=3
 Control1=IDC_TREE,SysTreeView32,1342243111
 Control2=IDC_ALLDEFAULT,button,1342275584
@@ -4504,7 +4508,7 @@ Control3=IDC_STATIC,static,1342308352
 
 [DLG:IDD_SIMUREPORT (English (U.S.))]
 Type=1
-Class=?
+Class=CSimuReport
 ControlCount=24
 Control1=IDOK,button,1342275585
 Control2=IDC_TABCTRL,SysTabControl32,1342177280
@@ -4533,7 +4537,7 @@ Control24=IDC_STATICEXPLAIN,static,1342308352
 
 [DLG:IDD_SIMUREALOP (English (U.S.))]
 Type=1
-Class=?
+Class=CSimuRealOp
 ControlCount=17
 Control1=IDOK,button,1342275585
 Control2=IDC_TABCTRL,SysTabControl32,1342177280
@@ -4555,7 +4559,7 @@ Control17=IDC_TIMEEXPLAIN,static,1342308352
 
 [DLG:IDD_SETCOLOR (English (U.S.))]
 Type=1
-Class=?
+Class=CSetColorDlg
 ControlCount=34
 Control1=IDC_COLORCLASS,combobox,1344339971
 Control2=IDC_SAVEAS,button,1342275584
@@ -4594,7 +4598,7 @@ Control34=IDC_STATIC,static,1342177287
 
 [DLG:IDD_SIMUSTAT (English (U.S.))]
 Type=1
-Class=?
+Class=CSimuStatDlg
 ControlCount=18
 Control1=IDC_BUYTIMES,edit,1342244992
 Control2=IDC_VICTORYTIMES,edit,1342244992
@@ -4617,7 +4621,7 @@ Control18=IDC_STATIC,static,1342308352
 
 [DLG:IDD_SIMUADDOP (English (U.S.))]
 Type=1
-Class=?
+Class=CSimuAddOpDlg
 ControlCount=16
 Control1=IDC_TIME,SysDateTimePick32,1342242848
 Control2=IDC_STOCK,combobox,1344340226
@@ -4638,7 +4642,7 @@ Control16=IDC_STATIC,static,1342308352
 
 [DLG:IDD_SIMUADDSTOCK (English (U.S.))]
 Type=1
-Class=?
+Class=CSimuAddStockDlg
 ControlCount=9
 Control1=IDC_STOCK,combobox,1344340226
 Control2=IDC_VALUE,edit,1342242944
@@ -4652,7 +4656,7 @@ Control9=IDC_STATIC,static,1342177287
 
 [DLG:IDD_FILTERINFO (English (U.S.))]
 Type=1
-Class=?
+Class=CFilterInfoDlg
 ControlCount=24
 Control1=IDC_LISTINFO,listbox,1345388801
 Control2=IDC_EDITMORETHAN,edit,1342242944
@@ -4681,7 +4685,7 @@ Control24=IDC_STATIC,static,1342177287
 
 [DLG:IDDP_MACD (English (U.S.))]
 Type=1
-Class=?
+Class=CMACDDlg
 ControlCount=18
 Control1=IDC_EMADAYS1,edit,1342251136
 Control2=IDC_EMADAYS2,edit,1342251136
@@ -4704,7 +4708,7 @@ Control18=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_MIKE (English (U.S.))]
 Type=1
-Class=?
+Class=CMIKEDlg
 ControlCount=6
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_DEFAULT,button,1342275584
@@ -4715,7 +4719,7 @@ Control6=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_PSY (English (U.S.))]
 Type=1
-Class=?
+Class=CPSYDlg
 ControlCount=10
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_SOLD,combobox,1344339971
@@ -4730,7 +4734,7 @@ Control10=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_VOLUME (English (U.S.))]
 Type=1
-Class=?
+Class=CVOLUMEDlg
 ControlCount=20
 Control1=IDC_MA1,button,1342275587
 Control2=IDC_DAYS1,edit,1342251136
@@ -4755,7 +4759,7 @@ Control20=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_NVI (English (U.S.))]
 Type=1
-Class=?
+Class=CNVIDlg
 ControlCount=10
 Control1=IDC_MADAYS,edit,1342251136
 Control2=IDC_GOLDENFORK,combobox,1344339971
@@ -4770,7 +4774,7 @@ Control10=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_PVI (English (U.S.))]
 Type=1
-Class=?
+Class=CPVIDlg
 ControlCount=10
 Control1=IDC_MADAYS,edit,1342251136
 Control2=IDC_GOLDENFORK,combobox,1344339971
@@ -4785,7 +4789,7 @@ Control10=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_VR (English (U.S.))]
 Type=1
-Class=?
+Class=CVRDlg
 ControlCount=10
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_LONG,combobox,1344339971
@@ -4800,7 +4804,7 @@ Control10=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_VROC (English (U.S.))]
 Type=1
-Class=?
+Class=CVROCDlg
 ControlCount=12
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_MADAYS,edit,1342251136
@@ -4817,7 +4821,7 @@ Control12=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_OBV (English (U.S.))]
 Type=1
-Class=?
+Class=COBVDlg
 ControlCount=8
 Control1=IDC_DEVIATEONBOTTOM,combobox,1344339971
 Control2=IDC_DEVIATEONTOP,combobox,1344339971
@@ -4830,7 +4834,7 @@ Control8=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_MOBV (English (U.S.))]
 Type=1
-Class=?
+Class=CMOBVDlg
 ControlCount=12
 Control1=IDC_DAYS1,edit,1342251136
 Control2=IDC_DAYS2,edit,1342251136
@@ -4847,7 +4851,7 @@ Control12=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_MFI (English (U.S.))]
 Type=1
-Class=?
+Class=CMFIDlg
 ControlCount=10
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_LONG,combobox,1344339971
@@ -4862,7 +4866,7 @@ Control10=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_VMACD (English (U.S.))]
 Type=1
-Class=?
+Class=CVMACDDlg
 ControlCount=18
 Control1=IDC_EMADAYS1,edit,1342251136
 Control2=IDC_EMADAYS2,edit,1342251136
@@ -4885,7 +4889,7 @@ Control18=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_WVAD (English (U.S.))]
 Type=1
-Class=?
+Class=CWVADDlg
 ControlCount=10
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_LONG,combobox,1344339971
@@ -4900,7 +4904,7 @@ Control10=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_EMV (English (U.S.))]
 Type=1
-Class=?
+Class=CEMVDlg
 ControlCount=12
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_MADAYS,edit,1342251136
@@ -4917,7 +4921,7 @@ Control12=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_VRSI (English (U.S.))]
 Type=1
-Class=?
+Class=CVRSIDlg
 ControlCount=14
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_DEVIATEONBOTTOM,combobox,1344339971
@@ -4936,7 +4940,7 @@ Control14=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_NVRSI (English (U.S.))]
 Type=1
-Class=?
+Class=CNVRSIDlg
 ControlCount=14
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_DEVIATEONBOTTOM,combobox,1344339971
@@ -4955,7 +4959,7 @@ Control14=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_AD (English (U.S.))]
 Type=1
-Class=?
+Class=CADDlg
 ControlCount=6
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_DEFAULT,button,1342275584
@@ -4966,7 +4970,7 @@ Control6=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_CI (English (U.S.))]
 Type=1
-Class=?
+Class=CCIDlg
 ControlCount=5
 Control1=IDC_STATIC_NAME,static,1342308352
 Control2=IDC_STATIC,static,1342308352
@@ -4976,7 +4980,7 @@ Control5=IDC_STATIC,button,1342177287
 
 [DLG:IDDP_KDJ (English (U.S.))]
 Type=1
-Class=?
+Class=CKDJDlg
 ControlCount=17
 Control1=IDC_3K2D,button,1342210057
 Control2=IDC_3D2K,button,1342210057
@@ -4998,7 +5002,7 @@ Control17=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_R (English (U.S.))]
 Type=1
-Class=?
+Class=CRDlg
 ControlCount=6
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_DEFAULT,button,1342275584
@@ -5009,7 +5013,7 @@ Control6=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_RSI (English (U.S.))]
 Type=1
-Class=?
+Class=CRSIDlg
 ControlCount=14
 Control1=IDC_DAYS1,edit,1342251136
 Control2=IDC_DAYS2,edit,1342251136
@@ -5028,7 +5032,7 @@ Control14=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_BIAS (English (U.S.))]
 Type=1
-Class=?
+Class=CBIASDlg
 ControlCount=10
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_SOLD,combobox,1344339971
@@ -5043,7 +5047,7 @@ Control10=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_MTM (English (U.S.))]
 Type=1
-Class=?
+Class=CMTMDlg
 ControlCount=12
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_MADAYS,edit,1342251136
@@ -5060,7 +5064,7 @@ Control12=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_DMI (English (U.S.))]
 Type=1
-Class=?
+Class=CDMIDlg
 ControlCount=6
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_DEFAULT,button,1342275584
@@ -5071,7 +5075,7 @@ Control6=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_ROC (English (U.S.))]
 Type=1
-Class=?
+Class=CROCDlg
 ControlCount=12
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_MADAYS,edit,1342251136
@@ -5088,7 +5092,7 @@ Control12=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_CCI (English (U.S.))]
 Type=1
-Class=?
+Class=CCCIDlg
 ControlCount=14
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_MADAYS,edit,1342251136
@@ -5107,7 +5111,7 @@ Control14=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_CV (English (U.S.))]
 Type=1
-Class=?
+Class=CCVDlg
 ControlCount=12
 Control1=IDC_MAHLDAYS,edit,1342251136
 Control2=IDC_CVDAYS,edit,1342251136
@@ -5124,7 +5128,7 @@ Control12=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_ARBR (English (U.S.))]
 Type=1
-Class=?
+Class=CARBRDlg
 ControlCount=14
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_GOLDENFORK,combobox,1344339971
@@ -5143,7 +5147,7 @@ Control14=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_CR (English (U.S.))]
 Type=1
-Class=?
+Class=CCRDlg
 ControlCount=18
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_MADAYSA,edit,1342251136
@@ -5166,7 +5170,7 @@ Control18=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_OSC (English (U.S.))]
 Type=1
-Class=?
+Class=COSCDlg
 ControlCount=12
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_MADAYS,edit,1342251136
@@ -5183,7 +5187,7 @@ Control12=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_UOS (English (U.S.))]
 Type=1
-Class=?
+Class=CUOSDlg
 ControlCount=16
 Control1=IDC_DAYS1,edit,1342251136
 Control2=IDC_DAYS2,edit,1342251136
@@ -5204,7 +5208,7 @@ Control16=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_MAOSC (English (U.S.))]
 Type=1
-Class=?
+Class=CMAOSCDlg
 ControlCount=14
 Control1=IDC_DAYS1,edit,1342251136
 Control2=IDC_DAYS2,edit,1342251136
@@ -5223,7 +5227,7 @@ Control14=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_36BIAS (English (U.S.))]
 Type=1
-Class=?
+Class=C36BIASDlg
 ControlCount=8
 Control1=IDC_SOLD,combobox,1344339971
 Control2=IDC_BOUGHT,combobox,1344339971
@@ -5236,7 +5240,7 @@ Control8=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_DPO (English (U.S.))]
 Type=1
-Class=?
+Class=CDPODlg
 ControlCount=12
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_MADAYS,edit,1342251136
@@ -5253,7 +5257,7 @@ Control12=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_KST (English (U.S.))]
 Type=1
-Class=?
+Class=CKSTDlg
 ControlCount=18
 Control1=IDC_DAYS1,edit,1342251136
 Control2=IDC_DAYS2,edit,1342251136
@@ -5276,7 +5280,7 @@ Control18=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_REI (English (U.S.))]
 Type=1
-Class=?
+Class=CREIDlg
 ControlCount=10
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_LONG,combobox,1344339971
@@ -5291,7 +5295,7 @@ Control10=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_DMKI (English (U.S.))]
 Type=1
-Class=?
+Class=CDMKIDlg
 ControlCount=10
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_SOLD,combobox,1344339971
@@ -5306,7 +5310,7 @@ Control10=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_PCNT (English (U.S.))]
 Type=1
-Class=?
+Class=CPCNTDlg
 ControlCount=10
 Control1=IDC_MADAYS,edit,1342251136
 Control2=IDC_GOLDENFORK,combobox,1344339971
@@ -5321,7 +5325,7 @@ Control10=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_HLC (English (U.S.))]
 Type=1
-Class=?
+Class=CHLCDlg
 ControlCount=12
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_MADAYS,edit,1342251136
@@ -5338,7 +5342,7 @@ Control12=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_CDP (English (U.S.))]
 Type=1
-Class=?
+Class=CCDPDlg
 ControlCount=5
 Control1=IDC_STATIC_NAME,static,1342308352
 Control2=IDC_STATIC,static,1342308352
@@ -5348,7 +5352,7 @@ Control5=IDC_STATIC,button,1342177287
 
 [DLG:IDDP_ASI (English (U.S.))]
 Type=1
-Class=?
+Class=CASIDlg
 ControlCount=10
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_DEVIATEONBOTTOM,combobox,1344339971
@@ -5363,7 +5367,7 @@ Control10=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_ATR (English (U.S.))]
 Type=1
-Class=?
+Class=CATRDlg
 ControlCount=10
 Control1=IDC_DAYS,edit,1342251136
 Control2=IDC_SOLD,combobox,1344339971
@@ -5378,7 +5382,7 @@ Control10=IDC_STATIC,static,1342308352
 
 [DLG:IDD_SIMUADVANCED (English (U.S.))]
 Type=1
-Class=?
+Class=CSimuAdvancedDlg
 ControlCount=20
 Control1=IDC_CHECKSTOPLOSING,button,1342242819
 Control2=IDC_STOPLOSING,edit,1342251136
@@ -5403,7 +5407,7 @@ Control20=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_CYO (English (U.S.))]
 Type=1
-Class=?
+Class=CCYODlg
 ControlCount=8
 Control1=IDC_GOLDENFORK,combobox,1344339971
 Control2=IDC_DEADFORK,combobox,1344339971
@@ -5416,7 +5420,7 @@ Control8=65535,static,1342308352
 
 [DLG:IDDP_DCYO (English (U.S.))]
 Type=1
-Class=?
+Class=CDCYODlg
 ControlCount=8
 Control1=IDC_GOLDENFORK,combobox,1344339971
 Control2=IDC_DEADFORK,combobox,1344339971
@@ -5429,7 +5433,7 @@ Control8=65535,static,1342308352
 
 [DLG:IDDP_HSL (English (U.S.))]
 Type=1
-Class=?
+Class=CHSLDlg
 ControlCount=5
 Control1=IDC_DEFAULT,button,1342275584
 Control2=IDC_PARAMHELP,button,1342275584
@@ -5439,7 +5443,7 @@ Control5=IDC_STATIC,static,1342308352
 
 [DLG:IDDP_DPER (English (U.S.))]
 Type=1
-Class=?
+Class=CDPERDlg
 ControlCount=8
 Control1=IDC_GOLDENFORK,combobox,1344339971
 Control2=IDC_DEADFORK,combobox,1344339971
@@ -5452,7 +5456,7 @@ Control8=65535,static,1342308352
 
 [DLG:IDD_AUTOUPGRADE (English (U.S.))]
 Type=1
-Class=?
+Class=CUpgradeDlg
 ControlCount=9
 Control1=IDOK,button,1342275585
 Control2=IDC_PROXY_SET,button,1342275584
@@ -5466,7 +5470,7 @@ Control9=IDC_STATIC,static,1342177287
 
 [DLG:IDD_REGISTER (English (U.S.))]
 Type=1
-Class=?
+Class=CRegisterDlg
 ControlCount=19
 Control1=IDC_USERNAME,edit,1342242944
 Control2=IDC_SOFTNO,edit,1342244992
@@ -5490,7 +5494,7 @@ Control19=IDC_STATIC,static,1342308352
 
 [DLG:IDD_TYDATA (English (U.S.))]
 Type=1
-Class=?
+Class=CTyDataDlg
 ControlCount=18
 Control1=IDC_PATH_SRCSH,edit,1342242944
 Control2=IDC_SRCSH_EXPLORER,button,1342275584
@@ -5513,7 +5517,7 @@ Control18=IDC_STATIC,static,1342308352
 
 [DLG:IDD_SELECTTRADER (English (U.S.))]
 Type=1
-Class=?
+Class=CSelectTraderDlg
 ControlCount=7
 Control1=IDC_FILE,edit,1342242944
 Control2=IDC_FILE_EXPLORER,button,1342275584
@@ -5525,7 +5529,7 @@ Control7=65535,static,1342177283
 
 [DLG:IDD_SETBASE (English (U.S.))]
 Type=1
-Class=?
+Class=CSetBaseDlg
 ControlCount=15
 Control1=IDC_FILE_F10,edit,1342242944
 Control2=IDC_F10FILE_EXPLORER,button,1342275584
@@ -5545,12 +5549,12 @@ Control15=IDC_STATIC,static,1342308352
 
 [DLG:IDD_SLIST_FORM (English (U.S.))]
 Type=1
-Class=?
+Class=CSListView
 ControlCount=0
 
 [DLG:IDD_SETBASEDATA (English (U.S.))]
 Type=1
-Class=?
+Class=CSetBasedataDlg
 ControlCount=25
 Control1=IDC_EDITCODE,edit,1342242944
 Control2=IDC_COMBO_GROUPSRC,combobox,1344339971
@@ -5580,7 +5584,7 @@ Control25=IDC_SAVE,button,1342275584
 
 [DLG:IDD_SETKDATA (English (U.S.))]
 Type=1
-Class=?
+Class=CSetKDataDlg
 ControlCount=24
 Control1=IDC_EDITCODE,edit,1342242944
 Control2=IDC_COMBO_GROUPSRC,combobox,1344339971
@@ -5609,7 +5613,7 @@ Control24=IDC_DELETE,button,1342275584
 
 [DLG:IDD_CACHELOAD (English (U.S.))]
 Type=1
-Class=?
+Class=CCacheLoadDlg
 ControlCount=6
 Control1=IDOK,button,1342275585
 Control2=IDCANCEL,button,1342275584
@@ -5620,27 +5624,27 @@ Control6=IDC_DATE,SysDateTimePick32,1342242848
 
 [DLG:IDD_QUOTETIP (English (U.S.))]
 Type=1
-Class=?
+Class=CQuoteTipDlg
 ControlCount=2
 Control1=IDC_PRIOR,button,1342275584
 Control2=IDC_NEXT,button,1342275584
 
 [DLG:IDD_ALARMTIP (English (U.S.))]
 Type=1
-Class=?
+Class=CAlarmTipDlg
 ControlCount=2
 Control1=IDC_PRIOR,button,1342275584
 Control2=IDC_NEXT,button,1342275584
 
 [DLG:IDD_ALARMRESULT (English (U.S.))]
 Type=1
-Class=?
+Class=CAlarmResultDlg
 ControlCount=1
 Control1=IDC_LIST,SysListView32,1342277645
 
 [DLG:IDD_ALARMSETTING (English (U.S.))]
 Type=1
-Class=?
+Class=CAlarmSettingDlg
 ControlCount=13
 Control1=IDC_LISTCOND,listbox,1345388801
 Control2=IDC_ADD,button,1342275584
@@ -5658,7 +5662,7 @@ Control13=IDC_STATIC,static,1342308352
 
 [DLG:IDD_REGAPPLYEVA (English (U.S.))]
 Type=1
-Class=?
+Class=CRegApplyEvaDlg
 ControlCount=15
 Control1=IDC_USERNAME,edit,1342242944
 Control2=IDC_COMBO_DISTRICT,combobox,1344339971
@@ -5678,7 +5682,7 @@ Control15=IDC_STATIC,static,1342308352
 
 [DLG:IDD_SELECTOR_FORM (English (U.S.))]
 Type=1
-Class=?
+Class=CSelectorView
 ControlCount=10
 Control1=IDC_STOCKGROUP,combobox,1344339971
 Control2=IDC_KTYPE,combobox,1344339971
@@ -5690,4 +5694,39 @@ Control7=IDC_STATIC,static,1342308352
 Control8=IDC_STATIC,static,1342308352
 Control9=IDC_PROGRESS,msctls_progress32,1342177281
 Control10=IDC_STATIC_INFO,static,1342308352
+
+[DLG:IDD_SLIST_FORM1]
+Type=1
+Class=CSRecordView
+ControlCount=0
+
+[CLS:CSRecordView]
+Type=0
+HeaderFile=SRecordView.h
+ImplementationFile=SRecordView.cpp
+BaseClass=CFormView
+Filter=D
+LastObject=IDW_MAINBAR
+VirtualFilter=VWC
+
+[MNU:IDR_SRECORDVIEW_TMPL]
+Type=1
+Class=?
+Command1=ID_FILE_NEW
+Command2=ID_FILE_OPEN
+Command3=ID_FILE_SAVE
+Command4=ID_FILE_SAVE_AS
+Command5=ID_FILE_PRINT
+Command6=ID_FILE_PRINT_PREVIEW
+Command7=ID_FILE_PRINT_SETUP
+Command8=ID_FILE_MRU_FILE1
+Command9=ID_APP_EXIT
+Command10=ID_EDIT_UNDO
+Command11=ID_EDIT_CUT
+Command12=ID_EDIT_COPY
+Command13=ID_EDIT_PASTE
+Command14=ID_VIEW_TOOLBAR
+Command15=ID_VIEW_STATUS_BAR
+Command16=ID_APP_ABOUT
+CommandCount=16
 

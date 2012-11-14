@@ -109,6 +109,7 @@ CString	AfxGetStockIndexReportTip( );
 #include "StaticDoc.h"
 #include "View/WizardView.h"
 #include "View/SListView.h"
+#include "SRecordView.h"
 #include "View/RealTimeView.h"
 #include "View/MultiSortView.h"
 #include "View/GraphView.h"
